@@ -1,0 +1,23 @@
+#ifndef BUFFER_USAGE
+#define BUFFER_USAGE
+
+#include "../GL/glew.h"
+
+namespace XNA
+{
+	enum BufferUsage
+	{
+		StaticDraw = GL_STATIC_DRAW,
+		StaticRead = GL_STATIC_READ,
+		StaticCopy = GL_STATIC_COPY,
+		DynamicDraw = GL_DYNAMIC_DRAW,
+		DynamicRead = GL_DYNAMIC_READ,
+		DynamicCopy = GL_DYNAMIC_COPY,
+		StreamDraw = GL_STREAM_DRAW,
+		StreamRead = GL_STREAM_READ,
+		StreamCopy = GL_STREAM_COPY,
+	};
+}
+
+
+#endif

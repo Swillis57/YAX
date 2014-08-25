@@ -1,0 +1,43 @@
+#ifndef IPACKEDVECTOR
+#define IPACKEDVECTOR
+
+#include "../../Utils.h"
+
+namespace XNA
+{
+	typedef char byte;
+	class Vector2;
+	class Vector3;
+	class Vector4;
+
+	namespace PackedVector
+	{
+		struct IPackedVector
+		{
+			virtual ~IPackedVector() = 0;
+			virtual void PackFromVector4(const Vector4&) = 0;
+			virtual Vector4 ToVector4() = 0;
+		};
+
+		inline IPackedVector::~IPackedVector() {}
+	}
+
+	template<typename DType>
+	struct IPackedVector : public PackedVector::IPackedVector
+	{
+		typedef PackedVector::IPackedVector IBase;
+		virtual DType PackedValue() = 0;
+		virtual void PackedValue(DType) = 0;
+
+		IPackedVector() { IBase(); }
+		virtual ~IPackedVector() { ~IBase(); }
+
+	protected:
+		DType _packed;
+
+	};
+}
+
+
+
+#endif

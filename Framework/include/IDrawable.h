@@ -1,0 +1,17 @@
+#ifndef IDRAWABLE
+#define IDRAWABLE
+
+namespace XNA
+{
+	class IDrawable
+	{
+	public:
+		virtual void Draw() = 0;
+		virtual ~IDrawable() = 0;
+	};
+
+	inline IDrawable::~IDrawable() {}
+}
+
+
+#endif
