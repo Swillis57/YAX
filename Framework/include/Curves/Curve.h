@@ -2,6 +2,7 @@
 #define CURVE
 
 #include <vector>
+#include <memory>
 #include "../Utils.h"
 #include "CurveKey.h"
 #include "CurveLoopType.h"
@@ -17,7 +18,7 @@ namespace XNA
 		Curve();
 
 		bool IsConstant();
-		CurveKeyCollection Keys();
+		CurveKeyCollection* Keys();
 		CurveLoopType PostLoop();
 		CurveLoopType PreLoop();
 
@@ -29,6 +30,11 @@ namespace XNA
 
 		float Evaluate(float);
 
+	private:
+		bool _isConst;
+		std::unique_ptr<CurveKeyCollection> _keys;
+		CurveLoopType _postLoop;
+		CurveLoopType _preLoop;
 
 	};
 }
