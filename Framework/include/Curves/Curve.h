@@ -2,14 +2,14 @@
 #define CURVE
 
 #include <vector>
-#include <memory>
 #include "../Utils.h"
-#include "CurveKey.h"
 #include "CurveLoopType.h"
 #include "CurveTangent.h"
 
 namespace XNA
 {
+	class CurveKey;
+
 	typedef std::vector<CurveKey> CurveKeyCollection;
 
 	class Curve
@@ -18,7 +18,7 @@ namespace XNA
 		Curve();
 
 		bool IsConstant();
-		CurveKeyCollection* Keys();
+		CurveKeyCollection Keys();
 		CurveLoopType PostLoop();
 		CurveLoopType PreLoop();
 
@@ -32,7 +32,7 @@ namespace XNA
 
 	private:
 		bool _isConst;
-		std::unique_ptr<CurveKeyCollection> _keys;
+		CurveKeyCollection _keys;
 		CurveLoopType _postLoop;
 		CurveLoopType _preLoop;
 
