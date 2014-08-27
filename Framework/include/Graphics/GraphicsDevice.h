@@ -8,6 +8,8 @@
 #include "DepthStencilState.h"
 #include "DisplayMode.h"
 #include "GraphicsProfile.h"
+#include "IndexBuffer.h"
+
 
 
 
@@ -36,6 +38,12 @@ namespace XNA
 		void DisplayMode(XNA::DisplayMode);
 
 		XNA::GraphicsProfile GraphicsProfile();
+
+		IndexBuffer Indicies();
+		void Indicies(IndexBuffer&&);
+
+		i32 MultiSampleMask();
+		void MultiSampleMask(i32);
 
 
 	};
