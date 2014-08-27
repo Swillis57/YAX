@@ -9,7 +9,7 @@ namespace XNA
 	enum CompareFunction : short;
 	enum StencilOperation : short;
 
-	class DepthStencilState : GraphicsResource
+	class DepthStencilState : public GraphicsResource
 	{
 	public:
 		DepthStencilState();

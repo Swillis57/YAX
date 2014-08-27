@@ -11,7 +11,7 @@ namespace XNA
 	enum IndexElementSize : int;
 	enum BufferUsage : short;
 
-	class IndexBuffer : GraphicsResource
+	class IndexBuffer : public GraphicsResource
 	{
 		IndexBuffer(XNA::GraphicsDevice&, XNA::IndexElementSize, i32, XNA::BufferUsage);
 		IndexBuffer(IndexBuffer&&);

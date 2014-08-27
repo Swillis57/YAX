@@ -10,7 +10,7 @@ namespace XNA
 	enum BlendFunction : short;
 	enum ColorWriteChannels : short;
 
-	class BlendState : GraphicsResource
+	class BlendState : public GraphicsResource
 	{
 	public:
 		BlendState();
