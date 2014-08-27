@@ -6,7 +6,6 @@
 
 namespace XNA
 {
-	class Rectangle;
 	enum SurfaceFormat : short;
 
 	class DisplayMode
@@ -15,7 +14,7 @@ namespace XNA
 		float AspectRatio();
 		SurfaceFormat Format();
 		i32 Height();
-		Rectangle TitleSafeArea();
+		Rectangle* const TitleSafeArea();
 		i32 Width();
 
 		DisplayMode(SurfaceFormat, Rectangle, i32, i32);
