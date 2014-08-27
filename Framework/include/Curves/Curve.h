@@ -3,12 +3,13 @@
 
 #include <vector>
 #include "../Utils.h"
-#include "CurveLoopType.h"
-#include "CurveTangent.h"
 
 namespace XNA
 {
 	class CurveKey;
+	enum CurveLoopType : short;
+	enum CurveTangent : short;
+
 
 	typedef std::vector<CurveKey> CurveKeyCollection;
 
