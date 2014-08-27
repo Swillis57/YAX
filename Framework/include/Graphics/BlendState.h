@@ -1,14 +1,15 @@
 #ifndef BLEND_STATE
 #define BLEND_STATE
 
-#include "BlendFunction.h"
-#include "Blend.h"
-#include "ColorWriteChannels.h"
 #include "GraphicsResource.h"
 #include "../Color.h"
 
 namespace XNA
 {
+	enum Blend : short;
+	enum BlendFunction : short;
+	enum ColorWriteChannels : short;
+
 	class BlendState : GraphicsResource
 	{
 	public:

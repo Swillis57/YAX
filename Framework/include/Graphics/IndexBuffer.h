@@ -4,12 +4,13 @@
 #include <memory>
 
 #include "GraphicsResource.h"
-#include "IndexElementSize.h"
-#include "BufferUsage.h"
 #include "../Utils.h"
 
 namespace XNA
 {
+	enum IndexElementSize : int;
+	enum BufferUsage : short;
+
 	class IndexBuffer : GraphicsResource
 	{
 		IndexBuffer(XNA::GraphicsDevice&, XNA::IndexElementSize, i32, XNA::BufferUsage);

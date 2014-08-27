@@ -3,27 +3,27 @@
 
 #include "GraphicsAdapter.h"
 #include "BlendState.h"
-#include "GraphicsProfile.h"
 #include "../Color.h"
 #include "DepthStencilState.h"
 #include "DisplayMode.h"
 #include "GraphicsProfile.h"
 #include "IndexBuffer.h"
+#include "PresentationParameters.h"
 
 
 
 
 namespace XNA
 {
-	class GraphicsAdapter;
-	class PresentationParameters;
+	enum GraphicsProfile : short;
+	
 
 	class GraphicsDevice
 	{
 	public:
 		GraphicsDevice(const GraphicsAdapter&, GraphicsProfile, const PresentationParameters&);
 
-		const GraphicsAdapter& Adapter();
+		GraphicsAdapter* const Adapter();
 
 		Color BlendFactor();
 		void BlendFactor(const Color&);

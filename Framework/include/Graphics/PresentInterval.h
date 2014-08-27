@@ -3,7 +3,7 @@
 
 namespace XNA
 {
-    enum PresentInterval
+	enum PresentInterval : short
 	{
 		Default = 1,
 		One = 1, 

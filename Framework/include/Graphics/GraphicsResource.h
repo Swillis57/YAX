@@ -13,14 +13,14 @@ namespace XNA
 	public:
 		virtual ~GraphicsResource(); 
 
-		std::shared_ptr<XNA::GraphicsDevice> GraphicsDevice();
+		XNA::GraphicsDevice* GraphicsDevice();
 		std::string Name();
-		std::shared_ptr<void> Tag();
+		void* Tag();
 	
 	private:
 		std::shared_ptr<XNA::GraphicsDevice> _device;
 		std::string _name;
-		std::shared_ptr<void> _tag;
+		std::unique_ptr<void> _tag;
 	};
 }
 

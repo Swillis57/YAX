@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum Blend
+	enum Blend : short
 	{
 		Zero = GL_ZERO,
 		One = GL_ONE,

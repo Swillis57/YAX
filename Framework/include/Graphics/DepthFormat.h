@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum DepthFormat
+	enum DepthFormat : short
 	{
 		Depth16 = GL_DEPTH_COMPONENT16,
 		Depth24 = GL_DEPTH_COMPONENT24,

@@ -11,11 +11,9 @@ using std::string;
 
 namespace XNA
 {
-    enum SurfaceFormat;
-    enum DepthFormat;
-    enum GraphicsProfile;
-
-	class DisplayMode;
+	enum SurfaceFormat : short;
+	enum DepthFormat : short;
+	enum GraphicsProfile : short;
 
 	class GraphicsAdapter
 	{
@@ -24,7 +22,7 @@ namespace XNA
 		typedef std::tuple<bool, SurfaceFormat, DepthFormat, int> BufferQueryResults;
 
 		static const std::vector<GraphicsAdapter>& Adapters();
-		const DisplayMode& CurrentDisplayMode();
+		DisplayMode* const CurrentDisplayMode();
 		static GraphicsAdapter DefaultAdapter();
 		string Description();
 		i32 DeviceID();
@@ -34,7 +32,7 @@ namespace XNA
 		i32 MonitorHandle();
 		i32 Revision();
 		i32 SubSystemID();
-		const DisplayModeCollection& SupportedDisplayModes();
+		DisplayModeCollection* const SupportedDisplayModes();
 		static bool UseNullDevice();
 		static void UseNullDevice(bool);
 		static bool UseReferenceDevice();

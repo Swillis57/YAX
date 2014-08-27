@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-    enum BlendFunction
+	enum BlendFunction : short
 	{
 		Add = GL_FUNC_ADD,
 		Max = GL_MAX,

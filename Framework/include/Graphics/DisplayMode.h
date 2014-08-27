@@ -7,7 +7,7 @@
 namespace XNA
 {
 	class Rectangle;
-    enum SurfaceFormat;
+	enum SurfaceFormat : short;
 
 	class DisplayMode
 	{

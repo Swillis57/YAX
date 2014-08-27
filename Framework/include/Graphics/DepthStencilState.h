@@ -2,12 +2,13 @@
 #define DEPTH_STENCIL_STATE
 
 #include "GraphicsResource.h"
-#include "StencilOperation.h"
-#include "CompareFunction.h"
 #include "../Utils.h"
 
 namespace XNA
 {
+	enum CompareFunction : short;
+	enum StencilOperation : short;
+
 	class DepthStencilState : GraphicsResource
 	{
 	public:

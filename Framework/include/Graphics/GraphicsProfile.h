@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum GraphicsProfile
+	enum GraphicsProfile : short
 	{			 
 		HiDef = GLFW_OPENGL_API,
 		Reach = GLFW_OPENGL_ES_API
