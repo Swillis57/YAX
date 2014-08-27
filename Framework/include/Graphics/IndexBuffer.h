@@ -13,10 +13,16 @@ namespace XNA
 	class IndexBuffer : GraphicsResource
 	{
 		IndexBuffer(XNA::GraphicsDevice&, XNA::IndexElementSize, i32, XNA::BufferUsage);
+		IndexBuffer(IndexBuffer&&);
 
 		XNA::BufferUsage BufferUsage();
 		i32 IndexCount();
-		i32 IndexElementSize();
+		XNA::IndexElementSize IndexElementSize();
+
+	private:
+		XNA::BufferUsage _bufUsage;
+		i32 _indCount;
+		XNA::IndexElementSize _elemSize;
 		
 	};
 }
