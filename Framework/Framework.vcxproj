@@ -103,9 +103,11 @@
     <ClInclude Include="include\Graphics\BufferUsage.h" />
     <ClInclude Include="include\Graphics\ColorWriteChannels.h" />
     <ClInclude Include="include\Graphics\CompareFunction.h" />
+    <ClInclude Include="include\Graphics\CullMode.h" />
     <ClInclude Include="include\Graphics\DepthFormat.h" />
     <ClInclude Include="include\Graphics\DepthStencilState.h" />
     <ClInclude Include="include\Graphics\DisplayMode.h" />
+    <ClInclude Include="include\Graphics\FillMode.h" />
     <ClInclude Include="include\Graphics\GraphicsAdapter.h" />
     <ClInclude Include="include\Graphics\GraphicsDevice.h" />
     <ClInclude Include="include\Graphics\GraphicsProfile.h" />
