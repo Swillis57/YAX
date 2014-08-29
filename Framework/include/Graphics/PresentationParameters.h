@@ -15,6 +15,9 @@ namespace XNA
 	class PresentationParameters
 	{
 	public:
+
+		PresentationParameters();
+
 		SurfaceFormat BackBufferFormat();
 		void BackBufferFormat(SurfaceFormat);
 
@@ -25,7 +28,6 @@ namespace XNA
 		void BackBufferWidth(i32);
 
 		Rectangle Bounds();
-		void Bounds(const Rectangle&);
 
 		DepthFormat DepthStencilFormat();
 		void DepthStencilFormat(DepthFormat);
@@ -48,7 +50,6 @@ namespace XNA
 		XNA::RenderTargetUsage RenderTargetUsage();
 		void RenderTargetUsage(XNA::RenderTargetUsage);
 
-		PresentationParameters();
 
 	private:
 		SurfaceFormat _backBufFormat;
