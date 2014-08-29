@@ -21,9 +21,9 @@ namespace XNA
 	class GraphicsDevice
 	{
 	public:
-		GraphicsDevice(const GraphicsAdapter&, GraphicsProfile, const PresentationParameters&);
+		GraphicsDevice(GraphicsAdapter&&, GraphicsProfile, PresentationParameters&&);
 
-		GraphicsAdapter* const Adapter();
+		GraphicsAdapter const Adapter();
 
 		Color BlendFactor();
 		void BlendFactor(const Color&);
@@ -44,6 +44,8 @@ namespace XNA
 
 		i32 MultiSampleMask();
 		void MultiSampleMask(i32);
+
+		XNA::PresentationParameters PresentationParameters();
 
 
 	};
