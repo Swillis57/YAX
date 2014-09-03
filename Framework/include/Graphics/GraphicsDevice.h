@@ -9,7 +9,8 @@
 #include "GraphicsProfile.h"
 #include "IndexBuffer.h"
 #include "PresentationParameters.h"
-
+#include "RasterizerState.h"
+#include "../Geometry/Rectangle.h"
 
 
 
@@ -46,6 +47,16 @@ namespace XNA
 		void MultiSampleMask(i32);
 
 		XNA::PresentationParameters PresentationParameters();
+
+		XNA::RasterizerState RasterizerState();
+		void RasterizerState(XNA::RasterizerState);
+
+		int ReferenceStencil();
+		void ReferenceStencil(int);
+
+		Rectangle ScissorRectangle();
+		void ScissorRectangle(const Rectangle&);
+
 
 
 	};
