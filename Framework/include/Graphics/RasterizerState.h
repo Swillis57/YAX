@@ -23,7 +23,25 @@ namespace XNA
 		float DepthBias();
 		void DepthBias(float);
 
+		XNA::FillMode FillMode;
+		void FillMode(XNA::FillMode);
 
+		bool MultiSampleAntiAlias();
+		void MultiSampleAntiAlias(bool);
+
+		bool ScissorTestEnable();
+		void ScissorTestEnable(bool);
+
+		float SlopeScaleDepthBias();
+		void SlopeScaleDepthBias(float);
+
+	private:
+		XNA::CullMode _cullMode;
+		float _depthBias;
+		XNA::FillMode _fillMode;
+		bool _msaa;
+		bool _scissorTest;
+		float _slopeScale;
 
 	};
 }
