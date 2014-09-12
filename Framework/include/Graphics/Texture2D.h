@@ -3,6 +3,7 @@
 
 #include <istream>
 #include "Texture.h"
+#include "GraphicsResource.h"
 #include "../Utils.h"
 
 
@@ -16,7 +17,7 @@ namespace XNA
 
 	enum SurfaceFormat : short;
 
-	class Texture2D : Texture
+	class Texture2D : public Texture, public GraphicsResource
 	{
 	public:
 		Texture2D(XNA::GraphicsDevice&, i32, i32);
@@ -27,8 +28,8 @@ namespace XNA
 		i32 Height();
 		i32 Width();
 
-		Texture2D FromStream(XNA::GraphicsDevice&, const std::istream&);
-		Texture2D FromStream(XNA::GraphicsDevice&, const std::istream&, i32, i32, bool);
+		static Texture2D FromStream(XNA::GraphicsDevice&, const std::istream&);
+		static Texture2D FromStream(XNA::GraphicsDevice&, const std::istream&, i32, i32, bool);
 
 
 
