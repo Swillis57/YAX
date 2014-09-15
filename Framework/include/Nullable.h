@@ -8,7 +8,7 @@ struct Nullable
 	: val(new T(v))
 	{}
 
-	T&& Value()
+	T Value()
 	{
 		if (HasValue())
 		{

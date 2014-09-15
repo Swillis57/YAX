@@ -11,23 +11,32 @@
 #include "PresentationParameters.h"
 #include "RasterizerState.h"
 #include "../Geometry/Rectangle.h"
+#include "SamplerStateCollection.h"
+#include "TextureCollection.h"
+#include "../Utils.h"
+#include "Viewport.h"
+
 
 
 
 namespace XNA
-{
+{ 
 	enum GraphicsProfile : short;
-	
+	enum PrimitiveType : short;
+	enum ClearOptions : short;
+
+	class Vector4;
 
 	class GraphicsDevice
 	{
 	public:
-		GraphicsDevice(GraphicsAdapter&&, GraphicsProfile, PresentationParameters&&);
+		#pragma region Properties
+		GraphicsDevice(GraphicsAdapter, GraphicsProfile, PresentationParameters);
 
 		GraphicsAdapter const Adapter();
 
 		Color BlendFactor();
-		void BlendFactor(const Color&);
+		void BlendFactor(Color);
 
 		XNA::BlendState BlendState();
 		void BlendState(XNA::BlendState);
@@ -41,7 +50,7 @@ namespace XNA
 		XNA::GraphicsProfile GraphicsProfile();
 
 		IndexBuffer Indicies();
-		void Indicies(IndexBuffer&&);
+		void Indicies(IndexBuffer);
 
 		i32 MultiSampleMask();
 		void MultiSampleMask(i32);
@@ -55,8 +64,26 @@ namespace XNA
 		void ReferenceStencil(int);
 
 		Rectangle ScissorRectangle();
-		void ScissorRectangle(const Rectangle&);
+		void ScissorRectangle(Rectangle);
 
+		TextureCollection Textures();
+		void Textures(TextureCollection);
+
+		SamplerStateCollection VertexSamplerStates();
+
+		TextureCollection VertexTextures();
+
+		XNA::Viewport Viewport();
+		void Viewport(XNA::Viewport);
+#pragma endregion
+
+		void Clear(ClearOptions, const Color&, float, i32);
+		void Clear(ClearOptions, const Vector4&, float, i32);
+		void Clear(const Color&);
+		
+		void DrawIndexedPrimitives(PrimitiveType, i32, i32, i32, i32, i32);
+		void DrawInstancedPrimitives(PrimitiveType, i32, i32, i32, i32, i32, i32);
+		void DrawPrimitives(PrimitiveType, i32, i32);
 
 
 	};
