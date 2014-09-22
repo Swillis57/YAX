@@ -109,8 +109,12 @@
     <ClInclude Include="include\Graphics\DepthFormat.h" />
     <ClInclude Include="include\Graphics\DepthStencilState.h" />
     <ClInclude Include="include\Graphics\DisplayMode.h" />
+    <ClInclude Include="include\Graphics\Effect.h" />
+    <ClInclude Include="include\Graphics\EffectAnnotation.h" />
     <ClInclude Include="include\Graphics\EffectParameterClass.h" />
     <ClInclude Include="include\Graphics\EffectParameterType.h" />
+    <ClInclude Include="include\Graphics\EffectPass.h" />
+    <ClInclude Include="include\Graphics\EffectTechnique.h" />
     <ClInclude Include="include\Graphics\FillMode.h" />
     <ClInclude Include="include\Graphics\GraphicsAdapter.h" />
     <ClInclude Include="include\Graphics\GraphicsDevice.h" />
