@@ -1,5 +1,5 @@
-#ifndef I_EFFECT_FOG
-#define I_EFFECT_FOG
+#ifndef _I_EFFECT_FOG_H
+#define _I_EFFECT_FOG_H
 
 #include "../Math/Vector3.h"
 

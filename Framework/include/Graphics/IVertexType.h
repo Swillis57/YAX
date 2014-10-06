@@ -1,5 +1,5 @@
-#ifndef VERTEX_TYPE
-#define VERTEX_TYPE
+#ifndef _VERTEX_TYPE_H
+#define _VERTEX_TYPE_H
 
 #include "VertexDeclaration.h"
 

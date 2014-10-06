@@ -1,5 +1,5 @@
-#ifndef SAMPLER_STATE
-#define SAMPLER_STATE
+#ifndef _SAMPLER_STATE_H
+#define _SAMPLER_STATE_H
 
 #include "GraphicsResource.h"
 #include "../Utils.h"

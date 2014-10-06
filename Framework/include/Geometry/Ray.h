@@ -1,5 +1,5 @@
-#ifndef RAY
-#define RAY
+#ifndef _RAY_H
+#define _RAY_H
 
 #include "../Math/Vector3.h"
 #include "../Utils.h"

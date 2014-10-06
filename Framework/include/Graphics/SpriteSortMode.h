@@ -1,5 +1,5 @@
-#ifndef SPRITE_SORT_MODE
-#define SPRITE_SORT_MODE
+#ifndef _SPRITE_SORT_MODE_H
+#define _SPRITE_SORT_MODE_H
 
 namespace XNA
 {

@@ -1,11 +1,11 @@
-#ifndef STENCIL_OPERATION
-#define STENCIL_OPERATION
+#ifndef _STENCIL_OPERATION_H
+#define _STENCIL_OPERATION_H
 
 #include "../GL/glew.h"
 
 namespace XNA
 {
-    enum StencilOperation : short
+	enum StencilOperation : short
 	{
 		Decrement = GL_DECR_WRAP,
 		DecrementSaturation = GL_DECR,

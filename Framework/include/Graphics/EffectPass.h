@@ -1,8 +1,8 @@
-#ifndef EFFECT_PASS
-#define EFFECT_PASS
+#ifndef _EFFECT_PASS_H
+#define _EFFECT_PASS_H
 
 #include <string>
-#include "EffectAnnotation.h"
+#include "EffectAnnotationCollection.h"
 
 namespace XNA
 {
@@ -13,7 +13,12 @@ namespace XNA
 		std::string Name();
 		
 		void Apply();
+
+	private:
+		EffectAnnotationCollection _annotations;
+		std::string _name;
 	};
+
 }
 
 

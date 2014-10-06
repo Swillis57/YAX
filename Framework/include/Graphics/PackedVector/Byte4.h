@@ -1,5 +1,5 @@
-#ifndef BYTE_4
-#define BYTE_4
+#ifndef _BYTE_4_H
+#define _BYTE_4_H
 
 #include "IPackedVector.h"
 

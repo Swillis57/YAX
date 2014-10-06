@@ -1,5 +1,5 @@
-#ifndef BOUNDING_BOX
-#define BOUNDING_BOX
+#ifndef _BOUNDING_BOX_H
+#define _BOUNDING_BOX_H
 
 #include <array>
 #include "../Math/Vector3.h"

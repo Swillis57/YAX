@@ -1,5 +1,5 @@
-#ifndef TEXTURE_2D
-#define TEXTURE_2D
+#ifndef _TEXTURE_2D_H
+#define _TEXTURE_2D_H
 
 #include <istream>
 #include <vector>

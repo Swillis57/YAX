@@ -1,5 +1,5 @@
-#ifndef BGR_5_6_5
-#define BGR_5_6_5
+#ifndef _BGR_5_6_5_H
+#define _BGR_5_6_5_H
 
 #include "IPackedVector.h"
 

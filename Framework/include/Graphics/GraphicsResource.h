@@ -1,5 +1,5 @@
-#ifndef GRAPHICS_RESOURCE
-#define GRAPHICS_RESOURCE
+#ifndef _GRAPHICS_RESOURCE_H
+#define _GRAPHICS_RESOURCE_H
 
 #include <memory>
 #include <string>
@@ -17,12 +17,12 @@ namespace XNA
 
 		XNA::GraphicsDevice& GraphicsDevice();
 		std::string Name();
-		void* Tag();
+		//void* Tag();
 	
 	private:
 		XNA::GraphicsDevice& _device;
 		std::string _name;
-		std::unique_ptr<void> _tag;
+		//std::unique_ptr<void> _tag;
 	};
 }
 

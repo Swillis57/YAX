@@ -1,5 +1,5 @@
-#ifndef DRAWABLE_GAME_COMP
-#define DRAWABLE_GAME_COMP
+#ifndef _DRAWABLE_GAME_COMP_H
+#define _DRAWABLE_GAME_COMP_H
 
 #include "GameComponent.h"
 #include "Game.h"

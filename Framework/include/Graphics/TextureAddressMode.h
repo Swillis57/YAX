@@ -1,5 +1,5 @@
-#ifndef TEXTURE_ADDRESS_MODE
-#define TEXTURE_ADDRESS_MODE
+#ifndef _TEXTURE_ADDRESS_MODE_H
+#define _TEXTURE_ADDRESS_MODE_H
 
 #include "../GL/glew.h"
 

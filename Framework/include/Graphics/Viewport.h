@@ -1,5 +1,5 @@
-#ifndef VIEWPORT
-#define VIEWPORT
+#ifndef _VIEWPORT_H
+#define _VIEWPORT_H
 
 #include "../Utils.h"
 

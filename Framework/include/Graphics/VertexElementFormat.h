@@ -1,5 +1,5 @@
-#ifndef VERTEX_ELEMENT_FORMAT
-#define VERTEX_ELEMENT_FORMAT
+#ifndef _VERTEX_ELEMENT_FORMAT_H
+#define _VERTEX_ELEMENT_FORMAT_H
 
 
 #include <tuple>

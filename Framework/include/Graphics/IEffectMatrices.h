@@ -1,5 +1,5 @@
-#ifndef I_EFFECT_MATRICES
-#define I_EFFECT_MATRICES
+#ifndef _I_EFFECT_MATRICES_H
+#define _I_EFFECT_MATRICES_H
 
 #include "../Math/Matrix.h"
 

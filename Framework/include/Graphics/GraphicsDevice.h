@@ -1,5 +1,5 @@
-#ifndef GRAPHICS_DEVICE
-#define GRAPHICS_DEVICE
+#ifndef _GRAPHICS_DEVICE_H
+#define _GRAPHICS_DEVICE_H
 
 #include "GraphicsAdapter.h"
 #include "BlendState.h"

@@ -1,5 +1,5 @@
-#ifndef NORMALIZED_SHORT_2
-#define NORMALIZED_SHORT_2
+#ifndef _NORMALIZED_SHORT_2_H
+#define _NORMALIZED_SHORT_2_H
 
 #include "IPackedVector.h"
 

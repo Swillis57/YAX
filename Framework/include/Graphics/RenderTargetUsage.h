@@ -1,6 +1,6 @@
-#ifndef RENDER_TARGET_USAGE
-#define RENDER_TARGET_USAGE
-
+#ifndef _RENDER_TARGET_USAGE_H
+#define _RENDER_TARGET_USAGE_H
+						   
 
 namespace XNA
 {

@@ -1,5 +1,5 @@
-#ifndef PLANE
-#define PLANE
+#ifndef _PLANE_H
+#define _PLANE_H
 
 #include "../Math/Vector3.h"
 

@@ -1,5 +1,5 @@
-#ifndef INDEX_ELEMENT_SIZE
-#define INDEX_ELEMENT_SIZE
+#ifndef _INDEX_ELEMENT_SIZE_H
+#define _INDEX_ELEMENT_SIZE_H
 
 #include "../GL/glew.h"
 

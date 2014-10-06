@@ -1,5 +1,5 @@
-#ifndef PRESENT_INTERVAL
-#define PRESENT_INTERVAL
+#ifndef _PRESENT_INTERVAL_H
+#define _PRESENT_INTERVAL_H
 
 namespace XNA
 {

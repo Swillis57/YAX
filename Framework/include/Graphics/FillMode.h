@@ -1,5 +1,5 @@
-#ifndef FILL_MODE
-#define FILL_MODE
+#ifndef _FILL_MODE_H
+#define _FILL_MODE_H
 
 #include "../GL/glew.h"
 

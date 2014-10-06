@@ -1,5 +1,5 @@
-#ifndef IPACKEDVECTOR
-#define IPACKEDVECTOR
+#ifndef _IPACKEDVECTOR_H
+#define _IPACKEDVECTOR_H
 
 #include "../../Utils.h"
 

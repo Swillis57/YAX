@@ -1,5 +1,5 @@
-#ifndef DEPTH_FORMAT
-#define DEPTH_FORMAT
+#ifndef _DEPTH_FORMAT_H
+#define _DEPTH_FORMAT_H
 
 #include "../GL/glew.h"
 

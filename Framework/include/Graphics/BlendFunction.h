@@ -1,5 +1,5 @@
-#ifndef BLEND_FUNCTION
-#define BLEND_FUNCTION
+#ifndef _BLEND_FUNCTION_H
+#define _BLEND_FUNCTION_H
 
 #include "../GL/glew.h"
 

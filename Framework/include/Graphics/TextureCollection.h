@@ -1,5 +1,5 @@
-#ifndef TEXTURE_COLLECTION
-#define TEXTURE_COLLECTION
+#ifndef _TEXTURE_COLLECTION_H
+#define _TEXTURE_COLLECTION_H
 
 #include <vector>
 #include "Texture.h"

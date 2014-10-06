@@ -1,5 +1,5 @@
-#ifndef TEXTURE
-#define TEXTURE
+#ifndef _TEXTURE_H
+#define _TEXTURE_H
 
 #include "GraphicsResource.h"
 

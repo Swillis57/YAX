@@ -1,5 +1,5 @@
-#ifndef TEXTURE_FILTER
-#define TEXTURE_FILTER
+#ifndef _TEXTURE_FILTER_H
+#define _TEXTURE_FILTER_H
 
 #include "../GL/glew.h"
 

@@ -1,5 +1,5 @@
-#ifndef CURVE_TANGENT
-#define CURVE_TANGENT
+#ifndef _CURVE_TANGENT_H
+#define _CURVE_TANGENT_H
 
 namespace XNA
 {

@@ -1,5 +1,5 @@
-#ifndef IDRAWABLE
-#define IDRAWABLE
+#ifndef _IDRAWABLE_H
+#define _IDRAWABLE_H
 
 namespace XNA
 {

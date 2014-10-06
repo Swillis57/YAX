@@ -1,5 +1,5 @@
-#ifndef EFFECT_ANNOTATION
-#define EFFECT_ANNOTATION
+#ifndef _EFFECT_ANNOTATION_H
+#define _EFFECT_ANNOTATION_H
 
 #include <string>
 #include <vector>
@@ -7,8 +7,6 @@
 
 namespace XNA
 {
-	typedef std::vector<EffectAnnotation> EffectAnnotationCollection;
-
 	enum EffectParameterClass : short;
 	enum EffectParameterType : short;
 
@@ -43,6 +41,8 @@ namespace XNA
 		EffectParameterClass _paramClass;
 		EffectParameterType _paramType;
 	};
+
+	
 }
 
 

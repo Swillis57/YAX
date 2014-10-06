@@ -1,5 +1,5 @@
-#ifndef BGRA5551
-#define BGRA5551
+#ifndef _BGRA5551_H
+#define _BGRA5551_H
 
 #include "IPackedVector.h"
 

@@ -1,5 +1,5 @@
-#ifndef VERTEX_ELEMENT_USAGE
-#define VERTEX_ELEMENT_USAGE
+#ifndef _VERTEX_ELEMENT_USAGE_H
+#define _VERTEX_ELEMENT_USAGE_H
 
 #include "../gl/glew.h"
 

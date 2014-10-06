@@ -1,5 +1,5 @@
-#ifndef DISPLAY_MODE
-#define DISPLAY_MODE
+#ifndef _DISPLAY_MODE_H
+#define _DISPLAY_MODE_H
 
 #include "../Utils.h"
 #include "../Geometry/Rectangle.h"

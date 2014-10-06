@@ -1,5 +1,5 @@
-#ifndef QUATERNION
-#define QUATERNION
+#ifndef _QUATERNION_H
+#define _QUATERNION_H
 
 #include "Vector3.h"
 #include "Matrix.h"

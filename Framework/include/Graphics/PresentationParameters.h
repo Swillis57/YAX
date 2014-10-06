@@ -1,5 +1,5 @@
-#ifndef PRESENTATION_PARAMS
-#define PRESENTATION_PARAMS
+#ifndef _PRESENTATION_PARAMS_H
+#define _PRESENTATION_PARAMS_H
 
 #include "../Utils.h"
 #include "../Geometry/Rectangle.h"

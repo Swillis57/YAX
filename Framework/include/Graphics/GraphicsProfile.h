@@ -1,5 +1,5 @@
-#ifndef GRAPHICS_PROFILE
-#define GRAPHICS_PROFILE
+#ifndef _GRAPHICS_PROFILE_H
+#define _GRAPHICS_PROFILE_H
 
 #include "../GLFW/glfw3.h"
 

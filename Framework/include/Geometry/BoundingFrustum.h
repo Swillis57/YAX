@@ -1,5 +1,5 @@
-#ifndef BOUNDING_FRUSTUM
-#define BOUNDING_FRUSTUM
+#ifndef _BOUNDING_FRUSTUM_H
+#define _BOUNDING_FRUSTUM_H
 
 #include <array>
 #include "../Utils.h"

@@ -1,5 +1,5 @@
-#ifndef VEC3
-#define VEC3
+#ifndef _VEC3_H
+#define _VEC3_H
 
 #include <vector>
 #include "../Utils.h"

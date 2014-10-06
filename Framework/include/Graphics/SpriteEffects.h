@@ -1,5 +1,5 @@
-#ifndef SPRITE_EFFECTS
-#define SPRITE_EFFECTS
+#ifndef _SPRITE_EFFECTS_H
+#define _SPRITE_EFFECTS_H
 
 namespace XNA
 {

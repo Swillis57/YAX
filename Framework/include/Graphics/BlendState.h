@@ -1,5 +1,5 @@
-#ifndef BLEND_STATE
-#define BLEND_STATE
+#ifndef _BLEND_STATE_H
+#define _BLEND_STATE_H
 
 #include "GraphicsResource.h"
 #include "../Color.h"

@@ -1,5 +1,5 @@
-#ifndef COMPARE_FUNCTION
-#define COMPARE_FUNCTION
+#ifndef _COMPARE_FUNCTION_H
+#define _COMPARE_FUNCTION_H
 
 #include "../GL/glew.h"
 

@@ -1,5 +1,5 @@
-#ifndef SHORT_2
-#define SHORT_2
+#ifndef _SHORT_2_H
+#define _SHORT_2_H
 
 #include "IPackedVector.h"
 

@@ -1,5 +1,5 @@
-#ifndef RGBA_10_10_10_2
-#define RGBA_10_10_10_2
+#ifndef _RGBA_10_10_10_2_H
+#define _RGBA_10_10_10_2_H
 
 #include "IPackedVector.h"
 

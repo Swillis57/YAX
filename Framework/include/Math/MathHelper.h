@@ -1,5 +1,5 @@
-#ifndef MATH_HELPER
-#define MATH_HELPER
+#ifndef _MATH_HELPER_H
+#define _MATH_HELPER_H
 
 #include <cmath>
 #include <numeric>

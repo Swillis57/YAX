@@ -1,5 +1,5 @@
-#ifndef SAMPLER_STATE_COLLECTION
-#define SAMPLER_STATE_COLLECTION
+#ifndef _SAMPLER_STATE_COLLECTION_H
+#define _SAMPLER_STATE_COLLECTION_H
 
 #include <vector>
 #include "../Utils.h"

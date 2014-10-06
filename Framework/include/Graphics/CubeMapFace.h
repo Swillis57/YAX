@@ -1,5 +1,5 @@
-#ifndef CUBE_MAP_FACE
-#define CUBE_MAP_FACE
+#ifndef _CUBE_MAP_FACE_H
+#define _CUBE_MAP_FACE_H
 
 #include "../GL/glew.h"
 

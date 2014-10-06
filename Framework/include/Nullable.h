@@ -1,5 +1,5 @@
-#ifndef NULLABLE
-#define NULLABLE
+#ifndef _NULLABLE_H
+#define _NULLABLE_H
 
 template<typename T>
 struct Nullable

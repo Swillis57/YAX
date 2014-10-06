@@ -1,5 +1,5 @@
-#ifndef UTILS
-#define UTILS
+#ifndef _UTILS_H
+#define _UTILS_H
 
 #include <cstdint>
 #include <memory>

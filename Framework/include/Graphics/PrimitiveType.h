@@ -1,5 +1,5 @@
-#ifndef PRIMITIVE_TYPE
-#define PRIMITIVE_TYPE
+#ifndef _PRIMITIVE_TYPE_H
+#define _PRIMITIVE_TYPE_H
 
 #include "../GL/glew.h"
 

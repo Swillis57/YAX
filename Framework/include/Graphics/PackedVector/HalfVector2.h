@@ -1,5 +1,5 @@
-#ifndef HALF_VECTOR_2
-#define HALF_VECTOR_2
+#ifndef _HALF_VECTOR_2_H
+#define _HALF_VECTOR_2_H
 
 #include "IPackedVector.h"
 

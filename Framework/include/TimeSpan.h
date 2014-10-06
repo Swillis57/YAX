@@ -1,5 +1,5 @@
-#ifndef TIME_SPAN
-#define TIME_SPAN
+#ifndef _TIME_SPAN_H
+#define _TIME_SPAN_H
 
 #include <string>
 #include <iostream>

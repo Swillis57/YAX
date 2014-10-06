@@ -1,5 +1,5 @@
-#ifndef VERTEX_ELEMENT
-#define VERTEX_ELEMENT
+#ifndef _VERTEX_ELEMENT_H
+#define _VERTEX_ELEMENT_H
 
 #include "../Utils.h"
 #include "VertexElementFormat.h"

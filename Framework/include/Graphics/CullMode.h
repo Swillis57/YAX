@@ -1,5 +1,5 @@
-#ifndef CULL_MODE
-#define CULL_MODE
+#ifndef _CULL_MODE_H
+#define _CULL_MODE_H
 
 #include "../GL/glew.h"
 

@@ -1,5 +1,5 @@
-#ifndef VERTEX_DECLARATION
-#define VERTEX_DECLARATION
+#ifndef _VERTEX_DECLARATION_H
+#define _VERTEX_DECLARATION_H
 
 #include <vector>
 #include "GraphicsResource.h"

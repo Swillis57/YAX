@@ -1,5 +1,5 @@
-#ifndef ALPHA8
-#define ALPHA8
+#ifndef _ALPHA8_H
+#define _ALPHA8_H
 
 #include "IPackedVector.h"
 

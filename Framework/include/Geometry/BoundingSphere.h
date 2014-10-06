@@ -1,5 +1,5 @@
-#ifndef BOUNDING_SPHERE
-#define BOUNDING_SPHERE
+#ifndef _BOUNDING_SPHERE_H
+#define _BOUNDING_SPHERE_H
 
 #include "../Math/Vector3.h"
 #include "PlaneIntersectionType.h"

@@ -1,5 +1,5 @@
-#ifndef CONTAINMENT_TYPE
-#define CONTAINMENT_TYPE
+#ifndef _CONTAINMENT_TYPE_H
+#define _CONTAINMENT_TYPE_H
 
 
 namespace XNA

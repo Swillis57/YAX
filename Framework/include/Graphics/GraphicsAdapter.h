@@ -1,5 +1,5 @@
-#ifndef GRAPHICS_ADAPTER
-#define GRAPHICS_ADAPTER
+#ifndef _GRAPHICS_ADAPTER_H
+#define _GRAPHICS_ADAPTER_H
 
 #include <vector>
 #include <string>

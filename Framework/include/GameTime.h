@@ -1,5 +1,5 @@
-#ifndef GAME_TIME
-#define GAME_TIME
+#ifndef _GAME_TIME_H
+#define _GAME_TIME_H
 
 #include "Game.h"
 #include "TimeSpan.h"

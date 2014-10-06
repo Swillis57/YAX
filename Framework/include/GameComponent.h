@@ -1,5 +1,5 @@
-#ifndef GAME_COMPONENT
-#define GAME_COMPONENT
+#ifndef _GAME_COMPONENT_H
+#define _GAME_COMPONENT_H
 
 #include <memory>
 #include "Game.h"

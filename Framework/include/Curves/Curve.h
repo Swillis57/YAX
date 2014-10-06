@@ -1,5 +1,5 @@
-#ifndef CURVE
-#define CURVE
+#ifndef _CURVE_H
+#define _CURVE_H
 
 #include <vector>
 #include "../Utils.h"

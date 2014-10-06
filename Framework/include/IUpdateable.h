@@ -1,5 +1,5 @@
-#ifndef IUPDATEABLE
-#define IUPDATEABLE
+#ifndef _IUPDATEABLE_H
+#define _IUPDATEABLE_H
 
 namespace XNA
 {

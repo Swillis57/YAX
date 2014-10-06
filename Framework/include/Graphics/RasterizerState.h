@@ -1,5 +1,5 @@
-#ifndef RASTERIZER_STATE
-#define RASTERIZER_STATE
+#ifndef _RASTERIZER_STATE_H
+#define _RASTERIZER_STATE_H
 
 #include "GraphicsResource.h"
 

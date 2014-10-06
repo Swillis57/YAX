@@ -1,11 +1,10 @@
-#ifndef EFFECT_PARAMETER_CLASS
-#define EFFECT_PARAMETER_CLASS
+#ifndef _EFFECT_PARAMETER_CLASS_H
+#define _EFFECT_PARAMETER_CLASS_H
 
 #include <vector>
 
 namespace XNA
 {
-	typedef std::vector<EffectParameterClass> EffectParameterCollection;
 
 	enum EffectParameterClass : short
 	{

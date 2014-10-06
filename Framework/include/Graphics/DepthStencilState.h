@@ -1,5 +1,5 @@
-#ifndef DEPTH_STENCIL_STATE
-#define DEPTH_STENCIL_STATE
+#ifndef _DEPTH_STENCIL_STATE_H
+#define _DEPTH_STENCIL_STATE_H
 
 #include "GraphicsResource.h"
 #include "../Utils.h"

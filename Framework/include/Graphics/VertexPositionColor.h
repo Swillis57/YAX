@@ -1,5 +1,5 @@
-#ifndef VERTEX_POSITION_COLOR
-#define VERTEX_POSITION_COLOR
+#ifndef _VERTEX_POSITION_COLOR_H
+#define _VERTEX_POSITION_COLOR_H
 
 
 #include "../Color.h"

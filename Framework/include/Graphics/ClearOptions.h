@@ -1,5 +1,5 @@
-#ifndef CLEAR_OPTIONS
-#define CLEAR_OPTIONS
+#ifndef _CLEAR_OPTIONS_H
+#define _CLEAR_OPTIONS_H
 
 #include "../GL/glew.h"
 

@@ -1,5 +1,5 @@
-#ifndef RG_32
-#define RG_32
+#ifndef _RG_32_H
+#define _RG_32_H
 
 #include "IPackedVector.h"
 

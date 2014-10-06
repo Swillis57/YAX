@@ -1,5 +1,5 @@
-#ifndef CURVE_KEY
-#define CURVE_KEY
+#ifndef _CURVE_KEY_H
+#define _CURVE_KEY_H
 
 
 namespace XNA

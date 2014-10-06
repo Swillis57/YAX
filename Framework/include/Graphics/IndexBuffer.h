@@ -1,5 +1,5 @@
-#ifndef INDEX_BUFFER
-#define INDEX_BUFFER
+#ifndef _INDEX_BUFFER_H
+#define _INDEX_BUFFER_H
 
 #include <memory>
 

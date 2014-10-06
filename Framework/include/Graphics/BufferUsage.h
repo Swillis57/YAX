@@ -1,5 +1,5 @@
-#ifndef BUFFER_USAGE
-#define BUFFER_USAGE
+#ifndef _BUFFER_USAGE_H
+#define _BUFFER_USAGE_H
 
 #include "../GL/glew.h"
 

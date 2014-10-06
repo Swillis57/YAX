@@ -1,5 +1,5 @@
-#ifndef SURFACEFORMAT
-#define SURFACEFORMAT
+#ifndef _SURFACEFORMAT_H
+#define _SURFACEFORMAT_H
 
 #include "../GL/glew.h"
 

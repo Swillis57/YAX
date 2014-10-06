@@ -1,5 +1,5 @@
-#ifndef COLOR_WRITE_CHANNELS
-#define COLOR_WRITE_CHANNELS
+#ifndef _COLOR_WRITE_CHANNELS_H
+#define _COLOR_WRITE_CHANNELS_H
 
 namespace XNA
 {
