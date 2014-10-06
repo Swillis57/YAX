@@ -8,6 +8,7 @@
 #include "DisplayMode.h"
 #include "GraphicsProfile.h"
 #include "IndexBuffer.h"
+#include "Nullable.h"
 #include "PresentationParameters.h"
 #include "RasterizerState.h"
 #include "../Geometry/Rectangle.h"
@@ -85,6 +86,26 @@ namespace XNA
 		void DrawInstancedPrimitives(PrimitiveType, i32, i32, i32, i32, i32, i32);
 		void DrawPrimitives(PrimitiveType, i32, i32);
 
+		template<typename T>
+		DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>, i32, i32, vector<i16>, i32, i32);
+		template<typename T>
+		DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>, i32, i32, vector<i16>, i32, i32, VertexDeclaration);
+		template<typename T>
+		DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>, i32, i32, vector<i32>, i32, i32);
+		template<typename T>
+		DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>, i32, i32, vector<i32>, i32, i32, VertexDeclaration);
+
+		template<typename T>
+		DrawUserPrimitives(PrimitiveType, std::vector<T>, i32, i32);
+		template<typename T>
+		DrawUserPrimitives(PrimitiveType, std::vector<T>, i32, i32, VertexDeclaration);
+
+		template<typename T>
+		GetBackBufferData(Nullable<Rectangle>, std::vector<T>, i32, i32);
+		template<typename T>
+		GetBackBufferData(std::vector<T>);
+		template<typename T>
+		GetBackBufferData(std::vector<T>, i32, i32);
 
 	};
 }
