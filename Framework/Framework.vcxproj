@@ -150,6 +150,8 @@
     <ClInclude Include="include\Graphics\PackedVector\Rgba64.h" />
     <ClInclude Include="include\Graphics\PackedVector\Short2.h" />
     <ClInclude Include="include\Graphics\PackedVector\Short4.h" />
+    <ClInclude Include="include\Graphics\RenderTarget2D.h" />
+    <ClInclude Include="include\Graphics\RenderTargetBinding.h" />
     <ClInclude Include="include\Graphics\SpriteEffects.h" />
     <ClInclude Include="include\Graphics\SpriteSortMode.h" />
     <ClInclude Include="include\Graphics\VertexElement.h" />
