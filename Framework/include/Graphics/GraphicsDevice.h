@@ -8,7 +8,7 @@
 #include "DisplayMode.h"
 #include "GraphicsProfile.h"
 #include "IndexBuffer.h"
-#include "Nullable.h"
+#include "../Nullable.h"
 #include "PresentationParameters.h"
 #include "RasterizerState.h"
 #include "../Geometry/Rectangle.h"
@@ -106,6 +106,8 @@ namespace XNA
 		GetBackBufferData(std::vector<T>);
 		template<typename T>
 		GetBackBufferData(std::vector<T>, i32, i32);
+
+
 
 	};
 }
