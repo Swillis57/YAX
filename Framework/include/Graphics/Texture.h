@@ -7,11 +7,13 @@ namespace XNA
 {
 	enum SurfaceFormat : short;
 
+	class GraphicsDevice;
+
 	class Texture : public GraphicsResource
 	{
 	public:
-		Texture();
-		~Texture();
+		Texture(XNA::GraphicsDevice&);
+		virtual ~Texture();
 
 		SurfaceFormat Format();
 		int LevelCount();

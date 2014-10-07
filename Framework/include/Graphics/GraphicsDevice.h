@@ -1,12 +1,14 @@
 #ifndef _GRAPHICS_DEVICE_H
 #define _GRAPHICS_DEVICE_H
 
+
+
+#include <vector>
 #include "GraphicsAdapter.h"
 #include "BlendState.h"
 #include "../Color.h"
 #include "DepthStencilState.h"
 #include "DisplayMode.h"
-#include "GraphicsProfile.h"
 #include "IndexBuffer.h"
 #include "../Nullable.h"
 #include "PresentationParameters.h"
@@ -18,15 +20,14 @@
 #include "Viewport.h"
 
 
-
-
 namespace XNA
 { 
-	enum GraphicsProfile : short;
+	enum GraphicsProfile : i32;
 	enum PrimitiveType : short;
 	enum ClearOptions : short;
 
 	class Vector4;
+	class VertexDeclaration;
 
 	class GraphicsDevice
 	{
@@ -79,7 +80,7 @@ namespace XNA
 #pragma endregion
 
 		void Clear(ClearOptions, const Color&, float, i32);
-		void Clear(ClearOptions, const Vector4&, float, i32);
+		void Clear(ClearOptions, const Vector4, float, i32);
 		void Clear(const Color&);
 		
 		void DrawIndexedPrimitives(PrimitiveType, i32, i32, i32, i32, i32);
@@ -87,25 +88,25 @@ namespace XNA
 		void DrawPrimitives(PrimitiveType, i32, i32);
 
 		template<typename T>
-		DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>, i32, i32, vector<i16>, i32, i32);
+		void DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>, i32, i32, std::vector<i16>, i32, i32);
 		template<typename T>
-		DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>, i32, i32, vector<i16>, i32, i32, VertexDeclaration);
+		void DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>, i32, i32, std::vector<i16>, i32, i32, VertexDeclaration);
 		template<typename T>
-		DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>, i32, i32, vector<i32>, i32, i32);
+		void DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>, i32, i32, std::vector<i32>, i32, i32);
 		template<typename T>
-		DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>, i32, i32, vector<i32>, i32, i32, VertexDeclaration);
+		void DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>, i32, i32, std::vector<i32>, i32, i32, VertexDeclaration);
 
 		template<typename T>
-		DrawUserPrimitives(PrimitiveType, std::vector<T>, i32, i32);
+		void DrawUserPrimitives(PrimitiveType, std::vector<T>, i32, i32);
 		template<typename T>
-		DrawUserPrimitives(PrimitiveType, std::vector<T>, i32, i32, VertexDeclaration);
+		void DrawUserPrimitives(PrimitiveType, std::vector<T>, i32, i32, VertexDeclaration);
 
 		template<typename T>
-		GetBackBufferData(Nullable<Rectangle>, std::vector<T>, i32, i32);
+		void GetBackBufferData(Nullable<Rectangle>, std::vector<T>, i32, i32);
 		template<typename T>
-		GetBackBufferData(std::vector<T>);
+		void GetBackBufferData(std::vector<T>);
 		template<typename T>
-		GetBackBufferData(std::vector<T>, i32, i32);
+		void GetBackBufferData(std::vector<T>, i32, i32);
 
 
 

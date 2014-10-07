@@ -23,7 +23,7 @@ namespace XNA
 		float DepthBias();
 		void DepthBias(float);
 
-		XNA::FillMode FillMode;
+		XNA::FillMode FillMode();
 		void FillMode(XNA::FillMode);
 
 		bool MultiSampleAntiAlias();

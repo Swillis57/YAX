@@ -12,7 +12,7 @@ namespace XNA
 	{
 	public:
 		GraphicsResource(XNA::GraphicsDevice&, std::string);
-		GraphicsResource(XNA::GraphicsDevice&, std::string, void*);
+		//GraphicsResource(XNA::GraphicsDevice&, std::string, void*);
 		virtual ~GraphicsResource(); 
 
 		XNA::GraphicsDevice& GraphicsDevice();

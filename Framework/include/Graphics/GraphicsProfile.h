@@ -5,7 +5,9 @@
 
 namespace XNA
 {
-	enum GraphicsProfile : short
+	typedef int32_t i32;
+
+	enum GraphicsProfile : i32
 	{			 
 		HiDef = GLFW_OPENGL_API,
 		Reach = GLFW_OPENGL_ES_API

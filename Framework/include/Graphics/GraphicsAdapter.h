@@ -13,7 +13,7 @@ namespace XNA
 {
 	enum SurfaceFormat : short;
 	enum DepthFormat : short;
-	enum GraphicsProfile : short;
+	enum GraphicsProfile : i32;
 
 	class GraphicsAdapter
 	{

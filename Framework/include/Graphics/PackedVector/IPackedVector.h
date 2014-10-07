@@ -10,27 +10,29 @@ namespace XNA
 	class Vector3;
 	class Vector4;
 
-	namespace PackedVector
+	namespace __PackedVector
 	{
 		struct IPackedVector
 		{
-			virtual ~IPackedVector() = 0;
+			virtual ~IPackedVector() {}
 			virtual void PackFromVector4(const Vector4&) = 0;
 			virtual Vector4 ToVector4() = 0;
 		};
 
-		inline IPackedVector::~IPackedVector() {}
 	}
 
 	template<typename DType>
-	struct IPackedVector : public PackedVector::IPackedVector
+	struct IPackedVector : public __PackedVector::IPackedVector
 	{
-		typedef PackedVector::IPackedVector IBase;
+		typedef __PackedVector::IPackedVector IBase;
 		virtual DType PackedValue() = 0;
 		virtual void PackedValue(DType) = 0;
 
-		IPackedVector() { IBase(); }
-		virtual ~IPackedVector() { ~IBase(); }
+		IPackedVector()
+			: IBase()
+		{}
+
+		virtual ~IPackedVector() {}
 
 	protected:
 		DType _packed;

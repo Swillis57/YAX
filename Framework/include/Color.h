@@ -10,7 +10,6 @@ namespace XNA
 		Color(i32, i32, i32);
 		Color(i32, i32, i32, i32);
 		Color(float, float, float);
-		Color(float, float, float);
 		Color(const Vector3&);
 		Color(const Vector4&);
 

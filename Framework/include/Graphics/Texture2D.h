@@ -4,7 +4,6 @@
 #include <istream>
 #include <vector>
 #include "Texture.h"
-#include "GraphicsResource.h"
 #include "../Utils.h"
 
 
@@ -18,7 +17,7 @@ namespace XNA
 
 	enum SurfaceFormat : short;
 
-	class Texture2D : public Texture, public GraphicsResource
+	class Texture2D : public Texture
 	{
 	public:
 		Texture2D(XNA::GraphicsDevice&, i32, i32);
