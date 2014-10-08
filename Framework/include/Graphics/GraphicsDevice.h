@@ -28,6 +28,7 @@ namespace XNA
 
 	class Vector4;
 	class VertexDeclaration;
+	class RenderTargetBinding;
 
 	class GraphicsDevice
 	{
@@ -108,6 +109,7 @@ namespace XNA
 		template<typename T>
 		void GetBackBufferData(std::vector<T>, i32, i32);
 
+		std::vector<RenderTargetBinding> GetRenderTargets();
 
 
 	};

@@ -14,7 +14,14 @@ namespace XNA
 	struct RenderTargetBinding
 	{
 		RenderTargetBinding(RenderTarget2D);
-		RenderTargetBinding(RenderTargetCube, XNA::CubeMapFace);
+		RenderTargetBinding(const RenderTargetCube&, XNA::CubeMapFace);
+
+		XNA::CubeMapFace CubeMapFace();
+		RenderTarget2D RenderTarget();
+
+	private:
+		RenderTarget2D _target;
+		XNA::CubeMapFace _face;
 	};
 }
 

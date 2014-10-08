@@ -15,8 +15,8 @@ namespace XNA
 
 	class RenderTargetCube : public TextureCube
 	{
-		RenderTargetCube(GraphicsDevice&, i32, bool, SurfaceFormat, DepthFormat);
-		RenderTargetCube(GraphicsDevice&, i32, bool, SurfaceFormat, DepthFormat, RenderTargetUsage);
+		RenderTargetCube(XNA::GraphicsDevice&, i32, bool, SurfaceFormat, DepthFormat);
+		RenderTargetCube(XNA::GraphicsDevice&, i32, bool, SurfaceFormat, DepthFormat, RenderTargetUsage);
 
 		DepthFormat DepthStencilFormat();
 		

@@ -152,9 +152,12 @@
     <ClInclude Include="include\Graphics\PackedVector\Short4.h" />
     <ClInclude Include="include\Graphics\RenderTarget2D.h" />
     <ClInclude Include="include\Graphics\RenderTargetBinding.h" />
+    <ClInclude Include="include\Graphics\RenderTargetCube.h" />
     <ClInclude Include="include\Graphics\SpriteEffects.h" />
     <ClInclude Include="include\Graphics\SpriteSortMode.h" />
     <ClInclude Include="include\Graphics\TextureCube.h" />
+    <ClInclude Include="include\Graphics\VertexBuffer.h" />
+    <ClInclude Include="include\Graphics\VertexBufferBinding.h" />
     <ClInclude Include="include\Graphics\VertexElement.h" />
     <ClInclude Include="include\Graphics\PresentationParameters.h" />
     <ClInclude Include="include\Graphics\PresentInterval.h" />
