@@ -15,7 +15,7 @@ namespace XNA
 	class VertexBuffer : public GraphicsResource
 	{
 	public:
-		//VertexBuffer(GraphicsDevice&, Type, i32, BufferUsage);	 //NYI until someone figured out a way to create a Type-esque class
+		//VertexBuffer(GraphicsDevice&, Type, i32, BufferUsage);	 //Tricky to implement without using a template
 		VertexBuffer(XNA::GraphicsDevice&, XNA::VertexDeclaration, i32, BufferUsage);
 
 		XNA::BufferUsage BufferUsage();

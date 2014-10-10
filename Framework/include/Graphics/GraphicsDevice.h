@@ -12,7 +12,9 @@
 #include "IndexBuffer.h"
 #include "../Nullable.h"
 #include "PresentationParameters.h"
-#include "RasterizerState.h"
+#include "RasterizerState.h"		
+#include "RenderTarget2D.h"
+#include "RenderTargetCube.h"
 #include "../Geometry/Rectangle.h"
 #include "SamplerStateCollection.h"
 #include "TextureCollection.h"
@@ -29,6 +31,11 @@ namespace XNA
 	class Vector4;
 	class VertexDeclaration;
 	class RenderTargetBinding;
+	class VertexBufferBinding;
+	class VertexBuffer;
+
+	template<typename T>
+	Nullable<T>;
 
 	class GraphicsDevice
 	{
@@ -111,7 +118,24 @@ namespace XNA
 
 		std::vector<RenderTargetBinding> GetRenderTargets();
 
+		std::vector<VertexBufferBinding> GetVertexBuffers();
 
+		void Present();
+		void Present(Nullable<Rectangle>, Nullable<Rectangle>, std::shared_ptr<int>);
+
+		void Reset();
+		void Reset(const XNA::PresentationParameters&);
+		void Reset(const XNA::PresentationParameters&, const GraphicsAdapter&);
+
+		void SetRenderTarget(RenderTarget2D);
+		void SetRenderTarget(RenderTargetCube, CubeMapFace);
+
+		void SetRenderTargets(std::vector<RenderTargetBinding>);
+
+		void SetVertexBuffer(VertexBuffer&);
+		void SetVertexBuffer(VertexBuffer&, i32);
+
+		void SetVertexBuffers(std::vector<VertexBuffer>);
 	};
 }
 #endif
