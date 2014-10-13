@@ -7,7 +7,6 @@
 
 namespace XNA
 {
-	#pragma deprecated(GameComponent)
 	class GameComponent
 	{
 	public:
@@ -24,15 +23,6 @@ namespace XNA
 	private:
 		const Game& game;
 	};
-
-	GameComponent::GameComponent(const Game& g)
-		: game(g)
-	{}
-
-	const Game& GameComponent::GetGame()
-	{
-		return game;
-	}
 }
 
 

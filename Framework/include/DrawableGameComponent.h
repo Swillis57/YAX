@@ -6,7 +6,6 @@
 
 namespace XNA
 {	
-	#pragma deprecated(DrawableGameComponent)
 	class DrawableGameComponent : public GameComponent
 	{
 	public:
@@ -23,15 +22,6 @@ namespace XNA
 		virtual void LoadContent();
 		virtual void UnloadContent();
 	};
-
-	DrawableGameComponent::DrawableGameComponent(Game& g)
-		: GameComponent(g)
-	{}
-
-	void DrawableGameComponent::Initialize()
-	{
-		//TODO: Add Game.Services registration
-	}
 }
 
 

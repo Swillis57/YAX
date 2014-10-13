@@ -10,7 +10,7 @@ namespace XNA
 	class Vector3;
 	class Vector4;
 
-	namespace __PackedVector
+	namespace PackedVector
 	{
 		struct IPackedVector
 		{
@@ -22,9 +22,9 @@ namespace XNA
 	}
 
 	template<typename DType>
-	struct IPackedVector : public __PackedVector::IPackedVector
+	struct IPackedVector : public PackedVector::IPackedVector
 	{
-		typedef __PackedVector::IPackedVector IBase;
+		typedef PackedVector::IPackedVector IBase;
 		virtual DType PackedValue() = 0;
 		virtual void PackedValue(DType) = 0;
 

@@ -18,7 +18,7 @@ namespace XNA
 	{
 	public:
 		Effect(const Effect&);
-		Effect(const XNA::GraphicsDevice&, std::vector<byte>);
+		Effect(XNA::GraphicsDevice&, std::vector<byte>);
 	
 		EffectTechnique CurrentTechnique();
 		void CurrentTechnique(const EffectTechnique&);
