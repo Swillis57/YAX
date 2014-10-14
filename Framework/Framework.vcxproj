@@ -111,6 +111,7 @@
     <ClInclude Include="include\Graphics\DirectionalLight.h" />
     <ClInclude Include="include\Graphics\DisplayMode.h" />
     <ClInclude Include="include\Graphics\DisplayModeCollection.h" />
+    <ClInclude Include="include\Graphics\DynamicIndexBuffer.h" />
     <ClInclude Include="include\Graphics\Effect.h" />
     <ClInclude Include="include\Graphics\EffectAnnotation.h" />
     <ClInclude Include="include\Graphics\EffectAnnotationCollection.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="include\Graphics\RenderTarget2D.h" />
     <ClInclude Include="include\Graphics\RenderTargetBinding.h" />
     <ClInclude Include="include\Graphics\RenderTargetCube.h" />
+    <ClInclude Include="include\Graphics\SetDataOptions.h" />
     <ClInclude Include="include\Graphics\SpriteEffects.h" />
     <ClInclude Include="include\Graphics\SpriteSortMode.h" />
     <ClInclude Include="include\Graphics\TextureCube.h" />
