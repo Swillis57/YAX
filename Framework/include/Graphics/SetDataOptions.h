@@ -5,7 +5,9 @@ namespace XNA
 {
 	enum SetDataOptions : short
 	{
-
+        Discard,
+        None,
+        NoOverwrite,
 	};
 }
 
