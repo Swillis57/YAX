@@ -1,6 +1,7 @@
 #ifndef _DYNAMIC_INDEX_BUFFER_H
 #define _DYNAMIC_INDEX_BUFFER_H
 
+#include <vector>
 #include "IndexBuffer.h"
 #include "../Utils.h"
 
@@ -8,6 +9,7 @@ namespace XNA
 {
 	enum BufferUsage : short;
 	enum IndexElementSize : int;
+    enum SetDataOptions : short;
 
 	class GraphicsDevice;
 
@@ -20,8 +22,10 @@ namespace XNA
 
 		//Only here for completeness' sake, OpenGL handles context resets in the driver
 		bool IsContentLost(); 
-
-
+    
+        void SetData<indexType>(i32, std::vector<indexType>, i32, i32, SetDataOptions) override;
+        void SetData<indexType>(std::vector<indexType>, i32, i32, SetDataOptions) override;
+        
 	};
 }
 
