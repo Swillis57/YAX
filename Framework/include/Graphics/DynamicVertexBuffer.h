@@ -2,24 +2,27 @@
 #define _DYNAMIC_VERTEX_BUFFER_H
 
 #include "VertexBuffer.h"
+#include "VertexDeclaration.h"
 
 namespace XNA
 {
-    enum SetDataOptions : short;
-    enum BufferUsage : short;
-    
-    class GraphicsDevice;
-    
-    template<typename vertType>
-    class DynamicVertexBuffer : public VertexBuffer
-    {
-    public:
-        DynamicVertexBuffer(GraphicsDevice&, VertexDeclaration, i32, BufferUsage);
-        DynamicVertexBuffer(GraphicsDevice&, VertexDeclaration, i32, BufferUsage);
+	enum SetDataOptions : short;
+	enum BufferUsage : short;
+	
+	class GraphicsDevice;
+	
+	template<typename vertType>
+	class DynamicVertexBuffer : public VertexBuffer
+	{
+	public:
+		DynamicVertexBuffer(GraphicsDevice&, VertexDeclaration, i32, BufferUsage);
+		//DynamicVertexBuffer(GraphicsDevice&, Type, i32, BufferUsage);
 
-        void SetData(i32, i32, std::vector<vertType>, i32, i32, i32, SetDataOptions);
-        void SetData(std::vector<vertType>, i32, i32, SetDataOptions);
-    }
+		bool IsContentLost();
+
+		void SetData(i32, i32, std::vector<vertType>, i32, i32, i32, SetDataOptions);
+		void SetData(std::vector<vertType>, i32, i32, SetDataOptions);
+	};
 }
 
 
