@@ -136,6 +136,10 @@
     <ClInclude Include="include\Graphics\IndexBuffer.h" />
     <ClInclude Include="include\Graphics\IndexElementSize.h" />
     <ClInclude Include="include\Graphics\IVertexType.h" />
+    <ClInclude Include="include\Graphics\Model.h" />
+    <ClInclude Include="include\Graphics\ModelBone.h" />
+    <ClInclude Include="include\Graphics\ModelMesh.h" />
+    <ClInclude Include="include\Graphics\ModelMeshPart.h" />
     <ClInclude Include="include\Graphics\PackedVector\Alpha8.h" />
     <ClInclude Include="include\Graphics\PackedVector\Bgr565.h" />
     <ClInclude Include="include\Graphics\PackedVector\Bgra4444.h" />

@@ -11,7 +11,6 @@ namespace XNA
 	enum IndexElementSize : int;
 	enum BufferUsage : short;
 
-	template<typename indexType>
 	class IndexBuffer : public GraphicsResource
 	{
 		IndexBuffer(XNA::GraphicsDevice&, XNA::IndexElementSize, i32, XNA::BufferUsage);
@@ -23,19 +22,29 @@ namespace XNA
 		i32 IndexCount();
 		XNA::IndexElementSize IndexElementSize();
 
-		void GetData(i32, std::vector<indexType>, i32, i32);
-		void GetData(std::vector<indexType>);
-		void GetData(std::vector<indexType>, i32, i32);
+		template<typename vertType>
+		void GetData(i32, std::vector<vertType>, i32, i32);
 
-		void SetData(i32, std::vector<indexType>, i32, i32);
-		void SetDate(std::vector<indexType>);
-		void SetData(std::vector<indexType>, i32, i32);
+		template<typename vertType>
+		void GetData(std::vector<vertType>);
+
+		template<typename vertType>
+		void GetData(std::vector<vertType>, i32, i32);
+
+		template<typename vertType>
+		void SetData(i32, std::vector<vertType>, i32, i32);
+
+		template<typename vertType>
+		void SetDate(std::vector<vertType>);
+
+		template<typename vertType>
+		void SetData(std::vector<vertType>, i32, i32);
 
 	private:
 		XNA::BufferUsage _bufUsage;
 		i32 _indCount;
 		XNA::IndexElementSize _elemSize;
-		std::vector<indexType> _indices;
+		std::vector<i32> _indices;
 	};
 }
 
