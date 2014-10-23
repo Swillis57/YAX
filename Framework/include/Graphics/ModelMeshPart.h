@@ -28,6 +28,13 @@ namespace XNA
 		XNA::VertexBuffer VertexBuffer();
 
 		i32 VertexOffset();
+
+	private:
+		XNA::Effect _effect;
+		XNA::IndexBuffer _idxBuf;
+		XNA::VertexBuffer _vertBuf;
+		i32 _numVerts, _primCount, _startIdx, _vertOffset;
+		void* _tag;
 	};
 }
 

@@ -429,6 +429,12 @@
     <ClInclude Include="include\Graphics\ModelMeshPart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Graphics\ModelEffectCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\ModelMeshPartCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
