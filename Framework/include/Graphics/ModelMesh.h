@@ -29,7 +29,8 @@ namespace XNA
 		void Draw();
 
 	private:
-
+		std::string _name;
+		ModelBone _parentBone;
 
 	};
 }
