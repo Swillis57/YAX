@@ -138,8 +138,10 @@
     <ClInclude Include="include\Graphics\IVertexType.h" />
     <ClInclude Include="include\Graphics\Model.h" />
     <ClInclude Include="include\Graphics\ModelBone.h" />
+    <ClInclude Include="include\Graphics\ModelBoneCollection.h" />
     <ClInclude Include="include\Graphics\ModelEffectCollection.h" />
     <ClInclude Include="include\Graphics\ModelMesh.h" />
+    <ClInclude Include="include\Graphics\ModelMeshCollection.h" />
     <ClInclude Include="include\Graphics\ModelMeshPart.h" />
     <ClInclude Include="include\Graphics\ModelMeshPartCollection.h" />
     <ClInclude Include="include\Graphics\PackedVector\Alpha8.h" />
