@@ -3,7 +3,7 @@
 
 #include "../Math/Vector3.h"
 #include "../Utils.h"
-#include "../Nullable.h"
+#include <memory>
 
 namespace XNA
 {
@@ -17,10 +17,10 @@ namespace XNA
 		Vector3 Direction, Position;
 
 		Ray(const Vector3&, const Vector3&);
-		Nullable<float> Intersects(const BoundingBox&);
-		Nullable<float> Intersects(const BoundingFrustum&);
-		Nullable<float> Intersects(const BoundingSphere&);
-		Nullable<float> Intersects(const Plane&);
+		std::unique_ptr<float> Intersects(const BoundingBox&);
+		std::unique_ptr<float> Intersects(const BoundingFrustum&);
+		std::unique_ptr<float> Intersects(const BoundingSphere&);
+		std::unique_ptr<float> Intersects(const Plane&);
 
 		bool operator==(const Ray&);
 		bool operator!=(const Ray&);

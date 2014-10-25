@@ -4,7 +4,7 @@
 #include <array>
 #include "../Math/Vector3.h"
 #include "../Utils.h"
-#include "../Nullable.h"
+#include <memory>
 
 namespace XNA
 {
@@ -37,7 +37,7 @@ namespace XNA
 		bool Intersects(const BoundingFrustum&);
 		bool Intersects(const BoundingSphere&);
 		PlaneIntersectionType Intersects(const Plane&);
-		Nullable<float> Intersects(const Ray&);
+		std::unique_ptr<float> Intersects(const Ray&);
 
 		bool operator=(const BoundingBox&);
 		bool operator!=(const BoundingBox&);

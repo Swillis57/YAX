@@ -3,7 +3,7 @@
 
 #include <vector>
 #include "Texture.h"
-#include "../Nullable.h"
+#include <memory>
 #include "../Utils.h"
 
 namespace XNA
@@ -23,14 +23,14 @@ namespace XNA
 		i32 Size();
 
 		template<typename T>
-		void GetData(CubeMapFace, i32, Nullable<Rectangle>, std::vector<T>, i32, i32);
+		void GetData(CubeMapFace, i32, std::unique_ptr<Rectangle>, std::vector<T>, i32, i32);
 		template<typename T>
 		void GetData(CubeMapFace, std::vector<T>);
 		template<typename T>
 		void GetData(CubeMapFace, std::vector<T>, i32, i32);
 
 		template<typename T>
-		void SetData(CubeMapFace, i32, Nullable<Rectangle>, std::vector<T>, i32, i32);
+		void SetData(CubeMapFace, i32, std::unique_ptr<Rectangle>, std::vector<T>, i32, i32);
 		template<typename T>
 		void SetData(CubeMapFace, std::vector<T>);
 		template<typename T>

@@ -11,9 +11,6 @@ namespace XNA
 {
 	class GraphicsDevice;
 	class Rectangle;
-	
-	template<typename T>
-	class Nullable;
 
 	enum SurfaceFormat : short;
 
@@ -32,7 +29,7 @@ namespace XNA
 		static Texture2D FromStream(XNA::GraphicsDevice&, const std::istream&, i32, i32, bool);
 
 		template<typename valType>
-		void GetData(i32, Nullable<Rectangle>, std::vector<valType>, i32, i32);
+		void GetData(i32, std::unique_ptr<Rectangle>, std::vector<valType>, i32, i32);
 		template<typename valType>
 		void GetData(std::vector<valType>);
 		template<typename valType>
@@ -42,7 +39,7 @@ namespace XNA
 		void SaveAsPng(std::istream&, i32, i32);
 
 		template<typename valType>
-		void SetData(i32, Nullable<Rectangle>, std::vector<valType>, i32, i32);
+		void SetData(i32, std::unique_ptr<Rectangle>, std::vector<valType>, i32, i32);
 		template<typename valType>
 		void SetData(std::vector<valType>);
 		template<typename valType>

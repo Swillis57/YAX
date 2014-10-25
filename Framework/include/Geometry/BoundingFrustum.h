@@ -3,8 +3,8 @@
 
 #include <array>
 #include "../Utils.h"
-#include "../Nullable.h"
-#include "Matrix.h"
+#include <memory>
+#include "../Math/Matrix.h"
 
 namespace XNA
 {
@@ -24,7 +24,8 @@ namespace XNA
 	
 		BoundingFrustum(const Matrix&);
 
-		XNA::Matrix Matrix;
+		XNA::Matrix Matrix();
+		void Matrix(XNA::Matrix);
 
 		Plane Bottom();
 		Plane Far();
@@ -44,13 +45,14 @@ namespace XNA
 		bool Intersects(const BoundingFrustum&);
 		bool Intersects(const BoundingSphere&);
 		PlaneIntersectionType Intersects(const Plane&);
-		Nullable<float> Intersects(const Ray&);
+		std::unique_ptr<float> Intersects(const Ray&);
 
 		bool operator==(const BoundingFrustum&);
 		bool operator!=(const BoundingFrustum&);
 
 	private:
 		std::array<Vector3, 8> _corners;
+		XNA::Matrix _matrix;
 	};
 }
 

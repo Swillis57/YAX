@@ -2,7 +2,7 @@
 #define _MATRIX_H
 
 #include <tuple>
-#include "../Nullable.h"
+#include <memory>
 
 namespace XNA
 {
@@ -49,8 +49,8 @@ namespace XNA
 		void Up(const Vector3&);
 
 
-		static Matrix CreateBillboard(const Vector3&, const Vector3&, const Vector3&, Nullable<Vector3>);
-		static Matrix CreateConstrainedBillboard(const Vector3&, const Vector3&, const Vector3&, Nullable<Vector3>, Nullable<Vector3>);
+		static Matrix CreateBillboard(const Vector3&, const Vector3&, const Vector3&, std::unique_ptr<Vector3>);
+		static Matrix CreateConstrainedBillboard(const Vector3&, const Vector3&, const Vector3&, std::unique_ptr<Vector3>, std::unique_ptr<Vector3>);
 		static Matrix CreateFromAxisAngle(const Vector3&, float);
 		static Matrix CreateFromQuaternion(const Quaternion&);
 		static Matrix CreateFromYawPitchRoll(float, float, float);

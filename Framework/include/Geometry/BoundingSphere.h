@@ -3,7 +3,7 @@
 
 #include "../Math/Vector3.h"
 #include "PlaneIntersectionType.h"
-#include "../Nullable.h"
+#include <memory>
 
 namespace XNA
 {
@@ -32,7 +32,7 @@ namespace XNA
 		bool Intersects(const BoundingFrustum&);
 		bool Intersects(const BoundingSphere&);
 		PlaneIntersectionType Intersects(const Plane&);
-		Nullable<float> Intersects(const Ray&);
+		std::unique_ptr<float> Intersects(const Ray&);
 
 		BoundingSphere Transform(const Matrix&);
 		

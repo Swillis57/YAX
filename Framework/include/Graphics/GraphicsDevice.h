@@ -10,7 +10,7 @@
 #include "DepthStencilState.h"
 #include "DisplayMode.h"
 #include "IndexBuffer.h"
-#include "../Nullable.h"
+#include <memory>
 #include "PresentationParameters.h"
 #include "RasterizerState.h"		
 #include "RenderTarget2D.h"
@@ -33,9 +33,6 @@ namespace XNA
 	class RenderTargetBinding;
 	class VertexBufferBinding;
 	class VertexBuffer;
-
-	template<typename T>
-	Nullable<T>;
 
 	class GraphicsDevice
 	{
@@ -110,7 +107,7 @@ namespace XNA
 		void DrawUserPrimitives(PrimitiveType, std::vector<T>, i32, i32, VertexDeclaration);
 
 		template<typename T>
-		void GetBackBufferData(Nullable<Rectangle>, std::vector<T>, i32, i32);
+		void GetBackBufferData(std::unique_ptr<Rectangle>, std::vector<T>, i32, i32);
 		template<typename T>
 		void GetBackBufferData(std::vector<T>);
 		template<typename T>
@@ -121,7 +118,7 @@ namespace XNA
 		std::vector<VertexBufferBinding> GetVertexBuffers();
 
 		void Present();
-		void Present(Nullable<Rectangle>, Nullable<Rectangle>, std::shared_ptr<int>);
+		void Present(std::unique_ptr<Rectangle>, std::unique_ptr<Rectangle>, std::shared_ptr<int>);
 
 		void Reset();
 		void Reset(const XNA::PresentationParameters&);

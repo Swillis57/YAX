@@ -19,7 +19,7 @@ namespace XNA
 		std::string Name();
 		//void* Tag();
 	
-	private:
+	protected:
 		XNA::GraphicsDevice& _device;
 		std::string _name;
 		//std::unique_ptr<void> _tag;
