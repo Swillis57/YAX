@@ -2,6 +2,7 @@
 #define _EFFECT_ANNOTATION_COLLECTION_H
 
 #include <vector>
+#include "EffectAnnotation.h"
 
 namespace XNA
 {

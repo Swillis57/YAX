@@ -76,6 +76,7 @@
     <ClInclude Include="include\Curves\CurveKey.h" />
     <ClInclude Include="include\Curves\CurveLoopType.h" />
     <ClInclude Include="include\Curves\CurveTangent.h" />
+    <ClInclude Include="include\GameWindow.h" />
     <ClInclude Include="include\Geometry\BoundingBox.h" />
     <ClInclude Include="include\Geometry\BoundingFrustum.h" />
     <ClInclude Include="include\Geometry\BoundingSphere.h" />
@@ -97,6 +98,8 @@
     <ClInclude Include="Framework\Math\Vector2.h" />
     <ClInclude Include="Framework\Math\Vector3.h" />
     <ClInclude Include="Framework\Math\Vector4.h" />
+    <ClInclude Include="include\GraphicsDeviceInformation.h" />
+    <ClInclude Include="include\GraphicsDeviceManager.h" />
     <ClInclude Include="include\Graphics\Blend.h" />
     <ClInclude Include="include\Graphics\BlendFunction.h" />
     <ClInclude Include="include\Graphics\BlendState.h" />
@@ -198,6 +201,7 @@
     <ClInclude Include="include\Graphics\VertexPositionNormalTexture.h" />
     <ClInclude Include="include\Graphics\VertexPositionTexture.h" />
     <ClInclude Include="include\Graphics\Viewport.h" />
+    <ClInclude Include="include\LaunchParameters.h" />
     <ClInclude Include="include\Math\MathHelper.h" />
     <ClInclude Include="include\Math\Matrix.h" />
     <ClInclude Include="include\Math\Quaternion.h" />
