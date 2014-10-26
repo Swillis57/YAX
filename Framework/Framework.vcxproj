@@ -201,6 +201,11 @@
     <ClInclude Include="include\Graphics\VertexPositionNormalTexture.h" />
     <ClInclude Include="include\Graphics\VertexPositionTexture.h" />
     <ClInclude Include="include\Graphics\Viewport.h" />
+    <ClInclude Include="include\Input\Buttons.h" />
+    <ClInclude Include="include\Input\ButtonState.h" />
+    <ClInclude Include="include\Input\GamePad.h" />
+    <ClInclude Include="include\Input\GamePadCapabilities.h" />
+    <ClInclude Include="include\Input\GamePadType.h" />
     <ClInclude Include="include\LaunchParameters.h" />
     <ClInclude Include="include\Math\MathHelper.h" />
     <ClInclude Include="include\Math\Matrix.h" />
@@ -216,6 +221,7 @@
     <ClInclude Include="include\IDrawable.h" />
     <ClInclude Include="include\IUpdateable.h" />
     <ClInclude Include="include\Nullable.h" />
+    <ClInclude Include="include\PlayerIndex.h" />
     <ClInclude Include="include\TimeSpan.h" />
     <ClInclude Include="include\Utils.h" />
     <ClInclude Include="Framework\TimeSpan.h" />
