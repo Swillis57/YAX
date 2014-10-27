@@ -3,13 +3,27 @@
 
 namespace XNA
 {
-    struct GamePadDPad
-    {
-    public:
-        GamePadDPad(ButtonState, ButtonState, ButtonState, ButtonState);
+	enum ButtonState : short;
 
-        
-    }
+	struct GamePadDPad
+	{
+	public:
+		GamePadDPad(ButtonState, ButtonState, ButtonState, ButtonState);
+
+		ButtonState Down();
+
+		ButtonState Left();
+
+		ButtonState Right();
+
+		ButtonState Up();
+
+		friend bool operator==(const GamePadDPad&, const GamePadDPad&);
+		friend bool operator!=(const GamePadDPad&, const GamePadDPad&);
+	
+	private:
+		ButtonState _buttons;
+	}
 }
 
 #endif
