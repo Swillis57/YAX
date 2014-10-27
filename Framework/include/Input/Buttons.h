@@ -31,6 +31,16 @@ namespace XNA
 		X,
 		Y
 	};
+
+	inline Buttons operator|(Buttons lhs, Buttons rhs)
+	{
+		return (Buttons)(static_cast<short>(lhs) | static_cast<short>(rhs));
+	}
+
+	inline Buttons& operator|=(Buttons& lhs, Buttons rhs)
+	{
+		lhs = lhs | rhs;
+	}
 }
 
 #endif

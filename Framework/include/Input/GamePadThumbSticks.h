@@ -12,12 +12,15 @@ namespace XNA
 		Vector2 Left();
 		Vector2 Right();
 
-	private:
+		friend bool operator==(const GamePadThumbSticks&, const GamePadThumbSticks&);
+		friend bool operator!=(const GamePadThumbSticks&, const GamePadThumbSticks&);
 
+	private:
+		Vector2 _left, _right;
 	};
 
-	bool operator==(const GamePadThumbSticks&, const GamePadThumbSticks&);
-	bool operator!=(const GamePadThumbSticks&, const GamePadThumbSticks&);
+	
+	
 }
 
 #endif

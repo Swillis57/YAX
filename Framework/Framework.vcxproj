@@ -204,7 +204,11 @@
     <ClInclude Include="include\Input\Buttons.h" />
     <ClInclude Include="include\Input\ButtonState.h" />
     <ClInclude Include="include\Input\GamePad.h" />
+    <ClInclude Include="include\Input\GamePadButtons.h" />
     <ClInclude Include="include\Input\GamePadCapabilities.h" />
+    <ClInclude Include="include\Input\GamePadState.h" />
+    <ClInclude Include="include\Input\GamePadThumbSticks.h" />
+    <ClInclude Include="include\Input\GamePadTriggers.h" />
     <ClInclude Include="include\Input\GamePadType.h" />
     <ClInclude Include="include\LaunchParameters.h" />
     <ClInclude Include="include\Math\MathHelper.h" />
