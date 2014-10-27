@@ -23,7 +23,7 @@ namespace XNA
 	
 	private:
 		ButtonState _buttons;
-	}
+	};
 }
 
 #endif
