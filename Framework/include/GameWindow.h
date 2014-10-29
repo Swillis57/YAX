@@ -2,14 +2,14 @@
 #define _GAME_WINDOW_H
 
 #include <string>
-#include "GLFW/glfw3.h"
+
+struct GLFWwindow;
 
 namespace XNA
 {
 	enum DisplayOrientation : short;
 
 	class Rectangle;
-
 
 	class GameWindow
 	{
