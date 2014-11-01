@@ -4,7 +4,7 @@
 
 namespace XNA
 {
-	enum ContainmentType : short
+	enum class ContainmentType
 	{
 		Contains,
 		Disjoint,

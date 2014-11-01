@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum GamePadType : short;
+	enum class GamePadType;
 
 	struct GamePadCapabilities
 	{

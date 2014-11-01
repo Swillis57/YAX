@@ -18,6 +18,9 @@ namespace XNA
 		static MouseState GetState();
 
 		static void SetPosition(i32, i32);
+
+	private:
+		GLFWwindow* _handle;
 	};
 }
 

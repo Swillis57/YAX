@@ -7,7 +7,7 @@
 
 namespace XNA
 {
-	enum CubeMapFace : short;
+	enum class CubeMapFace;
 
 	class RenderTargetCube;
 

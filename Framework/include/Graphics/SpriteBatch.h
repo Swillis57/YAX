@@ -5,8 +5,8 @@
 
 namespace XNA
 {
-	enum SpriteSortMode : short;
-	enum SpriteEffects : short;
+	enum class SpriteSortMode;
+	enum class SpriteEffects;
 
 	class BlendState;
 	class SamplerState;

@@ -7,9 +7,9 @@
 
 namespace XNA
 {
-	enum SurfaceFormat : short;
-	enum DepthFormat : short;
-	enum RenderTargetUsage : short;
+	enum class SurfaceFormat;
+	enum class DepthFormat;
+	enum class RenderTargetUsage;
 
 	class GraphicsDevice;
 

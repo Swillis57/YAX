@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum CubeMapFace : short
+	enum class CubeMapFace
 	{
 		NegativeX = GL_TEXTURE_CUBE_MAP_NEGATIVE_X,
 		NegativeY = GL_TEXTURE_CUBE_MAP_NEGATIVE_Y,

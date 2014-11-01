@@ -11,9 +11,9 @@ using std::string;
 
 namespace XNA
 {
-	enum SurfaceFormat : short;
-	enum DepthFormat : short;
-	enum GraphicsProfile : i32;
+	enum class SurfaceFormat;
+	enum class DepthFormat;
+	enum class GraphicsProfile;
 
 	class GraphicsAdapter
 	{

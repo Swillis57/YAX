@@ -7,7 +7,7 @@
 
 namespace XNA
 {
-	enum SurfaceFormat : short;
+	enum class SurfaceFormat;
 
 	class GraphicsDevice;
 

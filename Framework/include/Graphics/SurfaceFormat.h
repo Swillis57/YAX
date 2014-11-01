@@ -6,7 +6,7 @@
 
 namespace XNA
 {
-	enum SurfaceFormat : short
+	enum class SurfaceFormat
 	{
 		Color = GL_RGBA8UI,
 		Rgb565 = GL_RGB565,

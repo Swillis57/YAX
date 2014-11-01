@@ -6,7 +6,7 @@
 
 namespace XNA
 {
-	enum GraphicsProfile : i32
+	enum class GraphicsProfile
 	{			 
 		HiDef = GLFW_OPENGL_API,
 		Reach = GLFW_OPENGL_ES_API

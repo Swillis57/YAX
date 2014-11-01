@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum CompareFunction : short
+	enum class CompareFunction
 	{
 		Always = GL_ALWAYS,
 		Equal = GL_EQUAL,

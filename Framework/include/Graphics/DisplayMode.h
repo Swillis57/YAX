@@ -6,7 +6,7 @@
 
 namespace XNA
 {
-	enum SurfaceFormat : short;
+	enum class SurfaceFormat;
 
 	class DisplayMode
 	{
@@ -19,17 +19,13 @@ namespace XNA
 
 		DisplayMode(SurfaceFormat, Rectangle, i32, i32);
 	private:
-		float aspectRatio;
-		SurfaceFormat format;
-		i32 height;
-		Rectangle titleSafeArea;
-		i32 width;
+		float _aspectRatio;
+		SurfaceFormat _format;
+		i32 _height;
+		Rectangle _titleSafeArea;
+		i32 _width;
 
 	};
-
-	DisplayMode::DisplayMode(SurfaceFormat sf, Rectangle rect, i32 h, i32 w)
-		: format(sf), titleSafeArea(rect), height(h), width(w), aspectRatio((float)h / w)
-	{}
 }
 
 #endif

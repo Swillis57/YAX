@@ -3,7 +3,7 @@
 
 namespace XNA
 {
-	enum Buttons : short;
+	enum class Buttons;
 
 	class GamePadButtons
 	{

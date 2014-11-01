@@ -3,7 +3,7 @@
 
 namespace XNA
 {
-	enum CurveContinuity : short
+	enum class CurveContinuity
 	{
 		Smooth,
 		Step

@@ -3,7 +3,7 @@
 
 namespace XNA
 {
-	enum PlayerIndex : short;
+	enum class PlayerIndex;
 
 	class GamePadCapabilities;
 

@@ -7,9 +7,9 @@
 
 namespace XNA
 {
-	enum BufferUsage : short;
-	enum IndexElementSize : int;
-	enum SetDataOptions : short;
+	enum class BufferUsage;
+	enum class IndexElementSize;
+	enum class SetDataOptions;
 
 	class GraphicsDevice;
 

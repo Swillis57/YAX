@@ -3,7 +3,7 @@
 
 namespace XNA
 {
-	enum PlaneIntersectionType : short
+	enum class PlaneIntersectionType
 	{
 		Back,
 		Front,

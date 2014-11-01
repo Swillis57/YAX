@@ -3,7 +3,7 @@
 
 namespace XNA
 {
-	enum ButtonState : short
+	enum class ButtonState
 	{
 		Released = 0,
 		Pressed = 1,

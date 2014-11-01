@@ -8,8 +8,8 @@
 
 namespace XNA
 {
-	enum CubeMapFace : short;
-	enum SurfaceFormat : short;
+	enum class CubeMapFace;
+	enum class SurfaceFormat;
 
 	class GraphicsDevice;
 	class Rectangle;

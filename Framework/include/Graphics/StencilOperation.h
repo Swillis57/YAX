@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum StencilOperation : short
+	enum class StencilOperation
 	{
 		Decrement = GL_DECR_WRAP,
 		DecrementSaturation = GL_DECR,

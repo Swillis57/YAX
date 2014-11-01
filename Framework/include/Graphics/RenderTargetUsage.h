@@ -4,7 +4,7 @@
 
 namespace XNA
 {
-	enum RenderTargetUsage : short
+	enum class RenderTargetUsage
 	{
 		DiscardContents,
 		PreserveContents,

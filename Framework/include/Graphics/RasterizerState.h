@@ -5,8 +5,8 @@
 
 namespace XNA
 {
-	enum CullMode : short;
-	enum FillMode : short;
+	enum class CullMode;
+	enum class FillMode;
 
 	struct RasterizerState : public GraphicsResource
 	{

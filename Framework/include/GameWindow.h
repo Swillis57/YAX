@@ -7,7 +7,7 @@ struct GLFWwindow;
 
 namespace XNA
 {
-	enum DisplayOrientation : short;
+	enum class DisplayOrientation;
 
 	class Rectangle;
 

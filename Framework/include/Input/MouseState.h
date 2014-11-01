@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum ButtonState : short;
+	enum class ButtonState;
 
 	struct MouseState
 	{

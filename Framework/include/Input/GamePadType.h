@@ -3,7 +3,7 @@
 
 namespace XNA
 {
-	enum GamePadType : short
+	enum class GamePadType
 	{
 		AlternateGuitar,
 		ArcadeStick,

@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum IndexElementSize : int
+	enum class IndexElementSize
 	{
 		EightBits = sizeof(GLubyte),
 		SixteenBits = sizeof(GLushort),

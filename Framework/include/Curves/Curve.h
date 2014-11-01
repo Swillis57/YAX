@@ -7,8 +7,8 @@
 namespace XNA
 {
 	class CurveKey;
-	enum CurveLoopType : short;
-	enum CurveTangent : short;
+	enum class CurveLoopType;
+	enum class CurveTangent;
 
 
 	typedef std::vector<CurveKey> CurveKeyCollection;

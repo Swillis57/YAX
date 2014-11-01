@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum PrimitiveType : short
+	enum class PrimitiveType
 	{
 		TriangleList = GL_TRIANGLES,
 		TriangleStrip = GL_TRIANGLE_STRIP,

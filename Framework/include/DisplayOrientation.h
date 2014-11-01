@@ -3,7 +3,7 @@
 
 namespace XNA
 {
-	enum DisplayOrientation : short
+	enum class DisplayOrientation
 	{
 		Default,
 		LandscapeLeft,

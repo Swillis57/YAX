@@ -6,7 +6,7 @@
 
 namespace XNA
 {
-	typedef LaunchParameters std::map<std::string, std::string>;
+	typedef std::map<std::string, std::string> LaunchParameters;
 }
 
 #endif

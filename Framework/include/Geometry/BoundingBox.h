@@ -12,8 +12,8 @@ namespace XNA
 	struct BoundingSphere;
 	struct BoundingFrustum;
 	struct Ray;
-	enum ContainmentType : short;
-	enum PlaneIntersectionType : short;
+	enum class ContainmentType;
+	enum class PlaneIntersectionType;
 
 	struct BoundingBox
 	{

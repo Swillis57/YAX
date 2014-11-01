@@ -4,7 +4,7 @@
 
 namespace XNA
 {
-	enum CurveContinuity : short;
+	enum class CurveContinuity;
 
 	class CurveKey
 	{

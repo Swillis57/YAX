@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum TextureAddressMode : short
+	enum class TextureAddressMode
 	{
 		Clamp = GL_CLAMP_TO_EDGE,
 		Mirror = GL_MIRRORED_REPEAT,

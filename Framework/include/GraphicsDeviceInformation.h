@@ -7,7 +7,7 @@
 
 namespace XNA
 {
-	enum GraphicsProfile : i32;
+	enum class GraphicsProfile;
 
 	class GraphicsDeviceInformation
 	{

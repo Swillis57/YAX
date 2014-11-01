@@ -3,7 +3,7 @@
 
 namespace XNA
 {
-	enum SetDataOptions : short
+	enum class SetDataOptions
 	{
 		Discard,
 		None,

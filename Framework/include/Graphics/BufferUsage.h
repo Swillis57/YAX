@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum BufferUsage : short
+	enum class BufferUsage
 	{
 		StaticDraw = GL_STATIC_DRAW,
 		StaticRead = GL_STATIC_READ,

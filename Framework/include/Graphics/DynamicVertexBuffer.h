@@ -6,8 +6,8 @@
 
 namespace XNA
 {
-	enum SetDataOptions : short;
-	enum BufferUsage : short;
+	enum class SetDataOptions;
+	enum class BufferUsage;
 	
 	class GraphicsDevice;
 	
