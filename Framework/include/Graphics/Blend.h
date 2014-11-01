@@ -1,7 +1,7 @@
 #ifndef _BLEND_H
 #define _BLEND_H
 
-#include "../GL/glew.h"
+#include "../GLEW/glew.h"
 
 namespace XNA
 {

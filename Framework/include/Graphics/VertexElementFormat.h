@@ -3,7 +3,7 @@
 
 
 #include <tuple>
-#include "../GL/glew.h"
+#include "../GLEW/glew.h"
 
 namespace XNA
 {

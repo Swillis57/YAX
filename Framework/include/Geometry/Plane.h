@@ -9,9 +9,9 @@ namespace XNA
 	struct Vector4;
 	struct BoundingBox;
 	struct BoundingSphere;
-	struct BoundingFrustum;
+	class BoundingFrustum;
 
-    enum PlaneIntersectionType;
+	enum PlaneIntersectionType;
 
 	struct Plane
 	{

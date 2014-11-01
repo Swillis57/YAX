@@ -9,20 +9,30 @@ namespace XNA
 	class CurveKey
 	{
 	public:
-		CurveContinuity Continuity;
-		float TangentIn, TangentOut, Value;
-
 		CurveKey(float, float);
 		CurveKey(float, float, float, float);
 		CurveKey(float, float, float, float, CurveContinuity);
 
-		float Position();
+		float Position() const;
 
-		bool operator==(const CurveKey&);
-		bool operator!=(const CurveKey&);
+		float TangentIn() const;
+		void TangentIn(float);
+
+		float TangentOut() const;
+		void TangentOut(float);
+
+		float Value() const;
+		void Value(float);
+
+		CurveContinuity Continuity() const;
+		void Continuity(CurveContinuity);
+
+		friend bool operator==(const CurveKey&, const CurveKey&);
+		friend bool operator!=(const CurveKey&, const CurveKey&);
 
 	private:
-		float _pos;
+		float _pos, _tanIn, _tanOut, _val;
+		CurveContinuity _continuity;
 	};
 }
 

@@ -1,7 +1,7 @@
 #ifndef _BUFFER_USAGE_H
 #define _BUFFER_USAGE_H
 
-#include "../GL/glew.h"
+#include "../GLEW/glew.h"
 
 namespace XNA
 {

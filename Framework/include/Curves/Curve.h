@@ -1,27 +1,23 @@
 #ifndef _CURVE_H
 #define _CURVE_H
 
-#include <vector>
+#include "CurveKeyCollection.h"
 #include "../Utils.h"
 
 namespace XNA
 {
-	class CurveKey;
 	enum class CurveLoopType;
 	enum class CurveTangent;
-
-
-	typedef std::vector<CurveKey> CurveKeyCollection;
 
 	class Curve
 	{
 	public:
 		Curve();
 
-		bool IsConstant();
-		CurveKeyCollection Keys();
-		CurveLoopType PostLoop();
-		CurveLoopType PreLoop();
+		bool IsConstant() const;
+		CurveKeyCollection Keys() const;
+		CurveLoopType PostLoop() const;
+		CurveLoopType PreLoop() const;
 
 		void ComputeTangent(i32, CurveTangent);
 		void ComputeTangent(i32, CurveTangent, CurveTangent);
@@ -29,13 +25,12 @@ namespace XNA
 		void ComputeTangents(CurveTangent);
 		void ComputeTangents(CurveTangent, CurveTangent);
 
-		float Evaluate(float);
+		float Evaluate(float) const;
 
 	private:
 		bool _isConst;
 		CurveKeyCollection _keys;
-		CurveLoopType _postLoop;
-		CurveLoopType _preLoop;
+		CurveLoopType _postLoop, _preLoop;
 
 	};
 }

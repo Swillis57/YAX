@@ -1,7 +1,7 @@
 #ifndef _STENCIL_OPERATION_H
 #define _STENCIL_OPERATION_H
 
-#include "../GL/glew.h"
+#include "../GLEW/glew.h"
 
 namespace XNA
 {

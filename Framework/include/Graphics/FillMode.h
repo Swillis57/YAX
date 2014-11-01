@@ -1,7 +1,7 @@
 #ifndef _FILL_MODE_H
 #define _FILL_MODE_H
 
-#include "../GL/glew.h"
+#include "../GLEW/glew.h"
 
 namespace XNA
 {

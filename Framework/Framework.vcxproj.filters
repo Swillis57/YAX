@@ -42,15 +42,6 @@
     <ClInclude Include="Framework\Utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\GL\glew.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GL\glxew.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GL\wglew.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\GLFW\glfw3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -517,6 +508,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Input\KeyState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GLEW\glew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GLEW\glxew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GLEW\wglew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Curves\CurveKeyCollection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

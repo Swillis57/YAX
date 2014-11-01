@@ -1,7 +1,7 @@
 #ifndef _TEXTURE_FILTER_H
 #define _TEXTURE_FILTER_H
 
-#include "../GL/glew.h"
+#include "../GLEW/glew.h"
 
 namespace XNA
 {

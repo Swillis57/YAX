@@ -1,7 +1,7 @@
 #ifndef _VERTEX_ELEMENT_USAGE_H
 #define _VERTEX_ELEMENT_USAGE_H
 
-#include "../gl/glew.h"
+#include "../GLEW/glew.h"
 
 namespace XNA
 {

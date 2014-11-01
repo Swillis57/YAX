@@ -74,6 +74,7 @@
     <ClInclude Include="include\Curves\Curve.h" />
     <ClInclude Include="include\Curves\CurveContinuity.h" />
     <ClInclude Include="include\Curves\CurveKey.h" />
+    <ClInclude Include="include\Curves\CurveKeyCollection.h" />
     <ClInclude Include="include\Curves\CurveLoopType.h" />
     <ClInclude Include="include\Curves\CurveTangent.h" />
     <ClInclude Include="include\GameWindow.h" />
@@ -88,9 +89,9 @@
     <ClInclude Include="include\Geometry\Rectangle.h" />
     <ClInclude Include="include\GLFW\glfw3.h" />
     <ClInclude Include="include\GLFW\glfw3native.h" />
-    <ClInclude Include="include\GL\glew.h" />
-    <ClInclude Include="include\GL\glxew.h" />
-    <ClInclude Include="include\GL\wglew.h" />
+    <ClInclude Include="include\GLEW\glew.h" />
+    <ClInclude Include="include\GLEW\glxew.h" />
+    <ClInclude Include="include\GLEW\wglew.h" />
     <ClInclude Include="Framework\IUpdateable.h" />
     <ClInclude Include="Framework\Math\MathHelper.h" />
     <ClInclude Include="Framework\Math\Matrix.h" />

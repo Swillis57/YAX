@@ -1,7 +1,7 @@
 #ifndef _CUBE_MAP_FACE_H
 #define _CUBE_MAP_FACE_H
 
-#include "../GL/glew.h"
+#include "../GLEW/glew.h"
 
 namespace XNA
 {

@@ -1,7 +1,7 @@
 #ifndef _SURFACEFORMAT_H
 #define _SURFACEFORMAT_H
 
-#include "../GL/glew.h"
+#include "../GLEW/glew.h"
 
 
 namespace XNA

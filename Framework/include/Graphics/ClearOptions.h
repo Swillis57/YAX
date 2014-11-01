@@ -1,7 +1,7 @@
 #ifndef _CLEAR_OPTIONS_H
 #define _CLEAR_OPTIONS_H
 
-#include "../GL/glew.h"
+#include "../GLEW/glew.h"
 
 namespace XNA
 {
