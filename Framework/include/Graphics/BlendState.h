@@ -14,42 +14,41 @@ namespace XNA
 	{
 	public:
 		BlendState();
-		~BlendState();
 		
-		BlendFunction AlphaBlendFunction();
+		BlendFunction AlphaBlendFunction() const;
 		void AlphaBlendFunction(BlendFunction);
 
-		Blend AlphaDestinationBlend();
+		Blend AlphaDestinationBlend() const;
 		void AlphaDestinationBlend(Blend);
 
-		Blend AlphaSourceBlend();
+		Blend AlphaSourceBlend() const;
 		void AlphaSourceBlend(Blend);
 
-		Color BlendFactor();
+		Color BlendFactor() const;
 		void BlendFactor(const Color&);
 
-		BlendFunction ColorBlendFunction();
+		BlendFunction ColorBlendFunction() const;
 		void ColorBlendFunction(BlendFunction);
 
-		Blend ColorDestinationBlend();
+		Blend ColorDestinationBlend() const;
 		void ColorDestinationBlend(Blend);
 
-		Blend ColorSourceBlend();
+		Blend ColorSourceBlend() const;
 		void ColorSourceBlend(Blend);
 
-		XNA::ColorWriteChannels ColorWriteChannels0();
+		XNA::ColorWriteChannels ColorWriteChannels0() const;
 		void ColorWriteChannels0(XNA::ColorWriteChannels); 
 
-		XNA::ColorWriteChannels ColorWriteChannels1();
+		XNA::ColorWriteChannels ColorWriteChannels1() const;
 		void ColorWriteChannels1(XNA::ColorWriteChannels);
 
-		XNA::ColorWriteChannels ColorWriteChannels2();
+		XNA::ColorWriteChannels ColorWriteChannels2() const;
 		void ColorWriteChannels2(XNA::ColorWriteChannels);
 
-		XNA::ColorWriteChannels ColorWriteChannels3();
+		XNA::ColorWriteChannels ColorWriteChannels3() const;
 		void ColorWriteChannels3(XNA::ColorWriteChannels);
 
-		i32 MultiSampleMask();
+		i32 MultiSampleMask() const;
 		void MultiSampleMask(i32);
 
 		static const BlendState Additive;
@@ -58,17 +57,10 @@ namespace XNA
 		static const BlendState Opaque;
 
 	private:
-		BlendFunction _alphaBlendFunc;
-		Blend _alphaDestBlend;
-		Blend _alphaSrcBlend;
+		BlendFunction _alphaBlendFunc, _colorBlendFunc;
+		Blend _alphaDestBlend, _alphaSrcBlend, _colorDestBlend, _colorSrcBlend;
 		Color _blendFactor;
-		BlendFunction _colorBlendFunc;
-		Blend _colorDestBlend;
-		Blend _colorSrcBlend;
-		XNA::ColorWriteChannels _crc0;
-		XNA::ColorWriteChannels _crc1;
-		XNA::ColorWriteChannels _crc2;
-		XNA::ColorWriteChannels _crc3;
+		XNA::ColorWriteChannels _cwc0, _cwc1, _cwc2, _cwc3;
 		i32 _multiSampleMask;
 
 	};

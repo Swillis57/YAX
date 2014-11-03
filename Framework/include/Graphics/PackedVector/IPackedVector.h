@@ -1,6 +1,8 @@
 #ifndef _IPACKEDVECTOR_H
 #define _IPACKEDVECTOR_H
 
+#include "../../Utils.h"
+
 namespace XNA
 {
 	typedef char byte;
@@ -14,7 +16,7 @@ namespace XNA
 		{
 			virtual ~IPackedVector() {}
 			virtual void PackFromVector4(const Vector4&) = 0;
-			virtual Vector4 ToVector4() = 0;
+			virtual Vector4 ToVector4() const = 0;
 		};
 
 	}
@@ -24,7 +26,7 @@ namespace XNA
 	{
 		typedef PackedVector::IPackedVector IBase;
 
-		virtual DType PackedValue() = 0;
+		virtual DType PackedValue() const = 0;
 		virtual void PackedValue(DType) = 0;
 
 		IPackedVector()

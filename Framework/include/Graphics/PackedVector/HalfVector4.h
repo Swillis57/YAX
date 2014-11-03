@@ -9,12 +9,11 @@ namespace XNA
 	{
 		HalfVector4(float, float, float, float);
 		HalfVector4(const Vector4&);
-		~HalfVector4();
 
-		ui64 PackedValue() override;
+		ui64 PackedValue() const override;
 		void PackedValue(ui64) override;
 
-		Vector4 ToVector4() override;
+		Vector4 ToVector4() const override;
 		void PackFromVector4(const Vector4&) override;
 
 		friend bool operator==(const HalfVector4&, const HalfVector4&);

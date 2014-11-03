@@ -1,8 +1,8 @@
 #ifndef _DISPLAY_MODE_H
 #define _DISPLAY_MODE_H
 
-#include "../Utils.h"
 #include "../Geometry/Rectangle.h"
+#include "../Utils.h"
 
 namespace XNA
 {
@@ -11,19 +11,22 @@ namespace XNA
 	class DisplayMode
 	{
 	public:
-		float AspectRatio();
-		SurfaceFormat Format();
-		i32 Height();
-		Rectangle* const TitleSafeArea();
-		i32 Width();
+		DisplayMode(SurfaceFormat, Rectangle);
 
-		DisplayMode(SurfaceFormat, Rectangle, i32, i32);
+		float AspectRatio() const;
+
+		SurfaceFormat Format() const;
+
+		i32 Height() const;
+
+		Rectangle TitleSafeArea() const;
+
+		i32 Width() const;
+
 	private:
 		float _aspectRatio;
 		SurfaceFormat _format;
-		i32 _height;
-		Rectangle _titleSafeArea;
-		i32 _width;
+		Rectangle _area;
 
 	};
 }

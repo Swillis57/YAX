@@ -9,12 +9,11 @@ namespace XNA
 	{
 		Bgra5551(float, float, float, float);
 		Bgra5551(const Vector4&);
-		~Bgra5551();
 
-		ui16 PackedValue() override;
+		ui16 PackedValue() const override;
 		void PackedValue(ui16) override;
 
-		Vector4 ToVector4() override;
+		Vector4 ToVector4() const override;
 		void PackFromVector4(const Vector4&) override;
 
 		friend bool operator==(const Bgra5551&, const Bgra5551&);

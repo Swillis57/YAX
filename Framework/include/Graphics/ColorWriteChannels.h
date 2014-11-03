@@ -3,7 +3,7 @@
 
 namespace XNA
 {
-    enum class ColorWriteChannels
+	enum class ColorWriteChannels
 	{
 		All,
 		Alpha,

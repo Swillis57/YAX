@@ -22,14 +22,14 @@ namespace XNA
 		byte A();
 		void A(byte);
 		void PackedValue(ui32) override;
-		ui32 PackedValue() override;
+		ui32 PackedValue() const override;
 
 		static Color FromNonPremultiplied(i32, i32, i32, i32);
 		static Color FromNonPremultiplied(const Vector4&);
 		static Color Lerp(const Color&, const Color&, float);
 
-		Vector3 ToVector3();
-		Vector4 ToVector4() override;
+		Vector3 ToVector3() const;
+		Vector4 ToVector4() const override;
 		void PackFromVector4(const Vector4&) override;
 	
 		friend Color operator*(const Color&, float);

@@ -8,14 +8,13 @@ namespace XNA
 	struct HalfSingle : IPackedVector<ui16>
 	{
 		HalfSingle(float);
-		~HalfSingle();
 
-		ui16 PackedValue() override;
+		ui16 PackedValue() const override;
 		void PackedValue(ui16) override;
 
-		float ToSingle();
+		float ToSingle() const;
 		void PackFromVector4(const Vector4&) override;
-		Vector4 ToVector4() override;
+		Vector4 ToVector4() const override;
 
 		friend bool operator==(const HalfSingle&, const HalfSingle&);
 		friend bool operator!=(const HalfSingle&, const HalfSingle&);

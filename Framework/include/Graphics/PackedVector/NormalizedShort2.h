@@ -9,13 +9,12 @@ namespace XNA
 	{
 		NormalizedShort2(float, float);
 		NormalizedShort2(const Vector2&);
-		~NormalizedShort2();
 
-		ui32 PackedValue() override;
+		ui32 PackedValue() const override;
 		void PackedValue(ui32) override;
 
-		Vector2 ToVector2();
-		Vector4 ToVector4() override;
+		Vector2 ToVector2() const;
+		Vector4 ToVector4() const override;
 		void PackFromVector4(const Vector4&) override;
 
 		friend bool operator==(const NormalizedShort2&, const NormalizedShort2&);
