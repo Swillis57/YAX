@@ -20,8 +20,6 @@ namespace XNA
 		BoundingSphere(const Vector3&, float);
 		BoundingSphere(const BoundingSphere&) = default;
 		BoundingSphere& operator=(const BoundingSphere&) = default;
-		BoundingSphere(BoundingSphere&&);
-		BoundingSphere& operator=(const BoundingSphere&);
 
 		Vector3 Center() const;
 		void Center(const Vector3&);

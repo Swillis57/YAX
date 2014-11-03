@@ -1,26 +1,45 @@
+#include <numeric>
 #include "../../include/Geometry/Point.h"
 
 namespace XNA
 {
+	Point Point::Zero()
+	{
+		return Point(0, 0);
+	}
+
 	Point::Point(i32 x, i32 y)
 		: _x(x), _y(y)
 	{}
 
-
-
-	bool Point::operator==(const Point& p)
+	i32 Point::X() const
 	{
-		return (_x == p.X() && _y == p.Y());
+		return _x;
 	}
 
-	bool Point::operator!=(const Point& p)
+	void Point::X(i32 x)
 	{
-		return !(*this == p);
+		_x = x;
+	}
+
+	i32 Point::Y() const
+	{
+		return _y;
+	}
+
+	void Point::Y(i32 y)
+	{
+		_y = y;
 	}
 
 
-	std::ostream& operator<<(std::ostream& out, const Point& p)
+	bool operator==(const Point& lhs, const Point& rhs)
 	{
-		return (out << "(" << p.X << ", " << p.Y << ")");
+		return (lhs._x == rhs._x && lhs._y == rhs._y);
+	}
+
+	bool operator!=(const Point& lhs, const Point& rhs)
+	{
+		return !(lhs == rhs);
 	}
 }

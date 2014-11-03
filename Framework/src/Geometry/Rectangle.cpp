@@ -11,6 +11,46 @@ namespace XNA
 		: _x(x), _y(y), _height(h), _width(w)
 	{}
 
+	i32 Rectangle::X() const
+	{
+		return _x;
+	}
+
+	void Rectangle::X(i32 x)
+	{
+		_x = x;
+	}
+
+	i32 Rectangle::Y() const
+	{
+		return _y;
+	}
+
+	void Rectangle::Y(i32 y)
+	{
+		_y = y;
+	}
+
+	i32 Rectangle::Height() const
+	{
+		return _height;
+	}
+
+	void Rectangle::Height(i32 h)
+	{
+		_height = h;
+	}
+
+	i32 Rectangle::Width() const
+	{
+		return _width;
+	}
+
+	void Rectangle::Width(i32 w)
+	{
+		_width = w;
+	}
+
 	i32 Rectangle::Bottom() const
 	{
 		return (_y + _height);
@@ -125,21 +165,16 @@ namespace XNA
 		return Union(Union(r1, r2), r3);
 	}
 
-	bool Rectangle::operator==(const Rectangle& r)
+	bool operator==(const Rectangle& lhs, const Rectangle& rhs)
 	{
-		return (this->X == r.X
-			&& this->Y == r.Y
-			&& this->Height == r.Height()
-			&& this->Width == r.Width());
+		return (lhs._x == rhs._x
+			&& lhs._y == rhs._y
+			&& lhs._height == rhs._height
+			&& lhs._width == rhs._width);
 	}
 
-	bool Rectangle::operator!=(const Rectangle& r)
+	bool operator!=(const Rectangle& lhs, const Rectangle& rhs)
 	{
-		return !(*this == r);
-	}
-
-	std::ostream& operator<<(std::ostream& out, const Rectangle& r)
-	{
-		return (out << "X:" << r.X << "  _y:" << r.Y << "  _height:" << r.Height() << "  _width:" << r.Width());
+		return !(lhs == rhs);
 	}
 }

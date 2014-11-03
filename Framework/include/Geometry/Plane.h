@@ -11,31 +11,40 @@ namespace XNA
 	struct BoundingSphere;
 	class BoundingFrustum;
 
-	enum PlaneIntersectionType;
+	enum class PlaneIntersectionType;
 
 	struct Plane
 	{
-		float D;
-		Vector3 Normal;
-
 		Plane(float, float, float, float);
 		Plane(const Vector3&, float);
 		Plane(const Vector3&, const Vector3&, const Vector3&);
 		Plane(const Vector4&);
+		Plane(const Plane&) = default;
+		Plane& operator=(const Plane&) = default;
+												      
+		float D() const;
+		void D(float);
 
-		float Dot(const Vector4&);
-		float DotCoordinate(const Vector3&);
-		float DotNormal(const Vector3&);
+		Vector3 Normal() const;
+		void Normal(Vector3);
+
+		float Dot(const Vector4&) const;
+		float DotCoordinate(const Vector3&) const;
+		float DotNormal(const Vector3&) const;
 		
-		PlaneIntersectionType Intersects(const BoundingBox&);
-		PlaneIntersectionType Intersects(const BoundingSphere&);
-		PlaneIntersectionType Intersects(const BoundingFrustum&);
+		PlaneIntersectionType Intersects(const BoundingBox&) const;
+		PlaneIntersectionType Intersects(const BoundingSphere&) const;
+		PlaneIntersectionType Intersects(const BoundingFrustum&) const;
 
 		static Plane Transform(const Plane&, const Matrix&);
 		static Plane Transform(const Plane&, const Quaternion&);
 
-		bool operator=(const Plane&);
-		bool operator!=(const Plane&);
+		friend bool operator==(const Plane&, const Plane&);
+		friend bool operator!=(const Plane&, const Plane&);
+
+	private:
+		float _dist;
+		Vector3 _norm;
 	};
 }
 

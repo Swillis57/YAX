@@ -25,11 +25,9 @@ namespace XNA
 		BoundingFrustum(const XNA::Matrix&);
 		BoundingFrustum(const BoundingFrustum&) = default;
 		BoundingFrustum& operator=(const BoundingFrustum&) = default;
-		BoundingFrustum(BoundingFrustum&&);
-		BoundingFrustum& operator=(BoundingFrustum&&);
 
 
-		XNA::Matrix Matrix()  const;
+		XNA::Matrix Matrix() const;
 		void Matrix(XNA::Matrix);
 
 		Plane Bottom() const;
@@ -44,7 +42,7 @@ namespace XNA
 		ContainmentType Contains(const BoundingSphere&) const;
 		ContainmentType Contains(const Vector3&) const;
 
-		const std::array<Vector3, 8>& GetCorners() const;
+		std::array<Vector3, 8> GetCorners() const;
 
 		bool Intersects(const BoundingBox&) const;
 		bool Intersects(const BoundingFrustum&) const;
@@ -56,7 +54,6 @@ namespace XNA
 		friend bool operator!=(const BoundingFrustum&, const BoundingFrustum&);
 
 	private:
-		std::array<Vector3, 8> _corners;
 		XNA::Matrix _matrix;
 	};
 }

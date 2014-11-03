@@ -2,7 +2,6 @@
 #define _RAY_H
 
 #include "../Math/Vector3.h"
-#include "../Utils.h"
 #include <memory>
 
 namespace XNA
@@ -14,17 +13,24 @@ namespace XNA
 
 	struct Ray
 	{
-		Vector3 Direction, Position;
-
 		Ray(const Vector3&, const Vector3&);
+	
+		Vector3 Direction();
+		void Direction(const Vector3&);
+
+		Vector3 Position();
+		void Position(const Vector3&);
+
 		std::unique_ptr<float> Intersects(const BoundingBox&);
 		std::unique_ptr<float> Intersects(const BoundingFrustum&);
 		std::unique_ptr<float> Intersects(const BoundingSphere&);
 		std::unique_ptr<float> Intersects(const Plane&);
 
-		bool operator==(const Ray&);
-		bool operator!=(const Ray&);
+		friend bool operator==(const Ray&, const Ray&);
+		friend bool operator!=(const Ray&, const Ray&);
 
+	private:
+		Vector3 _dir, _pos;
 	};
 }
 

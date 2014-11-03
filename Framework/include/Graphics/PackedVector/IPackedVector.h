@@ -1,8 +1,6 @@
 #ifndef _IPACKEDVECTOR_H
 #define _IPACKEDVECTOR_H
 
-#include "../../Utils.h"
-
 namespace XNA
 {
 	typedef char byte;
@@ -25,6 +23,7 @@ namespace XNA
 	struct IPackedVector : public PackedVector::IPackedVector
 	{
 		typedef PackedVector::IPackedVector IBase;
+
 		virtual DType PackedValue() = 0;
 		virtual void PackedValue(DType) = 0;
 

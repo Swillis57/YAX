@@ -22,8 +22,6 @@ namespace XNA
 		BoundingBox(const Vector3&, const Vector3&);
 		BoundingBox(const BoundingBox&) = default;
 		BoundingBox& operator=(const BoundingBox&) = default;
-		BoundingBox(BoundingBox&&);
-		BoundingBox& operator=(BoundingBox&&);
 
 		Vector3 Min() const;
 		void Min(const Vector3&);
