@@ -12,7 +12,7 @@ namespace XNA
 	class GraphicsDevice;
 	class Rectangle;
 
-	enum class SurfaceFormat;
+	enum class SurfaceFormat : int;
 
 	class Texture2D : public Texture
 	{

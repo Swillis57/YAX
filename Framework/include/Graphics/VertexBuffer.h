@@ -8,7 +8,7 @@
 
 namespace XNA
 {
-	enum class BufferUsage;
+	enum class BufferUsage : int;
 
 	class GraphicsDevice;
 

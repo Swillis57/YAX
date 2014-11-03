@@ -6,9 +6,9 @@
 
 namespace XNA
 {
-	enum class GraphicsProfile;
-	enum class DepthFormat;
-	enum class SurfaceFormat;
+	enum class GraphicsProfile : int;
+	enum class DepthFormat : int;
+	enum class SurfaceFormat : int;
 
 	class Game;
 	class GraphicsDevice;

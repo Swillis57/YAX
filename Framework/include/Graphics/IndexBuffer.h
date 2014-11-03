@@ -8,8 +8,8 @@
 
 namespace XNA
 {
-	enum class IndexElementSize;
-	enum class BufferUsage;
+	enum class IndexElementSize : int;
+	enum class BufferUsage : int;
 
 	class IndexBuffer : public GraphicsResource
 	{

@@ -6,8 +6,8 @@
 
 namespace XNA
 {
-	enum class CurveLoopType;
-	enum class CurveTangent;
+	enum class CurveLoopType : int;
+	enum class CurveTangent : int;
 
 	class Curve
 	{

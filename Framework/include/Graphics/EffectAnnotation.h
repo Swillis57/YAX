@@ -7,8 +7,8 @@
 
 namespace XNA
 {
-	enum class EffectParameterClass;
-	enum class EffectParameterType;
+	enum class EffectParameterClass : int;
+	enum class EffectParameterType : int;
 
 	class Matrix;
 	class Vector2;

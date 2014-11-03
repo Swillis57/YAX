@@ -7,7 +7,7 @@
 
 namespace XNA
 {
-	enum class GraphicsProfile;
+	enum class GraphicsProfile : int;
 
 	class GraphicsDeviceInformation
 	{

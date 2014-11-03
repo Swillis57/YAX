@@ -7,9 +7,9 @@
 
 namespace XNA
 {
-	enum class SurfaceFormat;
-	enum class DepthFormat;
-	enum class RenderTargetUsage;
+	enum class SurfaceFormat : int;
+	enum class DepthFormat : int;
+	enum class RenderTargetUsage : int;
 
 	class GraphicsDevice;
 

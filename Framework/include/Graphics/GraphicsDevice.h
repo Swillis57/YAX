@@ -24,9 +24,9 @@
 
 namespace XNA
 { 
-	enum class GraphicsProfile;
-	enum class PrimitiveType;
-	enum class ClearOptions;
+	enum class GraphicsProfile : int;
+	enum class PrimitiveType : int;
+	enum class ClearOptions : int;
 
 	class Vector4;
 	class VertexDeclaration;

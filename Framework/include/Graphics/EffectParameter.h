@@ -8,8 +8,8 @@
 
 namespace XNA		
 {
-	enum class ParameterClass;
-	enum class ParameterType;
+	enum class ParameterClass : int;
+	enum class ParameterType : int;
 
 	class Matrix;
 	class Quaternion;

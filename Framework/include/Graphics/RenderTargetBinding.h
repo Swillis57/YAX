@@ -7,7 +7,7 @@
 
 namespace XNA
 {
-	enum class CubeMapFace;
+	enum class CubeMapFace : int;
 
 	class RenderTargetCube;
 

@@ -6,7 +6,7 @@
 
 namespace XNA
 {
-	enum class VertexElementUsage;
+	enum class VertexElementUsage : int;
 
 	class VertexElement
 	{

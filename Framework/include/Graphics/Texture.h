@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum class SurfaceFormat;
+	enum class SurfaceFormat : int;
 
 	class GraphicsDevice;
 

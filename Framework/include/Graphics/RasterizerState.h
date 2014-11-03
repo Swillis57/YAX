@@ -5,8 +5,8 @@
 
 namespace XNA
 {
-	enum class CullMode;
-	enum class FillMode;
+	enum class CullMode : int;
+	enum class FillMode : int;
 
 	struct RasterizerState : public GraphicsResource
 	{

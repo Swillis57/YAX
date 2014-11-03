@@ -6,8 +6,8 @@
 
 namespace XNA
 {
-	enum class CompareFunction;
-	enum class StencilOperation;
+	enum class CompareFunction : int;
+	enum class StencilOperation : int;
 
 	class DepthStencilState : public GraphicsResource
 	{

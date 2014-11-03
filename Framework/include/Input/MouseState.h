@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum class ButtonState;
+	enum class ButtonState : int;
 
 	struct MouseState
 	{

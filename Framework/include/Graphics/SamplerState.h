@@ -6,8 +6,8 @@
 
 namespace XNA
 {
-	enum class TextureAddressMode; 
-	enum class TextureFilter;
+	enum class TextureAddressMode : int;
+	enum class TextureFilter : int;
 
 	class SamplerState
 	{

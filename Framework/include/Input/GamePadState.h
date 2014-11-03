@@ -10,7 +10,7 @@
 
 namespace XNA
 {
-	enum class Buttons;
+	enum class Buttons : int;
 
 	class Vector2;
 

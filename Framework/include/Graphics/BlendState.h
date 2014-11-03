@@ -6,9 +6,9 @@
 
 namespace XNA
 {
-	enum class Blend;
-	enum class BlendFunction;
-	enum class ColorWriteChannels;
+	enum class Blend : int;
+	enum class BlendFunction : int;
+	enum class ColorWriteChannels : int;
 
 	class BlendState : public GraphicsResource
 	{

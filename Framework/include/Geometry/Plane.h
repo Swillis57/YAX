@@ -11,7 +11,7 @@ namespace XNA
 	struct BoundingSphere;
 	class BoundingFrustum;
 
-	enum class PlaneIntersectionType;
+	enum class PlaneIntersectionType : int;
 
 	struct Plane
 	{

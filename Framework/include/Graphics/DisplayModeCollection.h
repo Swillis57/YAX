@@ -6,7 +6,7 @@
 
 namespace XNA
 {		 
-	enum class SurfaceFormat;
+	enum class SurfaceFormat : int;
 	typedef std::map<SurfaceFormat, DisplayMode> DisplayModeCollection;
 }
 

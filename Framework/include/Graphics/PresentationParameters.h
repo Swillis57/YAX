@@ -6,11 +6,11 @@
 
 namespace XNA
 {
-	enum class DisplayOrientation;
-	enum class PresentInterval;
-	enum class SurfaceFormat;
-	enum class DepthFormat;
-	enum class RenderTargetUsage;
+	enum class DisplayOrientation : int;
+	enum class PresentInterval : int;
+	enum class SurfaceFormat : int;
+	enum class DepthFormat : int;
+	enum class RenderTargetUsage : int;
 
 	class PresentationParameters
 	{
