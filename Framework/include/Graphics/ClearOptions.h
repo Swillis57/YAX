@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum class ClearOptions
+	enum class ClearOptions : int 
 	{
 		DepthBuffer = GL_DEPTH_BUFFER_BIT,
 		Stencil = GL_STENCIL_BUFFER_BIT,

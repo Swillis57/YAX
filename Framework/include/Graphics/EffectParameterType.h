@@ -3,7 +3,7 @@
 
 namespace XNA
 {
-	enum class EffectParameterType
+	enum class EffectParameterType : int 
 	{
 		Bool,
 		Int32,

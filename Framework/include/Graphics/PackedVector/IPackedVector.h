@@ -1,6 +1,7 @@
 #ifndef _IPACKEDVECTOR_H
 #define _IPACKEDVECTOR_H
 
+#include <type_traits>
 #include "../../Utils.h"
 
 namespace XNA
@@ -24,16 +25,17 @@ namespace XNA
 	template<typename DType>
 	struct IPackedVector : public PackedVector::IPackedVector
 	{
+		static_assert(std::is_integral<DType>::value, "IPackedVector can only pack into integral types.");
 		typedef PackedVector::IPackedVector IBase;
-
-		virtual DType PackedValue() const = 0;
-		virtual void PackedValue(DType) = 0;
 
 		IPackedVector()
 			: IBase()
 		{}
 
 		virtual ~IPackedVector() {}
+
+		virtual DType PackedValue() const = 0;
+		virtual void PackedValue(DType) = 0;
 
 	protected:
 		DType _packed;

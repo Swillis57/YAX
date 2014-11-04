@@ -3,7 +3,7 @@
 
 namespace XNA
 {
-	enum class CurveLoopType
+	enum class CurveLoopType : int 
 	{
 		Constant,
 		Cycle,

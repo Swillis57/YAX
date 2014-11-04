@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum class VertexElementUsage
+	enum class VertexElementUsage : int 
 	{
 		Binormal,
 		BlendIndices,

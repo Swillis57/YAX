@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum class TextureFilter
+	enum class TextureFilter : int 
 	{
 		Linear = GL_LINEAR,
 		Point = GL_NEAREST,

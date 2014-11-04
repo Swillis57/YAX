@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum class Blend
+	enum class Blend : int 
 	{
 		Zero = GL_ZERO,
 		One = GL_ONE,

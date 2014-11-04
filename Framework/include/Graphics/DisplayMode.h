@@ -12,6 +12,8 @@ namespace XNA
 	{
 	public:
 		DisplayMode(SurfaceFormat, Rectangle);
+		DisplayMode(const DisplayMode&);
+		DisplayMode& operator=(const DisplayMode&);
 
 		float AspectRatio() const;
 

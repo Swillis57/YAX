@@ -6,7 +6,7 @@
 namespace XNA
 {
 
-	enum class EffectParameterClass
+	enum class EffectParameterClass : int 
 	{
 		Matrix,
 		Object,

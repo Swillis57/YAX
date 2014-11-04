@@ -3,7 +3,7 @@
 
 namespace XNA
 {
-	enum class SpriteSortMode
+	enum class SpriteSortMode : int 
 	{
 		BackToFront,
 		Deferred,

@@ -3,7 +3,7 @@
 
 namespace XNA
 {
-	enum class CurveTangent
+	enum class CurveTangent : int 
 	{
 		Flat,
 		Linear,

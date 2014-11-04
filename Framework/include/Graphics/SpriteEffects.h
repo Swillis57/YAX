@@ -3,7 +3,7 @@
 
 namespace XNA
 {
-	enum class SpriteEffects
+	enum class SpriteEffects : int 
 	{
 		FlipHorizontally,
 		FlipVertically,

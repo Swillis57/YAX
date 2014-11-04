@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum class FillMode
+	enum class FillMode : int 
 	{
 		Solid = GL_FILL,
 		WireFrame = GL_LINE

@@ -4,7 +4,7 @@
 
 namespace XNA
 {
-	enum class ContainmentType
+	enum class ContainmentType : int 
 	{
 		Contains,
 		Disjoint,

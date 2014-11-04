@@ -3,7 +3,7 @@
 
 namespace XNA
 {
-	enum class GraphicsDeviceStatus
+	enum class GraphicsDeviceStatus : int 
 	{
 		Lost,
 		Normal,

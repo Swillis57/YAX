@@ -16,13 +16,13 @@ namespace XNA
 		Vector3 DiffuseColor() const;
 		void DiffuseColor(const Vector3&);
 
-		Vector3 Direction() const;;
+		Vector3 Direction() const;
 		void Direction(const Vector3&);
 
-		Vector3 SpecularColor() const;;
+		Vector3 SpecularColor() const;
 		void SpecularColor(const Vector3&);
 
-		bool Enabled() const;;
+		bool Enabled() const;
 		void Enabled(bool);
 
 	private:

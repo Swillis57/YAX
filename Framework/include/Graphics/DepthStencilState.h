@@ -13,6 +13,8 @@ namespace XNA
 	{
 	public:
 		DepthStencilState();
+		DepthStencilState(const DepthStencilState&);
+		DepthStencilState& operator=(const DepthStencilState&);
 
 		StencilOperation CounterClockwiseStencilDepthBufferFail() const;
 		void CounterClockwiseStencilDepthBufferFail(StencilOperation);

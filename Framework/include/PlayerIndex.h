@@ -3,7 +3,7 @@
 
 namespace XNA
 {
-	enum class PlayerIndex
+	enum class PlayerIndex : int 
 	{
 		One,
 		Two,

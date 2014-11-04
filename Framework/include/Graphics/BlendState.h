@@ -36,17 +36,17 @@ namespace XNA
 		Blend ColorSourceBlend() const;
 		void ColorSourceBlend(Blend);
 
-		XNA::ColorWriteChannels ColorWriteChannels0() const;
-		void ColorWriteChannels0(XNA::ColorWriteChannels); 
+		ColorWriteChannels ColorWriteChannels0() const;
+		void ColorWriteChannels0(ColorWriteChannels); 
 
-		XNA::ColorWriteChannels ColorWriteChannels1() const;
-		void ColorWriteChannels1(XNA::ColorWriteChannels);
+		ColorWriteChannels ColorWriteChannels1() const;
+		void ColorWriteChannels1(ColorWriteChannels);
 
-		XNA::ColorWriteChannels ColorWriteChannels2() const;
-		void ColorWriteChannels2(XNA::ColorWriteChannels);
+		ColorWriteChannels ColorWriteChannels2() const;
+		void ColorWriteChannels2(ColorWriteChannels);
 
-		XNA::ColorWriteChannels ColorWriteChannels3() const;
-		void ColorWriteChannels3(XNA::ColorWriteChannels);
+		ColorWriteChannels ColorWriteChannels3() const;
+		void ColorWriteChannels3(ColorWriteChannels);
 
 		i32 MultiSampleMask() const;
 		void MultiSampleMask(i32);
@@ -60,7 +60,7 @@ namespace XNA
 		BlendFunction _alphaBlendFunc, _colorBlendFunc;
 		Blend _alphaDestBlend, _alphaSrcBlend, _colorDestBlend, _colorSrcBlend;
 		Color _blendFactor;
-		XNA::ColorWriteChannels _cwc0, _cwc1, _cwc2, _cwc3;
+		ColorWriteChannels _cwc0, _cwc1, _cwc2, _cwc3;
 		i32 _multiSampleMask;
 
 	};

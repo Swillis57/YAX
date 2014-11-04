@@ -5,7 +5,7 @@
 
 namespace XNA
 {
-	enum class CullMode
+	enum class CullMode : int 
 	{
 		CullClockwiseFace = GL_CW,
 		CullCounterClockwiseFace = GL_CCW,
