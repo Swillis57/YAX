@@ -40,7 +40,7 @@ namespace XNA
 		template<typename vertType>
 		void SetData(std::vector<vertType>, i32, i32);
 
-	private:
+	protected:
 		XNA::BufferUsage _bufUsage;
 		i32 _indCount;
 		XNA::IndexElementSize _elemSize;

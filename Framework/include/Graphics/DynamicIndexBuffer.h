@@ -13,20 +13,24 @@ namespace XNA
 
 	class GraphicsDevice;
 
-	template<typename indexType>
-	class DynamicIndexBuffer : public IndexBuffer<indexType>
+	class DynamicIndexBuffer : public IndexBuffer
 	{
 	public:
-		DynamicIndexBuffer(GraphicsDevice&, IndexElementSize, i32, BufferUsage);
+		DynamicIndexBuffer(XNA::GraphicsDevice&, XNA::IndexElementSize, i32, XNA::BufferUsage);
 		//DynamicIndexBuffer(GraphicsDevice&, Type, i32, BufferUsage);
 
-		//Only here for completeness' sake, OpenGL handles context resets in the driver
-		bool IsContentLost(); 
+		//Only here for completeness, OpenGL handles lost contexts in the driver
+		bool IsContentLost() const;
 	
-		void SetData<indexType>(i32, std::vector<indexType>, i32, i32, SetDataOptions) override;
-		void SetData<indexType>(std::vector<indexType>, i32, i32, SetDataOptions) override;
+		template<typename indexType>
+		void SetData<indexType>(i32, std::vector<indexType>, i32, i32, SetDataOptions);
+		
+		template<typename indexType>
+		void SetData<indexType>(std::vector<indexType>, i32, i32, SetDataOptions);
 		
 	};
+	
+	
 }
 
 

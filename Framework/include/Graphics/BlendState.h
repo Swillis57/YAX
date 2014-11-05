@@ -15,40 +15,40 @@ namespace XNA
 	public:
 		BlendState();
 		
-		BlendFunction AlphaBlendFunction() const;
+		BlendFunction& AlphaBlendFunction() const;
 		void AlphaBlendFunction(BlendFunction);
 
-		Blend AlphaDestinationBlend() const;
+		Blend& AlphaDestinationBlend() const;
 		void AlphaDestinationBlend(Blend);
 
-		Blend AlphaSourceBlend() const;
+		Blend& AlphaSourceBlend() const;
 		void AlphaSourceBlend(Blend);
 
-		Color BlendFactor() const;
+		Color& BlendFactor() const;
 		void BlendFactor(const Color&);
 
-		BlendFunction ColorBlendFunction() const;
+		BlendFunction& ColorBlendFunction() const;
 		void ColorBlendFunction(BlendFunction);
 
-		Blend ColorDestinationBlend() const;
+		Blend& ColorDestinationBlend() const;
 		void ColorDestinationBlend(Blend);
 
-		Blend ColorSourceBlend() const;
+		Blend& ColorSourceBlend() const;
 		void ColorSourceBlend(Blend);
 
-		ColorWriteChannels ColorWriteChannels0() const;
+		ColorWriteChannels& ColorWriteChannels0() const;
 		void ColorWriteChannels0(ColorWriteChannels); 
 
-		ColorWriteChannels ColorWriteChannels1() const;
+		ColorWriteChannels& ColorWriteChannels1() const;
 		void ColorWriteChannels1(ColorWriteChannels);
 
-		ColorWriteChannels ColorWriteChannels2() const;
+		ColorWriteChannels& ColorWriteChannels2() const;
 		void ColorWriteChannels2(ColorWriteChannels);
 
-		ColorWriteChannels ColorWriteChannels3() const;
+		ColorWriteChannels& ColorWriteChannels3() const;
 		void ColorWriteChannels3(ColorWriteChannels);
 
-		i32 MultiSampleMask() const;
+		i32& MultiSampleMask() const;
 		void MultiSampleMask(i32);
 
 		static const BlendState Additive;

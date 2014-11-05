@@ -13,21 +13,21 @@ namespace XNA
 
 	class GraphicsDevice;
 
-
-	class Effect : GraphicsResource
+	//Effect is a collection of shader programs
+	class Effect : public GraphicsResource
 	{
 	public:
 		Effect(const Effect&);
-		Effect(XNA::GraphicsDevice&, std::vector<byte>);
+		Effect(XNA::GraphicsDevice&, const std::vector<byte>&);
 	
-		EffectTechnique CurrentTechnique();
+		EffectTechnique CurrentTechnique() const;
 		void CurrentTechnique(const EffectTechnique&);
 		
-		EffectParameterCollection Parameters();
+		EffectParameterCollection Parameters() const;
 
-		EffectTechniqueCollection Techniques();
+		EffectTechniqueCollection Techniques() const;
 
-	private:
+	protected:
 		EffectTechnique _currTechnique;
 		EffectParameterCollection _params;
 		EffectTechniqueCollection _techniques;

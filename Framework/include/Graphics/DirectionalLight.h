@@ -13,13 +13,13 @@ namespace XNA
 		DirectionalLight(const EffectParameter&, const EffectParameter&, const EffectParameter&);
 		DirectionalLight(const DirectionalLight&);
 
-		Vector3 DiffuseColor() const;
+		Vector3& DiffuseColor() const;
 		void DiffuseColor(const Vector3&);
 
-		Vector3 Direction() const;
+		Vector3& Direction() const;
 		void Direction(const Vector3&);
 
-		Vector3 SpecularColor() const;
+		Vector3& SpecularColor() const;
 		void SpecularColor(const Vector3&);
 
 		bool Enabled() const;

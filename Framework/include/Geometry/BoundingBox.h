@@ -23,10 +23,10 @@ namespace XNA
 		BoundingBox(const BoundingBox&) = default;
 		BoundingBox& operator=(const BoundingBox&) = default;
 
-		Vector3 Min() const;
+		Vector3& Min() const;
 		void Min(const Vector3&);
 
-		Vector3 Max() const;
+		Vector3& Max() const;
 		void Max(const Vector3&);
 		
 		ContainmentType Contains(const BoundingBox&) const;

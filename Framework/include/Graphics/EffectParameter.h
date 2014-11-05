@@ -2,7 +2,6 @@
 #define _EFFECT_PARAMETER_H
 
 #include <string>
-#include "EffectAnnotationCollection.h"
 #include "EffectParameterCollection.h"
 #include "../Utils.h"
 
@@ -23,11 +22,10 @@ namespace XNA
 	typedef bool Boolean;
 	typedef float Single;
 
-
+	//EffectParameter is equivalent to a uniform in OpenGL
 	class EffectParameter
 	{
 	public:
-		EffectAnnotationCollection Annotations();
 		i32 ColumnCount();
 		EffectParameterCollection Elements();
 		std::string Name();
@@ -47,7 +45,6 @@ namespace XNA
 		void SetValueTranspost(std::vector<Matrix>);
 
 	private:
-		EffectAnnotationCollection _annotations;
 		i32 _colCount, _rowCount;
 		std::string _name, _sem;
 		EffectParameterCollection _elems;

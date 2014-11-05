@@ -1,4 +1,6 @@
-#ifndef _EFFECT_ANNOTATION_H
+#pragma error("EffectAnnotations are not used in OpenGL.")
+
+/*#ifndef _EFFECT_ANNOTATION_H
 #define _EFFECT_ANNOTATION_H
 
 #include <string>
@@ -14,7 +16,9 @@ namespace XNA
 	class Vector2;
 	class Vector3;
 	class Vector4;
-
+	
+	//EffectAnnotations have no equivalent in OpenGL
+	//This is here for completeness
 	class EffectAnnotation
 	{
 	public:
@@ -46,4 +50,4 @@ namespace XNA
 }
 
 
-#endif
+#endif*/
