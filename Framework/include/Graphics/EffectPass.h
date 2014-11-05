@@ -6,16 +6,15 @@
 
 namespace XNA
 {
+	//An EffectPass represents a single shader program
 	class EffectPass
 	{
 	public:
-		EffectAnnotationCollection Annotations();
 		std::string Name();
 		
 		void Apply();
 
 	private:
-		EffectAnnotationCollection _annotations;
 		std::string _name;
 	};
 

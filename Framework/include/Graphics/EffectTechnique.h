@@ -8,15 +8,14 @@
 
 namespace XNA
 {
+	//An EffectTechnique represents a collection of passes
 	class EffectTechnique
 	{
 	public:
-		EffectAnnotationCollection Annotations();
 		std::string Name();
 		EffectPassCollection Passes();
 
 	private:
-		EffectAnnotationCollection _annotations;
 		std::string _name;
 		EffectPassCollection _passes;
 	};

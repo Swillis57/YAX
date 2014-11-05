@@ -13,7 +13,7 @@ namespace XNA
 
 	class GraphicsDevice;
 
-	//Effect is a collection of shader programs
+	//An Effect represents a collection of shader techniques.
 	class Effect : public GraphicsResource
 	{
 	public:

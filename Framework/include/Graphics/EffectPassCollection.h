@@ -2,10 +2,10 @@
 #define _EFFECT_PASS_COLLECTION_H
 
 #include <vector>
+#include "EffectPass.h"
 
 namespace XNA
 {
-	class EffectPass;
 	typedef std::vector<EffectPass> EffectPassCollection;
 }
 
