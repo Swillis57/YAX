@@ -351,22 +351,10 @@
     <ClInclude Include="include\Graphics\Effect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Graphics\EffectTechnique.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Graphics\EffectPass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Graphics\EffectParameter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Graphics\EffectPassCollection.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Graphics\EffectParameterCollection.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Graphics\EffectTechniqueCollection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Graphics\RenderTargetBinding.h">
@@ -436,12 +424,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Graphics\Texture3D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Graphics\EffectAnnotationCollection.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Graphics\EffectAnnotation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\GameWindow.h">
@@ -520,6 +502,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Curves\CurveKeyCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\EffectProgram.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\EffectProgramCollection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,8 +4,8 @@
 #include <vector>
 #include "GraphicsResource.h"
 #include "EffectParameterCollection.h"
-#include "EffectTechniqueCollection.h"
-#include "EffectTechnique.h"
+#include "EffectProgramCollection.h"
+#include "EffectProgram.h"
 
 namespace XNA
 {
@@ -17,20 +17,21 @@ namespace XNA
 	class Effect : public GraphicsResource
 	{
 	public:
-		Effect(const Effect&);
 		Effect(XNA::GraphicsDevice&, const std::vector<byte>&);
+		Effect(const Effect&) = default;
+		Effect& operator=(const Effect&) = default;
 	
-		EffectTechnique CurrentTechnique() const;
-		void CurrentTechnique(const EffectTechnique&);
+		EffectProgram CurrentProgram() const;
+		void CurrentProgram(const EffectProgram&);
 		
 		EffectParameterCollection Parameters() const;
 
-		EffectTechniqueCollection Techniques() const;
+		EffectProgramCollection Programs() const;
 
 	protected:
-		EffectTechnique _currTechnique;
+		EffectProgram _currProgram;
 		EffectParameterCollection _params;
-		EffectTechniqueCollection _techniques;
+		EffectProgramCollection _programs;
 	};
 }
 

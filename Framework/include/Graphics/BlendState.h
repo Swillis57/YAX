@@ -14,6 +14,9 @@ namespace XNA
 	{
 	public:
 		BlendState();
+		BlendState(const BlendState&) = default;
+		BlendState& operator=(const BlendState&) = default;
+		
 		
 		BlendFunction& AlphaBlendFunction() const;
 		void AlphaBlendFunction(BlendFunction);
