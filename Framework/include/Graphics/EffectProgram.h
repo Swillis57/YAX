@@ -11,17 +11,15 @@ namespace XNA
 	class EffectProgram
 	{
 	public:
-		EffectProgram(std::string, std::string);
+		EffectProgram(const std::string&, const std::string&);
 		EffectProgram(const EffectProgram&) = delete;
 		EffectProgram& operator=(const EffectProgram&) = delete;
 		EffectProgram(EffectProgram&&);
 		EffectProgram& operator=(EffectProgram&&);
-		
 
 		std::string Name();
 
-		GLuint ID();
-		
+		void Use();
 
 	private:
 		std::string _name;

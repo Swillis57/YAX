@@ -78,8 +78,8 @@ namespace XNA
 
 	void Rectangle::Location(const Point& p)
 	{
-		_x = p.X;
-		_y = p.Y;
+		_x = p.X();
+		_y = p.Y();
 	}
 
 	i32 Rectangle::Right() const
@@ -94,15 +94,15 @@ namespace XNA
 
 	bool Rectangle::Contains(const Point& p) const
 	{
-		return (((p.X >= _x) && (p.X <= _x + _width))
-			&& ((p.Y >= _y) && (p.Y <= _y + _height)));
+		return (((p.X() >= _x) && (p.X() <= _x + _width))
+			&& ((p.Y() >= _y) && (p.Y() <= _y + _height)));
 	}
 
 	bool Rectangle::Contains(const Rectangle& r) const
 	{
 		return Contains(r.Location())
-			&& (r.Height() <= std::abs(_height - r.Y))
-			&& (r.Width() <= std::abs(_width - r.X));
+			&& (r.Height() <= std::abs(_height - r.Y()))
+			&& (r.Width() <= std::abs(_width - r.X()));
 	}
 
 	void Rectangle::Inflate(i32 dw, i32 dh)
@@ -111,20 +111,20 @@ namespace XNA
 		_height += dh;
 	}
 
-	Rectangle Rectangle::Intersect(const Rectangle& r1, const Rectangle& r2)
+	Rectangle Intersect(const Rectangle& r1, const Rectangle& r2)
 	{
 		if (!r1.Intersects(r2))
-			return Empty();
+			return Rectangle::Empty();
 
-		i32 left = std::max(r1.X, r2.X);
-		i32 right = std::min(r1.X + r1.Width(), r2.X + r2.Width());
-		i32 top = std::max(r1.Y, r2.Y);
-		i32 bottom = std::min(r1.Y + r1.Height(), r2.Y + r2.Height());
+		i32 left = std::max(r1.X(), r2.X());
+		i32 right = std::min(r1.X() + r1.Width(), r2.X() + r2.Width());
+		i32 top = std::max(r1.Y(), r2.Y());
+		i32 bottom = std::min(r1.Y() + r1.Height(), r2.Y() + r2.Height());
 
 		return Rectangle(left, top, bottom - top, right - left);
 	}
 
-	Rectangle Rectangle::Intersect(const Rectangle& r1, const Rectangle& r2, const Rectangle& r3)
+	Rectangle Intersect(const Rectangle& r1, const Rectangle& r2, const Rectangle& r3)
 	{
 		return Intersect(Intersect(r1, r2), r3);
 	}
@@ -134,8 +134,8 @@ namespace XNA
 		Point aCenter = Center();
 		Point bCenter = r.Center();
 
-		return (std::abs(aCenter.X - bCenter.X) < (_width + r.Width()) / 2)
-			&& (std::abs(aCenter.Y - bCenter.Y) < (_height + r.Height()) / 2);
+		return (std::abs(aCenter.X() - bCenter.X()) < (_width + r.Width()) / 2)
+			&& (std::abs(aCenter.Y() - bCenter.Y()) < (_height + r.Height()) / 2);
 	}
 
 	void Rectangle::Offset(i32 x, i32 y)
@@ -146,21 +146,21 @@ namespace XNA
 
 	void Rectangle::Offset(const Point& p)
 	{
-		_x += p.X;
-		_y += p.Y;
+		_x += p.X();
+		_y += p.Y();
 	}
 
-	Rectangle Rectangle::Union(const Rectangle& r1, const Rectangle& r2)
+	Rectangle Union(const Rectangle& r1, const Rectangle& r2)
 	{
-		i32 top = std::min(r1.Y, r2.Y);
-		i32 left = std::min(r1.X, r2.X);
-		i32 right = std::max(r1.X + r1.Width(), r2.X + r2.Width());
-		i32 bottom = std::max(r1.Y + r1.Height(), r2.Y + r2.Height());
+		i32 top = std::min(r1.Y(), r2.Y());
+		i32 left = std::min(r1.X(), r2.X());
+		i32 right = std::max(r1.X() + r1.Width(), r2.X() + r2.Width());
+		i32 bottom = std::max(r1.Y() + r1.Height(), r2.Y() + r2.Height());
 
 		return Rectangle(left, top, bottom - top, right - left);
 	}
 
-	Rectangle Rectangle::Union(const Rectangle& r1, const Rectangle& r2, const Rectangle& r3)
+	Rectangle Union(const Rectangle& r1, const Rectangle& r2, const Rectangle& r3)
 	{
 		return Union(Union(r1, r2), r3);
 	}

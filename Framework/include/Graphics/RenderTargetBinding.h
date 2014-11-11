@@ -16,8 +16,8 @@ namespace XNA
 		RenderTargetBinding(RenderTarget2D);
 		RenderTargetBinding(const RenderTargetCube&, XNA::CubeMapFace);
 
-		XNA::CubeMapFace CubeMapFace();
-		RenderTarget2D RenderTarget();
+		XNA::CubeMapFace CubeMapFace() const;
+		RenderTarget2D RenderTarget() const;
 
 	private:
 		RenderTarget2D _target;

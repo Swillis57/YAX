@@ -17,7 +17,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -40,7 +40,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetExt>.exe</TargetExt>
+    <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -132,18 +132,9 @@
     <ClInclude Include="include\Graphics\GraphicsResource.h" />
     <ClInclude Include="include\Graphics\IEffectFog.h" />
     <ClInclude Include="include\Graphics\IEffectMatrices.h" />
-    <ClInclude Include="include\Graphics\IGraphicsDeviceService.h" />
     <ClInclude Include="include\Graphics\IndexBuffer.h" />
     <ClInclude Include="include\Graphics\IndexElementSize.h" />
     <ClInclude Include="include\Graphics\IVertexType.h" />
-    <ClInclude Include="include\Graphics\Model.h" />
-    <ClInclude Include="include\Graphics\ModelBone.h" />
-    <ClInclude Include="include\Graphics\ModelBoneCollection.h" />
-    <ClInclude Include="include\Graphics\ModelEffectCollection.h" />
-    <ClInclude Include="include\Graphics\ModelMesh.h" />
-    <ClInclude Include="include\Graphics\ModelMeshCollection.h" />
-    <ClInclude Include="include\Graphics\ModelMeshPart.h" />
-    <ClInclude Include="include\Graphics\ModelMeshPartCollection.h" />
     <ClInclude Include="include\Graphics\OcclusionQuery.h" />
     <ClInclude Include="include\Graphics\PackedVector\Alpha8.h" />
     <ClInclude Include="include\Graphics\PackedVector\Bgr565.h" />

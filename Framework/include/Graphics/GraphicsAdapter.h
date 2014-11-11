@@ -7,8 +7,6 @@
 #include "../Utils.h" 
 #include "DisplayMode.h"
 
-using std::string;
-
 namespace XNA
 {
 	enum class SurfaceFormat : int;
@@ -22,43 +20,46 @@ namespace XNA
 		typedef std::tuple<bool, SurfaceFormat, DepthFormat, int> BufferQueryResults;
 
 		static const std::vector<GraphicsAdapter>& Adapters();
-		DisplayMode* const CurrentDisplayMode();
-		static GraphicsAdapter DefaultAdapter();
-		string Description();
-		i32 DeviceID();
-		string DeviceName();
-		bool IsDefaultAdapter();
-		bool IsWideScreen();
-		i32 MonitorHandle();
-		i32 Revision();
-		i32 SubSystemID();
-		DisplayModeCollection* const SupportedDisplayModes();
+		static GraphicsAdapter& DefaultAdapter();
+		
 		static bool UseNullDevice();
 		static void UseNullDevice(bool);
 		static bool UseReferenceDevice();
 		static void UseReferenceDevice(bool);
+		
+		GraphicsAdapter() = default;
+		GraphicsAdapter(const GraphicsAdapter&) = default;
+		GraphicsAdapter& operator=(const GraphicsAdapter&) = default;
+		GraphicsAdapter(GraphicsAdapter&&) = delete;
+		GraphicsAdapter& operator=(GraphicsAdapter&&) = delete;
+		
 
-		bool IsProfileSupported(GraphicsProfile);
-		BufferQueryResults QueryBackBufferFormat(GraphicsProfile, SurfaceFormat, DepthFormat, int);
-		BufferQueryResults QueryRenderTargetFormat(GraphicsProfile, SurfaceFormat, DepthFormat, int);
+		DisplayMode& CurrentDisplayMode() const;
+		std::string Description() const;
+		i32 DeviceID() const;
+		std::string DeviceName() const;
+		bool IsDefaultAdapter() const;
+		bool IsWideScreen() const;
+		i32 MonitorHandle() const;
+		i32 Revision() const;
+		i32 SubSystemID() const;
+		const DisplayModeCollection& SupportedDisplayModes() const;
+		
+		bool IsProfileSupported(GraphicsProfile) const;
+		BufferQueryResults QueryBackBufferFormat(GraphicsProfile, SurfaceFormat, DepthFormat, i32) const;
+		BufferQueryResults QueryRenderTargetFormat(GraphicsProfile, SurfaceFormat, DepthFormat, i32) const;
 
 	private:
-		std::vector<GraphicsAdapter> adapters;
-		DisplayMode currDisplayMode;
-		static GraphicsAdapter defaultAdapter;
-		string desc;
-		i32 deviceID;
-		string name;
-		bool isDefault;
-		bool isWideScreen;
-		i32 handle;
-		i32 revision;
-		i32 subSysID;
-		DisplayModeCollection supportedModes;
-		bool useNull;
-		bool useRef;
-		i32 vendor;
+		static std::vector<GraphicsAdapter> _adapters;
+		static GraphicsAdapter _defaultAdapter;
+		static bool _useNull, _useRef;
 
+		DisplayMode _currDisplayMode;
+		DisplayModeCollection _supportedModes;
+		
+		std::string _name, _desc;
+		i32 _deviceID, _handle, _revision, _subSysID, _vendor;
+		bool _isDefault, _isWideScreen;	 
 
 
 	};

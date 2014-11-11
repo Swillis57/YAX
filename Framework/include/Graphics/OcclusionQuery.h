@@ -1,6 +1,7 @@
 #ifndef _OCCLUSION_QUERY_H
 #define _OCCLUSION_QUERY_H
 
+#include "../GLEW/glew.h"
 #include "GraphicsResource.h"
 #include "../Utils.h"
 
@@ -11,18 +12,19 @@ namespace XNA
 	class OcclusionQuery : public GraphicsResource
 	{
 	public:
-		OcclusionQuery(const XNA::GraphicsDevice&);
+		OcclusionQuery(XNA::GraphicsDevice&);
 
-		bool IsComplete();
+		bool IsComplete() const;
 
-		i32 PixelCount();
+		i32 PixelCount() const;
 
-		void Begin();
+		void Begin() const;
 		
-		void End();
+		void End() const;
 
 	private:
 		i32 _pixelCount;
+		GLuint _qID;
 	};
 }
 

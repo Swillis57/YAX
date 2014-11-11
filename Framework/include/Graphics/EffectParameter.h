@@ -2,7 +2,9 @@
 #define _EFFECT_PARAMETER_H
 
 #include <string>
+#include <vector>
 #include "EffectParameterCollection.h"
+#include "../GLEW/glew.h"
 #include "../Utils.h"
 
 namespace XNA		
@@ -19,13 +21,16 @@ namespace XNA
 	class Vector3;
 	class Vector4;
 
-	typedef bool Boolean;
-	typedef float Single;
 
 	//EffectParameter is equivalent to a uniform in OpenGL
 	class EffectParameter
 	{
 	public:
+		EffectParameter(const std::string&);
+		EffectParameter(const EffectParameter&) = default;
+		EffectParameter& operator=(const EffectParameter&) = default;
+		
+
 		i32 ColumnCount();
 		EffectParameterCollection Elements();
 		std::string Name();
@@ -42,16 +47,16 @@ namespace XNA
 		void SetValue(ValType);
 
 		void SetValueTranspose(const Matrix&);
-		void SetValueTranspost(std::vector<Matrix>);
+		void SetValueTranspose(const std::vector<Matrix>&);
 
 	private:
+		GLint _id;
 		i32 _colCount, _rowCount;
 		std::string _name, _sem;
 		EffectParameterCollection _elems;
 		XNA::ParameterClass _pClass;
 		XNA::ParameterType _pType;
 		EffectParameterCollection _structMemb;
-		
 	};
 }
 

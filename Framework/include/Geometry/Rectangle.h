@@ -13,6 +13,10 @@ namespace XNA
 
 	public:
 		static Rectangle Empty();
+		static friend Rectangle Intersect(const Rectangle&, const Rectangle&);
+		static friend Rectangle Intersect(const Rectangle&, const Rectangle&, const Rectangle&);
+		static friend Rectangle Union(const Rectangle&, const Rectangle&);
+		static friend Rectangle Union(const Rectangle&, const Rectangle&, const Rectangle&);
 
 		Rectangle(i32, i32, i32, i32);
 		Rectangle(const Rectangle&) = default;
@@ -42,13 +46,9 @@ namespace XNA
 		bool Contains(const Rectangle&) const;
 		bool Contains(const Point&) const;
 		void Inflate(i32, i32);
-		static Rectangle Intersect(const Rectangle&, const Rectangle&);
-		static Rectangle Intersect(const Rectangle&, const Rectangle&, const Rectangle&);
 		bool Intersects(const Rectangle&) const;
 		void Offset(i32, i32);
 		void Offset(const Point&);
-		static Rectangle Union(const Rectangle&, const Rectangle&);
-		static Rectangle Union(const Rectangle&, const Rectangle&, const Rectangle&);
 
 		friend bool operator ==(const Rectangle&, const Rectangle&);
 		friend bool operator !=(const Rectangle&, const Rectangle&);

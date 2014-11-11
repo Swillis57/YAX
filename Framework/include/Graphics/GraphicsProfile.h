@@ -1,8 +1,7 @@
 #ifndef _GRAPHICS_PROFILE_H
 #define _GRAPHICS_PROFILE_H
 
-#include "../GLFW/glfw3.h"
-#include "../Utils.h"
+#include "../GLFW/glfw3.h"	
 
 namespace XNA
 {

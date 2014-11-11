@@ -7,8 +7,10 @@ namespace XNA
 {
 	struct IVertexType
 	{
-	    XNA::VertexDeclaration VertexDeclaration();
 		virtual ~IVertexType() = 0;
+
+	    XNA::VertexDeclaration VertexDeclaration();
+
 	protected:
 		XNA::VertexDeclaration _vertDecl;
 	};

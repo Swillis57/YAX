@@ -2,21 +2,11 @@
 #define _SAMPLER_STATE_COLLECTION_H
 
 #include <vector>
-#include "../Utils.h"
+#include "SamplerState.h"
 
 namespace XNA
 {
-	class SamplerState;
-
-	class SamplerStateCollection
-	{
-	public:
-		SamplerStateCollection();
-		SamplerState& operator[](i32);
-
-	private:
-		std::vector<SamplerState> _states;
-	};	   
+	typedef std::vector<SamplerState> SamplerStateCollection;
 }
 
 

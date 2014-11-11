@@ -18,8 +18,10 @@ namespace XNA
 	{
 	public:
 		Effect(XNA::GraphicsDevice&, const std::vector<byte>&);
-		Effect(const Effect&) = default;
-		Effect& operator=(const Effect&) = default;
+		Effect(const Effect&) = delete;
+		Effect& operator=(const Effect&) = delete;
+		Effect(Effect&&);
+		Effect& operator=(Effect&&);
 	
 		EffectProgram CurrentProgram() const;
 		void CurrentProgram(const EffectProgram&);
@@ -29,7 +31,7 @@ namespace XNA
 		EffectProgramCollection Programs() const;
 
 	protected:
-		EffectProgram _currProgram;
+		EffectProgram&_currProgram;
 		EffectParameterCollection _params;
 		EffectProgramCollection _programs;
 	};

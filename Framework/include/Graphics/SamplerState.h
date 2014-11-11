@@ -9,7 +9,7 @@ namespace XNA
 	enum class TextureAddressMode : int;
 	enum class TextureFilter : int;
 
-	class SamplerState
+	class SamplerState : public GraphicsResource
 	{
 	public:
 		SamplerState();

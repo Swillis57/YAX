@@ -10,38 +10,35 @@ namespace XNA
 
 	struct RasterizerState : public GraphicsResource
 	{
-		RasterizerState();
-		~RasterizerState();
-
 		static const RasterizerState CullClockwise;
 		static const RasterizerState CullCounterClockwise;
 		static const RasterizerState CullNone;
 
-		XNA::CullMode CullMode();
+		RasterizerState();
+
+		XNA::CullMode CullMode() const;
 		void CullMode(XNA::CullMode);
 
-		float DepthBias();
+		float DepthBias() const;
 		void DepthBias(float);
 
-		XNA::FillMode FillMode();
+		XNA::FillMode FillMode() const;
 		void FillMode(XNA::FillMode);
 
-		bool MultiSampleAntiAlias();
+		bool MultiSampleAntiAlias() const;
 		void MultiSampleAntiAlias(bool);
 
-		bool ScissorTestEnable();
+		bool ScissorTestEnable() const;
 		void ScissorTestEnable(bool);
 
-		float SlopeScaleDepthBias();
+		float SlopeScaleDepthBias() const;
 		void SlopeScaleDepthBias(float);
 
 	private:
 		XNA::CullMode _cullMode;
-		float _depthBias;
+		float _depthBias, _slopeScale;
 		XNA::FillMode _fillMode;
-		bool _msaa;
-		bool _scissorTest;
-		float _slopeScale;
+		bool _msaa, _scissorTest;
 
 	};
 }

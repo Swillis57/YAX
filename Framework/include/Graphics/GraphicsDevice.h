@@ -1,16 +1,33 @@
 #ifndef _GRAPHICS_DEVICE_H
 #define _GRAPHICS_DEVICE_H
 
+//Template specialization hacks for GraphicsDevice.cpp (Move once created)
+
+#define DUIP_SPECIALIZE(vertType) \
+	template void DrawUserIndexedPrimitives<vertType>(PrimitiveType, std::vector<vertType>&, i32, i32, const std::vector<i16>&, i32, i32) const; \
+	template void DrawUserIndexedPrimitives<vertType>(PrimitiveType, std::vector<vertType>&, i32, i32, const std::vector<i16>&, i32, i32, const VertexDeclaration&) const; \
+	template void DrawUserIndexedPrimitives<vertType>(PrimitiveType, std::vector<vertType>&, i32, i32, const std::vector<i32>&, i32, i32) const; \
+	template void DrawUserIndexedPrimitives<vertType>(PrimitiveType, std::vector<vertType>&, i32, i32, const std::vector<i32>&, i32, i32, const VertexDeclaration&) const;
+
+#define DUP_SPECIALIZE(vertType) \
+	template void DrawUserPrimitives<vertType>(PrimitiveType, std::vector<vertType>&, i32, i32) const; \
+	template void DrawUserPrimitives<vertType>(PrimitiveType, std::vector<vertType>&, i32, i32, const VertexDeclaration&) const;
+
+#define BBD_SPECIALIZE(dataType) \
+	template void GetBackBufferData<dataType>(std::unique_ptr<Rectangle>, std::vector<T>&, i32, i32) const; \
+	template void GetBackBufferData<dataType>(std::vector<dataType>&) const; \
+	template void GetBackBufferData<dataType>(std::vector<dataType>&, i32, i32) const;
 
 
+#include <memory>
 #include <vector>
+
 #include "GraphicsAdapter.h"
 #include "BlendState.h"
 #include "../Color.h"
 #include "DepthStencilState.h"
 #include "DisplayMode.h"
 #include "IndexBuffer.h"
-#include <memory>
 #include "PresentationParameters.h"
 #include "RasterizerState.h"		
 #include "RenderTarget2D.h"
@@ -38,101 +55,115 @@ namespace XNA
 	{
 	public:
 		#pragma region Properties
-		GraphicsDevice(GraphicsAdapter, GraphicsProfile, PresentationParameters);
+		GraphicsDevice(const GraphicsAdapter&, const GraphicsProfile&, const XNA::PresentationParameters&);
 
-		GraphicsAdapter const Adapter();
+		GraphicsAdapter& Adapter() const;
 
-		Color BlendFactor();
+		Color BlendFactor() const;
 		void BlendFactor(Color);
 
-		XNA::BlendState BlendState();
+		XNA::BlendState& BlendState() const;
 		void BlendState(XNA::BlendState);
 
-		XNA::DepthStencilState DepthStencilState();
+		XNA::DepthStencilState& DepthStencilState() const;
 		void DepthStencilState(XNA::DepthFormat);
 				
-		XNA::DisplayMode DisplayMode();
-		void DisplayMode(XNA::DisplayMode);
+		XNA::DisplayMode& DisplayMode() const;
 
-		XNA::GraphicsProfile GraphicsProfile();
+		XNA::GraphicsProfile GraphicsProfile() const;
 
-		IndexBuffer Indicies();
+		IndexBuffer& Indicies() const;
 		void Indicies(IndexBuffer);
 
-		i32 MultiSampleMask();
+		i32 MultiSampleMask() const;
 		void MultiSampleMask(i32);
 
-		XNA::PresentationParameters PresentationParameters();
+		XNA::PresentationParameters& PresentationParameters() const;
 
-		XNA::RasterizerState RasterizerState();
+		XNA::RasterizerState RasterizerState() const;
 		void RasterizerState(XNA::RasterizerState);
 
-		int ReferenceStencil();
-		void ReferenceStencil(int);
+		i32 ReferenceStencil() const;
+		void ReferenceStencil(i32);
 
-		Rectangle ScissorRectangle();
+		Rectangle ScissorRectangle() const;
 		void ScissorRectangle(Rectangle);
 
-		TextureCollection Textures();
-		void Textures(TextureCollection);
+		SamplerStateCollection& VertexSamplerStates() const;
 
-		SamplerStateCollection VertexSamplerStates();
+		TextureCollection& Textures() const;
 
-		TextureCollection VertexTextures();
+		TextureCollection& VertexTextures() const;
 
-		XNA::Viewport Viewport();
+		XNA::Viewport Viewport() const;
 		void Viewport(XNA::Viewport);
 #pragma endregion
 
-		void Clear(ClearOptions, const Color&, float, i32);
-		void Clear(ClearOptions, const Vector4, float, i32);
-		void Clear(const Color&);
+		void Clear(ClearOptions) const;
+		void Clear(ClearOptions, const Color&, float, i32) const;
+		void Clear(ClearOptions, const Vector4, float, i32) const;
+		void Clear(const Color&) const;
 		
-		void DrawIndexedPrimitives(PrimitiveType, i32, i32, i32, i32, i32);
-		void DrawInstancedPrimitives(PrimitiveType, i32, i32, i32, i32, i32, i32);
-		void DrawPrimitives(PrimitiveType, i32, i32);
+		void DrawIndexedPrimitives(PrimitiveType, i32, i32, i32, i32, i32) const;
+		void DrawInstancedPrimitives(PrimitiveType, i32, i32, i32, i32, i32, i32) const;
+		void DrawPrimitives(PrimitiveType, i32, i32) const;
+		
+		template<typename T>
+		void DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>&, i32, i32, const std::vector<i16>&, i32, i32) const;
+		template<typename T>
+		void DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>&, i32, i32, const std::vector<i16>&, i32, i32, const VertexDeclaration&) const;
+		template<typename T>
+		void DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>&, i32, i32, const std::vector<i32>&, i32, i32) const;
+		template<typename T>
+		void DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>&, i32, i32, const std::vector<i32>&, i32, i32, const VertexDeclaration&) const;
 
 		template<typename T>
-		void DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>, i32, i32, std::vector<i16>, i32, i32);
+		void DrawUserPrimitives(PrimitiveType, std::vector<T>&, i32, i32) const;
 		template<typename T>
-		void DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>, i32, i32, std::vector<i16>, i32, i32, VertexDeclaration);
-		template<typename T>
-		void DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>, i32, i32, std::vector<i32>, i32, i32);
-		template<typename T>
-		void DrawUserIndexedPrimitives(PrimitiveType, std::vector<T>, i32, i32, std::vector<i32>, i32, i32, VertexDeclaration);
+		void DrawUserPrimitives(PrimitiveType, std::vector<T>&, i32, i32, const VertexDeclaration&) const;
 
 		template<typename T>
-		void DrawUserPrimitives(PrimitiveType, std::vector<T>, i32, i32);
+		void GetBackBufferData(std::unique_ptr<Rectangle>, std::vector<T>&, i32, i32) const;
 		template<typename T>
-		void DrawUserPrimitives(PrimitiveType, std::vector<T>, i32, i32, VertexDeclaration);
-
+		void GetBackBufferData(std::vector<T>&) const;
 		template<typename T>
-		void GetBackBufferData(std::unique_ptr<Rectangle>, std::vector<T>, i32, i32);
-		template<typename T>
-		void GetBackBufferData(std::vector<T>);
-		template<typename T>
-		void GetBackBufferData(std::vector<T>, i32, i32);
+		void GetBackBufferData(std::vector<T>&, i32, i32) const;
+		 
+		std::vector<RenderTargetBinding> GetRenderTargets() const;
 
-		std::vector<RenderTargetBinding> GetRenderTargets();
+		std::vector<VertexBufferBinding> GetVertexBuffers() const;
 
-		std::vector<VertexBufferBinding> GetVertexBuffers();
+		void Present() const;
+		void Present(std::unique_ptr<Rectangle>, std::unique_ptr<Rectangle>, std::shared_ptr<int>) const;
 
-		void Present();
-		void Present(std::unique_ptr<Rectangle>, std::unique_ptr<Rectangle>, std::shared_ptr<int>);
+		void Reset() const;
+		void Reset(const XNA::PresentationParameters&) const;
+		void Reset(const XNA::PresentationParameters&, const GraphicsAdapter&) const;
 
-		void Reset();
-		void Reset(const XNA::PresentationParameters&);
-		void Reset(const XNA::PresentationParameters&, const GraphicsAdapter&);
+		void SetRenderTarget(const RenderTarget2D&);
+		void SetRenderTarget(const RenderTargetCube&, CubeMapFace);
 
-		void SetRenderTarget(RenderTarget2D);
-		void SetRenderTarget(RenderTargetCube, CubeMapFace);
+		void SetRenderTargets(const std::vector<RenderTargetBinding>&);
 
-		void SetRenderTargets(std::vector<RenderTargetBinding>);
+		void SetVertexBuffer(const VertexBuffer&);
+		void SetVertexBuffer(const VertexBuffer&, i32);
 
-		void SetVertexBuffer(VertexBuffer&);
-		void SetVertexBuffer(VertexBuffer&, i32);
+		void SetVertexBuffers(const std::vector<VertexBuffer>&);
 
-		void SetVertexBuffers(std::vector<VertexBuffer>);
+	private:
+		GraphicsAdapter _adapter;
+		XNA::BlendState _blendState;
+		XNA::DepthStencilState _depthStencilState;
+		XNA::DisplayMode _displayMode;
+		XNA::GraphicsProfile _graphicsProfile;
+		IndexBuffer _indices;
+		i32 _msMask, _refStencil;
+		XNA::PresentationParameters _presParams;
+		XNA::RasterizerState _rasterState;
+		Rectangle _scissorRect;
+		SamplerStateCollection _samplerStates;
+		TextureCollection _textures, _vertTextures;
+		XNA::Viewport _viewport;
 	};
 }
 #endif

@@ -1,7 +1,6 @@
 #ifndef _GRAPHICS_RESOURCE_H
 #define _GRAPHICS_RESOURCE_H
 
-#include <memory>
 #include <string>
 
 namespace XNA
@@ -12,17 +11,14 @@ namespace XNA
 	{
 	public:
 		GraphicsResource(XNA::GraphicsDevice&, std::string);
-		//GraphicsResource(XNA::GraphicsDevice&, std::string, void*);
-		virtual ~GraphicsResource(); 
+		virtual ~GraphicsResource() = 0;
 
 		XNA::GraphicsDevice& GraphicsDevice();
 		std::string Name();
-		//void* Tag();
 	
 	protected:
 		XNA::GraphicsDevice& _device;
 		std::string _name;
-		//std::unique_ptr<void> _tag;
 	};
 }
 

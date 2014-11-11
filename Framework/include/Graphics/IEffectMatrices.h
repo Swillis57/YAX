@@ -8,9 +8,19 @@ namespace XNA
 	class IEffectMatrices
 	{
 	public:
-		virtual ~IEffectMatrices();
+		virtual ~IEffectMatrices() = 0;
 
-		Matrix Projection, View, World;
+		Matrix Projection() const;
+		void Projection(const Matrix&);
+
+		Matrix View() const;
+		void View(const Matrix&);
+
+		Matrix World() const;
+		void World(const Matrix&);
+
+	protected:
+		Matrix _projection, _view, _world;
 	};
 }
 

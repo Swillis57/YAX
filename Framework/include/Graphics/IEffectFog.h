@@ -8,11 +8,24 @@ namespace XNA
 	class IEffectFog
 	{
 	public:
-		virtual ~IEffectFog();
+		virtual ~IEffectFog() = 0;
 
-		Vector3 FogColor;
-		bool FogEnabled;
-		float FogEnd, FogStart;
+		Vector3 FogColor() const;
+		void FogColor(const Vector3&);
+
+		bool FogEnabled() const;
+		void FogEnabled(bool);
+
+		float FogStart() const;
+		void FogStart(float);
+
+		float FogEnd() const;
+		void FogEnd(float);
+
+	protected:
+		Vector3 _fogColor;
+		bool _fogEnabled;
+		float _fogEnd, _fogStart;
 	};
 }
 

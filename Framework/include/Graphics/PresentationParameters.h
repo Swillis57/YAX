@@ -1,8 +1,8 @@
 #ifndef _PRESENTATION_PARAMS_H
 #define _PRESENTATION_PARAMS_H
 
+#include "../GLFW/glfw3.h"
 #include "../Utils.h"
-#include "../Geometry/Rectangle.h"
 
 namespace XNA
 {
@@ -12,53 +12,49 @@ namespace XNA
 	enum class DepthFormat : int;
 	enum class RenderTargetUsage : int;
 
+	struct Rectangle;
+
 	class PresentationParameters
 	{
 	public:
 
 		PresentationParameters();
 
-		SurfaceFormat BackBufferFormat();
+		SurfaceFormat BackBufferFormat() const;
 		void BackBufferFormat(SurfaceFormat);
 
-		i32 BackBufferHeight();
+		i32 BackBufferHeight() const;
 		void BackBufferHeight(i32);
 
-		i32 BackBufferWidth();
+		i32 BackBufferWidth() const;
 		void BackBufferWidth(i32);
 
-		Rectangle Bounds();
+		Rectangle Bounds() const;
 
-		DepthFormat DepthStencilFormat();
+		DepthFormat DepthStencilFormat() const;
 		void DepthStencilFormat(DepthFormat);
 
-		i32 DeviceWindowHandle();
-		void DeviceWindowHandle(i32);
+		GLFWwindow* DeviceWindowHandle() const;
+		void DeviceWindowHandle(GLFWwindow*);
 
-		XNA::DisplayOrientation DisplayOrientation();
-		void DisplayOrientation(XNA::DisplayOrientation);
-
-		bool IsFullScreen();
+		bool IsFullScreen() const;
 		void IsFullScreen(bool);
 
-		i32 MultiSampleCount();
+		i32 MultiSampleCount() const;
 		void MultiSampleCount(i32);
 
-		PresentInterval PresentationInterval();
+		PresentInterval PresentationInterval() const;
 		void PresentationInterval(PresentInterval);
 
-		XNA::RenderTargetUsage RenderTargetUsage();
+		XNA::RenderTargetUsage RenderTargetUsage() const;
 		void RenderTargetUsage(XNA::RenderTargetUsage);
 
 
 	private:
 		SurfaceFormat _backBufFormat;
-		i32 _backBufHeight;
-		i32 _backBufWidth;
-		Rectangle _bounds;
+		i32 _backBufHeight, _backBufWidth;
 		DepthFormat _depthFormat;
-		i32 _winHandle;
-		XNA::DisplayOrientation _displayOrientation;
+		GLFWwindow* _winHandle;
 		bool _fullScreen;
 		i32 _sampleCount;
 		PresentInterval _interval;
