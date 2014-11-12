@@ -1,6 +1,11 @@
 #ifndef _DYNAMIC_INDEX_BUFFER_H
 #define _DYNAMIC_INDEX_BUFFER_H
 
+
+#define SETDATA_SPECIALIZE(idxType) \
+	template void SetData<idxType>(i32, std::vector<idxType>, i32, i32, SetDataOptions); \
+	template void SetData<idxType>(std::vector<idxType>, i32, i32, SetDataOptions);
+
 #include <vector>
 #include "IndexBuffer.h"
 #include "../Utils.h"
@@ -17,16 +22,12 @@ namespace XNA
 	{
 	public:
 		DynamicIndexBuffer(XNA::GraphicsDevice&, XNA::IndexElementSize, i32, XNA::BufferUsage);
-		//DynamicIndexBuffer(GraphicsDevice&, Type, i32, BufferUsage);
-
-		//Only here for completeness, OpenGL handles lost contexts in the driver
-		bool IsContentLost() const;
 	
 		template<typename indexType>
-		void SetData<indexType>(i32, std::vector<indexType>, i32, i32, SetDataOptions);
+		void SetData(i32, std::vector<indexType>, i32, i32, SetDataOptions);
 		
 		template<typename indexType>
-		void SetData<indexType>(std::vector<indexType>, i32, i32, SetDataOptions);
+		void SetData(std::vector<indexType>, i32, i32, SetDataOptions);
 		
 	};
 	

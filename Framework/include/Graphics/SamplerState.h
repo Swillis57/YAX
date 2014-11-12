@@ -21,25 +21,25 @@ namespace XNA
 		static const SamplerState PointClamp;
 		static const SamplerState PointWrap;
 
-		TextureAddressMode AddressU();
+		TextureAddressMode AddressU() const;
 		void AddressU(TextureAddressMode);
 
-		TextureAddressMode AddressV();
+		TextureAddressMode AddressV() const;
 		void AddressV(TextureAddressMode);
 
-		TextureAddressMode AddressW();
+		TextureAddressMode AddressW() const;
 		void AddressW(TextureAddressMode);
 
-		TextureFilter Filter();
+		TextureFilter Filter() const;
 		void Filter(TextureFilter);
 
-		i32 MaxAnisotropy();
+		i32 MaxAnisotropy() const;
 		void MaxAnisotropy(i32);
 
-		i32 MaxMipLevel();
+		i32 MaxMipLevel() const;
 		void MaxMipLevel(i32);
 
-		float MipMapLevelofDetailBias();
+		float MipMapLevelofDetailBias() const;
 		void MipMapLevelofDetailBias(float);
 
 	private:
