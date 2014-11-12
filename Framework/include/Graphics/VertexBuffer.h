@@ -2,6 +2,7 @@
 #define _VERTEX_BUFFER_H
 
 #include <vector>
+#include "../GLEW/glew.h"
 #include "GraphicsResource.h"
 #include "VertexDeclaration.h"
 #include "../Utils.h"
@@ -15,16 +16,19 @@ namespace XNA
 	class VertexBuffer : public GraphicsResource
 	{
 	public:
-		//VertexBuffer(GraphicsDevice&, Type, i32, BufferUsage);	 //Tricky to implement without using a template
 		VertexBuffer(XNA::GraphicsDevice&, XNA::VertexDeclaration, i32, BufferUsage);
+		VertexBuffer(const VertexBuffer&) = delete;
+		VertexBuffer& operator=(const VertexBuffer&) = delete;
+		VertexBuffer(VertexBuffer&&);
+		VertexBuffer& operator=(VertexBuffer&&);
 
-		XNA::BufferUsage BufferUsage();
-		i32 VertexCount();
-		XNA::VertexDeclaration VertexDeclaration();
+		XNA::BufferUsage BufferUsage() const;
+		i32 VertexCount() const;
+		XNA::VertexDeclaration VertexDeclaration() const;
 
-		void GetData(i32, std::vector<XNA::VertexDeclaration>, i32, i32, i32);
-		void GetData(std::vector<XNA::VertexDeclaration>);
-		void GetData(std::vector<XNA::VertexDeclaration>, i32, i32);
+		void GetData(i32, std::vector<XNA::VertexDeclaration>, i32, i32, i32) const;
+		void GetData(std::vector<XNA::VertexDeclaration>) const;
+		void GetData(std::vector<XNA::VertexDeclaration>, i32, i32) const;
 
 		void SetData(i32, std::vector<XNA::VertexDeclaration>, i32, i32, i32);
 		void SetDate(std::vector<XNA::VertexDeclaration>);
@@ -34,7 +38,7 @@ namespace XNA
 		XNA::BufferUsage _usage;
 		i32 _vertCount;
 		XNA::VertexDeclaration _vertDecl;
-		std::vector<XNA::VertexDeclaration> _data;
+		GLuint _id;
 	};
 }
 

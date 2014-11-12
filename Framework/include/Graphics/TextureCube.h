@@ -18,23 +18,27 @@ namespace XNA
 	{
 	public:
 		TextureCube(XNA::GraphicsDevice&, i32, bool, SurfaceFormat);
+		TextureCube(const TextureCube&) = delete;
+		TextureCube& operator=(const TextureCube&) = delete;
+		TextureCube(TextureCube&&);
+		TextureCube& operator=(TextureCube&&);
 		~TextureCube();
 
-		i32 Size();
+		i32 Size() const;
 
 		template<typename T>
-		void GetData(CubeMapFace, i32, std::unique_ptr<Rectangle>, std::vector<T>, i32, i32);
+		void GetData(CubeMapFace, i32, std::unique_ptr<Rectangle>, const std::vector<T>&, i32, i32) const;
 		template<typename T>
-		void GetData(CubeMapFace, std::vector<T>);
+		void GetData(CubeMapFace, const std::vector<T>&) const;
 		template<typename T>
-		void GetData(CubeMapFace, std::vector<T>, i32, i32);
+		void GetData(CubeMapFace, const std::vector<T>&, i32, i32) const;
 
 		template<typename T>
-		void SetData(CubeMapFace, i32, std::unique_ptr<Rectangle>, std::vector<T>, i32, i32);
+		void SetData(CubeMapFace, i32, std::unique_ptr<Rectangle>, const std::vector<T>&, i32, i32) const;
 		template<typename T>
-		void SetData(CubeMapFace, std::vector<T>);
+		void SetData(CubeMapFace, const std::vector<T>&) const;
 		template<typename T>
-		void SetData(CubeMapFace, std::vector<T>, i32, i32);
+		void SetData(CubeMapFace, const std::vector<T>&, i32, i32) const;
 	};
 }
 

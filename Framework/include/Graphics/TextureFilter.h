@@ -12,10 +12,11 @@ namespace XNA
 		Anisotropic = GL_EXT_texture_filter_anisotropic,
 		LinearMipPoint = GL_LINEAR_MIPMAP_NEAREST,
 		PointMipLinear = GL_NEAREST_MIPMAP_LINEAR,
-		MinLinearMagPointMipLinear = -1,
-		MinLinearMagPointMipPoint = -2,
-		MinPointMagLinearMipLinear = -3,
-		MinPointMagLinearMipPoint = -4
+		//OpenGL doesn't have any enums to represent these
+		//MinLinearMagPointMipLinear = -1,
+		//MinLinearMagPointMipPoint = -2,
+		//MinPointMagLinearMipLinear = -3,
+		//MinPointMagLinearMipPoint = -4
 	};
 }
 
