@@ -12,20 +12,21 @@ namespace XNA
 	class SpriteFont
 	{
 	public:
-		std::vector<char> Characters();
+		const std::vector<char>& Characters() const;
 
-		char DefaultCharacter();
+		char DefaultCharacter() const;
 		void DefaultCharacter(char);
 
-		i32 LineSpacing();
+		i32 LineSpacing() const;
 		void LineSpacing(i32);
 
-		float Spacing();
+		float Spacing() const;
 		void Spacing(float);	
 
-		Vector2 MeasureString(std::string);
+		Vector2 MeasureString(std::string) const;
 
 	private:
+		//FT_Face _face; //For FreeType (NYI)
 		std::vector<char> _characters;
 		char _defaultCharacter;
 		i32 _lineSpacing;
