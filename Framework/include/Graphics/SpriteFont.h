@@ -14,8 +14,8 @@ namespace XNA
 	public:
 		std::vector<char> Characters();
 
-		char* DefaultCharacter();
-		void DefaultCharacter(char*);
+		char DefaultCharacter();
+		void DefaultCharacter(char);
 
 		i32 LineSpacing();
 		void LineSpacing(i32);
@@ -27,7 +27,7 @@ namespace XNA
 
 	private:
 		std::vector<char> _characters;
-		std::unique_ptr<char> _defaultCharacter;
+		char _defaultCharacter;
 		i32 _lineSpacing;
 		float _spacing;
 

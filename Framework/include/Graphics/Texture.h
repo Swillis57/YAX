@@ -1,7 +1,9 @@
 #ifndef _TEXTURE_H
 #define _TEXTURE_H
 
+#include "../Glew/glew.h"
 #include "GraphicsResource.h"
+#include "../Utils.h"
 
 namespace XNA
 {
@@ -13,17 +15,18 @@ namespace XNA
 	{
 	public:
 		Texture(XNA::GraphicsDevice&);
-		virtual ~Texture();
+		virtual ~Texture() = 0;
 
-		SurfaceFormat Format();
-		int LevelCount();
+		SurfaceFormat Format() const;
+		i32 LevelCount() const;
 
-	private:
+	protected:
 		void Format(SurfaceFormat);
 		void LevelCount(int);
 
 		SurfaceFormat _format;
-		int _levelCount;
+		i32 _levelCount;
+		GLuint _id;
 
 	};
 }

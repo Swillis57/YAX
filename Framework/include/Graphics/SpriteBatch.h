@@ -5,6 +5,9 @@
 #include "DynamicIndexBuffer.h"
 #include "DynamicVertexBuffer.h"
 #include "GraphicsResource.h"
+#include "../Geometry/Rectangle.h"
+#include "SpriteEffects.h"
+#include "Texture2D.h"
 
 namespace XNA
 {
@@ -25,10 +28,20 @@ namespace XNA
 
 	class SpriteBatch : public GraphicsResource
 	{
-		struct SpriteInfo;
+		struct SpriteInfo
+		{
+			Rectangle src;
+			Rectangle dest;
+			Texture2D tex;
+			SpriteEffects fx;
+		};
 
 	public:
 		SpriteBatch(XNA::GraphicsDevice&);
+		SpriteBatch(const SpriteBatch&) = delete;
+		SpriteBatch& operator=(const SpriteBatch&) = delete;
+		SpriteBatch(SpriteBatch&&);
+		SpriteBatch& operator=(SpriteBatch&&);
 
 		void Begin();
 		void Begin(SpriteSortMode, const BlendState&);
