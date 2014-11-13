@@ -8,7 +8,7 @@
 #include "GamePadDPad.h"
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class Buttons : int;
 
@@ -17,7 +17,7 @@ namespace XNA
 	struct GamePadState
 	{
 		GamePadState(const GamePadThumbSticks&, const GamePadTriggers&, const GamePadButtons&, const GamePadDPad&);
-		GamePadState(const Vector2&, const Vector2&, float, float, std::vector<XNA::Buttons>);
+		GamePadState(const Vector2&, const Vector2&, float, float, std::vector<YAX::Buttons>);
 
 		GamePadButtons Buttons();
 		

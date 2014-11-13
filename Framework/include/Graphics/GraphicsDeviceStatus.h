@@ -1,7 +1,7 @@
 #ifndef _GRAPHICS_DEVICE_STATUS_H
 #define _GRAPHICS_DEVICE_STATUS_H
 
-namespace XNA
+namespace YAX
 {
 	enum class GraphicsDeviceStatus : int 
 	{

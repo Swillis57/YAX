@@ -1,7 +1,7 @@
 #ifndef _GAME_H
 #define _GAME_H
 
-namespace XNA
+namespace YAX
 {
 	class Game
 	{

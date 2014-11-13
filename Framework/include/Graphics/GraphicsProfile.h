@@ -3,7 +3,7 @@
 
 #include "../GLFW/glfw3.h"	
 
-namespace XNA
+namespace YAX
 {
 	enum class GraphicsProfile : int 
 	{			 

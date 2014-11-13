@@ -7,7 +7,7 @@
 #include "../Utils.h" 
 #include "DisplayMode.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class SurfaceFormat : int;
 	enum class DepthFormat : int;

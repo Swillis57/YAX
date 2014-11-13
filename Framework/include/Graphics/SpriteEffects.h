@@ -1,7 +1,7 @@
 #ifndef _SPRITE_EFFECTS_H
 #define _SPRITE_EFFECTS_H
 
-namespace XNA
+namespace YAX
 {
 	enum class SpriteEffects : int 
 	{

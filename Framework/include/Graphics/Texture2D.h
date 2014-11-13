@@ -16,7 +16,7 @@
 #include "../Utils.h"
 
 
-namespace XNA
+namespace YAX
 {
 	class GraphicsDevice;
 	class Rectangle;
@@ -26,8 +26,8 @@ namespace XNA
 	class Texture2D : public Texture
 	{
 	public:
-		Texture2D(XNA::GraphicsDevice&, i32, i32);
-		Texture2D(XNA::GraphicsDevice&, i32, i32, bool, SurfaceFormat);
+		Texture2D(YAX::GraphicsDevice&, i32, i32);
+		Texture2D(YAX::GraphicsDevice&, i32, i32, bool, SurfaceFormat);
 		Texture2D(const Texture2D&) = delete;
 		Texture2D& operator=(const Texture2D&) = delete;
 		Texture2D(Texture2D&&);
@@ -38,8 +38,8 @@ namespace XNA
 		i32 Height() const;
 		i32 Width() const;
 
-		static Texture2D FromStream(XNA::GraphicsDevice&, const std::istream&);
-		static Texture2D FromStream(XNA::GraphicsDevice&, const std::istream&, i32, i32, bool);
+		static Texture2D FromStream(YAX::GraphicsDevice&, const std::istream&);
+		static Texture2D FromStream(YAX::GraphicsDevice&, const std::istream&, i32, i32, bool);
 
 		template<typename valType>
 		void GetData(i32, std::unique_ptr<Rectangle>, std::vector<valType>&, i32, i32) const;

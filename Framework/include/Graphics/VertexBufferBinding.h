@@ -4,23 +4,23 @@
 #include "VertexBuffer.h"
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	struct VertexBufferBinding
 	{
-		VertexBufferBinding(VertexBuffer);
-		VertexBufferBinding(VertexBuffer, i32);
-		VertexBufferBinding(VertexBuffer, i32, i32);
+		VertexBufferBinding(VertexBuffer&);
+		VertexBufferBinding(VertexBuffer&, i32);
+		VertexBufferBinding(VertexBuffer&, i32, i32);
 
-		i32 InstanceFrequency();
+		i32 InstanceFrequency() const;		 
 
-		XNA::VertexBuffer& VertexBuffer();
+		YAX::VertexBuffer& VertexBuffer() const;
 
-		i32 VertexOffset();
+		i32 VertexOffset() const;
 
 	private:
 		i32 _instFreq, _vertOffset;
-		XNA::VertexBuffer& _vertBuf;
+		YAX::VertexBuffer& _vertBuf;
 	};
 }
 

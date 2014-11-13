@@ -1,6 +1,6 @@
 #include "../../include/Geometry/Rectangle.h"
 
-namespace XNA
+namespace YAX
 {
 	Rectangle Rectangle::Empty()
 	{

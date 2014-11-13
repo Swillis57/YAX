@@ -4,7 +4,7 @@
 #include <vector>
 #include "Texture.h"
 
-namespace XNA
+namespace YAX
 {
 	typedef std::vector<Texture> TextureCollection;
 	

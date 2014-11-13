@@ -6,7 +6,7 @@
 #include "../Math/Vector3.h"
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	struct Plane;
 	struct BoundingSphere;

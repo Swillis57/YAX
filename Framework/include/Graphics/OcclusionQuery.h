@@ -5,14 +5,14 @@
 #include "GraphicsResource.h"
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	class GraphicsDevice;
 
 	class OcclusionQuery : public GraphicsResource
 	{
 	public:
-		OcclusionQuery(XNA::GraphicsDevice&);
+		OcclusionQuery(YAX::GraphicsDevice&);
 		OcclusionQuery(const OcclusionQuery&) = delete;
 		OcclusionQuery& operator=(const OcclusionQuery&) = delete;
 		OcclusionQuery(OcclusionQuery&&);

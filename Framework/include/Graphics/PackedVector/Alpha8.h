@@ -3,7 +3,7 @@
 
 #include "IPackedVector.h"
 
-namespace XNA
+namespace YAX
 {
 	struct Alpha8 : public IPackedVector<byte>
 	{

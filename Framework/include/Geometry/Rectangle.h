@@ -6,7 +6,7 @@
 #include "../Utils.h"
 #include "Point.h"
 
-namespace XNA
+namespace YAX
 {
 	struct Rectangle
 	{

@@ -5,7 +5,7 @@
 #include "../Utils.h"
 
 
-namespace XNA
+namespace YAX
 {
 	struct Matrix;
 	struct Quaternion;

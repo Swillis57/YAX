@@ -7,14 +7,14 @@
 #include "../Math/Vector2.h"
 #include "../Math/Vector3.h"
 
-namespace XNA
+namespace YAX
 {
 	struct VertexPositionColorTexture : public IVertexType
 	{
 		VertexPositionColorTexture(Vector3, Color, Vector2);
 
-		XNA::Color Color();
-		void Color(XNA::Color);
+		YAX::Color Color();
+		void Color(YAX::Color);
 
 		Vector3 Position();
 		void Position(Vector3);
@@ -22,17 +22,17 @@ namespace XNA
 		Vector2 TextureCoordinate();
 		void TextureCoordinate(Vector2);
 
-		static const XNA::VertexDeclaration VertexDeclaration();
-		static const void VertexDeclaration(XNA::VertexDeclaration);
+		static const YAX::VertexDeclaration VertexDeclaration();
+		static const void VertexDeclaration(YAX::VertexDeclaration);
 
 		friend bool operator==(const VertexPositionColorTexture&, const VertexPositionColorTexture&);
 		friend bool operator!=(const VertexPositionColorTexture&, const VertexPositionColorTexture&);
 
 	private:
-		XNA::Color _color;
+		YAX::Color _color;
 		Vector3 _pos;
 		Vector2 _texCoord;
-		static const XNA::VertexDeclaration _vertDecl;
+		static const YAX::VertexDeclaration _vertDecl;
 	};
 }
 

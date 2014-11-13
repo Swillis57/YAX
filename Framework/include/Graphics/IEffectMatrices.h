@@ -3,7 +3,7 @@
 
 #include "../Math/Matrix.h"
 
-namespace XNA
+namespace YAX
 {
 	class IEffectMatrices
 	{

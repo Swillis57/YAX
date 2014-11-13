@@ -2,7 +2,7 @@
 #define _CONTAINMENT_TYPE_H
 
 
-namespace XNA
+namespace YAX
 {
 	enum class ContainmentType : int 
 	{

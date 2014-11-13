@@ -10,7 +10,7 @@
 #include "IndexBuffer.h"
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class BufferUsage : int;
 	enum class IndexElementSize : int;
@@ -21,7 +21,7 @@ namespace XNA
 	class DynamicIndexBuffer : public IndexBuffer
 	{
 	public:
-		DynamicIndexBuffer(XNA::GraphicsDevice&, XNA::IndexElementSize, i32, XNA::BufferUsage);
+		DynamicIndexBuffer(YAX::GraphicsDevice&, YAX::IndexElementSize, i32, YAX::BufferUsage);
 		DynamicIndexBuffer(const DynamicIndexBuffer&) = delete;
 		DynamicIndexBuffer& operator=(const DynamicIndexBuffer&) = delete;
 		DynamicIndexBuffer(DynamicIndexBuffer&&);

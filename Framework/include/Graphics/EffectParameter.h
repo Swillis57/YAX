@@ -7,7 +7,7 @@
 #include "../GLEW/glew.h"
 #include "../Utils.h"
 
-namespace XNA		
+namespace YAX		
 {
 	enum class ParameterClass : int;
 	enum class ParameterType : int;
@@ -34,8 +34,8 @@ namespace XNA
 		i32 ColumnCount();
 		EffectParameterCollection Elements();
 		std::string Name();
-		XNA::ParameterClass ParameterClass();
-		XNA::ParameterType ParameterType();
+		YAX::ParameterClass ParameterClass();
+		YAX::ParameterType ParameterType();
 		i32 RowCount();
 		std::string Semantic();
 		EffectParameterCollection StructureMembers();
@@ -54,8 +54,8 @@ namespace XNA
 		i32 _colCount, _rowCount;
 		std::string _name, _sem;
 		EffectParameterCollection _elems;
-		XNA::ParameterClass _pClass;
-		XNA::ParameterType _pType;
+		YAX::ParameterClass _pClass;
+		YAX::ParameterType _pType;
 		EffectParameterCollection _structMemb;
 	};
 }

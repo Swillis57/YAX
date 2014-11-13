@@ -5,7 +5,7 @@
 
 struct GLFWwindow;
 
-namespace XNA
+namespace YAX
 {
 	enum class DisplayOrientation : int;
 

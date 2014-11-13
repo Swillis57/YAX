@@ -1,7 +1,7 @@
 #include <numeric>
 #include "../../include/Geometry/Point.h"
 
-namespace XNA
+namespace YAX
 {
 	Point Point::Zero()
 	{

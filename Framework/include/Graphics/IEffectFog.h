@@ -3,7 +3,7 @@
 
 #include "../Math/Vector3.h"
 
-namespace XNA
+namespace YAX
 {
 	class IEffectFog
 	{

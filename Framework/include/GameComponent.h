@@ -5,7 +5,7 @@
 #include "Game.h"
 #include "GameTime.h"
 
-namespace XNA
+namespace YAX
 {
 	class GameComponent
 	{

@@ -1,7 +1,7 @@
 #ifndef _BUTTONS_H
 #define _BUTTONS_H
 
-namespace XNA
+namespace YAX
 {
 	enum class Buttons : int 
 	{

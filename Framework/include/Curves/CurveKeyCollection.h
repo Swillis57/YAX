@@ -4,7 +4,7 @@
 #include <vector>
 #include "CurveKey.h"
 
-namespace XNA
+namespace YAX
 {
 	typedef std::vector<CurveKey> CurveKeyCollection;
 }

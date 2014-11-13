@@ -4,7 +4,7 @@
 #include <vector>
 #include "SamplerState.h"
 
-namespace XNA
+namespace YAX
 {
 	typedef std::vector<SamplerState> SamplerStateCollection;
 }

@@ -4,7 +4,7 @@
 #include <vector>
 #include "Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class GraphicsProfile : int;
 	enum class DepthFormat : int;
@@ -22,7 +22,7 @@ namespace XNA
 		static i32 DefaultBackBufferHeight();
 		static i32 DefaultBackBufferWidth();
 
-		XNA::GraphicsDevice GraphicsDevice();
+		YAX::GraphicsDevice GraphicsDevice();
 
 		bool IsFullScreen();
 		void IsFullScreen(bool);

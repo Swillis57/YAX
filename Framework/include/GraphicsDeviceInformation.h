@@ -5,7 +5,7 @@
 #include "Graphics/PresentationParameters.h"
 #include "Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class GraphicsProfile : int;
 
@@ -17,16 +17,16 @@ namespace XNA
 		GraphicsAdapter Adapter();
 		void Adapter(const GraphicsAdapter&);
 
-		XNA::GraphicsProfile GraphicsProfile();
-		void GraphicsProfile(XNA::GraphicsProfile);
+		YAX::GraphicsProfile GraphicsProfile();
+		void GraphicsProfile(YAX::GraphicsProfile);
 
-		XNA::PresentationParameters PresentationParameters();
-		void PresentationParameters(XNA::PresentationParameters);
+		YAX::PresentationParameters PresentationParameters();
+		void PresentationParameters(YAX::PresentationParameters);
 
 	private:
-		XNA::GraphicsAdapter _adapter;
-		XNA::GraphicsProfile _profile;
-		XNA::PresentationParameters _params;
+		YAX::GraphicsAdapter _adapter;
+		YAX::GraphicsProfile _profile;
+		YAX::PresentationParameters _params;
 	};
 }
 

@@ -1,6 +1,6 @@
 #include "../include/TimeSpan.h"
 
-namespace XNA
+namespace YAX
 {
 	const TimeSpan TimeSpan::Zero(0);
 #pragma region Constructors

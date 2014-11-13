@@ -1,7 +1,7 @@
 #ifndef _CURVE_LOOP_TYPE_H
 #define _CURVE_LOOP_TYPE_H
 
-namespace XNA
+namespace YAX
 {
 	enum class CurveLoopType : int 
 	{

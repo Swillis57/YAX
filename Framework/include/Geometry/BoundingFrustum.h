@@ -6,7 +6,7 @@
 #include "../Utils.h"
 #include "../Math/Matrix.h"
 
-namespace XNA
+namespace YAX
 {
 	struct Plane;
 	struct BoundingBox;
@@ -22,13 +22,13 @@ namespace XNA
 	{
 		static const i32 CornerCount = 8;
 	
-		BoundingFrustum(const XNA::Matrix&);
+		BoundingFrustum(const YAX::Matrix&);
 		BoundingFrustum(const BoundingFrustum&) = default;
 		BoundingFrustum& operator=(const BoundingFrustum&) = default;
 
 
-		XNA::Matrix Matrix() const;
-		void Matrix(XNA::Matrix);
+		YAX::Matrix Matrix() const;
+		void Matrix(YAX::Matrix);
 
 		Plane Bottom() const;
 		Plane Far() const;
@@ -54,7 +54,7 @@ namespace XNA
 		friend bool operator!=(const BoundingFrustum&, const BoundingFrustum&);
 
 	private:
-		XNA::Matrix _matrix;
+		YAX::Matrix _matrix;
 	};
 }
 

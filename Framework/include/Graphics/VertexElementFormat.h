@@ -5,7 +5,7 @@
 #include <tuple>
 #include "../GLEW/glew.h"
 
-namespace XNA
+namespace YAX
 {
 	
 	struct VertexElementFormat

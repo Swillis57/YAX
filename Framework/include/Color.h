@@ -3,7 +3,7 @@
 
 #include "Graphics/PackedVector/IPackedVector.h"
 
-namespace XNA
+namespace YAX
 {
 	struct Color : IPackedVector<ui32>
 	{

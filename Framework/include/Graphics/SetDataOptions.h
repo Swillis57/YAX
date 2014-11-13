@@ -1,7 +1,7 @@
 #ifndef _SET_DATA_OPTIONS_H
 #define _SET_DATA_OPTIONS_H
 
-namespace XNA
+namespace YAX
 {
 	enum class SetDataOptions : int 
 	{

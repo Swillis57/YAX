@@ -4,7 +4,7 @@
 #include "CurveKeyCollection.h"
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class CurveLoopType : int;
 	enum class CurveTangent : int;

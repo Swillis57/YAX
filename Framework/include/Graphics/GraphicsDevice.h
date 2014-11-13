@@ -39,7 +39,7 @@
 #include "Viewport.h"
 
 
-namespace XNA
+namespace YAX
 { 
 	enum class GraphicsProfile : int;
 	enum class PrimitiveType : int;
@@ -55,22 +55,22 @@ namespace XNA
 	{
 	public:
 		#pragma region Properties
-		GraphicsDevice(const GraphicsAdapter&, const GraphicsProfile&, const XNA::PresentationParameters&);
+		GraphicsDevice(const GraphicsAdapter&, const GraphicsProfile&, const YAX::PresentationParameters&);
 
 		GraphicsAdapter& Adapter() const;
 
 		Color BlendFactor() const;
 		void BlendFactor(Color);
 
-		XNA::BlendState& BlendState() const;
-		void BlendState(XNA::BlendState);
+		YAX::BlendState& BlendState() const;
+		void BlendState(YAX::BlendState);
 
-		XNA::DepthStencilState& DepthStencilState() const;
-		void DepthStencilState(XNA::DepthFormat);
+		YAX::DepthStencilState& DepthStencilState() const;
+		void DepthStencilState(YAX::DepthFormat);
 				
-		XNA::DisplayMode& DisplayMode() const;
+		YAX::DisplayMode& DisplayMode() const;
 
-		XNA::GraphicsProfile GraphicsProfile() const;
+		YAX::GraphicsProfile GraphicsProfile() const;
 
 		IndexBuffer& Indicies() const;
 		void Indicies(IndexBuffer);
@@ -78,10 +78,10 @@ namespace XNA
 		i32 MultiSampleMask() const;
 		void MultiSampleMask(i32);
 
-		XNA::PresentationParameters& PresentationParameters() const;
+		YAX::PresentationParameters& PresentationParameters() const;
 
-		XNA::RasterizerState RasterizerState() const;
-		void RasterizerState(XNA::RasterizerState);
+		YAX::RasterizerState RasterizerState() const;
+		void RasterizerState(YAX::RasterizerState);
 
 		i32 ReferenceStencil() const;
 		void ReferenceStencil(i32);
@@ -95,8 +95,8 @@ namespace XNA
 
 		TextureCollection& VertexTextures() const;
 
-		XNA::Viewport Viewport() const;
-		void Viewport(XNA::Viewport);
+		YAX::Viewport Viewport() const;
+		void Viewport(YAX::Viewport);
 #pragma endregion
 
 		void Clear(ClearOptions) const;
@@ -137,8 +137,8 @@ namespace XNA
 		void Present(std::unique_ptr<Rectangle>, std::unique_ptr<Rectangle>, std::shared_ptr<int>) const;
 
 		void Reset() const;
-		void Reset(const XNA::PresentationParameters&) const;
-		void Reset(const XNA::PresentationParameters&, const GraphicsAdapter&) const;
+		void Reset(const YAX::PresentationParameters&) const;
+		void Reset(const YAX::PresentationParameters&, const GraphicsAdapter&) const;
 
 		void SetRenderTarget(const RenderTarget2D&);
 		void SetRenderTarget(const RenderTargetCube&, CubeMapFace);
@@ -152,18 +152,18 @@ namespace XNA
 
 	private:
 		GraphicsAdapter _adapter;
-		XNA::BlendState _blendState;
-		XNA::DepthStencilState _depthStencilState;
-		XNA::DisplayMode _displayMode;
-		XNA::GraphicsProfile _graphicsProfile;
+		YAX::BlendState _blendState;
+		YAX::DepthStencilState _depthStencilState;
+		YAX::DisplayMode _displayMode;
+		YAX::GraphicsProfile _graphicsProfile;
 		IndexBuffer _indices;
 		i32 _msMask, _refStencil;
-		XNA::PresentationParameters _presParams;
-		XNA::RasterizerState _rasterState;
+		YAX::PresentationParameters _presParams;
+		YAX::RasterizerState _rasterState;
 		Rectangle _scissorRect;
 		SamplerStateCollection _samplerStates;
 		TextureCollection _textures, _vertTextures;
-		XNA::Viewport _viewport;
+		YAX::Viewport _viewport;
 	};
 }
 #endif

@@ -5,7 +5,7 @@
 #include <string>
 #include "EffectParameter.h"
 
-namespace XNA
+namespace YAX
 {
 	typedef std::map<std::string, EffectParameter> EffectParameterCollection;
 }

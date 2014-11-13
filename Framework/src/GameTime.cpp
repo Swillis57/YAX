@@ -1,6 +1,6 @@
 #include "../include/GameTime.h"
 
-namespace XNA
+namespace YAX
 {
 	GameTime::GameTime()
 		: elapsed(TimeSpan::Zero), runningSlow(false), total(TimeSpan::Zero)

@@ -5,7 +5,7 @@
 #include <numeric>
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	namespace MathHelper
 	{

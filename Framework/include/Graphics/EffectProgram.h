@@ -5,7 +5,7 @@
 
 #include "../GLEW/glew.h"
 
-namespace XNA
+namespace YAX
 {
 	//An EffectProgram represents a single shader program
 	class EffectProgram

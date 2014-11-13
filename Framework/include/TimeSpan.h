@@ -9,7 +9,7 @@
 using std::string;
 using namespace std::chrono;
 
-namespace XNA
+namespace YAX
 {
 	typedef duration<i64, std::ratio<1, 10000000>> Ticks;
 	typedef duration<i32, std::ratio<3600, 1>> Days;

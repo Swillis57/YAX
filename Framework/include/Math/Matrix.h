@@ -4,7 +4,7 @@
 #include <tuple>
 #include <memory>
 
-namespace XNA
+namespace YAX
 {
 	class Vector3;
 	class Quaternion;

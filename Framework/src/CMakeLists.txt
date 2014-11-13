@@ -11,15 +11,15 @@ file(GLOB_RECURSE FRAMEWORK_SRC)
 #include(Net/CMakeLists.txt)
 #include(Storage/CMakeLists.txt)
 
-add_library(XNA++ STATIC ${FRAMEWORK_SRC})
+add_library(YAX STATIC ${FRAMEWORK_SRC})
 
-target_link_libraries(XNA++
+target_link_libraries(YAX
 	opengl32.lib
 	glewd.lib
 	glfw3.lib
 )
 
-set_target_properties(XNA++
+set_target_properties(YAX
 	PROPERTIES
 	ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/lib"
 	LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/lib"

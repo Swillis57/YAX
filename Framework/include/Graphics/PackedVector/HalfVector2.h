@@ -3,7 +3,7 @@
 
 #include "IPackedVector.h"
 
-namespace XNA
+namespace YAX
 {
 	struct HalfVector2 : IPackedVector<ui32>
 	{

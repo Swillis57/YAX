@@ -3,7 +3,7 @@
 
 #include "IPackedVector.h"
 
-namespace XNA
+namespace YAX
 {
 	struct Bgra4444 : IPackedVector<ui16>
 	{

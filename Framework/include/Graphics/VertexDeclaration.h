@@ -6,7 +6,7 @@
 #include "VertexElement.h"
 
 
-namespace XNA
+namespace YAX
 {
 	class VertexDeclaration : public GraphicsResource
 	{

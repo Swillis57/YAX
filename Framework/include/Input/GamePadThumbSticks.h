@@ -3,7 +3,7 @@
 
 #include "../Math/Vector2.h"
 
-namespace XNA
+namespace YAX
 {
 	struct GamePadThumbSticks
 	{

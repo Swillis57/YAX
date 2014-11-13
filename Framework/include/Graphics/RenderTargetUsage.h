@@ -2,7 +2,7 @@
 #define _RENDER_TARGET_USAGE_H
 						   
 
-namespace XNA
+namespace YAX
 {
 	enum class RenderTargetUsage : int 
 	{

@@ -19,14 +19,14 @@
 #include "GraphicsResource.h"
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class IndexElementSize : int;
 	enum class BufferUsage : int;
 
 	class IndexBuffer : public GraphicsResource
 	{
-		IndexBuffer(XNA::GraphicsDevice&, XNA::IndexElementSize, i32, XNA::BufferUsage);
+		IndexBuffer(YAX::GraphicsDevice&, YAX::IndexElementSize, i32, YAX::BufferUsage);
 		IndexBuffer(const IndexBuffer&) = delete;
 		IndexBuffer& operator=(const IndexBuffer&) = delete;
 		IndexBuffer(IndexBuffer&&);
@@ -34,11 +34,11 @@ namespace XNA
 
 		virtual ~IndexBuffer();
 
-		XNA::BufferUsage BufferUsage();
+		YAX::BufferUsage BufferUsage();
 
 		i32 IndexCount();
 
-		XNA::IndexElementSize IndexElementSize();
+		YAX::IndexElementSize IndexElementSize();
 
 		template<typename indexType>
 		void GetData(i32, std::vector<indexType>&, i32, i32);
@@ -59,9 +59,9 @@ namespace XNA
 		void SetData(const std::vector<indexType>&, i32, i32);
 
 	protected:
-		XNA::BufferUsage _bufUsage;
+		YAX::BufferUsage _bufUsage;
 		i32 _indCount;
-		XNA::IndexElementSize _elemSize;
+		YAX::IndexElementSize _elemSize;
 		GLuint _bufID;
 	};
 }

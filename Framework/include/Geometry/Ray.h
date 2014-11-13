@@ -4,7 +4,7 @@
 #include "../Math/Vector3.h"
 #include <memory>
 
-namespace XNA
+namespace YAX
 {
 	class BoundingSphere;
 	class BoundingBox;

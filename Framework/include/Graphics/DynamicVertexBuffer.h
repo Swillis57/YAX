@@ -8,7 +8,7 @@
 
 #include "VertexBuffer.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class SetDataOptions : int;
 	enum class BufferUsage : int;
@@ -19,7 +19,7 @@ namespace XNA
 	class DynamicVertexBuffer : public VertexBuffer
 	{
 	public:
-		DynamicVertexBuffer(XNA::GraphicsDevice&, const XNA::VertexDeclaration&, i32, XNA::BufferUsage);
+		DynamicVertexBuffer(YAX::GraphicsDevice&, const YAX::VertexDeclaration&, i32, YAX::BufferUsage);
 		DynamicVertexBuffer(const DynamicVertexBuffer&) = delete;
 		DynamicVertexBuffer& operator=(const DynamicVertexBuffer&) = delete;
 		DynamicVertexBuffer(DynamicVertexBuffer&&);

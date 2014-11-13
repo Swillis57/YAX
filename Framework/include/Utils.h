@@ -5,7 +5,7 @@
 #include <memory>
 #include <stdexcept>
 
-namespace XNA
+namespace YAX
 {
 	typedef int16_t i16;
 	typedef	int32_t i32;

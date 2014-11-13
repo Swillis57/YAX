@@ -7,7 +7,7 @@
 #include "EffectProgramCollection.h"
 #include "EffectProgram.h"
 
-namespace XNA
+namespace YAX
 {
 	typedef char byte;
 
@@ -17,7 +17,7 @@ namespace XNA
 	class Effect : public GraphicsResource
 	{
 	public:
-		Effect(XNA::GraphicsDevice&, const std::vector<byte>&);
+		Effect(YAX::GraphicsDevice&, const std::vector<byte>&);
 		Effect(const Effect&) = delete;
 		Effect& operator=(const Effect&) = delete;
 		Effect(Effect&&);

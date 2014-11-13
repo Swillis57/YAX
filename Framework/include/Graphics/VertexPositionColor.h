@@ -7,28 +7,28 @@
 #include "../Math/Vector3.h"
 #include "VertexDeclaration.h "
 
-namespace XNA
+namespace YAX
 {
 	struct VertexPositionColor : public IVertexType
 	{
-		VertexPositionColor(Vector3, XNA::Color);
+		VertexPositionColor(Vector3, YAX::Color);
 		
-		XNA::Color Color();
-		void Color(XNA::Color);
+		YAX::Color Color();
+		void Color(YAX::Color);
 
 		Vector3 Position();
 		void Position(Vector3);
 
-		static const XNA::VertexDeclaration VertexDeclaration();
-		static const void VertexDeclaration(XNA::VertexDeclaration);
+		static const YAX::VertexDeclaration VertexDeclaration();
+		static const void VertexDeclaration(YAX::VertexDeclaration);
 	
 		friend bool operator==(const VertexPositionColor&, const VertexPositionColor&);
 		friend bool operator!=(const VertexPositionColor&, const VertexPositionColor&);
 
 	private:
-		XNA::Color _color;
+		YAX::Color _color;
 		Vector3 _pos;
-		static const XNA::VertexDeclaration _vertDecl;
+		static const YAX::VertexDeclaration _vertDecl;
 
 	};
 }

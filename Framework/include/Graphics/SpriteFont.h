@@ -5,7 +5,7 @@
 #include <vector>
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	class Vector2;
 

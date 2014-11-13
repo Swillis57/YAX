@@ -3,7 +3,7 @@
 
 #include "../Math/Vector3.h"
 
-namespace XNA
+namespace YAX
 {
 	struct Vector3;
 	struct Vector4;

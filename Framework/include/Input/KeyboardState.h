@@ -6,7 +6,7 @@
 
 #define NUM_SUPPORTED_KEYS 90
 
-namespace XNA
+namespace YAX
 {
 	enum Keys;
 	enum KeyState;

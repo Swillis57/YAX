@@ -9,7 +9,7 @@
 #include "SpriteEffects.h"
 #include "Texture2D.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class SpriteSortMode : int;
 	enum class SpriteEffects : int;
@@ -37,7 +37,7 @@ namespace XNA
 		};
 
 	public:
-		SpriteBatch(XNA::GraphicsDevice&);
+		SpriteBatch(YAX::GraphicsDevice&);
 		SpriteBatch(const SpriteBatch&) = delete;
 		SpriteBatch& operator=(const SpriteBatch&) = delete;
 		SpriteBatch(SpriteBatch&&);

@@ -3,13 +3,13 @@
 
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class GamePadType : int;
 
 	struct GamePadCapabilities
 	{
-		XNA::GamePadType GamePadType();
+		YAX::GamePadType GamePadType();
 
 		bool HasAButton();
 

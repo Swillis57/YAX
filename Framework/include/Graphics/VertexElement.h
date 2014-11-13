@@ -4,14 +4,14 @@
 #include "../Utils.h"
 #include "VertexElementFormat.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class VertexElementUsage : int;
 
 	class VertexElement
 	{
 	public:
-		VertexElement(i32, XNA::VertexElementFormat, XNA::VertexElementUsage, i32);
+		VertexElement(i32, YAX::VertexElementFormat, YAX::VertexElementUsage, i32);
 
 		i32 Offset();
 		void Offset(i32);
@@ -19,19 +19,19 @@ namespace XNA
 		i32 UsageIndex();
 		void UsageIndex(i32);
 		
-		XNA::VertexElementFormat VertexElementFormat();
-		void VertexElementFormat(XNA::VertexElementFormat);
+		YAX::VertexElementFormat VertexElementFormat();
+		void VertexElementFormat(YAX::VertexElementFormat);
 
-		XNA::VertexElementUsage VertexElementUsage();
-		void VertexElementUsage(XNA::VertexElementUsage);
+		YAX::VertexElementUsage VertexElementUsage();
+		void VertexElementUsage(YAX::VertexElementUsage);
 	
 		friend bool operator==(const VertexElement&, const VertexElement&);
 		friend bool operator!=(const VertexElement&, const VertexElement&);
 
 	private:
 		i32 _offset, _usageIdx;
-		XNA::VertexElementFormat _fmt;
-		XNA::VertexElementUsage _usg;
+		YAX::VertexElementFormat _fmt;
+		YAX::VertexElementUsage _usg;
 	};
 }
 

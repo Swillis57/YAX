@@ -7,7 +7,7 @@
 #include "../Utils.h"
 
 
-namespace XNA
+namespace YAX
 {
 	enum class SurfaceFormat : int;
 
@@ -15,8 +15,8 @@ namespace XNA
 
 	class RenderTargetCube : public TextureCube
 	{
-		RenderTargetCube(XNA::GraphicsDevice&, i32, bool, SurfaceFormat, DepthFormat);
-		RenderTargetCube(XNA::GraphicsDevice&, i32, bool, SurfaceFormat, DepthFormat, RenderTargetUsage);
+		RenderTargetCube(YAX::GraphicsDevice&, i32, bool, SurfaceFormat, DepthFormat);
+		RenderTargetCube(YAX::GraphicsDevice&, i32, bool, SurfaceFormat, DepthFormat, RenderTargetUsage);
 		RenderTargetCube(const RenderTargetCube&) = delete;
 		RenderTargetCube& operator=(const RenderTargetCube&) = delete;
 		RenderTargetCube(RenderTargetCube&&);
@@ -29,11 +29,11 @@ namespace XNA
 
 		i32 MultiSampleCount() const;
 
-		XNA::RenderTargetUsage RenderTargetUsage() const;
+		YAX::RenderTargetUsage RenderTargetUsage() const;
 	
 	private:
 		DepthFormat _depthFmt;
-		XNA::RenderTargetUsage _usage;
+		YAX::RenderTargetUsage _usage;
 		i32 _msCount;
 	};
 }

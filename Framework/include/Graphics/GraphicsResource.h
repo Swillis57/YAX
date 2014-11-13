@@ -3,21 +3,21 @@
 
 #include <string>
 
-namespace XNA
+namespace YAX
 {
 	class GraphicsDevice;
 
 	class GraphicsResource
 	{
 	public:
-		GraphicsResource(XNA::GraphicsDevice&, std::string);
+		GraphicsResource(YAX::GraphicsDevice&, std::string);
 		virtual ~GraphicsResource() = 0;
 
-		XNA::GraphicsDevice& GraphicsDevice();
+		YAX::GraphicsDevice& GraphicsDevice();
 		std::string Name();
 	
 	protected:
-		XNA::GraphicsDevice& _device;
+		YAX::GraphicsDevice& _device;
 		std::string _name;
 	};
 }

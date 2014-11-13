@@ -5,7 +5,7 @@
 #include "RenderTarget2D.h"
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class CubeMapFace : int;
 
@@ -14,14 +14,14 @@ namespace XNA
 	struct RenderTargetBinding
 	{
 		RenderTargetBinding(RenderTarget2D&);
-		RenderTargetBinding(const RenderTargetCube&, XNA::CubeMapFace);
+		RenderTargetBinding(const RenderTargetCube&, YAX::CubeMapFace);
 
-		XNA::CubeMapFace CubeMapFace() const;
+		YAX::CubeMapFace CubeMapFace() const;
 		RenderTarget2D RenderTarget() const;
 
 	private:
 		RenderTarget2D& _target;
-		XNA::CubeMapFace _face;
+		YAX::CubeMapFace _face;
 	};
 }
 

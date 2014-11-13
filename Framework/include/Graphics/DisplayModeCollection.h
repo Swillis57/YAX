@@ -4,7 +4,7 @@
 #include <map>
 #include "DisplayMode.h"
 
-namespace XNA
+namespace YAX
 {		 
 	enum class SurfaceFormat : int;
 	typedef std::map<SurfaceFormat, DisplayMode> DisplayModeCollection;

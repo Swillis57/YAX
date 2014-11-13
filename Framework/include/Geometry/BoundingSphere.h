@@ -7,7 +7,7 @@
 #include "../Math/Vector3.h"
 
 
-namespace XNA
+namespace YAX
 {
 	class BoundingBox;
 	class BoundingFrustum;

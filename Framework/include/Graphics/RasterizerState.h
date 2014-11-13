@@ -3,7 +3,7 @@
 
 #include "GraphicsResource.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class CullMode : int;
 	enum class FillMode : int;
@@ -16,14 +16,14 @@ namespace XNA
 
 		RasterizerState();
 
-		XNA::CullMode CullMode() const;
-		void CullMode(XNA::CullMode);
+		YAX::CullMode CullMode() const;
+		void CullMode(YAX::CullMode);
 
 		float DepthBias() const;
 		void DepthBias(float);
 
-		XNA::FillMode FillMode() const;
-		void FillMode(XNA::FillMode);
+		YAX::FillMode FillMode() const;
+		void FillMode(YAX::FillMode);
 
 		bool MultiSampleAntiAlias() const;
 		void MultiSampleAntiAlias(bool);
@@ -35,9 +35,9 @@ namespace XNA
 		void SlopeScaleDepthBias(float);
 
 	private:
-		XNA::CullMode _cullMode;
+		YAX::CullMode _cullMode;
 		float _depthBias, _slopeScale;
-		XNA::FillMode _fillMode;
+		YAX::FillMode _fillMode;
 		bool _msaa, _scissorTest;
 
 	};

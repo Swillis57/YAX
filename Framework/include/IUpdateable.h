@@ -1,7 +1,7 @@
 #ifndef _IUPDATEABLE_H
 #define _IUPDATEABLE_H
 
-namespace XNA
+namespace YAX
 {
 	class IUpdateable
 	{

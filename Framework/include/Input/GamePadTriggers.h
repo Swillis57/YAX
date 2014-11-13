@@ -1,7 +1,7 @@
 #ifndef _GAME_PAD_TRIGGERS_H
 #define _GAME_PAD_TRIGGERS_H
 
-namespace XNA
+namespace YAX
 {
 	struct GamePadTriggers
 	{

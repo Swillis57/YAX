@@ -5,7 +5,7 @@
 #include "GraphicsResource.h"
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class SurfaceFormat : int;
 
@@ -14,7 +14,7 @@ namespace XNA
 	class Texture : public GraphicsResource
 	{
 	public:
-		Texture(XNA::GraphicsDevice&);
+		Texture(YAX::GraphicsDevice&);
 		virtual ~Texture() = 0;
 
 		SurfaceFormat Format() const;

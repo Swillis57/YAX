@@ -1,7 +1,7 @@
 #ifndef _GAME_PAD_TYPE_H
 #define _GAME_PAD_TYPE_H
 
-namespace XNA
+namespace YAX
 {
 	enum class GamePadType : int 
 	{

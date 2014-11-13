@@ -1,7 +1,7 @@
 #ifndef _PLAYER_INDEX_H
 #define _PLAYER_INDEX_H
 
-namespace XNA
+namespace YAX
 {
 	enum class PlayerIndex : int 
 	{

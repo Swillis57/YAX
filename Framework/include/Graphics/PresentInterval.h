@@ -1,7 +1,7 @@
 #ifndef _PRESENT_INTERVAL_H
 #define _PRESENT_INTERVAL_H
 
-namespace XNA
+namespace YAX
 {
 	enum class PresentInterval : int 
 	{

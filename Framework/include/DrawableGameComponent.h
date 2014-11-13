@@ -4,7 +4,7 @@
 #include "GameComponent.h"
 #include "Game.h"
 
-namespace XNA
+namespace YAX
 {	
 	class DrawableGameComponent : public GameComponent
 	{

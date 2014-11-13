@@ -3,16 +3,16 @@
 
 #include "VertexDeclaration.h"
 
-namespace XNA
+namespace YAX
 {
 	struct IVertexType
 	{
 		virtual ~IVertexType() = 0;
 
-	    XNA::VertexDeclaration VertexDeclaration();
+	    YAX::VertexDeclaration VertexDeclaration();
 
 	protected:
-		XNA::VertexDeclaration _vertDecl;
+		YAX::VertexDeclaration _vertDecl;
 	};
 }
 

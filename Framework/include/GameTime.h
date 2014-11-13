@@ -4,7 +4,7 @@
 #include "Game.h"
 #include "TimeSpan.h"
 
-namespace XNA
+namespace YAX
 {
 	
 

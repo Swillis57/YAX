@@ -6,7 +6,7 @@
 #include "../Math/Vector2.h"
 #include "../Math/Vector3.h"
 
-namespace XNA
+namespace YAX
 {
 	struct VertexPositionNormalTexture : public IVertexType
 	{
@@ -21,8 +21,8 @@ namespace XNA
 		Vector2 TextureCoordinate();
 		void TextureCoordinate(Vector2);
 
-		static const XNA::VertexDeclaration VertexDeclaration();
-		static const void VertexDeclaration(XNA::VertexDeclaration);
+		static const YAX::VertexDeclaration VertexDeclaration();
+		static const void VertexDeclaration(YAX::VertexDeclaration);
 
 		friend bool operator==(const VertexPositionNormalTexture&, const VertexPositionNormalTexture&);
 		friend bool operator!=(const VertexPositionNormalTexture&, const VertexPositionNormalTexture&);
@@ -30,7 +30,7 @@ namespace XNA
 	private:
 		Vector3 _pos, _norm;
 		Vector2 _texCoord;
-		static const XNA::VertexDeclaration _vertDecl;
+		static const YAX::VertexDeclaration _vertDecl;
 	};
 }
 

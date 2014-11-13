@@ -4,7 +4,7 @@
 #include <vector>
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	struct Vector2;
 	struct Vector3;

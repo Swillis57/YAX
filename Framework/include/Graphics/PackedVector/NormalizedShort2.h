@@ -3,7 +3,7 @@
 
 #include "IPackedVector.h"
 
-namespace XNA
+namespace YAX
 {
 	struct NormalizedShort2 : IPackedVector<ui32>
 	{

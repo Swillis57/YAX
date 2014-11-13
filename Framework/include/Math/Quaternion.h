@@ -4,7 +4,7 @@
 #include "Vector3.h"
 #include "Matrix.h"
 
-namespace XNA
+namespace YAX
 {
 	struct Vector3;
 	struct Matrix;

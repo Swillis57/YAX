@@ -4,7 +4,7 @@
 #include "GraphicsResource.h"
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class TextureAddressMode : int;
 	enum class TextureFilter : int;

@@ -4,7 +4,7 @@
 #include "GraphicsResource.h"
 #include "../Color.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class Blend : int;
 	enum class BlendFunction : int;

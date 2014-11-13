@@ -4,7 +4,7 @@
 #include "IPackedVector.h"
 
 
-namespace XNA
+namespace YAX
 {
 	struct Bgr565 : IPackedVector<ui16>
 	{

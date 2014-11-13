@@ -4,7 +4,7 @@
 #include <type_traits>
 #include "../../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	typedef char byte;
 	class Vector2;

@@ -5,7 +5,7 @@
 
 #include "EffectProgram.h"
 
-namespace XNA
+namespace YAX
 {
 	typedef std::vector<EffectProgram> EffectProgramCollection;
 }

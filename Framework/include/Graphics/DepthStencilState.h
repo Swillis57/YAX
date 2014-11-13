@@ -4,7 +4,7 @@
 #include "GraphicsResource.h"
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class CompareFunction : int;
 	enum class StencilOperation : int;

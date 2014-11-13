@@ -4,7 +4,7 @@
 #include <map>
 #include <string>
 
-namespace XNA
+namespace YAX
 {
 	typedef std::map<std::string, std::string> LaunchParameters;
 }

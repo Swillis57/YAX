@@ -1,7 +1,7 @@
 #ifndef _DISPLAY_ORIENTATION_H
 #define _DISPLAY_ORIENTATION_H
 
-namespace XNA
+namespace YAX
 {
 	enum class DisplayOrientation : int 
 	{

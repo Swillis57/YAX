@@ -3,7 +3,7 @@
 
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	class Rectangle;
 	class Vector3;

@@ -1,7 +1,7 @@
 #ifndef _EFFECT_PARAMTER_TYPE_H
 #define _EFFECT_PARAMTER_TYPE_H
 
-namespace XNA
+namespace YAX
 {
 	enum class EffectParameterType : int 
 	{

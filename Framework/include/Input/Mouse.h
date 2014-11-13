@@ -5,7 +5,7 @@
 
 struct GLFWwindow;
 
-namespace XNA
+namespace YAX
 {
 	class MouseState;
 

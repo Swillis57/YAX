@@ -5,9 +5,9 @@
 	template void GetData<dataType>(i32, i32, i32, i32, i32, i32, std::vector<dataType>&, i32, i32) const; \
 	template void GetData<dataType>(std::vector<dataType>&) const; \
 	template void GetData<dataType>(std::vector<dataType>, i32, i32) const; \
-	template void SetData<dataType>(i32, i32, i32, i32, i32, i32, std::vector<dataType>&, i32, i32); \
-	template void SetData<dataType>(std::vector<dataType>&); \
-	template void SetData<dataType>(std::vector<dataType>, i32, i32);
+	template void SetData<dataType>(i32, i32, i32, i32, i32, i32, const std::vector<dataType>&, i32, i32); \
+	template void SetData<dataType>(const std::vector<dataType>&); \
+	template void SetData<dataType>(const std::vector<dataType>&, i32, i32);
 
 
 
@@ -15,7 +15,7 @@
 #include "Texture.h"
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class SurfaceFormat : int;
 
@@ -24,7 +24,7 @@ namespace XNA
 	class Texture3D : public Texture
 	{
 	public:
-		Texture3D(XNA::GraphicsDevice&, i32, i32, i32, bool, SurfaceFormat);
+		Texture3D(YAX::GraphicsDevice&, i32, i32, i32, bool, SurfaceFormat);
 		Texture3D(const Texture3D&) = delete;
 		Texture3D operator=(const Texture3D&) = delete;
 		Texture3D(Texture3D&&);
@@ -49,7 +49,7 @@ namespace XNA
 		template<typename dataType>
 		SetData(const std::vector<dataType>&);
 		template<typename dataType>
-		SetData(const std::vector<dataType>, i32, i32);
+		SetData(const std::vector<dataType>&, i32, i32);
 
 	private:
 		i32 _depth, _width, _height;

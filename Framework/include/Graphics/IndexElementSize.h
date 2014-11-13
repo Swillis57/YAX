@@ -3,7 +3,7 @@
 
 #include "../GLEW/glew.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class IndexElementSize : int 
 	{

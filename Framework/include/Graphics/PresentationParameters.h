@@ -4,7 +4,7 @@
 #include "../GLFW/glfw3.h"
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class DisplayOrientation : int;
 	enum class PresentInterval : int;
@@ -46,8 +46,8 @@ namespace XNA
 		PresentInterval PresentationInterval() const;
 		void PresentationInterval(PresentInterval);
 
-		XNA::RenderTargetUsage RenderTargetUsage() const;
-		void RenderTargetUsage(XNA::RenderTargetUsage);
+		YAX::RenderTargetUsage RenderTargetUsage() const;
+		void RenderTargetUsage(YAX::RenderTargetUsage);
 
 
 	private:
@@ -58,7 +58,7 @@ namespace XNA
 		bool _fullScreen;
 		i32 _sampleCount;
 		PresentInterval _interval;
-		XNA::RenderTargetUsage _targetUsage;
+		YAX::RenderTargetUsage _targetUsage;
 
 	};
 	

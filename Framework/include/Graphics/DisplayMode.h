@@ -4,7 +4,7 @@
 #include "../Geometry/Rectangle.h"
 #include "../Utils.h"
 
-namespace XNA
+namespace YAX
 {
 	enum class SurfaceFormat : int;
 

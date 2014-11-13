@@ -2,7 +2,7 @@
 #define _CURVE_KEY_H
 
 
-namespace XNA
+namespace YAX
 {
 	enum class CurveContinuity : int;
 

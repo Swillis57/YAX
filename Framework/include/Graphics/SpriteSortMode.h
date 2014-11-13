@@ -1,7 +1,7 @@
 #ifndef _SPRITE_SORT_MODE_H
 #define _SPRITE_SORT_MODE_H
 
-namespace XNA
+namespace YAX
 {
 	enum class SpriteSortMode : int 
 	{
