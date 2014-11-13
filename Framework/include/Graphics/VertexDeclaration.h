@@ -11,12 +11,12 @@ namespace YAX
 	class VertexDeclaration : public GraphicsResource
 	{
 	public:
-		VertexDeclaration(i32, std::vector<VertexElement>);
-		VertexDeclaration(std::vector<VertexElement>);
+		VertexDeclaration(const std::vector<VertexElement>&);
+		VertexDeclaration(i32, const std::vector<VertexElement>&);
 
-		i32 VertexStride();
+		i32 VertexStride() const;
 
-		std::vector<VertexElement> GetVertexElements();
+		std::vector<VertexElement>& GetVertexElements() const;
 
 	private:
 		std::vector<VertexElement> _elements;
