@@ -23,6 +23,7 @@ namespace XNA
 		RenderTarget2D& operator=(const RenderTarget2D&) = delete;
 		RenderTarget2D(RenderTarget2D&&);
 		RenderTarget2D& operator=(RenderTarget2D&&);
+		~RenderTarget2D();
 
 		DepthFormat DepthStencilFormat() const;
 

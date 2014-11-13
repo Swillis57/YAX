@@ -16,6 +16,7 @@ namespace XNA
 		EffectProgram& operator=(const EffectProgram&) = delete;
 		EffectProgram(EffectProgram&&);
 		EffectProgram& operator=(EffectProgram&&);
+		~EffectProgram();
 
 		std::string Name();
 

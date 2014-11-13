@@ -29,6 +29,7 @@ namespace XNA
 		Texture3D operator=(const Texture3D&) = delete;
 		Texture3D(Texture3D&&);
 		Texture3D& operator=(Texture3D&&);
+		~Texture3D();
 
 		i32 Depth() const;
 

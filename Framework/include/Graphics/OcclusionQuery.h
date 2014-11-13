@@ -13,6 +13,10 @@ namespace XNA
 	{
 	public:
 		OcclusionQuery(XNA::GraphicsDevice&);
+		OcclusionQuery(const OcclusionQuery&) = delete;
+		OcclusionQuery& operator=(const OcclusionQuery&) = delete;
+		OcclusionQuery(OcclusionQuery&&);
+		OcclusionQuery& operator=(const OcclusionQuery&);
 
 		bool IsComplete() const;
 

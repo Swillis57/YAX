@@ -2,7 +2,7 @@
 #define _DYNAMIC_VERTEX_BUFFER_H
 
 
-#define SETDATA_SPECIALIZE(vertType) \
+#define DVB_SPECIALIZE(vertType) \
 	template void SetData<vertType>(i32, i32, std::vector<vertType>, i32, i32, i32, SetDataOptions); \
 	template void SetData<vertType>(std::vector<vertType>, i32, i32, SetDataOptions);
 
@@ -20,6 +20,12 @@ namespace XNA
 	{
 	public:
 		DynamicVertexBuffer(XNA::GraphicsDevice&, const XNA::VertexDeclaration&, i32, XNA::BufferUsage);
+		DynamicVertexBuffer(const DynamicVertexBuffer&) = delete;
+		DynamicVertexBuffer& operator=(const DynamicVertexBuffer&) = delete;
+		DynamicVertexBuffer(DynamicVertexBuffer&&);
+		DynamicVertexBuffer& operator=(DynamicVertexBuffer&&);
+		~DynamicVertexBuffer();
+
 
 		template<typename vertType>
 		void SetData(i32, i32, std::vector<vertType>, i32, i32, i32, SetDataOptions);

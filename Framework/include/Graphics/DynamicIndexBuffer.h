@@ -2,7 +2,7 @@
 #define _DYNAMIC_INDEX_BUFFER_H
 
 
-#define SETDATA_SPECIALIZE(idxType) \
+#define DIB_SPECIALIZE(idxType) \
 	template void SetData<idxType>(i32, std::vector<idxType>, i32, i32, SetDataOptions); \
 	template void SetData<idxType>(std::vector<idxType>, i32, i32, SetDataOptions);
 
@@ -22,6 +22,11 @@ namespace XNA
 	{
 	public:
 		DynamicIndexBuffer(XNA::GraphicsDevice&, XNA::IndexElementSize, i32, XNA::BufferUsage);
+		DynamicIndexBuffer(const DynamicIndexBuffer&) = delete;
+		DynamicIndexBuffer& operator=(const DynamicIndexBuffer&) = delete;
+		DynamicIndexBuffer(DynamicIndexBuffer&&);
+		DynamicIndexBuffer& operator=(DynamicIndexBuffer&&);
+		~DynamicIndexBuffer();
 	
 		template<typename indexType>
 		void SetData(i32, std::vector<indexType>, i32, i32, SetDataOptions);

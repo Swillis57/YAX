@@ -22,6 +22,7 @@ namespace XNA
 		Effect& operator=(const Effect&) = delete;
 		Effect(Effect&&);
 		Effect& operator=(Effect&&);
+		~Effect();
 	
 		EffectProgram CurrentProgram() const;
 		void CurrentProgram(const EffectProgram&);
