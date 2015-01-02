@@ -2,8 +2,6 @@
 #define _UTILS_H
 
 #include <cstdint>
-#include <memory>
-#include <stdexcept>
 
 namespace YAX
 {
