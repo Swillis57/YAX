@@ -1,17 +1,23 @@
 #ifndef _CURVE_KEY_H
 #define _CURVE_KEY_H
 
+#include <memory>
 
 namespace YAX
 {
 	enum class CurveContinuity : int;
+	
 
 	class CurveKey
-	{
+	{			
+		struct Impl;
+
 	public:
 		CurveKey(float, float);
 		CurveKey(float, float, float, float);
 		CurveKey(float, float, float, float, CurveContinuity);
+
+
 
 		float Position() const;
 
@@ -31,8 +37,7 @@ namespace YAX
 		friend bool operator!=(const CurveKey&, const CurveKey&);
 
 	private:
-		float _pos, _tanIn, _tanOut, _val;
-		CurveContinuity _continuity;
+		std::unique_ptr<Impl> _impl;
 	};
 }
 

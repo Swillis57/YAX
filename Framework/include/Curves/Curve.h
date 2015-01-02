@@ -1,6 +1,8 @@
 #ifndef _CURVE_H
 #define _CURVE_H
 
+
+#include <memory>
 #include "CurveKeyCollection.h"
 #include "../Utils.h"
 
@@ -11,11 +13,13 @@ namespace YAX
 
 	class Curve
 	{
+		struct Impl;
+
 	public:
 		Curve();
 
 		bool IsConstant() const;
-		CurveKeyCollection Keys() const;
+		CurveKeyCollection& Keys() const;
 		CurveLoopType PostLoop() const;
 		CurveLoopType PreLoop() const;
 
@@ -28,9 +32,7 @@ namespace YAX
 		float Evaluate(float) const;
 
 	private:
-		bool _isConst;
-		CurveKeyCollection _keys;
-		CurveLoopType _postLoop, _preLoop;
+		std::unique_ptr<Impl> _impl;
 
 	};
 }
