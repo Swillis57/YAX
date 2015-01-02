@@ -13,6 +13,7 @@ namespace YAX
 	public:
 		VertexDeclaration(const std::vector<VertexElement>&);
 		VertexDeclaration(i32, const std::vector<VertexElement>&);
+		
 
 		i32 VertexStride() const;
 
