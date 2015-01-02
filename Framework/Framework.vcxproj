@@ -214,13 +214,10 @@
     <ClInclude Include="include\Math\Vector3.h" />
     <ClInclude Include="include\Math\Vector4.h" />
     <ClInclude Include="include\DisplayOrientation.h" />
-    <ClInclude Include="include\DrawableGameComponent.h" />
     <ClInclude Include="include\Game.h" />
-    <ClInclude Include="include\GameComponent.h" />
     <ClInclude Include="include\GameTime.h" />
     <ClInclude Include="include\IDrawable.h" />
     <ClInclude Include="include\IUpdateable.h" />
-    <ClInclude Include="include\Nullable.h" />
     <ClInclude Include="include\PlayerIndex.h" />
     <ClInclude Include="include\TimeSpan.h" />
     <ClInclude Include="include\Utils.h" />
