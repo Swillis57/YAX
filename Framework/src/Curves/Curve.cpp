@@ -1,3 +1,5 @@
+#include <cmath>
+
 #include "../../include/Curves/Curve.h"
 #include "../../include/Curves/CurveLoopType.h"
 #include "../../include/Curves/CurveTangent.h"
@@ -47,17 +49,14 @@ namespace YAX
 
 		float Evaluate(float pos) const
 		{
-			float res;
-			switch (_preLoop)
-			{
-
-			}
+			//TODO: Implement this properly
+			//Needs a different DS than vector to sort the keys and 
+			//refer to them by position
 		}
 
 	private:
 		float CalcInTangent(int idx, CurveTangent tangent)
 		{
-
 			switch (tangent)
 			{
 				case CurveTangent::Flat:
