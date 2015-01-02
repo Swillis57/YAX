@@ -5,7 +5,7 @@
 
 namespace YAX
 {
-	enum Keys
+	enum class Keys : int
 	{
 			A = 0,
 			B = 1,

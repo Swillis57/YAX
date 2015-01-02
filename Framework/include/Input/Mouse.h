@@ -20,7 +20,7 @@ namespace YAX
 		static void SetPosition(i32, i32);
 
 	private:
-		GLFWwindow* _handle;
+		static GLFWwindow* _handle;
 	};
 }
 
