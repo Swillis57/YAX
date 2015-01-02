@@ -7,7 +7,7 @@
 #include "Utils.h"
 
 using std::string;
-using namespace std::chrono;
+using std::chrono::duration;
 
 namespace YAX
 {
@@ -17,8 +17,6 @@ namespace YAX
 
 	class TimeSpan
 	{
-	
-
 	public:
 		
 		
