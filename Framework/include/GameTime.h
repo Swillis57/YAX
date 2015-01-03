@@ -16,7 +16,7 @@ namespace YAX
 		GameTime(const TimeSpan&, const TimeSpan&, bool);
 
 		TimeSpan ElapsedGameTime() { return elapsed; }
-		bool IsRunningSlow() { return (elapsed > Game::TargetElapsedTime); }
+		bool IsRunningSlow() { return runningSlow; }
 		TimeSpan TotalGameTime() { return total; }
 
 		void ElapsedGameTime(TimeSpan time) { elapsed = time; }
