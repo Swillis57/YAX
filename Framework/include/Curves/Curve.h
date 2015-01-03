@@ -17,6 +17,7 @@ namespace YAX
 
 	public:
 		Curve();
+		~Curve();
 
 		bool IsConstant() const;
 		CurveKeyCollection& Keys() const;

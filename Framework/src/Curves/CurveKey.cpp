@@ -26,6 +26,8 @@ namespace YAX
 			_continuity(continuity)
 		{}
 
+		~Impl() = default;
+
 		bool operator==(const Impl& rhs)
 		{
 			return (this->_pos == rhs._pos
@@ -44,18 +46,20 @@ namespace YAX
 
 	CurveKey::CurveKey(float pos, float val)
 	{
-		_impl = std::make_unique<Impl>(new Impl(pos, val));
+		_impl = std::make_unique<Impl>(Impl(pos, val));
 	}
 
 	CurveKey::CurveKey(float pos, float val, float tangentIn, float tangentOut)
 	{
-		_impl = std::make_unique<Impl>(new Impl(pos, val, tangentIn, tangentOut));
+		_impl = std::make_unique<Impl>(Impl(pos, val, tangentIn, tangentOut));
 	}
 
 	CurveKey::CurveKey(float pos, float val, float tangentIn, float tangentOut, CurveContinuity continuity)
 	{
-		_impl = std::make_unique<Impl>(new Impl(pos, val, tangentIn, tangentOut, continuity));
+		_impl = std::make_unique<Impl>(Impl(pos, val, tangentIn, tangentOut, continuity));
 	}
+
+	CurveKey::~CurveKey() = default;
 
 	float CurveKey::Position() const
 	{

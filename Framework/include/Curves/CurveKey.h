@@ -16,7 +16,7 @@ namespace YAX
 		CurveKey(float, float);
 		CurveKey(float, float, float, float);
 		CurveKey(float, float, float, float, CurveContinuity);
-
+		~CurveKey();
 
 
 		float Position() const;

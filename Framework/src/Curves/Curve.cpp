@@ -3,7 +3,6 @@
 #include "../../include/Curves/Curve.h"
 #include "../../include/Curves/CurveLoopType.h"
 #include "../../include/Curves/CurveTangent.h"
-#include "../../include/Curves/CurveLoopType.h"
 
 namespace YAX
 {
@@ -12,6 +11,8 @@ namespace YAX
 		bool _isConst;
 		CurveKeyCollection _keys;
 		CurveLoopType _postLoop, _preLoop;
+
+		~Impl() = default;
 
 		void ComputeTangent(i32 idx, CurveTangent tangent)
 		{
@@ -97,4 +98,10 @@ namespace YAX
 			}
 		}
 	};
+
+	Curve::Curve()
+		: _impl()
+	{}
+
+	Curve::~Curve() = default;
 }
