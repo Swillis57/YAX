@@ -6,8 +6,11 @@
 #include <chrono>
 #include "Utils.h"
 
+#pragma region using statements
 using std::string;
-using std::chrono::duration;
+using namespace std::chrono;
+#pragma endregion using statements
+
 
 namespace YAX
 {
