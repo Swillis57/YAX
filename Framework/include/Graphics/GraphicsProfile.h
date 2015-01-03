@@ -7,8 +7,8 @@ namespace YAX
 {
 	enum class GraphicsProfile : int 
 	{			 
-		HiDef = GLFW_OPENGL_API,
-		Reach = GLFW_OPENGL_ES_API
+		HiDef = GLFW_OPENGL_CORE_PROFILE,
+		Reach = GLFW_OPENGL_COMPAT_PROFILE,
 	};
 }
 #endif
