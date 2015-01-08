@@ -18,6 +18,7 @@ namespace YAX
 		static friend Rectangle Union(const Rectangle&, const Rectangle&);
 		static friend Rectangle Union(const Rectangle&, const Rectangle&, const Rectangle&);
 
+		//x, y, w, h
 		Rectangle(i32, i32, i32, i32);
 		Rectangle(const Rectangle&) = default;
 		Rectangle& operator=(const Rectangle&) = default;	
