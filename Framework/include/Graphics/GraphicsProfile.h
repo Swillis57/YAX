@@ -5,6 +5,8 @@
 
 namespace YAX
 {
+	//Only targeting PC for now, so GraphicsProfile represents
+	//the core and compatibility profile selection
 	enum class GraphicsProfile : int 
 	{			 
 		HiDef = GLFW_OPENGL_CORE_PROFILE,
