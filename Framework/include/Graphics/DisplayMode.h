@@ -1,23 +1,34 @@
 #ifndef _DISPLAY_MODE_H
 #define _DISPLAY_MODE_H
 
-#include "../Geometry/Rectangle.h"
+#include <memory>
 #include "../Utils.h"
 
 namespace YAX
 {
-	enum class SurfaceFormat : int;
+	struct GLFWvidmode;
+	struct Rectangle;
+	
+	//DisplayMode is only used to describe monitors
+	//and GLFW specifies bit depths separately
+	struct DisplayFormat
+	{
+		i32 R, G, B;
+	};
 
 	class DisplayMode
 	{
+		struct Impl;
+
 	public:
-		DisplayMode(SurfaceFormat, Rectangle);
+		DisplayMode(DisplayFormat format, Rectangle screenArea);
 		DisplayMode(const DisplayMode&);
 		DisplayMode& operator=(const DisplayMode&);
+		~DisplayMode();
 
 		float AspectRatio() const;
 
-		SurfaceFormat Format() const;
+		DisplayFormat Format() const;
 
 		i32 Height() const;
 
@@ -26,9 +37,7 @@ namespace YAX
 		i32 Width() const;
 
 	private:
-		float _aspectRatio;
-		SurfaceFormat _format;
-		Rectangle _area;
+		std::unique_ptr<Impl> _impl;
 
 	};
 }
