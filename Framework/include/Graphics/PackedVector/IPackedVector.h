@@ -4,6 +4,9 @@
 #include <type_traits>
 #include "../../Utils.h"
 
+#define READBITS(width, offset) ((_packed & (width << offset)) >> offset)
+
+
 namespace YAX
 {
 	typedef char byte;
