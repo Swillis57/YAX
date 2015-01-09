@@ -34,8 +34,8 @@ namespace YAX
 
 		virtual ~IPackedVector() {}
 
-		virtual DType PackedValue() const = 0;
-		virtual void PackedValue(DType) = 0;
+		DType PackedValue() const { return _packed };
+		void PackedValue(DType newPacked) { _packed = newPacked; }
 
 	protected:
 		DType _packed;

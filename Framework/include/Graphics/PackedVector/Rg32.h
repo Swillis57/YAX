@@ -10,9 +10,6 @@ namespace YAX
 		Rg32(float, float);
 		Rg32(const Vector2&);
 
-		ui32 PackedValue() const override;
-		void PackedValue(ui32) override;
-
 		Vector2 ToVector2() const;
 		Vector4 ToVector4() const override;
 		void PackFromVector4(const Vector4&) override;

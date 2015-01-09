@@ -10,9 +10,6 @@ namespace YAX
 		Bgra5551(float, float, float, float);
 		Bgra5551(const Vector4&);
 
-		ui16 PackedValue() const override;
-		void PackedValue(ui16) override;
-
 		Vector4 ToVector4() const override;
 		void PackFromVector4(const Vector4&) override;
 

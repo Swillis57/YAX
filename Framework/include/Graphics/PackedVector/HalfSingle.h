@@ -9,9 +9,6 @@ namespace YAX
 	{
 		HalfSingle(float);
 
-		ui16 PackedValue() const override;
-		void PackedValue(ui16) override;
-
 		float ToSingle() const;
 		void PackFromVector4(const Vector4&) override;
 		Vector4 ToVector4() const override;

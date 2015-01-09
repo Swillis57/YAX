@@ -9,13 +9,10 @@ namespace YAX
 	{
 		typedef IPackedVector<byte> Base;
 
-		Alpha8(float);
-
-		byte PackedValue() const override;
-		void PackedValue(byte) override;
+		Alpha8(float val);
 
 		float ToAlpha() const;
-		void PackFromVector4(const Vector4&) override;
+		void PackFromVector4(const Vector4& source) override;
 		Vector4 ToVector4() const override;
 		
 		friend bool operator==(const Alpha8&, const Alpha8&);

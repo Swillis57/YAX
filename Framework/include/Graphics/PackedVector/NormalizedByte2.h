@@ -10,9 +10,6 @@ namespace YAX
 		NormalizedByte2(float, float);
 		NormalizedByte2(const Vector2&);
 
-		ui16 PackedValue() const override;
-		void PackedValue(ui16) override;
-
 		Vector2 ToVector2() const;
 		Vector4 ToVector4() const override;
 		void PackFromVector4(const Vector4&) override;

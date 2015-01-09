@@ -10,9 +10,6 @@ namespace YAX
 		Short2(float, float);
 		Short2(const Vector2&);
 
-		ui32 PackedValue() const override;
-		void PackedValue(ui32) override;
-
 		Vector2 ToVector2();
 		Vector4 ToVector4() const override;
 		void PackFromVector4(const Vector4&) override;
