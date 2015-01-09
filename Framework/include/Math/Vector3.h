@@ -13,11 +13,18 @@ namespace YAX
 
 	struct Vector3
 	{
-
-		float X, Y, Z;
 		static const Vector3 One, UnitX, UnitY, UnitZ, Zero, 
 							 Backward, Down, Forward, Left,
 							 Right, Up;
+
+		float X() const;
+		void X(float);
+
+		float Y() const;
+		void Y(float);
+
+		float Z() const;
+		void Z(float);
 
 		Vector3(float);
 		Vector3(float, float, float);

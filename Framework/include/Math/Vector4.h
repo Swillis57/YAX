@@ -13,10 +13,19 @@ namespace YAX
 
 	struct Vector4
 	{
-	
-		float X, Y, Z, W;
 		static const Vector4 One, UnitX, UnitY, UnitZ, UnitW, Zero;
 		
+		float X() const;
+		void X(float);
+
+		float Y() const;
+		void Y(float); 
+
+		float Z() const;
+		void Z(float);
+
+		float W() const;
+		void W(float);
 		
 		
 

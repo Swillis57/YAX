@@ -12,13 +12,17 @@ namespace YAX
 
 	struct Vector2
 	{
-	
-		float X, Y;
 		static const Vector2 One, UnitX, UnitY, Zero;
+
+		float X() const;
+		void X(float);
+
+		float Y() const;
+		void Y(float);
+
 
 		Vector2(float);
 		Vector2(float x, float y) { X = x; Y = y; }
-
 		
 		static Vector2 Barycentric(const Vector2&, const Vector2&, const Vector2&, float, float);
 		static Vector2 CatmullRom(const Vector2&, const Vector2&, const Vector2&, float);
