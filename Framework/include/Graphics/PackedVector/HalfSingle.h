@@ -7,7 +7,10 @@ namespace YAX
 {
 	struct HalfSingle : IPackedVector<ui16>
 	{
-		HalfSingle(float);
+		typedef IPackedVector<ui16> Base;
+
+		HalfSingle(float val);
+		~HalfSingle();
 
 		float ToSingle() const;
 		void PackFromVector4(const Vector4&) override;
@@ -15,6 +18,9 @@ namespace YAX
 
 		friend bool operator==(const HalfSingle&, const HalfSingle&);
 		friend bool operator!=(const HalfSingle&, const HalfSingle&);
+
+	private:
+		void Pack(float);
 	};
 }
 
