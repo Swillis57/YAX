@@ -4,30 +4,25 @@
 
 namespace YAX
 {
-	Bgr565::Bgr565(float r, float g, float b)
+	Bgr565::Bgr565(float b, float g, float r)
+		: Bgr565::Base()
 	{
-		byte redBits = r * 32;
-		byte greenBits = g * 64;
-		byte blueBits = b * 32;
-
-		_packed &= blueBits;
-		_packed <<= 6;
-		_packed &= greenBits;
-		_packed <<= 5;
-		_packed &= redBits;
+		Pack(b, g, r);
 	}
 
 	Bgr565::Bgr565(const Vector3& source)
-		: Bgr565(source.X(), source.Y(), source.Z())
+		: Bgr565(source.Z(), source.Y(), source.X())
 	{}
+
+	Bgr565::~Bgr565() = default;
 
 	Vector3 Bgr565::ToVector3() const
 	{
 		return Vector3
 		(
-			READBITS(32, 0),
-			READBITS(64, 5),
-			READBITS(32, 11)
+			READBITS(0x1F, 11) / 32.0f,
+			READBITS(0x3F, 5) / 64.0f,
+			READBITS(0x1F, 0) / 32.0f
 		);
 	}
 
@@ -38,15 +33,7 @@ namespace YAX
 
 	void Bgr565::PackFromVector4(const Vector4& source)
 	{
-		byte redBits = source.X() * 32;
-		byte greenBits = source.Y() * 64;
-		byte blueBits = source.Z() * 32;
-
-		_packed &= blueBits;
-		_packed <<= 6;
-		_packed &= greenBits;
-		_packed <<= 5;
-		_packed &= redBits;
+		Pack(source.X(), source.Y(), source.Z());
 	}
 
 	bool operator==(const Bgr565& lhs, const Bgr565& rhs)
@@ -57,6 +44,18 @@ namespace YAX
 	bool operator!=(const Bgr565& lhs, const Bgr565& rhs)
 	{
 		return !(lhs == rhs);
+	}
+
+	void Bgr565::Pack(float b, float g, float r)
+	{
+		byte redBits = r * 32;
+		byte greenBits = g * 64;
+		byte blueBits = b * 32;
+
+		_packed ^= _packed;
+		WRITEBITS(blueBits, 6)
+		WRITEBITS(greenBits, 5)
+		WRITEBITS(blueBits, 0);
 	}
 	
 }

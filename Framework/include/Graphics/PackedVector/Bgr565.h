@@ -8,8 +8,11 @@ namespace YAX
 {
 	struct Bgr565 : IPackedVector<ui16>
 	{
-		Bgr565(float, float, float);
+		typedef IPackedVector<ui16> Base;
+
+		Bgr565(float b, float g, float r);
 		Bgr565(const Vector3&);
+		~Bgr565();
 
 		Vector3 ToVector3() const;
 		Vector4 ToVector4() const override;
@@ -17,6 +20,9 @@ namespace YAX
 		
 		friend bool operator==(const Bgr565&, const Bgr565&);
 		friend bool operator!=(const Bgr565&, const Bgr565&);
+
+	private:
+		void Pack(float b, float g, float r);
 
 	};
 }
