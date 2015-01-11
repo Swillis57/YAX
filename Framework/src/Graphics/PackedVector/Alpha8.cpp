@@ -9,6 +9,8 @@ namespace YAX
 		_packed = val * 255;
 	}
 
+	Alpha8::~Alpha8() = default;
+
 	float Alpha8::ToAlpha() const
 	{
 		return _packed / 255.0f;

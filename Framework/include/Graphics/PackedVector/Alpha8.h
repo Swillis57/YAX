@@ -10,6 +10,7 @@ namespace YAX
 		typedef IPackedVector<byte> Base;
 
 		Alpha8(float val);
+		~Alpha8();
 
 		float ToAlpha() const;
 		void PackFromVector4(const Vector4& source) override;
