@@ -4,12 +4,11 @@
 #include <type_traits>
 #include "../../Utils.h"
 
-#define READBITS(width, offset) ((_packed & (width << offset)) >> offset)
-
+#define READBITS(mask, offset) ((_packed & (mask << offset)) >> offset)
+#define WRITEBITS(bits, offset) (_packed |= bits); (_packed <<= offset); 
 
 namespace YAX
 {
-	typedef char byte;
 	class Vector2;
 	class Vector3;
 	class Vector4;
