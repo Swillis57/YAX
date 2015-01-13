@@ -7,8 +7,11 @@ namespace YAX
 {
 	struct NormalizedByte2 : IPackedVector<ui16>
 	{
-		NormalizedByte2(float, float);
+		typedef IPackedVector<ui16> Base;
+
+		NormalizedByte2(float val1, float val2);
 		NormalizedByte2(const Vector2&);
+		~NormalizedByte2();
 
 		Vector2 ToVector2() const;
 		Vector4 ToVector4() const override;
@@ -16,6 +19,9 @@ namespace YAX
 
 		friend bool operator==(const NormalizedByte2&, const NormalizedByte2&);
 		friend bool operator!=(const NormalizedByte2&, const NormalizedByte2&);
+		
+	private:
+		void Pack(float, float);
 	};
 }
 
