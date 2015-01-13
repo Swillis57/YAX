@@ -4,8 +4,11 @@
 #include <type_traits>
 #include "../../Utils.h"
 
-#define READBITS(mask, offset) ((_packed & (mask << offset)) >> offset)
-#define WRITEBITS(bits, offset) (_packed |= bits); (_packed <<= offset); 
+#define READBITS_STATIC(field, mask, offset) ((field & (mask << offset)) >> offset)
+#define READBITS(mask, offset) READBITS_STATIC(_packed, mask, offset)
+
+#define WRITEBITS_STATIC(field, bits, offset) (field |= bits); (field <<= offset);
+#define WRITEBITS(bits, offset) WRITEBITS_STATIC(_packed, bits, offset) 
 
 namespace YAX
 {
