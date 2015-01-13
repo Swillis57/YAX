@@ -9,6 +9,9 @@ namespace YAX
 	{
 		typedef IPackedVector<ui16> Base;
 
+		static ui16 Pack(float);
+		static float Unpack(ui16);
+
 		HalfSingle(float val);
 		~HalfSingle();
 
@@ -18,9 +21,6 @@ namespace YAX
 
 		friend bool operator==(const HalfSingle&, const HalfSingle&);
 		friend bool operator!=(const HalfSingle&, const HalfSingle&);
-
-	private:
-		void Pack(float);
 	};
 }
 
