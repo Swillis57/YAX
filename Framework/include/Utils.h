@@ -11,7 +11,15 @@ namespace YAX
 	typedef uint16_t ui16;
 	typedef uint32_t ui32;
 	typedef uint64_t ui64;
-	typedef char byte;
+	typedef unsigned char byte;
+
+	//Casts a value of type F to one of type T
+	//without changing the underlying bits
+	template<typename T, typename F>
+	T BitCast(F val)
+	{
+		return *(*T)&val;
+	}
 }
 
 #endif
