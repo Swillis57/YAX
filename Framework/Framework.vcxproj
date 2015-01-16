@@ -251,6 +251,10 @@
     <ClCompile Include="src\Graphics\PackedVector\Byte4.cpp" />
     <ClCompile Include="src\Graphics\PackedVector\HalfSingle.cpp" />
     <ClCompile Include="src\Graphics\PackedVector\HalfVector2.cpp" />
+    <ClCompile Include="src\Graphics\PackedVector\HalfVector4.cpp" />
+    <ClCompile Include="src\Graphics\PackedVector\NormalizedByte2.cpp" />
+    <ClCompile Include="src\Graphics\PackedVector\NormalizedByte4.cpp" />
+    <ClCompile Include="src\Graphics\PackedVector\NormalizedShort2.cpp" />
     <ClCompile Include="src\Graphics\PresentationParameters.cpp" />
     <ClCompile Include="src\Math\MathHelper.cpp" />
     <ClCompile Include="src\Math\Matrix.cpp" />
