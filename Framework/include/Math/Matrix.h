@@ -1,7 +1,6 @@
 #ifndef _MATRIX_H
 #define _MATRIX_H
 
-#include <tuple>
 #include <memory>
 
 namespace YAX
@@ -19,37 +18,40 @@ namespace YAX
 			  M41, M42, M43, M44;
 		
 		static const Matrix Identity;
+		static const Matrix CatmullRomMat;
 
 		Matrix(
 			float, float, float, float,
 			float, float, float, float,
 			float, float, float, float,
 			float, float, float, float
-			);
+		);
 
-		Vector3 Backward();
+		Vector3 Backward() const;
 		void Backward(const Vector3&);
 
-		Vector3 Down();
+		Vector3 Down() const;
 		void Down(const Vector3&);
 
-		Vector3 Forward();
+		Vector3 Forward() const;
 		void Forward(const Vector3&);
 
-		Vector3 Left();
+		Vector3 Left() const;
 		void Left(const Vector3&);
 
-		Vector3 Right();
+		Vector3 Right() const;
 		void Right(const Vector3&);
 
-		Vector3 Translation();
+		Vector3 Translation() const;
 		void Translation(const Vector3&);
 
-		Vector3 Up();
+		Vector3 Up() const;
 		void Up(const Vector3&);
 
+		bool Decompose(const Vector3&, const Quaternion&, const Vector3&) const;
+		float Determinant() const;
 
-		static Matrix CreateBillboard(const Vector3&, const Vector3&, const Vector3&, std::unique_ptr<Vector3>);
+		static Matrix CreateBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& cameraUp, std::unique_ptr<Vector3> cameraForward);
 		static Matrix CreateConstrainedBillboard(const Vector3&, const Vector3&, const Vector3&, std::unique_ptr<Vector3>, std::unique_ptr<Vector3>);
 		static Matrix CreateFromAxisAngle(const Vector3&, float);
 		static Matrix CreateFromQuaternion(const Quaternion&);
@@ -63,8 +65,7 @@ namespace YAX
 		static Matrix CreateReflection(const Plane&);
 		static Matrix CreateRotationX(float);
 		static Matrix CreateRotationY(float);
-		static Matrix CreateRotationZ(float);
-
+		static Matrix CreateRotationZ(float); 
 		static Matrix CreateScale(float);
 		static Matrix CreateScale(float, float, float);
 		static Matrix CreateScale(const Vector3&);
@@ -73,25 +74,22 @@ namespace YAX
 		static Matrix CreateTranslation(const Vector3&);
 		static Matrix CreateWorld(const Vector3&, const Vector3&, const Vector3&);
 
-		bool Decompose(Vector3*, Quaternion*, Vector3*);
-		float Determinant();
-
 		static Matrix Invert(const Matrix&);
 		static Matrix Lerp(const Matrix&, const Matrix&, float);
 		static Matrix Transform(const Matrix&, const Quaternion&);
 		static Matrix Transpose(const Matrix&);
 
-		Matrix operator+(const Matrix&);
-		Matrix operator-(const Matrix&);
-		Matrix operator*(const Matrix&);
-		Matrix operator*(float);
-		Matrix operator/(const Matrix&);
-		Matrix operator/(float);
-		Matrix operator-();
-
-		bool operator==(const Matrix&);
-		bool operator!=(const Matrix&);
+		Matrix operator+(const Matrix&) const;
+		Matrix operator-(const Matrix&) const;
+		Matrix operator*(const Matrix&) const;
+		Matrix operator*(float) const;
+		Matrix operator/(const Matrix&) const;
+		Matrix operator/(float) const;
+		Matrix operator-() const;
 	};
+
+	bool operator==(const Matrix&, const Matrix&);
+	bool operator!=(const Matrix&, const Matrix&);
 }
 
 

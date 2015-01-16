@@ -1,35 +1,31 @@
 #ifndef _MATH_HELPER_H
 #define _MATH_HELPER_H
 
-#include <cmath>
-#include <numeric>
-#include "../Utils.h"
-
 namespace YAX
 {
-	namespace MathHelper
+	struct MathHelper
 	{
-		static const float E = std::exp(1);
-		static const float Log10E = std::log10(E);
-		static const float Log2E = std::log2(E);
-		static const float Pi = M_PI;
-		static const float PiOver2 = M_PI_2;
-		static const float PiOver4 = M_PI_4;
-		static const float TwoPi = 2 * Pi;
+		static const float E;
+		static const float Log10E;
+		static const float Log2E;
+		static const float Pi;
+		static const float PiOver2;
+		static const float PiOver4;
+		static const float TwoPi;
 
-		float Barycentric(float, float, float, float, float);
-		float CatmullRom(float, float, float, float, float);
-		float Clamp(float, float, float);
-		float Distance(float, float);
-		float Hermite(float, float, float, float, float);
-		float Lerp(float, float, float);
-		float Max(float, float);
-		float Min(float, float);
-		float SmoothStep(float, float, float);
-		float ToDegrees(float);
-		float ToRadians(float);
-		float WrapAngle(float);
-	}
+		static float Barycentric(float, float, float, float, float);
+		static float CatmullRom(float, float, float, float, float);
+		static float Clamp(float, float, float);
+		static float Distance(float, float);
+		static float Hermite(float, float, float, float, float);
+		static float Lerp(float, float, float);
+		static float Max(float, float);
+		static float Min(float, float);
+		static float SmoothStep(float, float, float);
+		static float ToDegrees(float);
+		static float ToRadians(float);
+		static float WrapAngle(float);
+	};
 }
 
 #endif 
