@@ -52,7 +52,7 @@ namespace YAX
 
 	void HalfSingle::PackFromVector4(const Vector4& source)
 	{
-		_packed = Pack(source.X());
+		_packed = Pack(source.X);
 	}
 
 	Vector4 HalfSingle::ToVector4() const

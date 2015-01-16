@@ -11,7 +11,7 @@ namespace YAX
 	}
 
 	Bgr565::Bgr565(const Vector3& source)
-		: Bgr565(source.Z(), source.Y(), source.X())
+		: Bgr565(source.Z, source.Y, source.X)
 	{}
 
 	Bgr565::~Bgr565() = default;
@@ -33,7 +33,7 @@ namespace YAX
 
 	void Bgr565::PackFromVector4(const Vector4& source)
 	{
-		Pack(source.X(), source.Y(), source.Z());
+		Pack(source.X, source.Y, source.Z);
 	}
 
 	bool operator==(const Bgr565& lhs, const Bgr565& rhs)

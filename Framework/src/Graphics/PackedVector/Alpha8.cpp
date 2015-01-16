@@ -6,6 +6,7 @@ namespace YAX
 	Alpha8::Alpha8(float val)
 		: Alpha8::Base()
 	{
+	
 		_packed = val * 255;
 	}
 
@@ -18,12 +19,12 @@ namespace YAX
 
 	void Alpha8::PackFromVector4(const Vector4& vec)
 	{
-		_packed = vec.W() * 255;
+		_packed = vec.W * 255;
 	}
 
 	Vector4 Alpha8::ToVector4() const
 	{
-		return Vector4(0, 0, 0, ToAlpha());
+		return Vector4(0.0f, 0.0f, 0.0f, ToAlpha());
 	}
 
 	bool operator==(const Alpha8& lhs, const Alpha8& rhs)

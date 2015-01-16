@@ -11,7 +11,7 @@ namespace YAX
 	}
 
 	Byte4::Byte4(const Vector4& source)
-		: Byte4(source.X(), source.Y(), source.Z(), source.W())
+		: Byte4(source.X, source.Y, source.Z, source.W)
 	{}
 
 	Byte4::~Byte4() = default;
@@ -29,7 +29,7 @@ namespace YAX
 
 	void Byte4::PackFromVector4(const Vector4& source)
 	{
-		Pack(source.X(), source.Y(), source.Z(), source.W());
+		Pack(source.X, source.Y, source.Z, source.W);
 	}
 
 	bool operator==(const Byte4& lhs, const Byte4& rhs)

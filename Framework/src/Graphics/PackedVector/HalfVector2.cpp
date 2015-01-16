@@ -13,7 +13,7 @@ namespace YAX
 	}
 
 	HalfVector2::HalfVector2(const Vector2& source)
-		: HalfVector2(source.X(), source.Y())
+		: HalfVector2(source.X, source.Y)
 	{}
 
 	HalfVector2::~HalfVector2() = default;
@@ -29,7 +29,7 @@ namespace YAX
 
 	void HalfVector2::PackFromVector4(const Vector4& source)
 	{
-		Pack(source.X(), source.Y());
+		Pack(source.X, source.Y);
 	}
 
 	Vector4 HalfVector2::ToVector4() const

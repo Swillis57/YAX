@@ -10,7 +10,7 @@ namespace YAX
 	}
 
 	Bgra5551::Bgra5551(const Vector4& source)
-		: Bgra5551(source.X(), source.Y(), source.Z(), source.W())
+		: Bgra5551(source.X, source.Y, source.Z, source.W)
 	{}
 
 	Bgra5551::~Bgra5551() = default;
@@ -28,7 +28,7 @@ namespace YAX
 
 	void Bgra5551::PackFromVector4(const Vector4& source)
 	{
-		Pack(source.X(), source.Y(), source.Z(), source.W());
+		Pack(source.X, source.Y, source.Z, source.W);
 	}
 
 	bool operator==(const Bgra5551& lhs, const Bgra5551& rhs)
