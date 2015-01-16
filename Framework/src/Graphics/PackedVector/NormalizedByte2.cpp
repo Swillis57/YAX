@@ -11,7 +11,7 @@ namespace YAX
 	}
 
 	NormalizedByte2::NormalizedByte2(const Vector2& source)
-		: NormalizedByte2(source.X(), source.Y())
+		: NormalizedByte2(source.X, source.Y)
 	{}
 
 	NormalizedByte2::~NormalizedByte2() = default;
@@ -35,7 +35,7 @@ namespace YAX
 
 	void NormalizedByte2::PackFromVector4(const Vector4& source)
 	{
-		Pack(source.X(), source.Y());
+		Pack(source.X, source.Y);
 	}
 
 	bool operator==(const NormalizedByte2& lhs, const NormalizedByte2& rhs)
@@ -50,10 +50,10 @@ namespace YAX
 
 	void NormalizedByte2::Pack(float val1, float val2)
 	{
-		signed char val1Int = val1 * 255;
-		signed char val2Int = val2 * 255;
-		byte val1Bits = BitCast<byte>(val1Int);
-		byte val2Bits = BitCast<byte>(val2Int);
+		signed char val1Fixed = val1 * 255;
+		signed char val2Fixed = val2 * 255;
+		byte val1Bits = BitCast<byte>(val1Fixed);
+		byte val2Bits = BitCast<byte>(val2Fixed);
 		_packed ^= _packed;
 		WRITEBITS(val1Bits, 8);
 		WRITEBITS(val2Bits, 0);
