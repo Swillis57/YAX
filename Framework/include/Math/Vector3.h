@@ -17,14 +17,7 @@ namespace YAX
 							 Backward, Down, Forward, Left,
 							 Right, Up;
 
-		float X() const;
-		void X(float);
-
-		float Y() const;
-		void Y(float);
-
-		float Z() const;
-		void Z(float);
+		float X, Y, Z;
 
 		Vector3(float);
 		Vector3(float, float, float);
