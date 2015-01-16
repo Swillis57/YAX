@@ -5,6 +5,7 @@
 #include "../../include/Geometry/Rectangle.h"
 #include "../../include/GLEW/glew.h"
 
+//Takes the const GLchar* from glGetString and casts it into an std::string
 #define glGetActualString(enum) (std::string{reinterpret_cast<const char*>(glGetString(enum))} + "\0")
 
 namespace YAX
@@ -13,12 +14,12 @@ namespace YAX
 	{
 		DisplayModeCollection _supportedModes;
 		std::string _name, _desc, _vendor;
-		i32 _deviceID, _revision, _subSysID;
 		GLFWmonitor* _handle;
 
-		Impl(std::string desc, std::string vend, GLFWmonitor* hnd)
-			: _desc(desc), _vendor(vend), _handle(hnd)
+		Impl(std::string name, std::string desc, std::string vend, GLFWmonitor* hnd)
+			: _name(name), _desc(desc), _vendor(vend), _handle(hnd)
 		{
+			//Find and add the supported display modes for this monitor
 			i32 modeCount;
 			auto modes = glfwGetVideoModes(hnd, &modeCount);
 			size_t fixedModeCount = static_cast<size_t>(modeCount);
@@ -28,15 +29,13 @@ namespace YAX
 				auto vMode = modes[j];
 
 				_supportedModes.emplace_back(DisplayMode(
-				{ vMode.redBits, vMode.blueBits, vMode.greenBits },
-				Rectangle(0, 0, vMode.width, vMode.height)
+					{ vMode.redBits, vMode.blueBits, vMode.greenBits },
+					Rectangle(0, 0, vMode.width, vMode.height)
 				));
 			}
 		}
 		
 		~Impl() = default;
-
-		
 
 		bool IsProfileSupported(GraphicsProfile profile)
 		{
@@ -50,7 +49,7 @@ namespace YAX
 
 		DisplayMode CurrentDisplayMode() const
 		{
-			//Don't need to delete this, GLFW handles everything itself
+			//Don't need to delete this, GLFW manages the memory
 			auto vMode = glfwGetVideoMode(_handle);
 			return DisplayMode(
 				{vMode->redBits, vMode->blueBits, vMode->greenBits},
@@ -60,39 +59,38 @@ namespace YAX
 
 		bool IsDefault() const
 		{
-			return _handle == glfwGetPrimaryMonitor();
+			return _handle == _defaultAdapter.MonitorHandle();
 		}
 
 		bool IsWideScreen() const
 		{
+			//A widescreen aspect ratio is either 16:9 or 16:10
 			float aspRat = CurrentDisplayMode().AspectRatio();
 			return aspRat == 1.77f || aspRat == 1.6;
 		}
 	};
 
-	GraphicsAdapter* GraphicsAdapter::_defaultAdapter;
+	GraphicsAdapter& GraphicsAdapter::_defaultAdapter = GraphicsAdapter("", "", "", nullptr);
 	std::vector<GraphicsAdapter> GraphicsAdapter::_adapters;
 
-	GraphicsAdapter::GraphicsAdapter(std::string desc, std::string vend, GLFWmonitor* hnd)
+	GraphicsAdapter::GraphicsAdapter(std::string name, std::string desc, std::string vend, GLFWmonitor* hnd)
 	{
-		_impl = std::make_unique<Impl>(desc, vend, hnd);
+		_impl = std::make_unique<Impl>(name, desc, vend, hnd);
 	}
 
 	GraphicsAdapter::~GraphicsAdapter() = default;
 
 	GraphicsAdapter::GraphicsAdapter(GraphicsAdapter&& old)
-	{
-		_impl = std::move(old._impl);
-	}
+		: _impl(std::move(old._impl))
+	{}
 
 	GraphicsAdapter::GraphicsAdapter(const GraphicsAdapter& old)
-	{
-		_impl = std::make_unique<Impl>(*old._impl);
-	}
+		: _impl(new Impl(*old._impl))
+	{}
 
 	GraphicsAdapter& GraphicsAdapter::operator=(const GraphicsAdapter& old)
 	{
-		this->_impl = std::make_unique<Impl>(*old._impl);
+		this->_impl = std::unique_ptr<Impl>(new Impl(*old._impl));
 		return *this;
 	}
 
@@ -107,28 +105,34 @@ namespace YAX
 		return _adapters;
 	}
 
-	GraphicsAdapter* GraphicsAdapter::DefaultAdapter()
+	GraphicsAdapter GraphicsAdapter::DefaultAdapter()
 	{
 		return _defaultAdapter;
 	}
 
 	void GraphicsAdapter::FindAdapters()
 	{
+		//A graphics adapter is essentially a connection to a
+		//monitor, so we just find all the monitors on the system
+		//and add them to the Adapters vector
+
 		GLFWmonitor* defaultMonitor = glfwGetPrimaryMonitor();
 		i32 monitorCount;
 		GLFWmonitor** monitors = glfwGetMonitors(&monitorCount);
 		size_t fixedMonitorCount = static_cast<size_t>(monitorCount);
 
+		//These shouldn't change between adapters unless the monitors
+		//are connected to different graphics cards (rare)
+		std::string desc = glGetActualString(GL_RENDERER);
+		std::string vend = glGetActualString(GL_VENDOR);
+
 		for (size_t i = 0; i < fixedMonitorCount; i++)
 		{
-			std::string desc = glGetActualString(GL_RENDERER);
-			std::string vend = glGetActualString(GL_VENDOR);
-			
-			
-			_adapters.emplace_back(GraphicsAdapter { desc, vend, monitors[i] });
+			std::string name = glfwGetMonitorName(monitors[i]);
+			_adapters.emplace_back(GraphicsAdapter {name, desc, vend, monitors[i] });
 
 			if (monitors[i] == defaultMonitor)
-				_defaultAdapter = &_adapters[_adapters.size() - 1];
+				_defaultAdapter = _adapters[_adapters.size() - 1];
 		}
 	}
 
