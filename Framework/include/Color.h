@@ -21,8 +21,6 @@ namespace YAX
 		void B(byte);
 		byte A();
 		void A(byte);
-		void PackedValue(ui32) override;
-		ui32 PackedValue() const override;
 
 		static Color FromNonPremultiplied(i32, i32, i32, i32);
 		static Color FromNonPremultiplied(const Vector4&);
