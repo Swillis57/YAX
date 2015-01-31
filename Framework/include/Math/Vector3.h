@@ -23,33 +23,33 @@ namespace YAX
 		Vector3(float x, float y, float z);
 		Vector3(Vector2 xy, float z);
 
+		void Normalize();
+		float Length() const;
+		float LengthSquared() const;
 
 		static Vector3 Barycentric(const Vector3& p1, const Vector3& p2, const Vector3& p3, float b2, float b3);
 		static Vector3 CatmullRom(const Vector3& p1, const Vector3& p2, const Vector3& p3, const Vector3& p4, float amt);
 		static Vector3 Clamp(const Vector3& val, const Vector3& min, const Vector3& max);
-		static Vector3 Distance(const Vector3& p1, const Vector3& p2);
-		static Vector3 DistanceSquared(const Vector3& p1, const Vector3& p2);
-		static Vector3 Dot(const Vector3& v1, const Vector3& v2);
-		static Vector3 Hermite(const Vector3&, const Vector3&, const Vector3&, const Vector3&, float);
-		static Vector3 Max(const Vector3&, const Vector3&);
-		static Vector3 Min(const Vector3&, const Vector3&);
-		static Vector3 Reflect(const Vector3&, const Vector3&);
-		static Vector3 SmoothStep(const Vector3&, const Vector3&, float);
+		static float Distance(const Vector3& p1, const Vector3& p2);
+		static float DistanceSquared(const Vector3& p1, const Vector3& p2);
+		static float Dot(const Vector3& v1, const Vector3& v2);
+		static Vector3 Hermite(const Vector3& p1, const Vector3& t1, const Vector3& p2, const Vector3& t2, float w);
+		static Vector3 Max(const Vector3& v1, const Vector3& v2);
+		static Vector3 Min(const Vector3& v1, const Vector3& v2);
+		static Vector3 Normalize(Vector3 vec);
+		static Vector3 Reflect(const Vector3& vec, const Vector3& norm);
+		static Vector3 SmoothStep(const Vector3& a, const Vector3& b, float t);
 
-		static Vector3 Transform(const Vector3&, const Matrix&);
-		static Vector3 Transform(const Vector3&, const Quaternion&);
-		static void Transform(const std::vector<Vector3>&, i32, const Matrix&, std::vector<Vector3>&, i32, i32);
-		static void Transform(const std::vector<Vector3>&, i32, const Quaternion&, std::vector<Vector3>&, i32, i32);
-		static void Transform(const std::vector<Vector3>&, const Matrix&, std::vector<Vector3>&);
-		static void Transform(const std::vector<Vector3>&, const Quaternion&, std::vector<Vector3>&);
+		static Vector3 Transform(const Vector3& vec, const Matrix& mat);
+		static Vector3 Transform(const Vector3& vec, const Quaternion& q);
+		static void Transform(const std::vector<Vector3>& source, i32 sourceIdx, const Matrix& mat, std::vector<Vector3>& dest, i32 destIdx, i32 count);
+		static void Transform(const std::vector<Vector3>& source, i32 sourceIdx, const Quaternion& q, std::vector<Vector3>& dest, i32 destIdx, i32 count);
+		static void Transform(const std::vector<Vector3>& source, const Matrix& mat, std::vector<Vector3>& dest);
+		static void Transform(const std::vector<Vector3>& source, const Quaternion& q, std::vector<Vector3>& dest);
 
-		static Vector3 TransformNormal(const Vector3&, const Matrix&);
-		static void TransformNormal(const std::vector<Vector3>&, i32, const Matrix&, std::vector<Vector3>&, i32, i32);
-		static void TransformNormal(const std::vector<Vector3>&, const Matrix&, std::vector<Vector3>&);
-
-		Vector3 Normalize();
-		float Length();
-		float LengthSquared();
+		static Vector3 TransformNormal(const Vector3& norm, const Matrix& mat);
+		static void TransformNormal(const std::vector<Vector3>& source, i32 sourceIdx, const Matrix& mat, std::vector<Vector3>& dest, i32 destIdx, i32 count);
+		static void TransformNormal(const std::vector<Vector3>& source, const Matrix& mat, std::vector<Vector3>& dest);
 
 		Vector3& operator+=(const Vector3&);
 		Vector3& operator-=(const Vector3&);
