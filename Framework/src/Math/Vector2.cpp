@@ -118,8 +118,8 @@ namespace YAX
 
 	Vector2 Vector2::Transform(const Vector2& v, const Matrix& m)
 	{
-		//Pre-multiplication - r = v*m
-		//Only calculates the first two because
+		//Post-multiplication - v' = v*m
+		//Only calculates the first two components because
 		//that's all we care about
 		return Vector2(
 			v.X * m.M11 + v.Y * m.M21 + m.M41,
@@ -134,17 +134,17 @@ namespace YAX
 		return Vector2(res.X, res.Y);
 	}
 
-	void Vector2::Transform(const std::vector<Vector2>& source, i32 sourceIdx, const Matrix& mat, std::vector<Vector2>& dest, i32 destIdx, i32 len)
+	void Vector2::Transform(const std::vector<Vector2>& source, i32 sourceIdx, const Matrix& mat, std::vector<Vector2>& dest, i32 destIdx, i32 count)
 	{
-		for (int i = sourceIdx; i < sourceIdx + len; i++)
+		for (auto i = sourceIdx; i < sourceIdx + count; i++)
 		{
 			dest[destIdx + (i - sourceIdx)] = Vector2::Transform(source[i], mat);
 		}
 	}
 
-	void Vector2::Transform(const std::vector<Vector2>& source, i32 sourceIdx, const Quaternion& q, std::vector<Vector2>& dest, i32 destIdx, i32 len)
+	void Vector2::Transform(const std::vector<Vector2>& source, i32 sourceIdx, const Quaternion& q, std::vector<Vector2>& dest, i32 destIdx, i32 count)
 	{
-		for (int i = sourceIdx; i < sourceIdx + len; i++)
+		for (auto i = sourceIdx; i < sourceIdx + count; i++)
 		{
 			dest[destIdx + (i - sourceIdx)] = Vector2::Transform(source[i], q);
 		}
@@ -169,9 +169,9 @@ namespace YAX
 		);
 	}	
 
-	void Vector2::TransformNormal(const std::vector<Vector2>& source, i32 sourceIdx, const Matrix& mat, std::vector<Vector2>& dest, i32 destIdx, i32 len)
+	void Vector2::TransformNormal(const std::vector<Vector2>& source, i32 sourceIdx, const Matrix& mat, std::vector<Vector2>& dest, i32 destIdx, i32 count)
 	{
-		for (int i = 0; i < sourceIdx + len; i++)
+		for (auto i = sourceIdx; i < sourceIdx + count; i++)
 		{
 			dest[destIdx + (i - sourceIdx)] = Vector2::TransformNormal(source[i], mat);
 		}

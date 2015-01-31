@@ -41,13 +41,13 @@ namespace YAX
 
 		static Vector2 Transform(const Vector2& v, const Matrix& m);
 		static Vector2 Transform(const Vector2& v, const Quaternion& q);
-		static void Transform(const std::vector<Vector2>& source, i32 sourceIdx, const Matrix& mat, std::vector<Vector2>& dest, i32 destIdx, i32 len);
-		static void Transform(const std::vector<Vector2>& source, i32 sourceIdx, const Quaternion& q, std::vector<Vector2>& dest, i32 destIdx, i32 len);
+		static void Transform(const std::vector<Vector2>& source, i32 sourceIdx, const Matrix& mat, std::vector<Vector2>& dest, i32 destIdx, i32 count);
+		static void Transform(const std::vector<Vector2>& source, i32 sourceIdx, const Quaternion& q, std::vector<Vector2>& dest, i32 destIdx, i32 count);
 		static void Transform(const std::vector<Vector2>& source, const Matrix& mat, std::vector<Vector2>& dest);
 		static void Transform(const std::vector<Vector2>& source, const Quaternion& q, std::vector<Vector2>& dest);
 
 		static Vector2 TransformNormal(const Vector2& normal, const Matrix& mat);
-		static void TransformNormal(const std::vector<Vector2>& source, i32 sourceIdx, const Matrix& mat, std::vector<Vector2>& dest, i32 destIdx, i32 len);
+		static void TransformNormal(const std::vector<Vector2>& source, i32 sourceIdx, const Matrix& mat, std::vector<Vector2>& dest, i32 destIdx, i32 count);
 		static void TransformNormal(const std::vector<Vector2>& source, const Matrix& mat, std::vector<Vector2>& dest);
 	
 		Vector2& operator+=(const Vector2&); 
