@@ -19,9 +19,9 @@ namespace YAX
 		: X(x), Y(y)
 	{}
 
-	Vector2 Vector2::Normalize() const
+	void Vector2::Normalize()
 	{
-		return (*this) / this->Length();
+		(*this) /= this->Length();
 	}
 
 	float Vector2::Length() const
@@ -94,6 +94,12 @@ namespace YAX
 			MathHelper::Min(v1.X, v2.X),
 			MathHelper::Min(v1.Y, v2.Y)
 		);
+	}
+
+	Vector2 Vector2::Normalize(Vector2 vec)
+	{
+		vec.Normalize();
+		return vec;
 	}
 
 	Vector2 Vector2::Reflect(const Vector2& vec, const Vector2& normal)

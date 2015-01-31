@@ -20,7 +20,8 @@ namespace YAX
 		Vector2(float val);
 		Vector2(float x, float y);
 
-		Vector2 Normalize() const;
+
+		void Normalize();
 		float Length() const;
 		float LengthSquared() const;
 
@@ -34,6 +35,7 @@ namespace YAX
 		static Vector2 Lerp(const Vector2& v1, const Vector2& v2, float t);
 		static Vector2 Max(const Vector2& v1, const Vector2& v2);
 		static Vector2 Min(const Vector2& v1, const Vector2& v2);
+		static Vector2 Normalize(Vector2 vec);
 		static Vector2 Reflect(const Vector2& vec, const Vector2& normal);
 		static Vector2 SmoothStep(const Vector2& v1, const Vector2& v2, float t);
 
