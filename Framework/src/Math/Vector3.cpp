@@ -72,6 +72,14 @@ namespace YAX
 		return Vector3(x, y, z);
 	}
 
+	Vector3 Vector3::Cross(const Vector3& v1, const Vector3 v2)
+	{
+		float x = v1.Y*v2.X - v1.X*v2.Y;
+		float y = v1.Z*v2.X - v1.X*v2.Z;
+		float z = v1.X*v2.Y - v1.Y*v2.X;
+		return Vector3(x, y, z);
+	}
+
 	float Vector3::Distance(const Vector3& p1, const Vector3& p2)
 	{
 		return std::sqrt(DistanceSquared(p1, p2));

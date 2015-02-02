@@ -30,6 +30,7 @@ namespace YAX
 		static Vector3 Barycentric(const Vector3& p1, const Vector3& p2, const Vector3& p3, float b2, float b3);
 		static Vector3 CatmullRom(const Vector3& p1, const Vector3& p2, const Vector3& p3, const Vector3& p4, float amt);
 		static Vector3 Clamp(const Vector3& val, const Vector3& min, const Vector3& max);
+		static Vector3 Cross(const Vector3& v1, const Vector3 v2);
 		static float Distance(const Vector3& p1, const Vector3& p2);
 		static float DistanceSquared(const Vector3& p1, const Vector3& p2);
 		static float Dot(const Vector3& v1, const Vector3& v2);
