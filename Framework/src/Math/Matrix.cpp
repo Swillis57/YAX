@@ -22,11 +22,6 @@ namespace YAX
 										   0, 0, 1, 0,
 										   0, 0, 0, 1);
 
-	const Matrix Matrix::CatmullRomMat = Matrix(    0,  1.0f,     0,     0,
-												 0.5f,     0,  0.5f,     0,
-												 1.0f, -2.5f,  2.0f, -0.5f,
-												-0.5f,  1.5f, -1.5f,  0.5f);
-
 
 	Vector3 Matrix::Backward() const
 	{
@@ -108,8 +103,49 @@ namespace YAX
 
 	Matrix Matrix::CreateBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& cameraUp, std::unique_ptr<Vector3> cameraForward)
 	{
-		float minDist = 0.00001;
+		/*float minDist = 0.0001f;
+		Vector3 camToObj = objectPos - cameraPos;
 
-		//Vector3 zAxis = ()
+		Vector3 zBasis = camToObj.LengthSquared() > minDist*minDist ? 
+					camToObj 
+					: *cameraForward;
+		zBasis.Normalize();
+		
+		Vector3 xBasis = Vector3::Cross(cameraUp, zBasis);
+		xBasis.Normalize();
+
+		return Matrix(   xBasis.X,   xBasis.Y,     xBasis.Z, 0,
+					   cameraUp.X,  cameraUp.Y,  cameraUp.Z, 0,
+					     zBasis.X,    zBasis.Y,    zBasis.Z, 0,
+					  objectPos.X, objectPos.Y, objectPos.Z, 1.0f
+					  ); 
+		*/
+		return CreateConstrainedBillboard(objectPos, cameraPos, cameraUp, std::move(cameraForward), nullptr);
+	}
+
+	Matrix Matrix::CreateConstrainedBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& rotAxis, std::unique_ptr<Vector3> cameraForward, std::unique_ptr<Vector3> objectForward)
+	{
+		float minDist = 0.0001f;
+
+		Vector3 camToObj = objectPos - cameraPos;
+		Vector3 xBasis = Vector3::Cross(camToObj, rotAxis);
+		Vector3 zBasis = Vector3::Zero;
+
+		//If objectForward was provided, it acts as an override
+		if (objectForward)
+			zBasis = *objectForward;
+		else if (camToObj.LengthSquared() > minDist*minDist)
+			zBasis = *cameraForward;
+		else
+			zBasis = Vector3::Cross(rotAxis, xBasis);
+
+		xBasis.Normalize();
+		zBasis.Normalize();
+
+		return Matrix(xBasis.X,    xBasis.Y,    xBasis.Z, 0,
+					 rotAxis.X,   rotAxis.Y,   rotAxis.Z, 0,
+				      zBasis.X,    zBasis.Y,    zBasis.Z, 0,
+				   objectPos.X, objectPos.Y, objectPos.Z, 1.0f);
+		
 	}
 }

@@ -52,7 +52,7 @@ namespace YAX
 		float Determinant() const;
 
 		static Matrix CreateBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& cameraUp, std::unique_ptr<Vector3> cameraForward);
-		static Matrix CreateConstrainedBillboard(const Vector3&, const Vector3&, const Vector3&, std::unique_ptr<Vector3>, std::unique_ptr<Vector3>);
+		static Matrix CreateConstrainedBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& rotAxis, std::unique_ptr<Vector3> cameraForward, std::unique_ptr<Vector3> objectForward);
 		static Matrix CreateFromAxisAngle(const Vector3&, float);
 		static Matrix CreateFromQuaternion(const Quaternion&);
 		static Matrix CreateFromYawPitchRoll(float, float, float);
