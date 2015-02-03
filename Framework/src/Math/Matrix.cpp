@@ -104,15 +104,10 @@ namespace YAX
 	Matrix Matrix::CreateBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& cameraUp, const Vector3* cameraForward)
 	{
 		/*float minDist = 0.0001f;
-		Vector3 camToObj = objectPos - cameraPos;
-
-		Vector3 zBasis = camToObj.LengthSquared() > minDist*minDist ? 
-					camToObj 
-					: *cameraForward;
-		zBasis.Normalize();
 		
-		Vector3 xBasis = Vector3::Cross(cameraUp, zBasis);
-		xBasis.Normalize();
+		Vector3 objToCam = cameraPos - objectPos;
+		Vector3 xBasis = Vector3::Normalize(Vector3::Cross(cameraUp, objToCam));
+		Vector3 zBasis = Vector3::Normalize(Vector3::Cross(xBasis, cameraUp));
 
 		return Matrix(   xBasis.X,   xBasis.Y,     xBasis.Z, 0,
 					   cameraUp.X,  cameraUp.Y,  cameraUp.Z, 0,
@@ -120,27 +115,30 @@ namespace YAX
 					  objectPos.X, objectPos.Y, objectPos.Z, 1.0f
 					  ); 
 		*/
-		return CreateConstrainedBillboard(objectPos, cameraPos, cameraUp, std::move(cameraForward), nullptr);
+		return CreateConstrainedBillboard(objectPos, cameraPos, cameraUp, cameraForward, &Vector3::Forward);
 	}
 
 	Matrix Matrix::CreateConstrainedBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& rotAxis, const Vector3* cameraForward, const Vector3* objectForward)
 	{
 		float minDist = 0.0001f;
 
-		Vector3 camToObj = objectPos - cameraPos;
-		Vector3 xBasis = Vector3::Cross(camToObj, rotAxis);
-		Vector3 zBasis = Vector3::Zero;
+		Vector3 objToCam = cameraPos - objectPos;
+		if (objToCam.LengthSquared() < minDist*minDist)
+		{
+			if (cameraForward != nullptr) objToCam = *cameraForward;
+			else objToCam = Vector3::Forward;
+		}
 
-		//If objectForward was provided, it acts as an override
-		if (objectForward)
-			zBasis = *objectForward;
-		else if (camToObj.LengthSquared() > minDist*minDist)
-			zBasis = *cameraForward;
-		else
-			zBasis = Vector3::Cross(rotAxis, xBasis);
+		Vector3 xBasis = Vector3::Normalize(Vector3::Cross(rotAxis, objToCam));
+		if (xBasis.LengthSquared() < minDist*minDist)
+		{
+			if (objectForward != nullptr)
+				xBasis = Vector3::Normalize(Vector3::Cross(rotAxis, *objectForward));
+			else
+				xBasis = Vector3::Right;
+		}
 
-		xBasis.Normalize();
-		zBasis.Normalize();
+		Vector3 zBasis = Vector3::Normalize(Vector3::Cross(xBasis, rotAxis));
 
 		return Matrix(xBasis.X,    xBasis.Y,    xBasis.Z, 0,
 					 rotAxis.X,   rotAxis.Y,   rotAxis.Z, 0,
