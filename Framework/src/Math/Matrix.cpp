@@ -170,5 +170,10 @@ namespace YAX
 								  0,			 0,		        0, 1.0f);
 	}
 
+	Matrix Matrix::CreateFromYawPitchRoll(float y, float p, float r)
+	{
+		return Matrix::CreateFromQuaternion(Quaternion::CreateFromYawPitchRoll(y, p, r));
+	}
+
 
 }

@@ -55,8 +55,8 @@ namespace YAX
 		static Matrix CreateConstrainedBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& rotAxis, const Vector3* cameraForward, const Vector3* objectForward);
 		static Matrix CreateFromAxisAngle(const Vector3& axis, float angle);
 		static Matrix CreateFromQuaternion(const Quaternion& q);
-		static Matrix CreateFromYawPitchRoll(float, float, float);
-		static Matrix CreateLookAt(const Vector3&, const Vector3&, const Vector3&);
+		static Matrix CreateFromYawPitchRoll(float y, float p, float r);
+		static Matrix CreateLookAt(const Vector3& cameraPos, const Vector3& cameraTarg, const Vector3& cameraUp);
 		static Matrix CreateOrthographic(float, float, float, float);
 		static Matrix CreateOrthographicOffCenter(float, float, float, float, float, float);
 		static Matrix CreatePerspective(float, float, float, float);
