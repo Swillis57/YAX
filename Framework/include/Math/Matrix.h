@@ -51,8 +51,8 @@ namespace YAX
 		bool Decompose(const Vector3&, const Quaternion&, const Vector3&) const;
 		float Determinant() const;
 
-		static Matrix CreateBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& cameraUp, std::unique_ptr<Vector3> cameraForward);
-		static Matrix CreateConstrainedBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& rotAxis, std::unique_ptr<Vector3> cameraForward, std::unique_ptr<Vector3> objectForward);
+		static Matrix CreateBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& cameraUp, const Vector3* cameraForward);
+		static Matrix CreateConstrainedBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& rotAxis, const Vector3* cameraForward, const Vector3* objectForward);
 		static Matrix CreateFromAxisAngle(const Vector3& axis, float angle);
 		static Matrix CreateFromQuaternion(const Quaternion& q);
 		static Matrix CreateFromYawPitchRoll(float, float, float);

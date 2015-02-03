@@ -101,7 +101,7 @@ namespace YAX
 		Down(source);
 	}
 
-	Matrix Matrix::CreateBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& cameraUp, std::unique_ptr<Vector3> cameraForward)
+	Matrix Matrix::CreateBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& cameraUp, const Vector3* cameraForward)
 	{
 		/*float minDist = 0.0001f;
 		Vector3 camToObj = objectPos - cameraPos;
@@ -123,7 +123,7 @@ namespace YAX
 		return CreateConstrainedBillboard(objectPos, cameraPos, cameraUp, std::move(cameraForward), nullptr);
 	}
 
-	Matrix Matrix::CreateConstrainedBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& rotAxis, std::unique_ptr<Vector3> cameraForward, std::unique_ptr<Vector3> objectForward)
+	Matrix Matrix::CreateConstrainedBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& rotAxis, const Vector3* cameraForward, const Vector3* objectForward)
 	{
 		float minDist = 0.0001f;
 
