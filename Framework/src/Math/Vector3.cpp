@@ -19,6 +19,8 @@ namespace YAX
 	const Vector3 Vector3::Right = Vector3::UnitX;
 	const Vector3 Vector3::Up = Vector3::UnitY;
 
+	Vector3::Vector3() = default;
+
 	Vector3::Vector3(float val)
 		: X(val), Y(val), Z(val)
 	{}

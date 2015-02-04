@@ -19,6 +19,7 @@ namespace YAX
 
 		float X, Y, Z;
 
+		Vector3();
 		Vector3(float val);
 		Vector3(float x, float y, float z);
 		Vector3(Vector2 xy, float z);
