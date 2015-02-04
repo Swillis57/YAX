@@ -1,6 +1,7 @@
 #include "../../include/Math/Matrix.h"
-#include <cmath>
+#include <exception>
 #include "../../include/Geometry/Plane.h"
+#include "../../include/Math/MathHelper.h"
 #include "../../include/Math/Quaternion.h"
 #include "../../include/Math/Vector3.h"
 
