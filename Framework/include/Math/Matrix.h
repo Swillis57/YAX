@@ -62,10 +62,10 @@ namespace YAX
 		static Matrix CreatePerspective(float width, float height, float zNear, float zFar);
 		static Matrix CreatePerspectiveFieldOfView(float fieldOfView, float aspectRatio, float zNear, float zFar);
 		static Matrix CreatePerspectiveOffCenter(float left, float right, float bottom, float top, float zNear, float zFar);
-		static Matrix CreateReflection(const Plane&);
-		static Matrix CreateRotationX(float);
-		static Matrix CreateRotationY(float);
-		static Matrix CreateRotationZ(float); 
+		static Matrix CreateReflection(const Plane& val);
+		static Matrix CreateRotationX(float angle);
+		static Matrix CreateRotationY(float angle);
+		static Matrix CreateRotationZ(float angle); 
 		static Matrix CreateScale(float);
 		static Matrix CreateScale(float, float, float);
 		static Matrix CreateScale(const Vector3&);
