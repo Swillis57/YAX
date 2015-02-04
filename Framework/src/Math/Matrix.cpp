@@ -101,50 +101,73 @@ namespace YAX
 		Down(source);
 	}
 
-	Matrix Matrix::CreateBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& cameraUp, const Vector3* cameraForward)
+	Matrix Matrix::CreateBillboard(const Vector3& objectPos, const Vector3& cameraPos,
+		const Vector3& cameraUp, const Vector3* cameraForward)
 	{
-		/*float minDist = 0.0001f;
-		
-		Vector3 objToCam = cameraPos - objectPos;
-		Vector3 xBasis = Vector3::Normalize(Vector3::Cross(cameraUp, objToCam));
-		Vector3 zBasis = Vector3::Normalize(Vector3::Cross(xBasis, cameraUp));
+		float minDist = 0.0001f * 0.0001f;
+		Vector3 xBasis, yBasis, zBasis;
 
-		return Matrix(   xBasis.X,   xBasis.Y,     xBasis.Z, 0,
-					   cameraUp.X,  cameraUp.Y,  cameraUp.Z, 0,
-					     zBasis.X,    zBasis.Y,    zBasis.Z, 0,
-					  objectPos.X, objectPos.Y, objectPos.Z, 1.0f
-					  ); 
-		*/
-		return CreateConstrainedBillboard(objectPos, cameraPos, cameraUp, cameraForward, &Vector3::Forward);
+		Vector3 camToObj = objectPos - cameraPos;
+
+		zBasis = camToObj;
+		if (camToObj.LengthSquared() < minDist)
+		{
+			zBasis = (cameraForward != nullptr ? -(*cameraForward) : Vector3::Normalize(camToObj));
+		}
+
+		yBasis = Vector3::Normalize(cameraUp);
+		xBasis = Vector3::Normalize(Vector3::Cross(yBasis, zBasis));
+		zBasis.Normalize();
+
+		return Matrix(xBasis.X, xBasis.Y, xBasis.Z, 0,
+				      yBasis.X, yBasis.Y, yBasis.Z, 0,
+				      zBasis.X, zBasis.Y, zBasis.Z, 0,
+				   objectPos.X, objectPos.Y, objectPos.Z, 1.0f
+			);
 	}
 
-	Matrix Matrix::CreateConstrainedBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& rotAxis, const Vector3* cameraForward, const Vector3* objectForward)
+	Matrix Matrix::CreateConstrainedBillboard(const Vector3& objectPos, const Vector3& cameraPos,
+		const Vector3& rotAxis, const Vector3* cameraForward, const Vector3* objectForward)
 	{
-		float minDist = 0.0001f;
+		float minDist = 0.0001f * 0.0001f;
 
-		Vector3 objToCam = cameraPos - objectPos;
-		if (objToCam.LengthSquared() < minDist*minDist)
+		Vector3 camToObj = objectPos - cameraPos;
+		Vector3 xBasis, yBasis, zBasis;
+
+		if (camToObj.LengthSquared() < minDist)
 		{
-			if (cameraForward != nullptr) objToCam = *cameraForward;
-			else objToCam = Vector3::Forward;
+			if (cameraForward != nullptr)
+				camToObj = -(*cameraForward);
+			else
+				camToObj = Vector3::Forward;
 		}
 
-		Vector3 xBasis = Vector3::Normalize(Vector3::Cross(rotAxis, objToCam));
-		if (xBasis.LengthSquared() < minDist*minDist)
+		yBasis = Vector3::Normalize(rotAxis);
+		zBasis = camToObj;
+		float rotAxisDotZ = std::abs(Vector3::Dot(rotAxis, zBasis));
+
+		if (rotAxisDotZ > 0.998f)
 		{
 			if (objectForward != nullptr)
-				xBasis = Vector3::Normalize(Vector3::Cross(rotAxis, *objectForward));
-			else
-				xBasis = Vector3::Right;
+			{
+				zBasis = *objectForward;
+				rotAxisDotZ = std::abs(Vector3::Dot(rotAxis, zBasis));
+			}
 		}
 
-		Vector3 zBasis = Vector3::Normalize(Vector3::Cross(xBasis, rotAxis));
+		if (rotAxisDotZ > 0.998f)
+		{
+			zBasis = std::abs(Vector3::Dot(rotAxis, Vector3::Forward)) > 0.998f ? Vector3::Right : Vector3::Forward;
+		}
 
-		return Matrix(xBasis.X,    xBasis.Y,    xBasis.Z, 0,
-					 rotAxis.X,   rotAxis.Y,   rotAxis.Z, 0,
-				      zBasis.X,    zBasis.Y,    zBasis.Z, 0,
-				   objectPos.X, objectPos.Y, objectPos.Z, 1.0f);
-		
+		xBasis = Vector3::Normalize(Vector3::Cross(yBasis, zBasis));
+		zBasis = Vector3::Normalize(Vector3::Cross(xBasis, yBasis));
+
+		return Matrix(  xBasis.X,    xBasis.Y,    xBasis.Z, 0,
+					   rotAxis.X,   rotAxis.Y,   rotAxis.Z, 0,
+					    zBasis.X,    zBasis.Y,    zBasis.Z, 0,
+					 objectPos.X, objectPos.Y, objectPos.Z, 1.0f);
+
 	}
 
 	Matrix Matrix::CreateFromAxisAngle(const Vector3& axis, float angle)
