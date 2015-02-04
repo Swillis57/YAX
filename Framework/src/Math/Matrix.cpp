@@ -214,4 +214,11 @@ namespace YAX
 							tX,		  tY,		tZ, 1.0f);
 	}
 
+	Matrix Matrix::CreateOrthographic(float w, float h, float zN, float zF)
+	{
+		return Matrix(2.0f/w,	   0,            0, 0,
+						   0, 2.0f/h,            0, 0,
+						   0,      0, 1.0f/(zN-zF), 0,
+						   0,      0,   zN/(zN-zF), 1.0f);
+	}
 }
