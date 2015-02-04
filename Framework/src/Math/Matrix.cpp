@@ -174,7 +174,7 @@ namespace YAX
 	Matrix Matrix::CreateFromAxisAngle(const Vector3& axis, float angle)
 	{
 		float c = std::cosf(angle);
-		float s = std::cosf(angle);
+		float s = std::sinf(angle);
 		float inv = 1.0f - c;
 
 		return Matrix(       axis.X*axis.X*inv + c, axis.X*axis.Y*inv - axis.Z*s, axis.X*axis.Z*inv + axis.Y*s, 0,
