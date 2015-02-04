@@ -57,11 +57,11 @@ namespace YAX
 		static Matrix CreateFromQuaternion(const Quaternion& q);
 		static Matrix CreateFromYawPitchRoll(float y, float p, float r);
 		static Matrix CreateLookAt(const Vector3& cameraPos, const Vector3& cameraTarg, const Vector3& cameraUp);
-		static Matrix CreateOrthographic(float, float, float, float);
-		static Matrix CreateOrthographicOffCenter(float, float, float, float, float, float);
-		static Matrix CreatePerspective(float, float, float, float);
-		static Matrix CreatePerspectiveFieldOfView(float, float, float, float);
-		static Matrix CreatePerspectiveOffCenter(float, float, float, float, float, float);
+		static Matrix CreateOrthographic(float width, float height, float zNear, float zFar);
+		static Matrix CreateOrthographicOffCenter(float left, float right, float bottom, float top, float zNear, float zFar);
+		static Matrix CreatePerspective(float width, float height, float zNear, float zFar);
+		static Matrix CreatePerspectiveFieldOfView(float fieldOfView, float aspectRatio, float zNear, float zFar);
+		static Matrix CreatePerspectiveOffCenter(float left, float right, float bottom, float top, float zNear, float zFar);
 		static Matrix CreateReflection(const Plane&);
 		static Matrix CreateRotationX(float);
 		static Matrix CreateRotationY(float);
