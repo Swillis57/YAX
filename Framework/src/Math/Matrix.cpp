@@ -198,5 +198,20 @@ namespace YAX
 		return Matrix::CreateFromQuaternion(Quaternion::CreateFromYawPitchRoll(y, p, r));
 	}
 
+	Matrix Matrix::CreateLookAt(const Vector3& cameraPos, const Vector3& cameraTarg, const Vector3& cameraUp)
+	{
+		Vector3 zBasis = Vector3::Normalize(cameraPos - cameraTarg);
+		Vector3 xBasis = Vector3::Normalize(Vector3::Cross(cameraUp, zBasis));
+		Vector3 yBasis = Vector3::Normalize(Vector3::Cross(zBasis, xBasis));
+
+		float tX = -Vector3::Dot(cameraPos, xBasis);
+		float tY = -Vector3::Dot(cameraPos, yBasis);
+		float tZ = -Vector3::Dot(cameraPos, zBasis);
+
+		return Matrix(xBasis.X, xBasis.Y, xBasis.Z, 0,
+					  yBasis.X, yBasis.Y, yBasis.Z, 0,
+					  zBasis.X, zBasis.Y, zBasis.Z, 0,
+							tX,		  tY,		tZ, 1.0f);
+	}
 
 }
