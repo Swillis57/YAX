@@ -242,4 +242,20 @@ namespace YAX
 						   0,	   0, zN*zF/(zN-zF), 0);
 	}
 
+	Matrix Matrix::CreatePerspectiveFieldOfView(float fov, float aR, float zN, float zF)
+	{
+		if (!(fov >= 0 && fov <= MathHelper::Pi)) throw std::out_of_range("fieldOfView must be between 0 and Pi radians (0 and 180 degrees)");
+		if (zN > zF) throw std::out_of_range("zNear must be less than or equal to zFar");
+		if (zN < 0 || zF < 0) throw std::out_of_range("zNear and zFar must be greater than 0");
+
+		float yScale = std::cos(fov / 2.0f) / std::sin(fov / 2.0f);
+		float xScale = yScale / aR;
+
+		return Matrix(xScale,	   0,			  0, 0,
+						   0, yScale,			  0, 0,
+						   0,	   0,    zF/(zN-zF), -1.0f,
+						   0,	   0, zN*zF/(zN-zF), 0);
+	}
+
+
 }
