@@ -221,4 +221,13 @@ namespace YAX
 						   0,      0, 1.0f/(zN-zF), 0,
 						   0,      0,   zN/(zN-zF), 1.0f);
 	}
+
+	Matrix Matrix::CreateOrthographicOffCenter(float l, float r, float b, float t, float zN, float zF)
+	{
+		return Matrix( 2.0f/(r-l),			 0,            0, 0,
+								0,  2.0f/(t-b),            0, 0,
+								0,			 0, 1.0f/(zN-zF), 0,
+					  (l+r)/(l-r), (t+b)/(b-t),	  zN/(zN-zF), 1.0f);
+	}
+
 }
