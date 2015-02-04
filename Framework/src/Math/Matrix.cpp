@@ -231,4 +231,15 @@ namespace YAX
 					  (l+r)/(l-r), (t+b)/(b-t),	  zN/(zN-zF), 1.0f);
 	}
 
+	Matrix Matrix::CreatePerspective(float w, float h, float zN, float zF)
+	{
+		if (zN > zF) throw std::out_of_range("zNear must be less than or equal to zFar");
+		if (zN < 0 || zF < 0) throw std::out_of_range("zNear and zFar must be greater than 0");
+
+		return Matrix(2*zN/w,	   0,			  0, 0,
+						   0, 2*zN/h,			  0, 0,
+						   0,	   0,    zF/(zN-zF), -1.0f,
+						   0,	   0, zN*zF/(zN-zF), 0);
+	}
+
 }
