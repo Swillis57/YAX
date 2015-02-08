@@ -328,4 +328,17 @@ namespace YAX
 					    pN.Z*l.X,   pN.Z*l.Y, pN.Z*l.Z+s, 0,
 					       d*l.X,      d*l.Y,      d*l.Z, s);
 	}
+
+	Matrix Matrix::CreateTranslation(float xT, float yT, float zT)
+	{
+		return Matrix(1.0f,    0,    0, 0,
+					     0, 1.0f,    0, 0,
+					     0,    0, 1.0f, 0,
+					    xT,    yT,  zT, 1.0f);
+	}
+
+	Matrix Matrix::CreateTranslation(const Vector3& vec)
+	{
+		return CreateTranslation(vec.X, vec.Y, vec.Z);
+	}
 }
