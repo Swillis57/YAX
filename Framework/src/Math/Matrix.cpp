@@ -177,9 +177,9 @@ namespace YAX
 		float s = std::sinf(angle);
 		float inv = 1.0f - c;
 
-		return Matrix(       axis.X*axis.X*inv + c, axis.X*axis.Y*inv - axis.Z*s, axis.X*axis.Z*inv + axis.Y*s, 0,
-					  axis.X*axis.Y*inv + axis.Z*s,        axis.Y*axis.Y*inv + c, axis.Y*axis.Z*inv - axis.X*s, 0,
-					  axis.X*axis.Z*inv - axis.Y*s, axis.Y*axis.Z*inv + axis.X*s,        axis.Z*axis.Z*inv + c, 0,
+		return Matrix(       axis.X*axis.X*inv + c, axis.X*axis.Y*inv + axis.Z*s, axis.X*axis.Z*inv - axis.Y*s, 0,
+					  axis.X*axis.Y*inv - axis.Z*s,        axis.Y*axis.Y*inv + c, axis.Y*axis.Z*inv + axis.X*s, 0,
+					  axis.X*axis.Z*inv + axis.Y*s, axis.Y*axis.Z*inv - axis.X*s,        axis.Z*axis.Z*inv + c, 0,
 												 0,							   0,							 0, 1.0f);
 	}
 
@@ -188,9 +188,9 @@ namespace YAX
 		//variables for sanity
 		float x = q.X, y = q.Y, z = q.Z, w = q.W;
 
-		return Matrix(1-2*y*y-2*z*z,   2*x*y-2*z*w,   2*x*z+2*y*w,   0,
-					    2*x*y+2*z*w, 1-2*x*x-2*z*z,   2*y*z-2*x*w,   0,
-					    2*x*z-2*y*w,   2*y*z+2*x*w, 1-2*x*x-2*y*y,   0,
+		return Matrix(1-2*y*y-2*z*z,   2*x*y+2*z*w,   2*x*z-2*y*w,   0,
+					    2*x*y-2*z*w, 1-2*x*x-2*z*z,   2*y*z+2*x*w,   0,
+					    2*x*z+2*y*w,   2*y*z-2*x*w, 1-2*x*x-2*y*y,   0,
 								  0,			 0,		        0, 1.0f);
 	}
 
