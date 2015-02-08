@@ -66,10 +66,10 @@ namespace YAX
 		static Matrix CreateRotationX(float angle);
 		static Matrix CreateRotationY(float angle);
 		static Matrix CreateRotationZ(float angle); 
-		static Matrix CreateScale(float);
-		static Matrix CreateScale(float, float, float);
-		static Matrix CreateScale(const Vector3&);
-		static Matrix CreateShadow(const Vector3&, const Plane&);
+		static Matrix CreateScale(float scale);
+		static Matrix CreateScale(float scaleX, float scaleY, float scaleZ);
+		static Matrix CreateScale(const Vector3& scaleVec);
+		static Matrix CreateShadow(const Vector3& lightDir, const Plane& plane);
 		static Matrix CreateTranslation(float, float, float, float);
 		static Matrix CreateTranslation(const Vector3&);
 		static Matrix CreateWorld(const Vector3&, const Vector3&, const Vector3&);
