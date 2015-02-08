@@ -341,4 +341,16 @@ namespace YAX
 	{
 		return CreateTranslation(vec.X, vec.Y, vec.Z);
 	}
+
+	Matrix Matrix::CreateWorld(Vector3 pos, Vector3 fwd, Vector3 up)
+	{
+		fwd.Normalize();
+		up.Normalize();
+		Vector3 r = Vector3::Normalize(Vector3::Cross(fwd, up));
+
+		return Matrix(   r.X,    r.Y,    r.Z, 0,
+					    up.X,   up.Y,   up.Z, 0,
+					  -fwd.X, -fwd.Y, -fwd.Z, 0,
+					   pos.X,  pos.Y,  pos.Z, 1.0f);
+	}
 }
