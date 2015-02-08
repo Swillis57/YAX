@@ -70,9 +70,9 @@ namespace YAX
 		static Matrix CreateScale(float scaleX, float scaleY, float scaleZ);
 		static Matrix CreateScale(const Vector3& scaleVec);
 		static Matrix CreateShadow(const Vector3& lightDir, const Plane& plane);
-		static Matrix CreateTranslation(float, float, float, float);
-		static Matrix CreateTranslation(const Vector3&);
-		static Matrix CreateWorld(const Vector3&, const Vector3&, const Vector3&);
+		static Matrix CreateTranslation(float xT, float yT, float zT);
+		static Matrix CreateTranslation(const Vector3& vec);
+		static Matrix CreateWorld(Vector3 pos, Vector3 fwd, Vector3 up);
 
 		static Matrix Invert(const Matrix&);
 		static Matrix Lerp(const Matrix&, const Matrix&, float);
