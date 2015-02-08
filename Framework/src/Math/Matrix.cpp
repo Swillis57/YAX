@@ -196,7 +196,7 @@ namespace YAX
 
 	Matrix Matrix::CreateFromYawPitchRoll(float y, float p, float r)
 	{
-		return Matrix::CreateFromQuaternion(Quaternion::CreateFromYawPitchRoll(y, p, r));
+		return CreateFromQuaternion(Quaternion::CreateFromYawPitchRoll(y, p, r));
 	}
 
 	Matrix Matrix::CreateLookAt(const Vector3& cameraPos, const Vector3& cameraTarg, const Vector3& cameraUp)
@@ -279,5 +279,41 @@ namespace YAX
 							ab, -2*b*b+1,		bc, 0,
 							ac,		  bc, -2*c*c+1, 0,
 							ad,		  bd,		cd, 1.0f);
+	}
+
+	Matrix Matrix::CreateRotationX(float angle)
+	{
+		return CreateFromAxisAngle(Vector3::Right, angle);
+	}
+
+	Matrix Matrix::CreateRotationY(float angle)
+	{
+		return CreateFromAxisAngle(Vector3::Up, angle);
+	}
+
+	Matrix Matrix::CreateRotationZ(float angle)
+	{
+		return CreateFromAxisAngle(Vector3::Backward, angle);
+	}
+
+	Matrix Matrix::CreateScale(float scale)
+	{
+		return Matrix(scale,	 0,		0, 0,
+					      0, scale,		0, 0,
+						  0,	 0, scale, 0,
+						  0,	 0,		0, 1.0f);
+	}
+
+	Matrix Matrix::CreateScale(float scaleX, float scaleY, float scaleZ)
+	{
+		return Matrix(scaleX,	   0,      0, 0,
+						   0, scaleY,	   0, 0,
+						   0,	   0, scaleZ, 0,
+						   0,	   0,	   0, 1.0f);
+	}
+
+	Matrix Matrix::CreateScale(const Vector3& scaleVec)
+	{
+		return CreateScale(scaleVec.X, scaleVec.Y, scaleVec.Z);
 	}
 }
