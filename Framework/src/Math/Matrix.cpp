@@ -268,10 +268,10 @@ namespace YAX
 								0,			 0, zN*zF/(zN-zF), 0);
 	}
 
-	Matrix Matrix::CreateReflection(const Plane& v)
+	Matrix Matrix::CreateReflection(const Plane& p)
 	{
-		Vector3 n = v.Normal();
-		float a = n.X, b = n.Y, c = n.Z, d = v.D();
+		Vector3 n = p.Normal();
+		float a = n.X, b = n.Y, c = n.Z, d = p.D();
 
 		float ab = -2*a*b, ac = -2*a*c, ad = -2*a*d, bc = -2*b*c, bd = -2*b*d, cd = -2*c*d;
 
