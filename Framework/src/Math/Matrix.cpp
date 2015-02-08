@@ -316,4 +316,16 @@ namespace YAX
 	{
 		return CreateScale(scaleVec.X, scaleVec.Y, scaleVec.Z);
 	}
+
+	Matrix Matrix::CreateShadow(const Vector3& lightDir, const Plane& plane)
+	{
+		Vector3 l = -lightDir;
+		Vector3 pN = plane.Normal();
+		float d = plane.D();
+		float s = -Vector3::Dot(l, pN);
+		return Matrix(pN.X*l.X+s,   pN.X*l.Y,   pN.X*l.Z, 0,
+					    pN.Y*l.X, pN.Y*l.Y+s,   pN.Y*l.Z, 0, 
+					    pN.Z*l.X,   pN.Z*l.Y, pN.Z*l.Z+s, 0,
+					       d*l.X,      d*l.Y,      d*l.Z, s);
+	}
 }
