@@ -455,4 +455,224 @@ namespace YAX
 					  m.M13, m.M23, m.M33, m.M43,
 					  m.M14, m.M24, m.M34, m.M44);
 	}
+
+	Matrix& Matrix::operator+=(const Matrix& m)
+	{
+		this->M11 += m.M11;
+		this->M12 += m.M12;
+		this->M13 += m.M13;
+		this->M14 += m.M14;
+		this->M21 += m.M21;
+		this->M22 += m.M22;
+		this->M23 += m.M23;
+		this->M24 += m.M24;
+		this->M31 += m.M31;
+		this->M32 += m.M32;
+		this->M33 += m.M33;
+		this->M34 += m.M34;
+		this->M41 += m.M41;
+		this->M42 += m.M42;
+		this->M43 += m.M43;
+		this->M44 += m.M44;
+
+		return *this;
+	}
+
+	Matrix& Matrix::operator-=(const Matrix& m)
+	{
+		this->M11 -= m.M11;
+		this->M12 -= m.M12;
+		this->M13 -= m.M13;
+		this->M14 -= m.M14;
+		this->M21 -= m.M21;
+		this->M22 -= m.M22;
+		this->M23 -= m.M23;
+		this->M24 -= m.M24;
+		this->M31 -= m.M31;
+		this->M32 -= m.M32;
+		this->M33 -= m.M33;
+		this->M34 -= m.M34;
+		this->M41 -= m.M41;
+		this->M42 -= m.M42;
+		this->M43 -= m.M43;
+		this->M44 -= m.M44;
+
+		return *this;
+	}
+
+	Matrix& Matrix::operator*=(const Matrix& m)
+	{
+		this->M11 *= m.M11;
+		this->M12 *= m.M12;
+		this->M13 *= m.M13;
+		this->M14 *= m.M14;
+		this->M21 *= m.M21;
+		this->M22 *= m.M22;
+		this->M23 *= m.M23;
+		this->M24 *= m.M24;
+		this->M31 *= m.M31;
+		this->M32 *= m.M32;
+		this->M33 *= m.M33;
+		this->M34 *= m.M34;
+		this->M41 *= m.M41;
+		this->M42 *= m.M42;
+		this->M43 *= m.M43;
+		this->M44 *= m.M44;
+
+		return *this;
+	}
+
+	Matrix& Matrix::operator*=(float f)
+	{
+		this->M11 *= f;
+		this->M12 *= f;
+		this->M13 *= f;
+		this->M14 *= f;
+		this->M21 *= f;
+		this->M22 *= f;
+		this->M23 *= f;
+		this->M24 *= f;
+		this->M31 *= f;
+		this->M32 *= f;
+		this->M33 *= f;
+		this->M34 *= f;
+		this->M41 *= f;
+		this->M42 *= f;
+		this->M43 *= f;
+		this->M44 *= f;
+
+		return *this;
+	}
+
+	Matrix& Matrix::operator/=(const Matrix& m)
+	{
+		this->M11 /= m.M11;
+		this->M12 /= m.M12;
+		this->M13 /= m.M13;
+		this->M14 /= m.M14;
+		this->M21 /= m.M21;
+		this->M22 /= m.M22;
+		this->M23 /= m.M23;
+		this->M24 /= m.M24;
+		this->M31 /= m.M31;
+		this->M32 /= m.M32;
+		this->M33 /= m.M33;
+		this->M34 /= m.M34;
+		this->M41 /= m.M41;
+		this->M42 /= m.M42;
+		this->M43 /= m.M43;
+		this->M44 /= m.M44;
+
+		return *this;
+	}
+
+	Matrix& Matrix::operator/=(float f)
+	{
+		this->M11 /= f;
+		this->M12 /= f;
+		this->M13 /= f;
+		this->M14 /= f;
+		this->M21 /= f;
+		this->M22 /= f;
+		this->M23 /= f;
+		this->M24 /= f;
+		this->M31 /= f;
+		this->M32 /= f;
+		this->M33 /= f;
+		this->M34 /= f;
+		this->M41 /= f;
+		this->M42 /= f;
+		this->M43 /= f;
+		this->M44 /= f;
+
+		return *this;
+	}
+
+	Matrix operator+(Matrix lhs, const Matrix& rhs)
+	{
+		lhs += rhs;
+		return lhs;
+	}
+
+	Matrix operator-(Matrix lhs, const Matrix& rhs)
+	{
+		lhs -= rhs;
+		return lhs;
+	}
+
+	Matrix operator*(Matrix lhs, const Matrix& rhs)
+	{
+		lhs *= rhs;
+		return lhs;
+	}
+
+	Matrix operator*(float lhs, const Matrix& rhs)
+	{
+		return rhs*lhs;
+	}
+
+	Matrix operator*(Matrix lhs, float rhs)
+	{
+		lhs *= rhs;
+		return lhs;
+	}
+
+	Matrix operator/(Matrix lhs, const Matrix& rhs)
+	{
+		lhs /= rhs;
+		return lhs;
+	}
+
+	Matrix operator/(Matrix lhs, float rhs)
+	{
+		lhs /= rhs;
+		return lhs;
+	}
+
+	Matrix operator-(Matrix rhs)
+	{
+		rhs.M11 = -rhs.M11;
+		rhs.M12 = -rhs.M12;
+		rhs.M13 = -rhs.M13;
+		rhs.M14 = -rhs.M14;
+		rhs.M21 = -rhs.M21;
+		rhs.M22 = -rhs.M22;
+		rhs.M23 = -rhs.M23;
+		rhs.M24 = -rhs.M24;
+		rhs.M31 = -rhs.M31;
+		rhs.M32 = -rhs.M32;
+		rhs.M33 = -rhs.M33;
+		rhs.M34 = -rhs.M34;
+		rhs.M41 = -rhs.M41;
+		rhs.M42 = -rhs.M42;
+		rhs.M43 = -rhs.M43;
+		rhs.M44 = -rhs.M44;
+
+		return rhs;
+	}
+
+	bool operator==(const Matrix& lhs, const Matrix& rhs)
+	{
+		return lhs.M11 == rhs.M11 &&
+			   lhs.M12 == rhs.M12 &&
+			   lhs.M13 == rhs.M13 &&
+			   lhs.M14 == rhs.M14 &&
+			   lhs.M21 == rhs.M21 &&
+			   lhs.M22 == rhs.M22 &&
+			   lhs.M23 == rhs.M23 &&
+			   lhs.M24 == rhs.M24 &&
+			   lhs.M31 == rhs.M31 &&
+			   lhs.M32 == rhs.M32 &&
+			   lhs.M33 == rhs.M33 &&
+			   lhs.M34 == rhs.M34 &&
+			   lhs.M41 == rhs.M41 &&
+			   lhs.M42 == rhs.M42 &&
+			   lhs.M43 == rhs.M43 &&
+			   lhs.M44 == rhs.M44;
+	}
+
+	bool operator!=(const Matrix& lhs, const Matrix& rhs)
+	{
+		return !(lhs == rhs);
+	}
 }
