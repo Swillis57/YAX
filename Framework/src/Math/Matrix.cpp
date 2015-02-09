@@ -125,6 +125,26 @@ namespace YAX
 		s = Vector3(scaleX, scaleY, scaleZ);
 		t = Vector3(M41, M42, M43);
 	}
+
+	float Matrix::Determinant() const
+	{
+		float s0 = M11*M22 - M12*M21;
+		float s1 = M11*M23 - M13*M21;
+		float s2 = M11*M24 - M14*M21;
+		float s3 = M12*M23 - M13*M22;
+		float s4 = M12*M24 - M14*M22;
+		float s5 = M13*M24 - M14*M23;
+
+		float c0 = M31*M42 - M32*M41;
+		float c1 = M31*M43 - M33*M41;
+		float c2 = M31*M44 - M34*M41;
+		float c3 = M32*M43 - M33*M42;
+		float c4 = M32*M44 - M34*M42;
+		float c5 = M33*M44 - M34*M43;
+
+		return s0*c5 - s1*c4 + s2*c3 + s3*c2 - s4*c1 + s5*c0;
+	}
+
 	Matrix Matrix::CreateBillboard(const Vector3& objectPos, const Vector3& cameraPos,
 		const Vector3& cameraUp, const Vector3* cameraForward)
 	{
