@@ -102,6 +102,29 @@ namespace YAX
 		Down(source);
 	}
 
+	bool Matrix::Decompose(Vector3& s, Quaternion& r, Vector3& t) const
+	{
+		float scaleX = std::sqrt(M11*M11 + M12*M12 + M13*M13);
+		float scaleY = std::sqrt(M21*M21 + M22*M22 + M23*M23);
+		float scaleZ = std::sqrt(M31*M31 + M32*M32 + M33*M33);
+
+		if (scaleX == 0 || scaleY == 0 || scaleZ == 0)
+		{
+			r = Quaternion::Identity;
+			return false;
+		}
+		
+		r = Quaternion::CreateFromRotationMatrix
+		({
+			M11/scaleX, M12/scaleX, M13/scaleX, 0,
+			M21/scaleY, M22/scaleY, M23/scaleY, 0,
+			M31/scaleZ, M32/scaleZ, M33/scaleZ, 0,
+					 0,			 0,			 0, 1.0f
+		});
+
+		s = Vector3(scaleX, scaleY, scaleZ);
+		t = Vector3(M41, M42, M43);
+	}
 	Matrix Matrix::CreateBillboard(const Vector3& objectPos, const Vector3& cameraPos,
 		const Vector3& cameraUp, const Vector3* cameraForward)
 	{
