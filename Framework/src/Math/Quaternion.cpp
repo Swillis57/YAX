@@ -143,4 +143,58 @@ namespace YAX
 		return QExp(QLn(q) * p);
 	}
 	#pragma endregion
+
+	Quaternion& Quaternion::operator+=(const Quaternion& q)
+	{
+		this->X += q.X;
+		this->Y += q.Y;
+		this->Z += q.Z; 
+		this->W += q.W;
+		return *this;
+	}
+
+	Quaternion& Quaternion::operator-=(const Quaternion& q)
+	{
+		this->X -= q.X;
+		this->Y -= q.Y;
+		this->Z -= q.Z;
+		this->W -= q.W;
+		return *this;
+	}
+
+	Quaternion& Quaternion::operator*=(const Quaternion& q)
+	{
+		this->X *= q.X;
+		this->Y *= q.Y;
+		this->Z *= q.Z;
+		this->W *= q.W;
+		return *this;
+	}
+
+	Quaternion& Quaternion::operator*=(float f)
+	{
+		this->X *= f;
+		this->Y *= f;
+		this->Z *= f;
+		this->W *= f;
+		return *this;
+	}
+
+	Quaternion& Quaternion::operator/=(const Quaternion& q)
+	{
+		this->X /= q.X;
+		this->Y /= q.Y;
+		this->Z /= q.Z;
+		this->W /= q.W;
+		return *this;
+	}
+
+	Quaternion& Quaternion::operator/=(float f)
+	{
+		this->X /= f;
+		this->Y /= f;
+		this->Z /= f;
+		this->W /= f;
+		return *this;
+	}
 }
