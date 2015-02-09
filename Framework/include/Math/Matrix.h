@@ -74,19 +74,27 @@ namespace YAX
 		static Matrix CreateTranslation(const Vector3& vec);
 		static Matrix CreateWorld(Vector3 pos, Vector3 fwd, Vector3 up);
 
-		static Matrix Invert(const Matrix&);
-		static Matrix Lerp(const Matrix&, const Matrix&, float);
-		static Matrix Transform(const Matrix&, const Quaternion&);
-		static Matrix Transpose(const Matrix&);
+		static Matrix Invert(const Matrix& mat);
+		static Matrix Lerp(const Matrix& from, const Matrix& to, float t);
+		static Matrix Transform(const Matrix& mat, const Quaternion& rotation);
+		static Matrix Transpose(const Matrix& mat);
 
-		Matrix operator+(const Matrix&) const;
-		Matrix operator-(const Matrix&) const;
-		Matrix operator*(const Matrix&) const;
-		Matrix operator*(float) const;
-		Matrix operator/(const Matrix&) const;
-		Matrix operator/(float) const;
-		Matrix operator-() const;
+		Matrix& operator+=(const Matrix&);
+		Matrix& operator-=(const Matrix&);
+		Matrix& operator*=(const Matrix&);
+		Matrix& operator*=(float);
+		Matrix& operator/=(const Matrix&);
+		Matrix& operator/=(float);
 	};
+
+	Matrix operator+(Matrix, const Matrix&);
+	Matrix operator-(Matrix, const Matrix&);
+	Matrix operator*(Matrix, const Matrix&);
+	Matrix operator*(float, const Matrix&);
+	Matrix operator*(Matrix, float);
+	Matrix operator/(Matrix, const Matrix&);
+	Matrix operator/(Matrix, float);
+	Matrix operator-(const Matrix&);
 
 	bool operator==(const Matrix&, const Matrix&);
 	bool operator!=(const Matrix&, const Matrix&);
