@@ -442,4 +442,17 @@ namespace YAX
 					  MathHelper::Lerp(from.M43, to.M43, t),
 					  MathHelper::Lerp(from.M44, to.M44, t));
 	}
+
+	Matrix Matrix::Transform(const Matrix& m, const Quaternion& r)
+	{
+		return m*CreateFromQuaternion(r);
+	}
+
+	Matrix Matrix::Transpose(const Matrix& m)
+	{
+		return Matrix(m.M11, m.M21, m.M31, m.M41,
+					  m.M12, m.M22, m.M32, m.M42,
+					  m.M13, m.M23, m.M33, m.M43,
+					  m.M14, m.M24, m.M34, m.M44);
+	}
 }
