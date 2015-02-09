@@ -41,14 +41,14 @@ namespace YAX
 
 	};
 
-	Quaternion operator+(const Quaternion&, const Quaternion&);
-	Quaternion operator-(const Quaternion&, const Quaternion&);
-	Quaternion operator*(const Quaternion&, const Quaternion&);
-	Quaternion operator*(const Quaternion&, float);
+	Quaternion operator+(Quaternion, const Quaternion&);
+	Quaternion operator-(Quaternion, const Quaternion&);
+	Quaternion operator*(Quaternion, const Quaternion&);
+	Quaternion operator*(Quaternion, float);
 	Quaternion operator*(float, const Quaternion&);
-	Quaternion operator/(const Quaternion&, const Quaternion&);
-	Quaternion operator/(const Quaternion&, float);
-	Quaternion operator-(const Quaternion&);
+	Quaternion operator/(Quaternion, const Quaternion&);
+	Quaternion operator/(Quaternion, float);
+	Quaternion operator-(Quaternion);
 
 	bool operator==(const Quaternion&, const Quaternion&);
 	bool operator!=(const Quaternion&, const Quaternion&);

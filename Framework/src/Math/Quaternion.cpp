@@ -197,4 +197,65 @@ namespace YAX
 		this->W /= f;
 		return *this;
 	}
+
+	Quaternion operator+(Quaternion lhs, const Quaternion& rhs)
+	{
+		lhs += rhs;
+		return lhs;
+	}
+
+	Quaternion operator-(Quaternion lhs, const Quaternion& rhs)
+	{
+		lhs -= rhs;
+		return lhs;
+	}
+
+	Quaternion operator*(Quaternion lhs, const Quaternion& rhs)
+	{
+		lhs *= rhs;
+		return lhs;
+	}
+
+	Quaternion operator*(Quaternion lhs, float rhs)
+	{
+		lhs *= rhs;
+		return lhs;
+	}
+
+	Quaternion operator*(float lhs, const Quaternion& rhs)
+	{
+		return rhs*lhs;
+	}
+
+	Quaternion operator/(Quaternion lhs, const Quaternion& rhs)
+	{
+		lhs /= rhs;
+		return lhs;
+	}
+
+	Quaternion operator/(Quaternion lhs, float rhs)
+	{
+		lhs /= rhs;
+		return lhs;
+	}
+
+	Quaternion operator-(Quaternion rhs)
+	{
+		rhs.Conjugate();
+		rhs.W = -rhs.W;
+		return rhs;
+	}
+
+	bool operator==(const Quaternion& lhs, const Quaternion& rhs)
+	{
+		return lhs.X == rhs.X 
+			&& lhs.Y == rhs.Y
+			&& lhs.Z == rhs.Z
+			&& lhs.W == rhs.W;
+	}
+
+	bool operator!=(const Quaternion& lhs, const Quaternion& rhs)
+	{
+		return !(lhs == rhs);
+	}
 }
