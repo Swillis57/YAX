@@ -396,4 +396,30 @@ namespace YAX
 					  -fwd.X, -fwd.Y, -fwd.Z, 0,
 					   pos.X,  pos.Y,  pos.Z, 1.0f);
 	}
+
+	Matrix Matrix::Invert(const Matrix& m)
+	{
+		float s0 = m.M11*m.M22 - m.M12*m.M21;
+		float s1 = m.M11*m.M23 - m.M13*m.M21;
+		float s2 = m.M11*m.M24 - m.M14*m.M21;
+		float s3 = m.M12*m.M23 - m.M13*m.M22;
+		float s4 = m.M12*m.M24 - m.M14*m.M22;
+		float s5 = m.M13*m.M24 - m.M14*m.M23;
+	
+		float c0 = m.M31*m.M42 - m.M32*m.M41;
+		float c1 = m.M31*m.M43 - m.M33*m.M41;
+		float c2 = m.M31*m.M44 - m.M34*m.M41;
+		float c3 = m.M32*m.M43 - m.M33*m.M42;
+		float c4 = m.M32*m.M44 - m.M34*m.M42;
+		float c5 = m.M33*m.M44 - m.M34*m.M43;
+
+		float det = s0*c5 - s1*c4 + s2*c3 + s3*c2 - s4*c1 + s5*c0;
+
+		Matrix adj(m.M22*c5 - m.M23*c4 + m.M24*c3, -m.M12*c5 + m.M13*c4 - m.M14*c3, m.M42*s5 - m.M43*s4 + m.M44*s3, -m.M32*s5 + m.M33*s4 - m.M34*s3,
+				   -m.M21*c5 + m.M23*c2 - m.M24*c1, m.M11*c5 - m.M13*c2 + m.M14*c1, -m.M41*s5 + m.M43*s2 - m.M44*s1, m.M31*s5 - m.M33*s2 + m.M34*s1,
+				   m.M21*c4 - m.M22*c2 + m.M24*c0, -m.M11*c4 + m.M12*c2 - m.M14*c0, m.M41*s4 - m.M42*s2 + m.M44*s0, -m.M31*s4 + m.M32*s2 - m.M34*s0,
+				   -m.M21*c3 + m.M22*c1 - m.M23*c0, m.M11*c3 - m.M12*c1 + m.M13*c0, -m.M41*s3 + m.M42*s1 - m.M43*s0, m.M31*s3 - m.M32*s1 + m.M33*s0);
+
+		return (1 / det)*adj;
+	}
 }
