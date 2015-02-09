@@ -15,4 +15,35 @@ namespace YAX
 	Quaternion::Quaternion(Vector3 xyz, float w)
 		: Quaternion(xyz.X, xyz.Y, xyz.Z, w)
 	{}
+
+	void Quaternion::Conjugate()
+	{
+		X = -X;
+		Y = -Y;
+		Z = -Z;
+	}
+
+	float Quaternion::Dot(const Quaternion& q) const
+	{
+		return X*q.X + Y*q.Y + Z*q.Z + W*q.W;
+	}
+
+	float Quaternion::Length() const
+	{
+		return std::sqrt(LengthSquared());
+	}
+
+	float Quaternion::LengthSquared() const
+	{
+		return X*X + Y*Y + Z*Z + W*W;
+	}
+
+	void Quaternion::Normalize()
+	{
+		float len = Length();
+		X /= len;
+		Y /= len;
+		Z /= len;
+		W /= len;
+	}
 }
