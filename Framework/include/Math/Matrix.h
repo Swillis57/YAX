@@ -48,7 +48,7 @@ namespace YAX
 		Vector3 Up() const;
 		void Up(const Vector3&);
 
-		bool Decompose(const Vector3&, const Quaternion&, const Vector3&) const;
+		bool Decompose(Vector3& scale, Quaternion& rot, Vector3& trans) const;
 		float Determinant() const;
 
 		static Matrix CreateBillboard(const Vector3& objectPos, const Vector3& cameraPos, const Vector3& cameraUp, const Vector3* cameraForward);
