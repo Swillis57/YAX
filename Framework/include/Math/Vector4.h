@@ -17,13 +17,10 @@ namespace YAX
 		
 		float X, Y, Z, W;
 		
-		
-
 		Vector4(float);
 		Vector4(float, float, float, float);
 		Vector4(Vector2, float, float);
 		Vector4(Vector3, float);
-
 
 		static Vector4 Barycentric(const Vector4&, const Vector4&, const Vector4&, float, float);
 		static Vector4 CatmullRom(const Vector4&, const Vector4&, const Vector4&, float);
