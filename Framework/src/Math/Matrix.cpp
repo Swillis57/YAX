@@ -422,4 +422,24 @@ namespace YAX
 
 		return (1 / det)*adj;
 	}
+
+	Matrix Matrix::Lerp(const Matrix& from, const Matrix& to, float t)
+	{
+		return Matrix(MathHelper::Lerp(from.M11, to.M11, t),
+					  MathHelper::Lerp(from.M12, to.M12, t),
+					  MathHelper::Lerp(from.M13, to.M13, t),
+					  MathHelper::Lerp(from.M14, to.M14, t),
+					  MathHelper::Lerp(from.M21, to.M21, t),
+					  MathHelper::Lerp(from.M22, to.M22, t),
+					  MathHelper::Lerp(from.M23, to.M23, t),
+					  MathHelper::Lerp(from.M24, to.M24, t),
+					  MathHelper::Lerp(from.M31, to.M31, t),
+					  MathHelper::Lerp(from.M32, to.M32, t),
+					  MathHelper::Lerp(from.M33, to.M33, t),
+					  MathHelper::Lerp(from.M34, to.M34, t),
+					  MathHelper::Lerp(from.M41, to.M41, t),
+					  MathHelper::Lerp(from.M42, to.M42, t),
+					  MathHelper::Lerp(from.M43, to.M43, t),
+					  MathHelper::Lerp(from.M44, to.M44, t));
+	}
 }
