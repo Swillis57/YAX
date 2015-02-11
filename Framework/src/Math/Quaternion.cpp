@@ -164,10 +164,10 @@ namespace YAX
 
 	Quaternion& Quaternion::operator*=(const Quaternion& q)
 	{
-		this->X *= q.X;
-		this->Y *= q.Y;
-		this->Z *= q.Z;
-		this->W *= q.W;
+		this->X *= W*q.X + X*q.W + Y*q.Z - Z*q.Y;
+		this->Y *= W*q.Y - X*q.Z + Y*q.W + Z*q.X;
+		this->Z *= W*q.Z + X*q.Y - Y*q.X + Z*q.W;
+		this->W *= W*q.W - X*q.X - Y*q.Y - Z*q.Z;
 		return *this;
 	}
 
