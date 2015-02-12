@@ -62,4 +62,8 @@ namespace YAX
 		return (p1 - p2).LengthSquared();
 	}
 
+	float Vector4::Dot(const Vector4& v1, const Vector4& v2)
+	{
+		return (v1.X*v2.X + v1.Y*v2.Y + v1.Z*v2.Z + v1.W*v2.W);
+	}
 }
