@@ -182,10 +182,15 @@ namespace YAX
 
 	Quaternion& Quaternion::operator/=(const Quaternion& q)
 	{
-		this->X /= q.X;
-		this->Y /= q.Y;
-		this->Z /= q.Z;
-		this->W /= q.W;
+		float len = q.LengthSquared();
+
+		this->X /= X*q.W - W*q.X - Y*q.Z + Z*q.Y;
+		this->Y /= -W*q.Y - X*q.Z + Y*q.W + Z*q.X;
+		this->Z /= -W*q.Z + X*q.Y - Y*q.X + Z*q.W;
+		this->W /= W*q.W + X*q.X + Y*q.Y + Z*q.Z;
+
+		*this /= len;
+
 		return *this;
 	}
 
