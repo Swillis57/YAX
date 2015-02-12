@@ -83,6 +83,21 @@ namespace YAX
 					   MathHelper::Lerp(f.W, to.W, t));
 	}
 
+	Vector4 Vector4::Max(const Vector4& v1, const Vector4& v2)
+	{
+		return Vector4(MathHelper::Max(v1.X, v2.X),
+					   MathHelper::Max(v1.Y, v2.Y),
+					   MathHelper::Max(v1.Z, v2.Z),
+					   MathHelper::Max(v1.W, v2.W));
+	}
+
+	Vector4 Vector4::Min(const Vector4& v1, const Vector4& v2)
+	{
+		return Vector4(MathHelper::Min(v1.X, v2.X),
+					   MathHelper::Min(v1.Y, v2.Y),
+					   MathHelper::Min(v1.Z, v2.Z),
+					   MathHelper::Min(v1.W, v2.W));
+	}
 
 	Vector4 Vector4::SmoothStep(const Vector4& f, const Vector4& to, float t)
 	{
