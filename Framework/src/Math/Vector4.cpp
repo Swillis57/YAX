@@ -31,5 +31,9 @@ namespace YAX
 		: Vector4(xyz.X, xyz.Y, xyz.Z, w)
 	{}
 
+	Vector4 Vector4::Barycentric(const Vector4& p1, const Vector4& p2, const Vector4& p3, float b2, float b3)
+	{
+		return (1 - b2 - b3)*p1 + b2*p2 + b3*p3;
+	}
 
 }
