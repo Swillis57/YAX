@@ -36,4 +36,11 @@ namespace YAX
 		return (1 - b2 - b3)*p1 + b2*p2 + b3*p3;
 	}
 
+	Vector4 Vector4::CatmullRom(const Vector4& p1, const Vector4& p2, const Vector4& p3, const Vector4& p4, float t)
+	{
+		return Vector4(MathHelper::CatmullRom(p1.X, p2.X, p3.X, p4.X, t),
+					   MathHelper::CatmullRom(p1.Y, p2.Y, p3.Y, p4.Y, t),
+					   MathHelper::CatmullRom(p1.Z, p2.Z, p3.Z, p4.Z, t),
+					   MathHelper::CatmullRom(p1.W, p2.W, p3.W, p4.W, t));
+	}
 }
