@@ -13,7 +13,7 @@ namespace YAX
 		static const float PiOver4;
 		static const float TwoPi;
 
-		static float Barycentric(float p1, float p2, float p3, float p4, float w);
+		static float Barycentric(float p1, float p2, float p3, float b2, float b3);
 		static float CatmullRom(float p1, float p2, float p3, float p4, float t);
 		static float Clamp(float val, float min, float max);
 		static float Distance(float val1 , float val2);
