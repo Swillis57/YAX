@@ -107,4 +107,21 @@ namespace YAX
 				MathHelper::SmoothStep(f.W, to.W, t));
 	}
 
+	Vector4 Vector4::Transform(const Vector4& v, const Matrix& m)
+	{
+		float x = v.X*m.M11 + v.Y*m.M21 + v.Z*m.M31 + v.W*m.M41;
+		float y = v.X*m.M12 + v.Y*m.M22 + v.Z*m.M32 + v.W*m.M42;
+		float z = v.X*m.M13 + v.Y*m.M23 + v.Z*m.M33 + v.W*m.M43;
+		float w = v.X*m.M14 + v.Y*m.M24 + v.Z*m.M34 + v.W*m.M44;
+
+		return Vector4(x, y, z, w);
+	}
+
+	Vector4 Vector4::Transform(const Vector4& v, const Quaternion& q)
+	{
+		Quaternion vQ(v.X, v.Y, v.Z, v.W);
+		Quaternion res = q*vQ*Quaternion::Inverse(q);
+		
+		return Vector4(res.X, res.Y, res.Z, res.W);
+	}
 }
