@@ -1,6 +1,7 @@
 #include "../../include/Math/Vector4.h"
 
 #include "../../include/Math/Matrix.h"
+#include "../../include/Math/MathHelper.h"
 #include "../../include/Math/Quaternion.h"
 #include "../../include/Math/Vector2.h"
 #include "../../include/Math/Vector3.h"
