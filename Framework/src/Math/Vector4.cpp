@@ -66,4 +66,30 @@ namespace YAX
 	{
 		return (v1.X*v2.X + v1.Y*v2.Y + v1.Z*v2.Z + v1.W*v2.W);
 	}
+
+	Vector4 Vector4::Hermite(const Vector4& p1, const Vector4& t1, const Vector4& p2, const Vector4& t2, float amt)
+	{
+		return Vector4(MathHelper::Hermite(p1.X, t1.X, p2.X, t2.X, amt),
+					   MathHelper::Hermite(p1.Y, t1.Y, p2.Y, t2.Y, amt),
+					   MathHelper::Hermite(p1.Z, t1.Z, p2.Z, t2.Z, amt),
+					   MathHelper::Hermite(p1.W, t1.W, p2.W, t2.W, amt));
+	}
+
+	Vector4 Vector4::Lerp(const Vector4& f, const Vector4& to, float t)
+	{
+		return Vector4(MathHelper::Lerp(f.X, to.X, t),
+					   MathHelper::Lerp(f.Y, to.Y, t),
+					   MathHelper::Lerp(f.Z, to.Z, t),
+					   MathHelper::Lerp(f.W, to.W, t));
+	}
+
+
+	Vector4 Vector4::SmoothStep(const Vector4& f, const Vector4& to, float t)
+	{
+		Vector4(MathHelper::SmoothStep(f.X, to.X, t),
+				MathHelper::SmoothStep(f.Y, to.Y, t),
+				MathHelper::SmoothStep(f.Z, to.Z, t),
+				MathHelper::SmoothStep(f.W, to.W, t));
+	}
+
 }
