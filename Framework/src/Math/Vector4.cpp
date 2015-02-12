@@ -43,4 +43,13 @@ namespace YAX
 					   MathHelper::CatmullRom(p1.Z, p2.Z, p3.Z, p4.Z, t),
 					   MathHelper::CatmullRom(p1.W, p2.W, p3.W, p4.W, t));
 	}
+
+	Vector4 Vector4::Clamp(const Vector4& val, const Vector4& min, const Vector4& max)
+	{
+		return Vector4(MathHelper::Clamp(val.X, min.X, max.X),
+					   MathHelper::Clamp(val.X, min.X, max.X),
+					   MathHelper::Clamp(val.X, min.X, max.X),
+					   MathHelper::Clamp(val.X, min.X, max.X));
+	}
+
 }
