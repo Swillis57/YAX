@@ -3,7 +3,7 @@
 
 namespace YAX
 {
-	struct MathHelper
+	namespace MathHelper
 	{
 		static const float E;
 		static const float Log10E;
