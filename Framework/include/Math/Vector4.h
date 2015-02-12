@@ -25,9 +25,9 @@ namespace YAX
 		static Vector4 Barycentric(const Vector4& p1, const Vector4& p2, const Vector4& p3, float b2, float b3);
 		static Vector4 CatmullRom(const Vector4& p1, const Vector4& p2, const Vector4& p3, const Vector4& p4, float amt);
 		static Vector4 Clamp(const Vector4& val, const Vector4& min, const Vector4& max);
-		static Vector4 Distance(const Vector4& p1, const Vector4& p2);
-		static Vector4 DistanceSquared(const Vector4& p1, const Vector4& p2);
-		static Vector4 Dot(const Vector4& v1, const Vector4& v2);
+		static float Distance(const Vector4& p1, const Vector4& p2);
+		static float DistanceSquared(const Vector4& p1, const Vector4& p2);
+		static float Dot(const Vector4& v1, const Vector4& v2);
 		static Vector4 Hermite(const Vector4& p1, const Vector4& t1, const Vector4& p2, const Vector4& t2, float amt);
 		static Vector4 Lerp(const Vector4& from, const Vector4& to, float t);
 		static Vector4 Max(const Vector4& v1, const Vector4& v2);
