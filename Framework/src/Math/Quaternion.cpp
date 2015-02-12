@@ -164,10 +164,16 @@ namespace YAX
 
 	Quaternion& Quaternion::operator*=(const Quaternion& q)
 	{
-		this->X *= W*q.X + X*q.W + Y*q.Z - Z*q.Y;
-		this->Y *= W*q.Y - X*q.Z + Y*q.W + Z*q.X;
-		this->Z *= W*q.Z + X*q.Y - Y*q.X + Z*q.W;
-		this->W *= W*q.W - X*q.X - Y*q.Y - Z*q.Z;
+		float x = W*q.X + X*q.W + Y*q.Z - Z*q.Y;
+		float y = W*q.Y - X*q.Z + Y*q.W + Z*q.X;
+		float z = W*q.Z + X*q.Y - Y*q.X + Z*q.W;
+		float w = W*q.W - X*q.X - Y*q.Y - Z*q.Z;
+		
+		X = x;
+		Y = y;
+		Z = z;
+		W = w;
+		
 		return *this;
 	}
 
@@ -184,12 +190,15 @@ namespace YAX
 	{
 		float len = q.LengthSquared();
 
-		this->X /= X*q.W - W*q.X - Y*q.Z + Z*q.Y;
-		this->Y /= -W*q.Y - X*q.Z + Y*q.W + Z*q.X;
-		this->Z /= -W*q.Z + X*q.Y - Y*q.X + Z*q.W;
-		this->W /= W*q.W + X*q.X + Y*q.Y + Z*q.Z;
+		float x = q.W*X - q.X*W - q.Y*Z + q.Z*Y;
+		float y = q.W*Y + q.X*Z - q.Y*W - q.Z*X;
+		float z = q.W*Z - q.X*Y + q.Y*X - q.Z*W;
+		float w = W*q.W + X*q.X + Y*q.Y + Z*q.Z;
 
-		*this /= len;
+		X = x / len;
+		Y = y / len;
+		Z = z / len;
+		W = w / len;
 
 		return *this;
 	}
