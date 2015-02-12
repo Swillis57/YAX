@@ -52,4 +52,14 @@ namespace YAX
 					   MathHelper::Clamp(val.X, min.X, max.X));
 	}
 
+	float Vector4::Distance(const Vector4& p1, const Vector4& p2)
+	{
+		return std::sqrtf(DistanceSquared(p1, p2));
+	}
+
+	float Vector4::DistanceSquared(const Vector4& p1, const Vector4& p2)
+	{
+		return (p1 - p2).LengthSquared();
+	}
+
 }
