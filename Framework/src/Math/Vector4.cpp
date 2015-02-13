@@ -31,6 +31,21 @@ namespace YAX
 		: Vector4(xyz.X, xyz.Y, xyz.Z, w)
 	{}
 
+	void Vector4::Normalize()
+	{
+		*this /= this->Length();
+	}
+
+	float Vector4::Length()
+	{
+		return std::sqrtf(LengthSquared());
+	}
+
+	float Vector4::LengthSquared()
+	{
+		return X*X + Y*Y + Z*Z + W*W;
+	}
+
 	Vector4 Vector4::Barycentric(const Vector4& p1, const Vector4& p2, const Vector4& p3, float b2, float b3)
 	{
 		return (1 - b2 - b3)*p1 + b2*p2 + b3*p3;
@@ -97,6 +112,12 @@ namespace YAX
 					   MathHelper::Min(v1.Y, v2.Y),
 					   MathHelper::Min(v1.Z, v2.Z),
 					   MathHelper::Min(v1.W, v2.W));
+	}
+
+	Vector4 Vector4::Normalize(Vector4 v)
+	{
+		v.Normalize();
+		return v;
 	}
 
 	Vector4 Vector4::SmoothStep(const Vector4& f, const Vector4& to, float t)
