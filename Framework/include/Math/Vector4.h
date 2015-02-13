@@ -22,6 +22,10 @@ namespace YAX
 		Vector4(Vector2 xy, float z, float w);
 		Vector4(Vector3 xyz, float w);
 
+		void Normalize();
+		float Length();
+		float LengthSquared();
+
 		static Vector4 Barycentric(const Vector4& p1, const Vector4& p2, const Vector4& p3, float b2, float b3);
 		static Vector4 CatmullRom(const Vector4& p1, const Vector4& p2, const Vector4& p3, const Vector4& p4, float amt);
 		static Vector4 Clamp(const Vector4& val, const Vector4& min, const Vector4& max);
@@ -32,6 +36,7 @@ namespace YAX
 		static Vector4 Lerp(const Vector4& from, const Vector4& to, float t);
 		static Vector4 Max(const Vector4& v1, const Vector4& v2);
 		static Vector4 Min(const Vector4& v1, const Vector4& v2);
+		static Vector4 Normalize(Vector4 v);
 		static Vector4 SmoothStep(const Vector4& from, const Vector4& to, float t);
 
 		static Vector4 Transform(const Vector4& vec, const Matrix& mat);
@@ -44,10 +49,6 @@ namespace YAX
 		static Vector4 TransformNormal(const Vector4& norm, const Matrix& mat);
 		static void TransformNormal(const std::vector<Vector4>& source, i32 sourceIdx, const Matrix& mat, std::vector<Vector4>& dest, i32 destIdx, i32 count);
 		static void TransformNormal(const std::vector<Vector4>& source, const Matrix& mat, std::vector<Vector4>& dest);
-
-		Vector4 Normalize();
-		float Length();
-		float LengthSquared();
 
 		Vector4& operator+=(const Vector4&);
 		Vector4& operator-=(const Vector4&);
