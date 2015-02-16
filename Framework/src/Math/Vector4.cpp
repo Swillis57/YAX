@@ -194,4 +194,99 @@ namespace YAX
 	{
 		TransformNormal(source, 0, mat, dest, 0, source.size());
 	}
+
+	Vector4& Vector4::operator+=(const Vector4& v)
+	{
+		X += v.X; 
+		Y += v.Y;
+		Z += v.Z;
+		W += v.W;
+		return *this;
+	}
+
+	Vector4& Vector4::operator-=(const Vector4& v)
+	{
+		X /= v.X;
+		Y /= v.Y;
+		Z /= v.Z;
+		W /= v.W;
+		return *this;
+	}
+
+	Vector4& Vector4::operator*=(const Vector4& v)
+	{
+		X *= v.X;
+		Y *= v.Y;
+		Z *= v.Z;
+		W *= v.W;
+		return *this;
+	}
+
+	Vector4& Vector4::operator*=(float f)
+	{
+		X *= f;
+		Y *= f;
+		Z *= f;
+		W *= f;
+		return *this;
+	}
+
+	Vector4& Vector4::operator/=(const Vector4& v)
+	{
+		X /= v.X;
+		Y /= v.Y;
+		Z /= v.Z;
+		W /= v.W;
+		return *this;
+	}
+
+	Vector4& Vector4::operator/=(float f)
+	{
+		X /= f;
+		Y /= f;
+		Z /= f;
+		W /= f;
+		return *this;
+	}
+
+	Vector4 operator+(Vector4 lhs, const Vector4& rhs)
+	{
+		lhs += rhs;
+		return lhs;
+	}
+
+	Vector4 operator-(Vector4 lhs, const Vector4& rhs)
+	{
+		lhs -= rhs;
+		return lhs;
+	}
+
+	Vector4 operator*(Vector4 lhs, const Vector4& rhs)
+	{
+		lhs *= rhs;
+		return lhs;
+	}
+
+	Vector4 operator*(float lhs, Vector4 rhs)
+	{
+		rhs *= lhs;
+		return rhs;
+	}
+
+	Vector4 operator*(Vector4 lhs, float rhs)
+	{
+		return rhs*lhs;
+	}
+
+	Vector4 operator/(Vector4 lhs, const Vector4& rhs)
+	{
+		lhs /= rhs;
+		return lhs;
+	}
+
+	Vector4 operator/(Vector4 lhs, float rhs)
+	{
+		lhs /= rhs;
+		return lhs
+	}
 }

@@ -59,14 +59,14 @@ namespace YAX
 
 	};
 
-	Vector4 operator+(const Vector4&, const Vector4&);
-	Vector4 operator-(const Vector4&, const Vector4&);
-	Vector4 operator*(const Vector4&, const Vector4&);
-	Vector4 operator*(float, const Vector4&);
-	Vector4 operator*(const Vector4&, float);
-	Vector4 operator/(const Vector4&, const Vector4&);
-	Vector4 operator/(float, const Vector4&);
-	Vector4 operator-(const Vector4&);
+	Vector4 operator+(Vector4, const Vector4&);
+	Vector4 operator-(Vector4, const Vector4&);
+	Vector4 operator*(Vector4, const Vector4&);
+	Vector4 operator*(float, Vector4);
+	Vector4 operator*(Vector4, float);
+	Vector4 operator/(Vector4, const Vector4&);
+	Vector4 operator/(Vector4, float);
+	Vector4 operator-(Vector4);
 
 	bool operator==(const Vector4&, const Vector4&);
 	bool operator!=(const Vector4&, const Vector4&);
