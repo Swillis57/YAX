@@ -287,6 +287,28 @@ namespace YAX
 	Vector4 operator/(Vector4 lhs, float rhs)
 	{
 		lhs /= rhs;
-		return lhs
+		return lhs;
+	}
+
+	Vector4 operator-(Vector4 rhs)
+	{
+		rhs.X = -rhs.X;
+		rhs.Y = -rhs.Y;
+		rhs.Z = -rhs.Z;
+		rhs.W = -rhs.W;
+		return rhs;
+	}
+
+	bool operator==(const Vector4& lhs, const Vector4& rhs)
+	{
+		return lhs.X == rhs.X
+			&& lhs.Y == rhs.Y
+			&& lhs.Z == rhs.Z
+			&& lhs.W == rhs.W;
+	}
+
+	bool operator!=(const Vector4& lhs, const Vector4& rhs)
+	{
+		return !(lhs == rhs);
 	}
 }
