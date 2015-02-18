@@ -1,0 +1,4 @@
+C:/Users/Sam/Documents/GitHub/xna/external/glfw/VS/CMakeFiles/uninstall.dir
+C:/Users/Sam/Documents/GitHub/xna/external/glfw/VS/CMakeFiles/ALL_BUILD.dir
+C:/Users/Sam/Documents/GitHub/xna/external/glfw/VS/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Sam/Documents/GitHub/xna/external/glfw/VS/src/CMakeFiles/glfw.dir
