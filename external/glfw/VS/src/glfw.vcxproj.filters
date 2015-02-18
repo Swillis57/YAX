@@ -75,10 +75,4 @@
       <UniqueIdentifier>{754FDFCF-5E2B-4C0B-A39A-CD323FFF0A6B}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="glfw3.pc" />
-    <None Include="glfw3Config.cmake" />
-    <None Include="glfw3ConfigVersion.cmake" />
-    <None Include="cmake_install.cmake" />
-  </ItemGroup>
 </Project>

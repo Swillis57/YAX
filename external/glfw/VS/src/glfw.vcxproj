@@ -277,12 +277,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>45B73551-3F37-4AD6-8B97-C0B9CEBD777D</Project>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="cmake_install.cmake" />
-    <None Include="glfw3.pc" />
-    <None Include="glfw3Config.cmake" />
-    <None Include="glfw3ConfigVersion.cmake" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
