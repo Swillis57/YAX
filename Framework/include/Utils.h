@@ -15,11 +15,11 @@ namespace YAX
 
 	//Casts a value of type F to one of type T
 	//without changing the underlying bits
-// 	template<typename T, typename F>
-// 	T BitCast(F val)
-// 	{
-// 		return *(*T)&val;
-// 	}
+	template<typename T, typename F>
+	T BitCast(F val)
+	{
+		return *(T*)&val;
+	}
 }
 
 #endif

@@ -15,86 +15,59 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Framework\TimeSpan.h">
+    <ClInclude Include="include\Buttons.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\IUpdateable.h">
+    <ClInclude Include="include\ButtonState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Math\Vector2.h">
+    <ClInclude Include="include\GamePad.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Math\Vector3.h">
+    <ClInclude Include="include\GamePadButtons.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Math\Vector4.h">
+    <ClInclude Include="include\GamePadCapabilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Math\Quaternion.h">
+    <ClInclude Include="include\GamePadDeadZone.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Math\MathHelper.h">
+    <ClInclude Include="include\GamePadDPad.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Math\Matrix.h">
+    <ClInclude Include="include\GamePadState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Utils.h">
+    <ClInclude Include="include\GamePadThumbSticks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\DisplayOrientation.h">
+    <ClInclude Include="include\GamePadTriggers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Game.h">
+    <ClInclude Include="include\GamePadType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameTime.h">
+    <ClInclude Include="include\Keyboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\IDrawable.h">
+    <ClInclude Include="include\KeyboardState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\IUpdateable.h">
+    <ClInclude Include="include\Keys.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\TimeSpan.h">
+    <ClInclude Include="include\KeyState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Utils.h">
+    <ClInclude Include="include\Mouse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Color.h">
+    <ClInclude Include="include\MouseState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GraphicsDeviceInformation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GraphicsDeviceManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\LaunchParameters.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\PlayerIndex.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\TimeSpan.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameTime.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="src\CMakeLists.txt" />
-    <Text Include="CMakeLists.txt" />
   </ItemGroup>
 </Project>

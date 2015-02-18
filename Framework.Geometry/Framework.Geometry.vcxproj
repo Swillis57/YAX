@@ -11,9 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5F0B0EF7-B99A-4DB0-A9A3-7D3758A8E971}</ProjectGuid>
-    <RootNamespace>XNA</RootNamespace>
-    <ProjectName>Framework</ProjectName>
+    <ProjectGuid>{CD627C91-5435-4A4C-B8CA-1F00D22FA43F}</ProjectGuid>
+    <RootNamespace>Geometry</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -39,24 +38,15 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetExt>.exe</TargetExt>
-    <LibraryPath>$(LibraryPath)</LibraryPath>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AssemblerOutput>All</AssemblerOutput>
-      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
-      <PreprocessorDefinitions>GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(ProjectDir)lib/glewd.lib;$(ProjectDir)lib/glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ShowProgress>NotSet</ShowProgress>
-      <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -74,36 +64,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\Color.h" />
-    <ClInclude Include="include\GameWindow.h" />
-    <ClInclude Include="Framework\IUpdateable.h" />
-    <ClInclude Include="Framework\Math\MathHelper.h" />
-    <ClInclude Include="Framework\Math\Matrix.h" />
-    <ClInclude Include="Framework\Math\Quaternion.h" />
-    <ClInclude Include="Framework\Math\Vector2.h" />
-    <ClInclude Include="Framework\Math\Vector3.h" />
-    <ClInclude Include="Framework\Math\Vector4.h" />
-    <ClInclude Include="include\GraphicsDeviceInformation.h" />
-    <ClInclude Include="include\GraphicsDeviceManager.h" />
-    <ClInclude Include="include\LaunchParameters.h" />
-    <ClInclude Include="include\DisplayOrientation.h" />
-    <ClInclude Include="include\Game.h" />
-    <ClInclude Include="include\GameTime.h" />
-    <ClInclude Include="include\IDrawable.h" />
-    <ClInclude Include="include\IUpdateable.h" />
-    <ClInclude Include="include\PlayerIndex.h" />
-    <ClInclude Include="include\TimeSpan.h" />
-    <ClInclude Include="include\Utils.h" />
-    <ClInclude Include="Framework\TimeSpan.h" />
-    <ClInclude Include="Framework\Utils.h" />
+    <ClInclude Include="include\BoundingBox.h" />
+    <ClInclude Include="include\BoundingFrustum.h" />
+    <ClInclude Include="include\BoundingSphere.h" />
+    <ClInclude Include="include\ContainmentType.h" />
+    <ClInclude Include="include\Plane.h" />
+    <ClInclude Include="include\PlaneIntersectionType.h" />
+    <ClInclude Include="include\Point.h" />
+    <ClInclude Include="include\Ray.h" />
+    <ClInclude Include="include\Rectangle.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Game.cpp" />
-    <ClCompile Include="src\GameTime.cpp" />
-    <ClCompile Include="src\TimeSpan.cpp" />
+    <ClCompile Include="src\BoundingBox.cpp" />
+    <ClCompile Include="src\BoundingFrustum.cpp" />
+    <ClCompile Include="src\BoundingSphere.cpp" />
+    <ClCompile Include="src\Plane.cpp" />
+    <ClCompile Include="src\Point.cpp" />
+    <ClCompile Include="src\Ray.cpp" />
+    <ClCompile Include="src\Rectangle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="CMakeLists.txt" />
     <Text Include="src\CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

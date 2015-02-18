@@ -1,7 +1,7 @@
 #ifndef _COLOR_H
 #define _COLOR_H
 
-#include "Graphics/PackedVector/IPackedVector.h"
+#include "../../Framework.Graphics.PackedVector/include/IPackedVector.h"
 
 namespace YAX
 {

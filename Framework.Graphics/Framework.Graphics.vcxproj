@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{43DD4A57-55E2-43F8-82E3-D38C110EB135}</ProjectGuid>
+    <RootNamespace>FrameworkGraphics</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Blend.h" />
+    <ClInclude Include="include\BlendFunction.h" />
+    <ClInclude Include="include\BlendState.h" />
+    <ClInclude Include="include\BufferUsage.h" />
+    <ClInclude Include="include\ClearOptions.h" />
+    <ClInclude Include="include\ColorWriteChannels.h" />
+    <ClInclude Include="include\CompareFunction.h" />
+    <ClInclude Include="include\CubeMapFace.h" />
+    <ClInclude Include="include\CullMode.h" />
+    <ClInclude Include="include\DepthFormat.h" />
+    <ClInclude Include="include\DepthStencilState.h" />
+    <ClInclude Include="include\DirectionalLight.h" />
+    <ClInclude Include="include\DisplayMode.h" />
+    <ClInclude Include="include\DisplayModeCollection.h" />
+    <ClInclude Include="include\DynamicIndexBuffer.h" />
+    <ClInclude Include="include\DynamicVertexBuffer.h" />
+    <ClInclude Include="include\Effect.h" />
+    <ClInclude Include="include\EffectParameter.h" />
+    <ClInclude Include="include\EffectParameterClass.h" />
+    <ClInclude Include="include\EffectParameterCollection.h" />
+    <ClInclude Include="include\EffectParameterType.h" />
+    <ClInclude Include="include\EffectProgram.h" />
+    <ClInclude Include="include\EffectProgramCollection.h" />
+    <ClInclude Include="include\FillMode.h" />
+    <ClInclude Include="include\GraphicsAdapter.h" />
+    <ClInclude Include="include\GraphicsDevice.h" />
+    <ClInclude Include="include\GraphicsDeviceStatus.h" />
+    <ClInclude Include="include\GraphicsProfile.h" />
+    <ClInclude Include="include\GraphicsResource.h" />
+    <ClInclude Include="include\IEffectFog.h" />
+    <ClInclude Include="include\IEffectMatrices.h" />
+    <ClInclude Include="include\IndexBuffer.h" />
+    <ClInclude Include="include\IndexElementSize.h" />
+    <ClInclude Include="include\IVertexType.h" />
+    <ClInclude Include="include\OcclusionQuery.h" />
+    <ClInclude Include="include\PresentationParameters.h" />
+    <ClInclude Include="include\PresentInterval.h" />
+    <ClInclude Include="include\PrimitiveType.h" />
+    <ClInclude Include="include\RasterizerState.h" />
+    <ClInclude Include="include\RenderTarget2D.h" />
+    <ClInclude Include="include\RenderTargetBinding.h" />
+    <ClInclude Include="include\RenderTargetCube.h" />
+    <ClInclude Include="include\RenderTargetUsage.h" />
+    <ClInclude Include="include\SamplerState.h" />
+    <ClInclude Include="include\SamplerStateCollection.h" />
+    <ClInclude Include="include\SetDataOptions.h" />
+    <ClInclude Include="include\SpriteBatch.h" />
+    <ClInclude Include="include\SpriteEffects.h" />
+    <ClInclude Include="include\SpriteFont.h" />
+    <ClInclude Include="include\SpriteSortMode.h" />
+    <ClInclude Include="include\StencilOperation.h" />
+    <ClInclude Include="include\SurfaceFormat.h" />
+    <ClInclude Include="include\Texture.h" />
+    <ClInclude Include="include\Texture2D.h" />
+    <ClInclude Include="include\Texture3D.h" />
+    <ClInclude Include="include\TextureAddressMode.h" />
+    <ClInclude Include="include\TextureCollection.h" />
+    <ClInclude Include="include\TextureCube.h" />
+    <ClInclude Include="include\TextureFilter.h" />
+    <ClInclude Include="include\VertexBuffer.h" />
+    <ClInclude Include="include\VertexBufferBinding.h" />
+    <ClInclude Include="include\VertexDeclaration.h" />
+    <ClInclude Include="include\VertexElement.h" />
+    <ClInclude Include="include\VertexElementFormat.h" />
+    <ClInclude Include="include\VertexElementUsage.h" />
+    <ClInclude Include="include\VertexPositionColor.h" />
+    <ClInclude Include="include\VertexPositionColorTexture.h" />
+    <ClInclude Include="include\VertexPositionNormalTexture.h" />
+    <ClInclude Include="include\VertexPositionTexture.h" />
+    <ClInclude Include="include\Viewport.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\DisplayMode.cpp" />
+    <ClCompile Include="src\GraphicsAdapter.cpp" />
+    <ClCompile Include="src\GraphicsDevice.cpp" />
+    <ClCompile Include="src\PresentationParameters.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\CMakeLists.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

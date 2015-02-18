@@ -15,86 +15,94 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Framework\TimeSpan.h">
+    <ClInclude Include="include\Alpha8.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\IUpdateable.h">
+    <ClInclude Include="include\Bgr565.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Math\Vector2.h">
+    <ClInclude Include="include\Bgra4444.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Math\Vector3.h">
+    <ClInclude Include="include\Bgra5551.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Math\Vector4.h">
+    <ClInclude Include="include\Byte4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Math\Quaternion.h">
+    <ClInclude Include="include\HalfSingle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Math\MathHelper.h">
+    <ClInclude Include="include\HalfVector2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Math\Matrix.h">
+    <ClInclude Include="include\HalfVector4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Utils.h">
+    <ClInclude Include="include\IPackedVector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\DisplayOrientation.h">
+    <ClInclude Include="include\NormalizedByte2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Game.h">
+    <ClInclude Include="include\NormalizedByte4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameTime.h">
+    <ClInclude Include="include\NormalizedShort2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\IDrawable.h">
+    <ClInclude Include="include\NormalizedShort4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\IUpdateable.h">
+    <ClInclude Include="include\Rg32.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\TimeSpan.h">
+    <ClInclude Include="include\Rgba64.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Utils.h">
+    <ClInclude Include="include\Rgba1010102.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Color.h">
+    <ClInclude Include="include\Short2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GraphicsDeviceInformation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GraphicsDeviceManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\LaunchParameters.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\PlayerIndex.h">
+    <ClInclude Include="include\Short4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\TimeSpan.cpp">
+    <ClCompile Include="src\Alpha8.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\GameTime.cpp">
+    <ClCompile Include="src\Bgr565.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game.cpp">
+    <ClCompile Include="src\Bgr4444.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="src\CMakeLists.txt" />
-    <Text Include="CMakeLists.txt" />
+    <ClCompile Include="src\Bgra5551.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Byte4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HalfSingle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HalfVector2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HalfVector4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NormalizedByte2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NormalizedByte4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NormalizedShort2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
