@@ -104,5 +104,8 @@
     <ClCompile Include="src\NormalizedShort2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\NormalizedShort4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
