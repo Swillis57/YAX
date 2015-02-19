@@ -4,13 +4,13 @@
 
 namespace YAX
 {
-	const float MathHelper::E = M_E;
-	const float MathHelper::Log10E = M_LOG10E;
-	const float MathHelper::Log2E = M_LOG2E;
-	const float MathHelper::Pi = M_PI;
-	const float MathHelper::PiOver2 = M_PI_2;
-	const float MathHelper::PiOver4 = M_PI_4;
-	const float MathHelper::TwoPi = 2 * Pi;
+	const float MathHelper::E = static_cast<float>(M_E);
+	const float MathHelper::Log10E = static_cast<float>(M_LOG10E);
+	const float MathHelper::Log2E = static_cast<float>(M_LOG2E);
+	const float MathHelper::Pi = static_cast<float>(M_PI);
+	const float MathHelper::PiOver2 = static_cast<float>(M_PI_2);
+	const float MathHelper::PiOver4 = static_cast<float>(M_PI_4);
+	const float MathHelper::TwoPi = 2 * MathHelper::Pi;
 
 	float MathHelper::Barycentric(float vert1, float vert2, float vert3, float weight2, float weight3)
 	{
