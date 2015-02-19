@@ -5,13 +5,13 @@ namespace YAX
 {
 	namespace MathHelper
 	{
-		static const float E;
-		static const float Log10E;
-		static const float Log2E;
-		static const float Pi;
-		static const float PiOver2;
-		static const float PiOver4;
-		static const float TwoPi;
+		extern const float E;
+		extern const float Log10E;
+		extern const float Log2E;
+		extern const float Pi;
+		extern const float PiOver2;
+		extern const float PiOver4;
+		extern const float TwoPi;
 
 		/**
 		* @brief Calculates a coordinate of a point defined by a triangle and two barycentric coordinates.
@@ -20,7 +20,7 @@ namespace YAX
 		* @param b2, b3 The barycentric coordinates
 		* @return The interpolated coordinate on the same axis as p1, p2, and p3										   
 		*/
-		static float Barycentric(float p1, float p2, float p3, float b2, float b3);
+		float Barycentric(float p1, float p2, float p3, float b2, float b3);
 		
 		/**
 		* @brief Interpolates between given positions using Catmull-Rom interpolation
@@ -29,7 +29,7 @@ namespace YAX
 		* @param t Interpolation factor
 		* @return The interpolated coordinate on the same axis as p1, p2, p3, and p4
 		*/
-		static float CatmullRom(float p1, float p2, float p3, float p4, float t);
+		float CatmullRom(float p1, float p2, float p3, float p4, float t);
 		
 		/**
 		* @brief Clamps a given value to a given range
@@ -39,7 +39,7 @@ namespace YAX
 		* @param max Upper bound
 		* @return The clamped value
 		*/
-		static float Clamp(float val, float min, float max);
+		float Clamp(float val, float min, float max);
 
 		/**
 		* @brief Finds the absolute distance between two values
@@ -48,7 +48,7 @@ namespace YAX
 		* @param val2 The second value
 		* @return The absolute difference between val1 and val2
 		*/
-		static float Distance(float val1 , float val2);
+		float Distance(float val1 , float val2);
 
 		/**
 		* @brief Interpolates between two values using a Hermite spline interpolation
@@ -57,7 +57,7 @@ namespace YAX
 		* @param m1, m2 Tangent values for respective points
 		* @return The interpolated value between val1 and val2
 		*/
-		static float Hermite(float val1, float m1, float val2, float m2, float t);
+		float Hermite(float val1, float m1, float val2, float m2, float t);
 		
 		/**
 		* @brief Performs a linear interpolation between two values
@@ -67,7 +67,7 @@ namespace YAX
 		* @param t Interpolation factor
 		* @return The interpolated value between val1 and val2
 		*/
-		static float Lerp(float val1, float val2, float t);
+		float Lerp(float val1, float val2, float t);
 		
 		/**
 		* @brief Finds the maximum of two given values
@@ -76,7 +76,7 @@ namespace YAX
 		* @param val2 The second value
 		* @return The largest of the two values
 		*/
-		static float Max(float val1, float val2);
+		float Max(float val1, float val2);
 
 		/**
 		* @brief Finds the minimum of two given values
@@ -85,7 +85,7 @@ namespace YAX
 		* @param val2 The second value
 		* @return the lowest of the two values
 		*/
-		static float Min(float val1, float val2);
+		float Min(float val1, float val2);
 
 		/**
 		* @brief Performs a smoothstep interpolation between two given values
@@ -95,7 +95,7 @@ namespace YAX
 		* @param t Interpolation factor
 		* @return The interpolated value between val1 and val2
 		*/
-		static float SmoothStep(float val1, float val2, float t);
+		float SmoothStep(float val1, float val2, float t);
 
 		/**
 		* @brief Converts a given value to degrees
@@ -103,7 +103,7 @@ namespace YAX
 		* @param val The value in radians to convert to degrees
 		* @return The given value in degrees
 		*/
-		static float ToDegrees(float val);
+		float ToDegrees(float val);
 
 		/**
 		* @brief Converts a given value to radians
@@ -111,7 +111,7 @@ namespace YAX
 		* @param val The value in degrees to convert to radians
 		* @return The given value in radians
 		*/
-		static float ToRadians(float val);
+		float ToRadians(float val);
 
 		/**
 		* @brief Wraps an angle in radians from [0, 2pi] to [0, +-pi]
@@ -119,7 +119,7 @@ namespace YAX
 		* @param val The angle in radians to wrap
 		* @return The wrapped angle
 		*/
-		static float WrapAngle(float val);
+		float WrapAngle(float val);
 	};
 }
 
