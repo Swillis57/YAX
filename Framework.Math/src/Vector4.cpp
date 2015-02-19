@@ -122,10 +122,10 @@ namespace YAX
 
 	Vector4 Vector4::SmoothStep(const Vector4& f, const Vector4& to, float t)
 	{
-		Vector4(MathHelper::SmoothStep(f.X, to.X, t),
-				MathHelper::SmoothStep(f.Y, to.Y, t),
-				MathHelper::SmoothStep(f.Z, to.Z, t),
-				MathHelper::SmoothStep(f.W, to.W, t));
+		return Vector4(MathHelper::SmoothStep(f.X, to.X, t),
+					   MathHelper::SmoothStep(f.Y, to.Y, t),
+					   MathHelper::SmoothStep(f.Z, to.Z, t),
+					   MathHelper::SmoothStep(f.W, to.W, t));
 	}
 
 	Vector4 Vector4::Transform(const Vector4& v, const Matrix& m)
