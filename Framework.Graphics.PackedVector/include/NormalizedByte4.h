@@ -5,7 +5,7 @@
 
 namespace YAX
 {
-	struct NormalizedByte4 : IPackedVector<ui32>
+	struct NormalizedByte4 : public IPackedVector<ui32>
 	{
 		typedef IPackedVector<ui32> Base;
 

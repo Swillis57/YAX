@@ -5,7 +5,7 @@
 
 namespace YAX
 {
-	struct Bgra5551 : IPackedVector<ui16>
+	struct Bgra5551 : public IPackedVector<ui16>
 	{						 
 		typedef IPackedVector<ui16> Base;
 

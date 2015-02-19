@@ -5,7 +5,7 @@
 
 namespace YAX
 {
-	struct Rgba64 : IPackedVector<ui64>
+	struct Rgba64 : public IPackedVector<ui64>
 	{
 		Rgba64(float, float, float, float);
 		Rgba64(const Vector4&);

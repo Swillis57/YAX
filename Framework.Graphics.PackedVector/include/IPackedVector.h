@@ -1,6 +1,7 @@
 #ifndef _IPACKEDVECTOR_H
 #define _IPACKEDVECTOR_H
 
+#include <limits>
 #include <type_traits>
 #include "../../Framework/include/Utils.h"
 
@@ -8,13 +9,13 @@
 #define READBITS(mask, offset) READBITS_STATIC(_packed, mask, offset)
 
 #define WRITEBITS_STATIC(field, bits, offset) (field |= bits); (field <<= offset);
-#define WRITEBITS(bits, offset) WRITEBITS_STATIC(_packed, bits, offset) 
+#define WRITEBITS(bits, offset) WRITEBITS_STATIC(_packed, bits, offset); 
 
 namespace YAX
 {
-	class Vector2;
-	class Vector3;
-	class Vector4;
+	struct Vector2;
+	struct Vector3;
+	struct Vector4;
 
 	namespace PackedVector
 	{
@@ -32,6 +33,9 @@ namespace YAX
 	{
 		static_assert(std::is_integral<DType>::value, "IPackedVector can only pack into integral types.");
 		typedef PackedVector::IPackedVector IBase;
+
+		const DType DTypeMax = std::numeric_limits<DType>::max();
+		const float NormFactor = static_cast<float>(DTypeMax);
 
 		IPackedVector()
 			: IBase()

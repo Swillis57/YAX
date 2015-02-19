@@ -5,7 +5,7 @@
 
 namespace YAX
 {
-	struct Rgba1010102 : IPackedVector<ui32>
+	struct Rgba1010102 : public IPackedVector<ui32>
 	{
 		Rgba1010102(float, float);
 		Rgba1010102(const Vector2&);

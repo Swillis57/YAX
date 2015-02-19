@@ -5,7 +5,7 @@
 
 namespace YAX
 {
-	struct Short2 : IPackedVector<ui32>
+	struct Short2 : public IPackedVector<ui32>
 	{
 		Short2(float, float);
 		Short2(const Vector2&);

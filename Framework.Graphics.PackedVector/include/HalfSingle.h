@@ -5,7 +5,7 @@
 
 namespace YAX
 {
-	struct HalfSingle : IPackedVector<ui16>
+	struct HalfSingle : public IPackedVector<ui16>
 	{
 		typedef IPackedVector<ui16> Base;
 
