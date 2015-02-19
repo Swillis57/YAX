@@ -5,9 +5,9 @@
 
 namespace YAX
 {
-	class Vector3;
-	class Quaternion;
-	class Plane;
+	struct Vector3;
+	struct Quaternion;
+	struct Plane;
 
 	struct Matrix
 	{
