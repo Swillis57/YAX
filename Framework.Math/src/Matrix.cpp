@@ -124,6 +124,8 @@ namespace YAX
 
 		s = Vector3(scaleX, scaleY, scaleZ);
 		t = Vector3(M41, M42, M43);
+
+		return true;
 	}
 
 	float Matrix::Determinant() const
