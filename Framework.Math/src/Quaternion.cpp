@@ -109,18 +109,7 @@ namespace YAX
 		return q;
 	}
 
-	Quaternion Quaternion::Slerp(const Quaternion& from, const Quaternion& to, float t)
-	{
-		float d = Quaternion::Dot(from, to);
-
-		//If the quaternions are very close, use cheaper Lerp
-		if (d < 0.999f)
-			return Quaternion::Lerp(from, to, t);
-
-		return QPow(to*Quaternion::Inverse(from), t) * from;
-	}
-
-	#pragma region SLERP Operations
+#pragma region SLERP Operations
 	Quaternion QLn(Quaternion q)
 	{
 		float len = q.Length();
@@ -142,7 +131,18 @@ namespace YAX
 	{
 		return QExp(QLn(q) * p);
 	}
-	#pragma endregion
+#pragma endregion
+
+	Quaternion Quaternion::Slerp(const Quaternion& from, const Quaternion& to, float t)
+	{
+		float d = Quaternion::Dot(from, to);
+
+		//If the quaternions are very close, use cheaper Lerp
+		if (d < 0.999f)
+			return Quaternion::Lerp(from, to, t);
+
+		return QPow(to*Quaternion::Inverse(from), t) * from;
+	}
 
 	Quaternion& Quaternion::operator+=(const Quaternion& q)
 	{
