@@ -19,10 +19,10 @@ namespace YAX
 	{
 		return Vector4
 		(
-			READBITS(0xF, 12) / 16.0f,
-			READBITS(0xF, 8) / 16.0f,
-			READBITS(0xF, 4) / 16.0f,
-			READBITS(0xF, 0) / 16.0f
+			READBITS(0xF, 4) / 15.0f,
+			READBITS(0xF, 8) / 15.0f,
+			READBITS(0xF, 12) / 15.0f,
+			READBITS(0xF, 0) / 15.0f
 		);
 	}
 
@@ -43,16 +43,16 @@ namespace YAX
 
 	void Bgra4444::Pack(float b, float g, float r, float a)
 	{
-		byte blueBits = b * 16;
-		byte greenBits = g * 16;
-		byte redBits = r * 16;
-		byte alphaBits = a * 16;
+		byte blueBits = static_cast<byte>(b * 15);
+		byte greenBits = static_cast<byte>(g * 15);
+		byte redBits = static_cast<byte>(r * 15);
+		byte alphaBits = static_cast<byte>(a * 15);
 
 		_packed ^= _packed;
 		WRITEBITS(blueBits, 4);
 		WRITEBITS(greenBits, 4);
 		WRITEBITS(redBits, 4);
-		WRITEBITS(alphaBits, 4);
+		WRITEBITS(alphaBits, 0);
 	}
 
 }

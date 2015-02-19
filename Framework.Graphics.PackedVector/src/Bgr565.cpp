@@ -20,9 +20,9 @@ namespace YAX
 	{
 		return Vector3
 		(
-			READBITS(0x1F, 11) / 32.0f,
-			READBITS(0x3F, 5) / 64.0f,
-			READBITS(0x1F, 0) / 32.0f
+			READBITS(0x1F, 11) / 31.0f,
+			READBITS(0x3F, 5) / 63.0f,
+			READBITS(0x1F, 0) / 31.0f
 		);
 	}
 
@@ -33,7 +33,7 @@ namespace YAX
 
 	void Bgr565::PackFromVector4(const Vector4& source)
 	{
-		Pack(source.X, source.Y, source.Z);
+		Pack(source.Z, source.Y, source.X);
 	}
 
 	bool operator==(const Bgr565& lhs, const Bgr565& rhs)
@@ -48,9 +48,9 @@ namespace YAX
 
 	void Bgr565::Pack(float b, float g, float r)
 	{
-		byte redBits = r * 32;
-		byte greenBits = g * 64;
-		byte blueBits = b * 32;
+		byte redBits = static_cast<byte>(r * 31);
+		byte greenBits = static_cast<byte>(g * 63);
+		byte blueBits = static_cast<byte>(b * 31);
 
 		_packed ^= _packed;
 		WRITEBITS(blueBits, 6)

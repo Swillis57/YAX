@@ -18,15 +18,12 @@ namespace YAX
 
 	Vector2 NormalizedShort2::ToVector2() const
 	{
-		unsigned short val1 = READBITS(0xFFFF, 16);
-		unsigned short val2 = READBITS(0xFFFF, 0);
-
 		return Vector2
 		(
-			BitCast<signed short>(val1),
-			BitCast<signed short>(val2)
+			static_cast<signed short>(READBITS(0xFFFF, 16)) / 65536.0f, 
+			static_cast<signed short>(READBITS(0xFFFF, 0)) / 65536.0f
 		);
-	}
+	}				   
 
 	Vector4 NormalizedShort2::ToVector4() const
 	{
@@ -50,8 +47,8 @@ namespace YAX
 
 	void NormalizedShort2::Pack(float val1, float val2)
 	{
-		short val1Fixed = val1 * 65536;
-		short val2Fixed = val2 * 65536;
+		auto val1Fixed = static_cast<signed short>(val1 * 65536);
+		auto val2Fixed = static_cast<signed short>(val2 * 65536);
 
 		_packed ^= _packed;
 		WRITEBITS(BitCast<unsigned short>(val1Fixed), 16);

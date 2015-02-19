@@ -50,10 +50,12 @@ namespace YAX
 
 	void NormalizedByte2::Pack(float val1, float val2)
 	{
-		signed char val1Fixed = val1 * 255;
-		signed char val2Fixed = val2 * 255;
+		auto val1Fixed = static_cast<signed char>(val1 * 255);
+		auto val2Fixed = static_cast<signed char>(val2 * 255);
+
 		byte val1Bits = BitCast<byte>(val1Fixed);
 		byte val2Bits = BitCast<byte>(val2Fixed);
+
 		_packed ^= _packed;
 		WRITEBITS(val1Bits, 8);
 		WRITEBITS(val2Bits, 0);

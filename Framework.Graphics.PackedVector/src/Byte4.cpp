@@ -1,5 +1,6 @@
 #include <cmath>
 #include "../include/Byte4.h"
+#include "../../Framework.Math/include/MathHelper.h"
 #include "../../Framework.Math/include/Vector4.h"
 
 namespace YAX
@@ -20,10 +21,10 @@ namespace YAX
 	{
 		return Vector4
 		(
-			READBITS(0xFF, 24),
-			READBITS(0xFF, 16),
-			READBITS(0xFF, 8),
-			READBITS(0xFF, 0)
+			static_cast<float>(READBITS(0xFF, 24)),
+			static_cast<float>(READBITS(0xFF, 16)),
+			static_cast<float>(READBITS(0xFF, 8)),
+			static_cast<float>(READBITS(0xFF, 0))
 		);
 	}
 
@@ -45,11 +46,12 @@ namespace YAX
 	void Byte4::Pack(float r, float b, float g, float a)
 	{
 		using std::round;
+		using MathHelper::Clamp;
 
-		byte redBits = round(r);
-		byte greenBits = round(g);
-		byte blueBits = round(b);
-		byte alphaBits = round(a); 
+		byte redBits = static_cast<byte>(Clamp(round(r), 0, 255));
+		byte greenBits = static_cast<byte>(Clamp(round(g), 0, 255));
+		byte blueBits = static_cast<byte>(Clamp(round(b), 0, 255));
+		byte alphaBits = static_cast<byte>(Clamp(round(a), 0, 255)); 
 
 		_packed ^= _packed;
 		WRITEBITS(redBits, 8);

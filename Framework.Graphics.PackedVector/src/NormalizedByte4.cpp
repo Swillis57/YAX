@@ -25,10 +25,10 @@ namespace YAX
 
 		return Vector4
 		(
-			BitCast<float>(val1),
-			BitCast<float>(val2),
-			BitCast<float>(val3),
-			BitCast<float>(val4)
+			BitCast<signed char>(val1) / 255.0f,
+			BitCast<signed char>(val2) / 255.0f,
+			BitCast<signed char>(val3) / 255.0f,
+			BitCast<signed char>(val4) / 255.0f
 		);
 	}
 
@@ -49,10 +49,10 @@ namespace YAX
 
 	void NormalizedByte4::Pack(float val1, float val2, float val3, float val4)
 	{
-		signed char val1Fixed = val1 * 255;
-		signed char val2Fixed = val2 * 255;
-		signed char val3Fixed = val3 * 255;
-		signed char val4Fixed = val4 * 255;
+		auto val1Fixed = static_cast<signed char>(val1 * 255);
+		auto val2Fixed = static_cast<signed char>(val2 * 255);
+		auto val3Fixed = static_cast<signed char>(val3 * 255);
+		auto val4Fixed = static_cast<signed char>(val4 * 255);
 		
 		_packed ^= _packed;
 		WRITEBITS(BitCast<byte>(val1Fixed), 8);

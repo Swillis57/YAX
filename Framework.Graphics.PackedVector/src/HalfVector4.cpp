@@ -18,12 +18,14 @@ namespace YAX
 
 	Vector4 HalfVector4::ToVector4() const
 	{
+		const ui64 mask = 0xFFFF;
+
 		return Vector4
 		(
-			HalfSingle::Unpack(READBITS(0xFFFF, 48)),
-			HalfSingle::Unpack(READBITS(0xFFFF, 32)),
-			HalfSingle::Unpack(READBITS(0xFFFF, 16)),
-			HalfSingle::Unpack(READBITS(0xFFFF, 0))
+			HalfSingle::Unpack(static_cast<ui16>(READBITS(mask, 48))),
+			HalfSingle::Unpack(static_cast<ui16>(READBITS(mask, 32))),
+			HalfSingle::Unpack(static_cast<ui16>(READBITS(mask, 16))),
+			HalfSingle::Unpack(static_cast<ui16>(READBITS(mask, 0)))
 		);
 	}
 

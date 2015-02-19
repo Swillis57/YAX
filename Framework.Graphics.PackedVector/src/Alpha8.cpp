@@ -7,7 +7,7 @@ namespace YAX
 		: Alpha8::Base()
 	{
 	
-		_packed = val * 255;
+		_packed = static_cast<byte>(val * 255);
 	}
 
 	Alpha8::~Alpha8() = default;
@@ -19,7 +19,7 @@ namespace YAX
 
 	void Alpha8::PackFromVector4(const Vector4& vec)
 	{
-		_packed = vec.W * 255;
+		_packed = static_cast<byte>(vec.W * 255);
 	}
 
 	Vector4 Alpha8::ToVector4() const
