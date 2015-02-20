@@ -34,9 +34,6 @@ namespace YAX
 		static_assert(std::is_integral<DType>::value, "IPackedVector can only pack into integral types.");
 		typedef PackedVector::IPackedVector IBase;
 
-		const DType DTypeMax = std::numeric_limits<DType>::max();
-		const float NormFactor = static_cast<float>(DTypeMax);
-
 		IPackedVector()
 			: IBase()
 		{}
