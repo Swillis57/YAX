@@ -92,7 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Alpha8.cpp" />
-    <ClCompile Include="src\Bgr4444.cpp" />
+    <ClCompile Include="src\Bgra4444.cpp" />
     <ClCompile Include="src\Bgr565.cpp" />
     <ClCompile Include="src\Bgra5551.cpp" />
     <ClCompile Include="src\Byte4.cpp" />
