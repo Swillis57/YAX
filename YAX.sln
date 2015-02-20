@@ -16,12 +16,24 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Framework.Curves", "Framework.Curves\Framework.Curves.vcxproj", "{DB1E8A47-DA4F-4C97-BCE0-C17985AD3DD0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Framework.Graphics", "Framework.Graphics\Framework.Graphics.vcxproj", "{43DD4A57-55E2-43F8-82E3-D38C110EB135}"
+	ProjectSection(ProjectDependencies) = postProject
+		{05EA4059-58DF-4433-B94E-DDE2C905AD88} = {05EA4059-58DF-4433-B94E-DDE2C905AD88}
+		{6650C2E2-C237-4DFA-8AA1-73FDB1391511} = {6650C2E2-C237-4DFA-8AA1-73FDB1391511}
+		{030D63F0-631F-452A-ABB7-1D1DD06FA146} = {030D63F0-631F-452A-ABB7-1D1DD06FA146}
+		{6C03B4FA-9603-417E-BEF8-7A8D3724399B} = {6C03B4FA-9603-417E-BEF8-7A8D3724399B}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Framework.Graphics.PackedVector", "Framework.Graphics.PackedVector\Framework.Graphics.PackedVector.vcxproj", "{030D63F0-631F-452A-ABB7-1D1DD06FA146}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6650C2E2-C237-4DFA-8AA1-73FDB1391511} = {6650C2E2-C237-4DFA-8AA1-73FDB1391511}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Framework.Input", "Framework.Input\Framework.Input.vcxproj", "{FB25FCA2-EEB3-4DEA-818B-64AA3A729BD6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Framework.Geometry", "Framework.Geometry\Framework.Geometry.vcxproj", "{CD627C91-5435-4A4C-B8CA-1F00D22FA43F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6650C2E2-C237-4DFA-8AA1-73FDB1391511} = {6650C2E2-C237-4DFA-8AA1-73FDB1391511}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libglew_static", "external\glew\VS\libglew_static.vcxproj", "{6C03B4FA-9603-417E-BEF8-7A8D3724399B}"
 EndProject
