@@ -310,7 +310,7 @@ namespace YAX
 		);
 	}
 
-	Vector3 operator/(const Vector3 lhs, float rhs)
+	Vector3 operator/(const Vector3& lhs, float rhs)
 	{
 		return Vector3
 		(
