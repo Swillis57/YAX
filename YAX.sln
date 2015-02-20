@@ -8,7 +8,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FCA61088-4FA3-4EB1-AD49-4D2D787B4B9E}"
 	ProjectSection(SolutionItems) = preProject
 		CMakeLists.txt = CMakeLists.txt
-		Framework\main.cpp = Framework\main.cpp
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Framework.Math", "Framework.Math\Framework.Math.vcxproj", "{6650C2E2-C237-4DFA-8AA1-73FDB1391511}"
@@ -38,6 +37,12 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libglew_static", "external\glew\VS\libglew_static.vcxproj", "{6C03B4FA-9603-417E-BEF8-7A8D3724399B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glfw", "external\glfw\VS\src\glfw.vcxproj", "{05EA4059-58DF-4433-B94E-DDE2C905AD88}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tests", "Tests\Tests.vcxproj", "{CDF37B2E-1EF5-4572-97A8-D4A68410D3FF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6650C2E2-C237-4DFA-8AA1-73FDB1391511} = {6650C2E2-C237-4DFA-8AA1-73FDB1391511}
+		{030D63F0-631F-452A-ABB7-1D1DD06FA146} = {030D63F0-631F-452A-ABB7-1D1DD06FA146}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -119,6 +124,14 @@ Global
 		{05EA4059-58DF-4433-B94E-DDE2C905AD88}.Release|Win32.Build.0 = Release|Win32
 		{05EA4059-58DF-4433-B94E-DDE2C905AD88}.RelWithDebInfo|Win32.ActiveCfg = RelWithDebInfo|Win32
 		{05EA4059-58DF-4433-B94E-DDE2C905AD88}.RelWithDebInfo|Win32.Build.0 = RelWithDebInfo|Win32
+		{CDF37B2E-1EF5-4572-97A8-D4A68410D3FF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CDF37B2E-1EF5-4572-97A8-D4A68410D3FF}.Debug|Win32.Build.0 = Debug|Win32
+		{CDF37B2E-1EF5-4572-97A8-D4A68410D3FF}.MinSizeRel|Win32.ActiveCfg = Release|Win32
+		{CDF37B2E-1EF5-4572-97A8-D4A68410D3FF}.MinSizeRel|Win32.Build.0 = Release|Win32
+		{CDF37B2E-1EF5-4572-97A8-D4A68410D3FF}.Release|Win32.ActiveCfg = Release|Win32
+		{CDF37B2E-1EF5-4572-97A8-D4A68410D3FF}.Release|Win32.Build.0 = Release|Win32
+		{CDF37B2E-1EF5-4572-97A8-D4A68410D3FF}.RelWithDebInfo|Win32.ActiveCfg = Release|Win32
+		{CDF37B2E-1EF5-4572-97A8-D4A68410D3FF}.RelWithDebInfo|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
