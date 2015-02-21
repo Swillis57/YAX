@@ -1,4 +1,5 @@
 #include "../include/NormalizedShort2.h"
+#include "../../Framework.Math/include/MathHelper.h"
 #include "../../Framework.Math/include/Vector2.h"
 #include "../../Framework.Math/include/Vector4.h"
 
@@ -20,8 +21,8 @@ namespace YAX
 	{
 		return Vector2
 		(
-			static_cast<signed short>(READBITS(0xFFFF, 16)) / 65536.0f, 
-			static_cast<signed short>(READBITS(0xFFFF, 0)) / 65536.0f
+			static_cast<signed short>(READBITS(0xFFFF, 16)) / 32767.0f, 
+			static_cast<signed short>(READBITS(0xFFFF, 0)) / 32767.0f
 		);
 	}				   
 
@@ -47,8 +48,10 @@ namespace YAX
 
 	void NormalizedShort2::Pack(float val1, float val2)
 	{
-		auto val1Fixed = static_cast<signed short>(val1 * 65536);
-		auto val2Fixed = static_cast<signed short>(val2 * 65536);
+		using MathHelper::Clamp;
+
+		auto val1Fixed = static_cast<signed short>(Clamp(val1, -1, 1) * 32767);
+		auto val2Fixed = static_cast<signed short>(Clamp(val2, -1, 1) * 32767);
 
 		_packed ^= _packed;
 		WRITEBITS(BitCast<unsigned short>(val1Fixed), 16);

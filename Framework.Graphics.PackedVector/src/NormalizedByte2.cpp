@@ -1,4 +1,5 @@
 #include "../include/NormalizedByte2.h"
+#include "../../Framework.Math/include/MathHelper.h"
 #include "../../Framework.Math/include/Vector2.h"
 #include "../../Framework.Math/include/Vector4.h"
 
@@ -23,8 +24,8 @@ namespace YAX
 
 		return Vector2
 		(
-			BitCast<signed char>(val1) / 255.0f,
-			BitCast<signed char>(val2) / 255.0f
+			BitCast<signed char>(val1) / 128.0f,
+			BitCast<signed char>(val2) / 128.0f
 		);
 	}
 
@@ -50,14 +51,13 @@ namespace YAX
 
 	void NormalizedByte2::Pack(float val1, float val2)
 	{
-		auto val1Fixed = static_cast<signed char>(val1 * 255);
-		auto val2Fixed = static_cast<signed char>(val2 * 255);
+		using MathHelper::Clamp;
 
-		byte val1Bits = BitCast<byte>(val1Fixed);
-		byte val2Bits = BitCast<byte>(val2Fixed);
+		auto val1Fixed = static_cast<signed char>(Clamp(val1, -1, 1) * 128);
+		auto val2Fixed = static_cast<signed char>(Clamp(val2, -1, 1) * 128);
 
 		_packed ^= _packed;
-		WRITEBITS(val1Bits, 8);
-		WRITEBITS(val2Bits, 0);
+		WRITEBITS(val1Fixed, 8);
+		WRITEBITS(val2Fixed, 0);
 	}
 }

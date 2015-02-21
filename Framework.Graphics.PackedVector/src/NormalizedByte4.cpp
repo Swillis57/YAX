@@ -1,4 +1,5 @@
 #include "../include/NormalizedByte4.h"
+#include "../../Framework.Math/include/MathHelper.h"
 #include "../../Framework.Math/include/Vector4.h"
 
 
@@ -25,10 +26,10 @@ namespace YAX
 
 		return Vector4
 		(
-			BitCast<signed char>(val1) / 255.0f,
-			BitCast<signed char>(val2) / 255.0f,
-			BitCast<signed char>(val3) / 255.0f,
-			BitCast<signed char>(val4) / 255.0f
+			BitCast<signed char>(val1) / 128.0f,
+			BitCast<signed char>(val2) / 128.0f,
+			BitCast<signed char>(val3) / 128.0f,
+			BitCast<signed char>(val4) / 128.0f
 		);
 	}
 
@@ -49,10 +50,12 @@ namespace YAX
 
 	void NormalizedByte4::Pack(float val1, float val2, float val3, float val4)
 	{
-		auto val1Fixed = static_cast<signed char>(val1 * 255);
-		auto val2Fixed = static_cast<signed char>(val2 * 255);
-		auto val3Fixed = static_cast<signed char>(val3 * 255);
-		auto val4Fixed = static_cast<signed char>(val4 * 255);
+		using MathHelper::Clamp;
+
+		auto val1Fixed = static_cast<signed char>(Clamp(val1, -1, 1) * 128);
+		auto val2Fixed = static_cast<signed char>(Clamp(val2, -1, 1) * 128);
+		auto val3Fixed = static_cast<signed char>(Clamp(val3, -1, 1) * 128);
+		auto val4Fixed = static_cast<signed char>(Clamp(val4, -1, 1) * 128);
 		
 		_packed ^= _packed;
 		WRITEBITS(BitCast<byte>(val1Fixed), 8);

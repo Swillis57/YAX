@@ -1,4 +1,5 @@
 #include "../include/Bgr565.h"
+#include "../../Framework.Math/include/MathHelper.h"
 #include "../../Framework.Math/include/Vector3.h"
 #include "../../Framework.Math/include/Vector4.h"
 
@@ -48,9 +49,11 @@ namespace YAX
 
 	void Bgr565::Pack(float b, float g, float r)
 	{
-		byte redBits = static_cast<byte>(r * 31);
-		byte greenBits = static_cast<byte>(g * 63);
-		byte blueBits = static_cast<byte>(b * 31);
+		using MathHelper::Clamp;
+
+		byte redBits =   static_cast<byte>(Clamp(r, 0, 1) * 31);
+		byte greenBits = static_cast<byte>(Clamp(g, 0, 1) * 63);
+		byte blueBits =  static_cast<byte>(Clamp(b, 0, 1) * 31);
 
 		_packed ^= _packed;
 		WRITEBITS(blueBits, 6)

@@ -1,5 +1,5 @@
-#include <cmath>
 #include "../include/Byte4.h"
+#include <cmath>
 #include "../../Framework.Math/include/MathHelper.h"
 #include "../../Framework.Math/include/Vector4.h"
 
@@ -19,13 +19,12 @@ namespace YAX
 
 	Vector4 Byte4::ToVector4() const
 	{
-		return Vector4
-		(
-			static_cast<float>(READBITS(0xFF, 24)),
-			static_cast<float>(READBITS(0xFF, 16)),
-			static_cast<float>(READBITS(0xFF, 8)),
-			static_cast<float>(READBITS(0xFF, 0))
-		);
+		byte r = READBITS(0xFF, 24);
+		byte g = READBITS(0xFF, 16);
+		byte b = READBITS(0xFF, 8);
+		byte a = READBITS(0xFF, 0);
+
+		return Vector4(r, g, b, a);
 	}
 
 	void Byte4::PackFromVector4(const Vector4& source)

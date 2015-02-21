@@ -1,4 +1,5 @@
 #include "../include/Bgra5551.h"
+#include "../../Framework.Math/include/MathHelper.h"
 #include "../../Framework.Math/include/Vector4.h"
 
 namespace YAX
@@ -43,10 +44,12 @@ namespace YAX
 
 	void Bgra5551::Pack(float b, float g, float r, float a)
 	{
-		byte blueBits = static_cast<byte>(b * 31);
-		byte greenBits = static_cast<byte>(g * 31);
-		byte redBits = static_cast<byte>(r * 31);
-		byte alphaBits = static_cast<byte>(a * 10);
+		using MathHelper::Clamp;
+
+		byte blueBits = static_cast<byte>(Clamp(b, 0, 1) * 31);
+		byte greenBits = static_cast<byte>(Clamp(g, 0, 1) * 31);
+		byte redBits = static_cast<byte>(Clamp(r, 0, 1) * 31);
+		byte alphaBits = static_cast<byte>(Clamp(a, 0, 1) * 10);
 		if (alphaBits != 0) alphaBits = 0x1;
 
 		_packed ^= _packed;

@@ -1,13 +1,14 @@
 #include "../include/Alpha8.h"
+#include "../../Framework.Math/include/MathHelper.h"
 #include "../../Framework.Math/include/Vector4.h"
 
 namespace YAX
 {
 	Alpha8::Alpha8(float val)
-		: Alpha8::Base()
+		: Base()
 	{
-	
-		_packed = static_cast<byte>(val * 255);
+		using MathHelper::Clamp;
+		_packed = static_cast<byte>(Clamp(val, 0, 1) * 255);
 	}
 
 	Alpha8::~Alpha8() = default;
@@ -19,7 +20,8 @@ namespace YAX
 
 	void Alpha8::PackFromVector4(const Vector4& vec)
 	{
-		_packed = static_cast<byte>(vec.W * 255);
+		using MathHelper::Clamp;
+		_packed = static_cast<byte>(Clamp(vec.W, 0, 1) * 255);
 	}
 
 	Vector4 Alpha8::ToVector4() const
