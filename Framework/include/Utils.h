@@ -1,7 +1,9 @@
 #ifndef _UTILS_H
 #define _UTILS_H
 
+#include <cassert>
 #include <cstdint>
+#include <cstring>
 
 namespace YAX
 {
@@ -18,8 +20,12 @@ namespace YAX
 	template<typename T, typename F>
 	T BitCast(F val)
 	{
-		return *(T*)&val;
-	}
+		assert(sizeof(T) == sizeof(F));
+
+		T res;
+		std::memcpy(&res, &val, sizeof(F));
+		return res;
+	}	
 }
 
 #endif
