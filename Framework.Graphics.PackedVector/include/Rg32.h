@@ -7,8 +7,11 @@ namespace YAX
 {
 	struct Rg32 : public IPackedVector<ui32>
 	{
-		Rg32(float, float);
+		typedef IPackedVector<ui32> Base;
+
+		Rg32(float r, float g);
 		Rg32(const Vector2&);
+		~Rg32();
 
 		Vector2 ToVector2() const;
 		Vector4 ToVector4() const override;
@@ -16,6 +19,9 @@ namespace YAX
 
 		friend bool operator==(const Rg32&, const Rg32&);
 		friend bool operator!=(const Rg32&, const Rg32&);
+
+	private:
+		void Pack(float, float);
 	};
 }
 

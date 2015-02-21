@@ -7,14 +7,20 @@ namespace YAX
 {
 	struct Rgba64 : public IPackedVector<ui64>
 	{
-		Rgba64(float, float, float, float);
+		typedef IPackedVector<ui64> Base;
+
+		Rgba64(float r, float g, float b, float a);
 		Rgba64(const Vector4&);
+		~Rgba64();
 
 		Vector4 ToVector4() const override;
 		void PackFromVector4(const Vector4&) override;
 
 		friend bool operator==(const Rgba64&, const Rgba64&);
 		friend bool operator!=(const Rgba64&, const Rgba64&);
+	
+	private:
+		void Pack(float, float, float, float);
 	};
 }
 

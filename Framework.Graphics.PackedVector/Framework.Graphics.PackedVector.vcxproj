@@ -103,6 +103,8 @@
     <ClCompile Include="src\NormalizedByte4.cpp" />
     <ClCompile Include="src\NormalizedShort2.cpp" />
     <ClCompile Include="src\NormalizedShort4.cpp" />
+    <ClCompile Include="src\Rg32.cpp" />
+    <ClCompile Include="src\Rgba64.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
