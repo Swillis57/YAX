@@ -1,8 +1,6 @@
 #ifndef _IPACKEDVECTOR_H
 #define _IPACKEDVECTOR_H
 
-#include <limits>
-#include <type_traits>
 #include "../../Framework/include/Utils.h"
 
 #define READBITS_STATIC(field, mask, offset) ((field & (mask << offset)) >> offset)
