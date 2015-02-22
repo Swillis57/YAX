@@ -1,6 +1,0 @@
-C:/Users/Sam/Documents/Visual Studio 2013/Projects/XNA++/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/Sam/Documents/Visual Studio 2013/Projects/XNA++/build/Framework/src/CMakeFiles/XNA++.dir
-C:/Users/Sam/Documents/Visual Studio 2013/Projects/XNA++/build/CMakeFiles/ZERO_CHECK.dir
-C:/Users/Sam/Documents/Visual Studio 2013/Projects/XNA++/build/external/glfw/src/CMakeFiles/glfw.dir
-C:/Users/Sam/Documents/Visual Studio 2013/Projects/XNA++/build/external/glew/CMakeFiles/libglew_static.dir
-C:/Users/Sam/Documents/Visual Studio 2013/Projects/XNA++/build/external/glfw/CMakeFiles/uninstall.dir
