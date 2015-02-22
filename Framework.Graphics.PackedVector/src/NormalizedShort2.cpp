@@ -19,10 +19,13 @@ namespace YAX
 
 	Vector2 NormalizedShort2::ToVector2() const
 	{
+		ui16 s1 = READBITS(0xFFFF, 16);
+		ui16 s2 = READBITS(0xFFFF, 0);
+
 		return Vector2
 		(
-			static_cast<signed short>(READBITS(0xFFFF, 16)) / 32767.0f, 
-			static_cast<signed short>(READBITS(0xFFFF, 0)) / 32767.0f
+			static_cast<signed short>(s1) / 32767.0f, 
+			static_cast<signed short>(s2) / 32767.0f
 		);
 	}				   
 

@@ -18,14 +18,18 @@ namespace YAX
 
 	Vector4 NormalizedShort4::ToVector4() const
 	{
-		const ui64 mask = 0xFFFF;
+		ui16 s1 = READBITS(0xFFFF, 48);
+		ui16 s2 = READBITS(0xFFFF, 32);
+		ui16 s3 = READBITS(0xFFFF, 16);
+		ui16 s4 = READBITS(0xFFFF, 0);
 
-		float v1 = READBITS(mask, 48) / 32676.0f;
-		float v2 = READBITS(mask, 32) / 32676.0f;
-		float v3 = READBITS(mask, 16) / 32676.0f;
-		float v4 = READBITS(mask, 0) / 32676.0f;
-
-		return Vector4(v1, v2, v3, v4);
+		return Vector4
+		(
+			static_cast<signed short>(s1) / 32676.0f,
+			static_cast<signed short>(s2) / 32676.0f,
+			static_cast<signed short>(s3) / 32676.0f,
+			static_cast<signed short>(s4) / 32676.0f
+		);
 	}
 
 	void NormalizedShort4::PackFromVector4(const Vector4& v)
