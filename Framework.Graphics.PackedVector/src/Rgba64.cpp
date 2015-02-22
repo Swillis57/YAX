@@ -18,10 +18,12 @@ namespace YAX
 
 	Vector4 Rgba64::ToVector4() const
 	{
-		ui16 r = READBITS(0xFFFF, 48);
-		ui16 g = READBITS(0xFFFF, 32);
-		ui16 b = READBITS(0xFFFF, 16);
-		ui16 a = READBITS(0xFFFF, 0);
+		ui64 mask = 0xFFFF;
+
+		ui16 r = static_cast<ui16>(READBITS(mask, 48));
+		ui16 g = static_cast<ui16>(READBITS(mask, 32));
+		ui16 b = static_cast<ui16>(READBITS(mask, 16));
+		ui16 a = static_cast<ui16>(READBITS(mask, 0));
 
 		return Vector4
 		(

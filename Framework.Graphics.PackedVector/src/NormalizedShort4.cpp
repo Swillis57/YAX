@@ -18,10 +18,12 @@ namespace YAX
 
 	Vector4 NormalizedShort4::ToVector4() const
 	{
-		ui16 s1 = READBITS(0xFFFF, 48);
-		ui16 s2 = READBITS(0xFFFF, 32);
-		ui16 s3 = READBITS(0xFFFF, 16);
-		ui16 s4 = READBITS(0xFFFF, 0);
+		ui64 mask = 0xFFFF;
+
+		ui16 s1 = static_cast<ui16>(READBITS(mask, 48));
+		ui16 s2 = static_cast<ui16>(READBITS(mask, 32));
+		ui16 s3 = static_cast<ui16>(READBITS(mask, 16));
+		ui16 s4 = static_cast<ui16>(READBITS(mask, 0));
 
 		return Vector4
 		(
