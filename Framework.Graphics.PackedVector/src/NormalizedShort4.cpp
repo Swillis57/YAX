@@ -25,10 +25,10 @@ namespace YAX
 
 		return Vector4
 		(
-			static_cast<signed short>(s1) / 32676.0f,
-			static_cast<signed short>(s2) / 32676.0f,
-			static_cast<signed short>(s3) / 32676.0f,
-			static_cast<signed short>(s4) / 32676.0f
+			BitCast<i16>(s1) / 32676.0f,
+			BitCast<i16>(s2) / 32676.0f,
+			BitCast<i16>(s3) / 32676.0f,
+			BitCast<i16>(s4) / 32676.0f
 		);
 	}
 
@@ -51,10 +51,10 @@ namespace YAX
 	{
 		using MathHelper::Clamp;
 
-		auto s1 = static_cast<signed short>(Clamp(v1, -1, 1) * 32767);
-		auto s2 = static_cast<signed short>(Clamp(v2, -1, 1) * 32767);
-		auto s3 = static_cast<signed short>(Clamp(v3, -1, 1) * 32767);
-		auto s4 = static_cast<signed short>(Clamp(v4, -1, 1) * 32767);
+		auto s1 = static_cast<i16>(Clamp(v1, -1, 1) * 32767);
+		auto s2 = static_cast<i16>(Clamp(v2, -1, 1) * 32767);
+		auto s3 = static_cast<i16>(Clamp(v3, -1, 1) * 32767);
+		auto s4 = static_cast<i16>(Clamp(v4, -1, 1) * 32767);
 		
 		_packed ^= _packed;
 		WRITEBITS(BitCast<unsigned short>(s1), 16);

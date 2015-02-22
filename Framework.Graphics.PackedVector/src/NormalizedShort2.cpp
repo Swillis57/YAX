@@ -24,8 +24,8 @@ namespace YAX
 
 		return Vector2
 		(
-			static_cast<signed short>(s1) / 32767.0f, 
-			static_cast<signed short>(s2) / 32767.0f
+			BitCast<i16>(s1) / 32767.0f, 
+			BitCast<i16>(s2) / 32767.0f
 		);
 	}				   
 
@@ -53,8 +53,8 @@ namespace YAX
 	{
 		using MathHelper::Clamp;
 
-		auto val1Fixed = static_cast<signed short>(Clamp(val1, -1, 1) * 32767);
-		auto val2Fixed = static_cast<signed short>(Clamp(val2, -1, 1) * 32767);
+		auto val1Fixed = static_cast<i16>(Clamp(val1, -1, 1) * 32767);
+		auto val2Fixed = static_cast<i16>(Clamp(val2, -1, 1) * 32767);
 
 		_packed ^= _packed;
 		WRITEBITS(BitCast<unsigned short>(val1Fixed), 16);

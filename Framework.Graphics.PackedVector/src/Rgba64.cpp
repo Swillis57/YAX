@@ -41,10 +41,10 @@ namespace YAX
 	{
 		using MathHelper::Clamp;
 
-		ui16 rBits = BitCast<ui16>(Clamp(r, 0, 1) * 65536);
-		ui16 gBits = BitCast<ui16>(Clamp(r, 0, 1) * 65536);
-		ui16 bBits = BitCast<ui16>(Clamp(r, 0, 1) * 65536);
-		ui16 aBits = BitCast<ui16>(Clamp(r, 0, 1) * 65536);
+		ui16 rBits = static_cast<ui16>(Clamp(r, 0, 1) * 65536);
+		ui16 gBits = static_cast<ui16>(Clamp(r, 0, 1) * 65536);
+		ui16 bBits = static_cast<ui16>(Clamp(r, 0, 1) * 65536);
+		ui16 aBits = static_cast<ui16>(Clamp(r, 0, 1) * 65536);
 
 		WRITEBITS(rBits, 48);
 		WRITEBITS(gBits, 32);
