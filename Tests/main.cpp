@@ -1,11 +1,12 @@
 //For testing purposes
 
 #include <iostream>
-#include "../Framework.Graphics.PackedVector/include/NormalizedShort4.h"
+#define CATCH_CONFIG_RUNNER
+#include "catch.h"
 
-int main()
+int main(int argc, char* const argv[])
 {
-	YAX::NormalizedShort4 ns(0.5, 0.5, 0.5, 0.5);
-
+	int res = Catch::Session().run(argc, argv);
 	std::cin.get();
+	return res;
 }
