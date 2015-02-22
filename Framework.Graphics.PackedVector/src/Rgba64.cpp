@@ -25,10 +25,10 @@ namespace YAX
 
 		return Vector4
 		(
-			BitCast<float>(r) / 65536.0f,
-			BitCast<float>(g) / 65536.0f,
-			BitCast<float>(b) / 65536.0f,
-			BitCast<float>(a) / 65536.0f
+			r / 65536.0f,
+			g / 65536.0f,
+			b / 65536.0f,
+			a / 65536.0f
 		);
 	}
 

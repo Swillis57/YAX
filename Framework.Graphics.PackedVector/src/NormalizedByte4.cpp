@@ -58,9 +58,9 @@ namespace YAX
 		auto val4Fixed = static_cast<signed char>(Clamp(val4, -1, 1) * 128);
 		
 		_packed ^= _packed;
-		WRITEBITS(BitCast<byte>(val1Fixed), 8);
-		WRITEBITS(BitCast<byte>(val2Fixed), 8);
-		WRITEBITS(BitCast<byte>(val3Fixed), 8);
-		WRITEBITS(BitCast<byte>(val4Fixed), 0);
+		WRITEBITS(val1Fixed, 8);
+		WRITEBITS(val2Fixed, 8);
+		WRITEBITS(val3Fixed, 8);
+		WRITEBITS(val4Fixed, 0);
 	}
 }
