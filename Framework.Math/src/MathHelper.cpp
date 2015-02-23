@@ -14,6 +14,9 @@ namespace YAX
 
 	float MathHelper::Barycentric(float vert1, float vert2, float vert3, float weight2, float weight3)
 	{
+		weight2 = Clamp(weight2, 0, 1);
+		weight3 = Clamp(weight3, 0, 1);
+
 		return ((1 - weight2 - weight3) * vert1 + weight2 * vert2 + weight3 * vert3);
 	}
 
