@@ -11,7 +11,7 @@ namespace YAX
 	}
 
 	Bgra4444::Bgra4444(const Vector4& source)
-		: Bgra4444(source.Z, source.Y, source.X, source.W)
+		: Bgra4444(source.X, source.Y, source.Z, source.W)
 	{}
 
 	Bgra4444::~Bgra4444() = default;
@@ -20,9 +20,9 @@ namespace YAX
 	{
 		return Vector4
 		(
-			READBITS(0xF, 4) / 15.0f,
-			READBITS(0xF, 8) / 15.0f,
 			READBITS(0xF, 12) / 15.0f,
+			READBITS(0xF, 8) / 15.0f,
+			READBITS(0xF, 4) / 15.0f,
 			READBITS(0xF, 0) / 15.0f
 		);
 	}

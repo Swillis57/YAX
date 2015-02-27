@@ -12,7 +12,7 @@ namespace YAX
 	}
 
 	Bgr565::Bgr565(const Vector3& source)
-		: Bgr565(source.Z, source.Y, source.X)
+		: Bgr565(source.X, source.Y, source.Z)
 	{}
 
 	Bgr565::~Bgr565() = default;
@@ -58,7 +58,7 @@ namespace YAX
 		_packed ^= _packed;
 		WRITEBITS(blueBits, 6)
 		WRITEBITS(greenBits, 5)
-		WRITEBITS(blueBits, 0);
+		WRITEBITS(redBits, 0);
 	}
 	
 }
