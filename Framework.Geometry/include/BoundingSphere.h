@@ -9,23 +9,20 @@
 
 namespace YAX
 {
-	class BoundingBox;
+	struct BoundingBox;
+	struct Matrix;
+	struct Ray;
+	struct Plane;
 	class BoundingFrustum;
-	class Matrix;
-	class Ray;
-	class Plane;
 
 	struct BoundingSphere
 	{
+		Vector3 Center;
+		float Radius;
+		
 		BoundingSphere(const Vector3&, float);
 		BoundingSphere(const BoundingSphere&) = default;
 		BoundingSphere& operator=(const BoundingSphere&) = default;
-
-		Vector3 Center() const;
-		void Center(const Vector3&);
-
-		float Radius() const;
-		void Radius(float);
 
 		static BoundingSphere CreateFromBoundingBox(const BoundingBox&);
 		static BoundingSphere CreateFromFrustum(const BoundingFrustum&);
@@ -44,8 +41,6 @@ namespace YAX
 		friend bool operator!=(const BoundingSphere&, const BoundingSphere&);
 
 	private:
-		Vector3 _center;
-		float _radius;
 
 	};
 }

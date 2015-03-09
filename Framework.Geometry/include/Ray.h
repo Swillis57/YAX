@@ -6,20 +6,16 @@
 
 namespace YAX
 {
-	class BoundingSphere;
-	class BoundingBox;
+	struct BoundingSphere;
+	struct BoundingBox;
+	struct Plane;
 	class BoundingFrustum;
-	class Plane;
 
 	struct Ray
 	{
 		Ray(const Vector3&, const Vector3&);
 	
-		Vector3 Direction();
-		void Direction(const Vector3&);
-
-		Vector3 Position();
-		void Position(const Vector3&);
+		Vector3 Dir, Pos;
 
 		std::unique_ptr<float> Intersects(const BoundingBox&);
 		std::unique_ptr<float> Intersects(const BoundingFrustum&);
@@ -28,9 +24,6 @@ namespace YAX
 
 		friend bool operator==(const Ray&, const Ray&);
 		friend bool operator!=(const Ray&, const Ray&);
-
-	private:
-		Vector3 _dir, _pos;
 	};
 }
 

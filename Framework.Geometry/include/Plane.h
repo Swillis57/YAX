@@ -22,11 +22,8 @@ namespace YAX
 		Plane(const Plane&) = default;
 		Plane& operator=(const Plane&) = default;
 												      
-		float D() const;
-		void D(float);
-
-		Vector3 Normal() const;
-		void Normal(Vector3);
+		float D;
+		Vector3 Normal;
 
 		float Dot(const Vector4&) const;
 		float DotCoordinate(const Vector3&) const;
@@ -39,13 +36,9 @@ namespace YAX
 		static Plane Transform(const Plane&, const Matrix&);
 		static Plane Transform(const Plane&, const Quaternion&);
 
-		friend bool operator==(const Plane&, const Plane&);
-		friend bool operator!=(const Plane&, const Plane&);
-
-	private:
-		float _dist;
-		Vector3 _norm;
 	};
+	bool operator==(const Plane&, const Plane&);
+	bool operator!=(const Plane&, const Plane&);
 }
 
 

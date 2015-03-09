@@ -8,35 +8,30 @@
 
 namespace YAX
 {
-	struct Plane;
-	struct BoundingSphere;
-	class BoundingFrustum;
-	struct Ray;
 	enum class ContainmentType : int;
 	enum class PlaneIntersectionType : int;
+	
+	struct Plane;
+	struct BoundingSphere;
+	struct Ray;
+	class BoundingFrustum;
 
 	struct BoundingBox
 	{
 		static const i32 CornerCount = 8;
 
-		BoundingBox(const Vector3&, const Vector3&);
-		BoundingBox(const BoundingBox&) = default;
-		BoundingBox& operator=(const BoundingBox&) = default;
-
-		Vector3& Min() const;
-		void Min(const Vector3&);
-
-		Vector3& Max() const;
-		void Max(const Vector3&);
+		Vector3 Min, Max;
+		
+		BoundingBox(Vector3 min, Vector3 max);
 		
 		ContainmentType Contains(const BoundingBox&) const;
 		ContainmentType Contains(const BoundingFrustum&) const;
 		ContainmentType Contains(const BoundingSphere&) const;
 		ContainmentType Contains(const Vector3&) const;
 
-		static BoundingBox CreateFromPoints(const std::vector<Vector3>&);
-		static BoundingBox CreateFromSphere(const BoundingSphere&);
-		static BoundingBox CreateMerged(const BoundingBox&, const BoundingBox&);
+		static BoundingBox CreateFromPoints(const std::vector<Vector3>& points);
+		static BoundingBox CreateFromSphere(const BoundingSphere& sphere);
+		static BoundingBox CreateMerged(const BoundingBox& bb1, const BoundingBox& bb2);
 
 		std::array<Vector3, 8> GetCorners() const;
 		bool Intersects(const BoundingBox&) const;
@@ -45,12 +40,10 @@ namespace YAX
 		PlaneIntersectionType Intersects(const Plane&) const;
 		std::unique_ptr<float> Intersects(const Ray&) const;
 
-		friend bool operator==(const BoundingBox&, const BoundingBox&);
-		friend bool operator!=(const BoundingBox&, const BoundingBox&);
-
-	private:
-		Vector3 _min, _max;
 	};
+
+	bool operator==(const BoundingBox&, const BoundingBox&);
+	bool operator!=(const BoundingBox&, const BoundingBox&);
 }
 
 

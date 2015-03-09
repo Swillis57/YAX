@@ -315,8 +315,8 @@ namespace YAX
 
 	Matrix Matrix::CreateReflection(const Plane& p)
 	{
-		Vector3 n = p.Normal();
-		float a = n.X, b = n.Y, c = n.Z, d = p.D();
+		Vector3 n = p.Normal;
+		float a = n.X, b = n.Y, c = n.Z, d = p.D;
 
 		float ab = -2*a*b, ac = -2*a*c, ad = -2*a*d, bc = -2*b*c, bd = -2*b*d, cd = -2*c*d;
 
@@ -365,8 +365,8 @@ namespace YAX
 	Matrix Matrix::CreateShadow(const Vector3& lightDir, const Plane& plane)
 	{
 		Vector3 l = -lightDir;
-		Vector3 pN = plane.Normal();
-		float d = plane.D();
+		Vector3 pN = plane.Normal;
+		float d = plane.D;
 		float s = -Vector3::Dot(l, pN);
 		return Matrix(pN.X*l.X+s,   pN.X*l.Y,   pN.X*l.Z, 0,
 					    pN.Y*l.X, pN.Y*l.Y+s,   pN.Y*l.Z, 0, 

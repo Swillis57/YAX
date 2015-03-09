@@ -10,25 +10,20 @@ namespace YAX
 {
 	struct Plane;
 	struct BoundingBox;
-	class BoundingFrustum;
 	struct BoundingSphere;
 	struct Vector3;
 	struct Ray;
 	
-	enum ContainmentType;
-	enum PlaneIntersectionType;
+	enum class ContainmentType : int;
+	enum class PlaneIntersectionType : int;
 
 	class BoundingFrustum
 	{
+	public:
 		static const i32 CornerCount = 8;
+		YAX::Matrix Matrix;
 	
 		BoundingFrustum(const YAX::Matrix&);
-		BoundingFrustum(const BoundingFrustum&) = default;
-		BoundingFrustum& operator=(const BoundingFrustum&) = default;
-
-
-		YAX::Matrix Matrix() const;
-		void Matrix(YAX::Matrix);
 
 		Plane Bottom() const;
 		Plane Far() const;
@@ -54,7 +49,6 @@ namespace YAX
 		friend bool operator!=(const BoundingFrustum&, const BoundingFrustum&);
 
 	private:
-		YAX::Matrix _matrix;
 	};
 }
 
