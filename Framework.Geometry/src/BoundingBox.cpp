@@ -199,3 +199,5 @@ namespace YAX
 		return (dot > 0 ? PlaneIntersectionType::Front : PlaneIntersectionType::Back);
 	}
 
+}
+
