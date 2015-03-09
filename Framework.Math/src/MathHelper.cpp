@@ -72,6 +72,11 @@ namespace YAX
 		return Lerp(val1, val2, t*t*(3 - 2 * t));
 	}
 
+	i32 MathHelper::Sign(float v)
+	{
+		return (v > 0 ? 1 : (v == 0 ? 0 : -1));
+	}
+
 	float MathHelper::ToDegrees(float val)
 	{
 		return val*180.0f / Pi;

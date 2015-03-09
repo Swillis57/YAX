@@ -1,6 +1,8 @@
 #ifndef _MATH_HELPER_H
 #define _MATH_HELPER_H
 
+#include "../../Framework/include/Utils.h"
+
 namespace YAX
 {
 	namespace MathHelper
@@ -96,6 +98,14 @@ namespace YAX
 		* @return The interpolated value between val1 and val2
 		*/
 		float SmoothStep(float val1, float val2, float t);
+
+		/**
+		* @brief Extracts the sign of a provided number
+		*
+		* @param val The value to extract the sign from
+		* @return -1 if val is negative, 1 if positive, 0 if 0
+		*/
+		i32 Sign(float v);
 
 		/**
 		* @brief Converts a given value to degrees
