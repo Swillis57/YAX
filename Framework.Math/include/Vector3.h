@@ -72,6 +72,10 @@ namespace YAX
 
 	bool operator==(const Vector3&, const Vector3&);
 	bool operator!=(const Vector3&, const Vector3&);
+	bool operator>(const Vector3&, const Vector3&);
+	bool operator<(const Vector3&, const Vector3&);
+	bool operator>=(const Vector3&, const Vector3&);
+	bool operator<=(const Vector3&, const Vector3&);
 }
 
 

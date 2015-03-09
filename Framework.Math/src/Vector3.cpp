@@ -339,5 +339,25 @@ namespace YAX
 	{
 		return !(lhs == rhs);
 	}
+
+	bool operator>(const Vector3& lhs, const Vector3& rhs)
+	{
+		return (lhs.X > rhs.X && lhs.Y > rhs.Y && lhs.Z > rhs.Z);
+	}
+
+	bool operator<(const Vector3& lhs, const Vector3& rhs)
+	{
+		return (lhs.X < rhs.X && lhs.Y < rhs.Y && lhs.Z < rhs.Z);
+	}
+
+	bool operator>=(const Vector3& lhs, const Vector3& rhs)
+	{
+		return (lhs.X >= rhs.X && lhs.Y >= rhs.Y && lhs.Z >= rhs.Z);
+	}
+
+	bool operator<=(const Vector3& lhs, const Vector3& rhs)
+	{
+		return (lhs.X <= rhs.X && lhs.Y <= rhs.Y && lhs.Z <= rhs.Z);
+	}
 }
 
