@@ -23,7 +23,7 @@ namespace YAX
 		static const i32 CornerCount = 8;
 		YAX::Matrix Matrix;
 	
-		BoundingFrustum(const YAX::Matrix&);
+		BoundingFrustum(YAX::Matrix);
 
 		Plane Bottom() const;
 		Plane Far() const;
