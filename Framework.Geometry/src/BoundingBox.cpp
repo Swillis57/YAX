@@ -229,5 +229,15 @@ namespace YAX
 			? std::make_unique<float>(near) 
 			: std::unique_ptr<float>(nullptr));
 	}
+
+	bool operator==(const BoundingBox& lhs, const BoundingBox& rhs)
+	{
+		return (lhs.Min == rhs.Min && lhs.Max == rhs.Max);
+	}
+
+	bool operator!=(const BoundingBox& lhs, const BoundingBox& rhs)
+	{
+		return !(lhs == rhs);
+	}
 }
 
