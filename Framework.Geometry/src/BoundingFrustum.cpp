@@ -123,4 +123,22 @@ namespace YAX
 		
 		return Plane(n, d);
 	}
+
+	ContainmentType BoundingFrustum::Contains(const BoundingBox& bb) const
+	{
+		if (!Intersects(bb)) return ContainmentType::Disjoint;
+
+		i32 intersections = 0;
+		auto corners = bb.GetCorners();
+		for (const Vector3& c : corners)
+		{
+			if (Contains(c) == ContainmentType::Contains)
+				intersections++;
+		}
+
+		return (intersections == bb.CornerCount
+			? ContainmentType::Contains
+			: ContainmentType::Intersects);
+	
+	}
 }
