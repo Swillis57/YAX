@@ -1,6 +1,7 @@
 #include "../include/BoundingBox.h"
 
 #include <exception>
+#include <numeric>
 #include "../include/BoundingFrustum.h"
 #include "../include/BoundingSphere.h"
 #include "../include/ContainmentType.h"
@@ -185,7 +186,7 @@ namespace YAX
 		float dot = Vector3::Dot(center, p.Normal);
 		if (dot == 0) return PlaneIntersectionType::Intersecting;
 
-		//true = front, false = back or in the plane;
+		//true = front, false = back;
 		bool frontOrBack = dot > 0;
 
 		//If all of the corners of the box aren't in the same half-space,
@@ -199,5 +200,34 @@ namespace YAX
 		return (dot > 0 ? PlaneIntersectionType::Front : PlaneIntersectionType::Back);
 	}
 
+	std::unique_ptr<float> BoundingBox::Intersects(const Ray& r) const
+	{
+		if (Contains(r.Pos) == ContainmentType::Contains)
+			return std::make_unique<float>(0);
+
+		//The compiler must support floating point infinities for this to work properly
+		if (!std::numeric_limits<float>::is_iec559)
+		{
+			throw std::logic_error("Ray to AABB intersection requires IEEE-754 floating point support");
+			return std::unique_ptr<float>(nullptr);
+		}
+
+		Vector3 inv = 1.0f / r.Dir;
+		Vector3 tMins = (Min - r.Pos) * inv;
+		Vector3 tMaxes = (Max - r.Pos) * inv;
+
+		float near = MathHelper::Min(tMins.X, tMaxes.X);
+		float far = MathHelper::Max(tMins.X, tMaxes.X);
+
+		near = MathHelper::Max(near, MathHelper::Min(tMins.Y, tMaxes.Y));
+		far = MathHelper::Min(far, MathHelper::Max(tMins.Y, tMaxes.Y));
+
+		near = MathHelper::Max(near, MathHelper::Min(tMins.Z, tMaxes.Z));
+		far = MathHelper::Min(far, MathHelper::Max(tMins.Z, tMaxes.Z));
+
+		return (far >= near 
+			? std::make_unique<float>(near) 
+			: std::unique_ptr<float>(nullptr));
+	}
 }
 
