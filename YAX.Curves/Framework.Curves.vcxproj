@@ -11,8 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FB25FCA2-EEB3-4DEA-818B-64AA3A729BD6}</ProjectGuid>
-    <RootNamespace>FrameworkInput</RootNamespace>
+    <ProjectGuid>{DB1E8A47-DA4F-4C97-BCE0-C17985AD3DD0}</ProjectGuid>
+    <RootNamespace>FrameworkCurves</RootNamespace>
+    <ProjectName>YAX.Curves</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -71,26 +72,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\Buttons.h" />
-    <ClInclude Include="include\ButtonState.h" />
-    <ClInclude Include="include\GamePad.h" />
-    <ClInclude Include="include\GamePadButtons.h" />
-    <ClInclude Include="include\GamePadCapabilities.h" />
-    <ClInclude Include="include\GamePadDeadZone.h" />
-    <ClInclude Include="include\GamePadDPad.h" />
-    <ClInclude Include="include\GamePadState.h" />
-    <ClInclude Include="include\GamePadThumbSticks.h" />
-    <ClInclude Include="include\GamePadTriggers.h" />
-    <ClInclude Include="include\GamePadType.h" />
-    <ClInclude Include="include\Keyboard.h" />
-    <ClInclude Include="include\KeyboardState.h" />
-    <ClInclude Include="include\Keys.h" />
-    <ClInclude Include="include\KeyState.h" />
-    <ClInclude Include="include\Mouse.h" />
-    <ClInclude Include="include\MouseState.h" />
+    <ClInclude Include="include\Curve.h" />
+    <ClInclude Include="include\CurveContinuity.h" />
+    <ClInclude Include="include\CurveKey.h" />
+    <ClInclude Include="include\CurveKeyCollection.h" />
+    <ClInclude Include="include\CurveLoopType.h" />
+    <ClInclude Include="include\CurveTangent.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Curve.cpp" />
+    <ClCompile Include="src\CurveKey.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
