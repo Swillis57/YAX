@@ -172,4 +172,43 @@ namespace YAX
 			: ContainmentType::Intersects);
 	}
 
+	ContainmentType BoundingFrustum::Contains(const BoundingSphere& bs)
+	{
+		ContainmentType res = ContainmentType::Contains;
+		updatePlanes();
+
+		//For each plane of the frustum
+		for (const Plane& p : _planes)
+		{								
+			float dist = p.DotCoordinate(bs.Center);
+			
+			//If the distance between the center of the sphere and the plane is 
+			//negative and greater than the radius, the sphere does not touch the frustum
+			//Else if the distance is positive and less than the radius, the sphere 
+			//intersects the frustum
+			if (dist <= -bs.Radius)
+				return ContainmentType::Disjoint;
+			else if (dist <= bs.Radius)
+				res = ContainmentType::Intersects;
+
+			return res;
+		}
+	}
+
+	ContainmentType BoundingFrustum::Contains(const Vector3& v)
+	{
+		updatePlanes();
+		for (const Plane& p : _planes)
+		{
+			if (p.DotCoordinate(v) < 0)
+				return ContainmentType::Disjoint;
+		}
+
+		return ContainmentType::Contains;
+	}
+
+	std::array<Vector3, BoundingFrustum::CornerCount> BoundingFrustum::GetCorners()
+	{
+		updatePlanes();
+	}
 }
