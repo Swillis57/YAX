@@ -77,99 +77,41 @@ namespace YAX
 
 	}
 
-	Plane BoundingFrustum::Far() const
+	Plane BoundingFrustum::Bottom()
 	{
-		Vector3 n(Matrix.M14 - Matrix.M13,
-				  Matrix.M24 - Matrix.M23,
-				  Matrix.M34 - Matrix.M33);
-		
-		//When the plane equation is normalized,
-		//d is the distance from the origin to the plane
-		float d = Matrix.M44 - Matrix.M43;
-		float len = n.Length();
-
-		//normalize the plane equation
-		n /= len;
-		d /= len;
-		
-		return Plane(n, d);
+		updatePlanes();
+		return _planes[BOTTOM];
 	}
 
-	Plane BoundingFrustum::Left() const
+	Plane BoundingFrustum::Far()
 	{
-		Vector3 n(Matrix.M14 + Matrix.M11,
-				  Matrix.M24 + Matrix.M21,
-				  Matrix.M34 + Matrix.M31);
-		
-		//When the plane equation is normalized,
-		//d is the distance from the origin to the plane
-		float d = Matrix.M44 + Matrix.M41;
-		float len = n.Length();
-
-		//normalize the plane equation
-		n /= len;
-		d /= len;
-		
-		return Plane(n, d);
+		updatePlanes();
+		return _planes[BACK];
 	}
 
-	Plane BoundingFrustum::Near() const
+	Plane BoundingFrustum::Left()
 	{
-		Vector3 n(Matrix.M13,
-				  Matrix.M23,
-				  Matrix.M33);
-		
-		//When the plane equation is normalized,
-		//d is the distance from the origin to the plane
-		float d = Matrix.M43;
-		float len = n.Length();
-
-		//normalize the plane equation
-		n /= len;
-		d /= len;
-		
-		return Plane(n, d);
+		updatePlanes();
+		return _planes[LEFT];
 	}
 
-	Plane BoundingFrustum::Right() const
+	Plane BoundingFrustum::Near()
 	{
-		Vector3 n(Matrix.M14 - Matrix.M11,
-				  Matrix.M24 - Matrix.M21,
-				  Matrix.M34 - Matrix.M31);
-		
-		//When the plane equation is normalized,
-		//d is the distance from the origin to the plane
-		float d = Matrix.M44 - Matrix.M41;
-		float len = n.Length();
-
-		//normalize the plane equation
-		n /= len;
-		d /= len;
-		
-		return Plane(n, d);
+		updatePlanes();
+		return _planes[FRONT];
 	}
 
-	Plane BoundingFrustum::Top() const
+	Plane BoundingFrustum::Right()
 	{
-		Vector3 n(Matrix.M14 - Matrix.M12,
-				  Matrix.M24 - Matrix.M22,
-				  Matrix.M34 - Matrix.M32);
-		
-		//When the plane equation is normalized,
-		//d is the distance from the origin to the plane
-		float d = Matrix.M44 - Matrix.M42;
-		float len = n.Length();
-
-		//normalize the plane equation
-		n /= len;
-		d /= len;
-		
-		return Plane(n, d);
+		updatePlanes();
+		return _planes[RIGHT];
 	}
 
-	ContainmentType BoundingFrustum::Contains(const BoundingBox& bb) const
+	Plane BoundingFrustum::Top()
 	{
-		if (!Intersects(bb)) return ContainmentType::Disjoint;
+		updatePlanes();
+		return _planes[TOP];
+	}
 
 		i32 intersections = 0;
 		auto corners = bb.GetCorners();
