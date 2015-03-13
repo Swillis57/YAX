@@ -20,8 +20,10 @@
 namespace YAX
 {
 	BoundingFrustum::BoundingFrustum(YAX::Matrix m)
-		: Matrix(m)
-	{}
+		: _oldMat(m), Matrix(m)
+	{
+		updatePlanes();
+	}
 
 	Plane BoundingFrustum::Bottom() const
 	{
