@@ -113,17 +113,63 @@ namespace YAX
 		return _planes[TOP];
 	}
 
+	ContainmentType BoundingFrustum::Contains(const BoundingBox& bb)
+	{
 		i32 intersections = 0;
 		auto corners = bb.GetCorners();
-		for (const Vector3& c : corners)
+		updatePlanes();
+
+		for (const Plane& p : _planes)
 		{
-			if (Contains(c) == ContainmentType::Contains)
+			i32 inUpperHalfspace = 0;
+			for (const Vector3& c : corners)
+			{
+				if (p.DotCoordinate(c) >= 0)
+					inUpperHalfspace++; 
+			}
+
+			//If none of the points were in the upper halfspace of the plane,
+			//then there's no way the object could be colliding
+			if (inUpperHalfspace == 0)
+				return ContainmentType::Disjoint;
+			else if (inUpperHalfspace == bb.CornerCount)
 				intersections++;
+
 		}
 
-		return (intersections == bb.CornerCount
+		return (intersections == 6
 			? ContainmentType::Contains
 			: ContainmentType::Intersects);
 	
 	}
+
+	ContainmentType BoundingFrustum::Contains(BoundingFrustum& bf)
+	{
+		i32 intersections = 0;
+		auto corners = bf.GetCorners();
+		updatePlanes();
+
+		for (const Plane& p : _planes)
+		{
+			i32 inUpperHalfspace = 0;
+			for (const Vector3& c : corners)
+			{
+				if (p.DotCoordinate(c) >= 0)
+					inUpperHalfspace++;
+			}
+
+			//If none of the points were in the upper halfspace of the plane,
+			//then there's no way the object could be colliding
+			if (inUpperHalfspace == 0)
+				return ContainmentType::Disjoint;
+			else if (inUpperHalfspace == bf.CornerCount)
+				intersections++;
+
+		}
+
+		return (intersections == 6
+			? ContainmentType::Contains
+			: ContainmentType::Intersects);
+	}
+
 }
