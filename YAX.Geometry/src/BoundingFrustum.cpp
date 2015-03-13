@@ -25,22 +25,56 @@ namespace YAX
 		updatePlanes();
 	}
 
-	Plane BoundingFrustum::Bottom() const
+	void BoundingFrustum::updatePlanes()
 	{
-		Vector3 n(Matrix.M12 + Matrix.M14,
-				  Matrix.M22 + Matrix.M24,
-				  Matrix.M32 + Matrix.M34);
-		
-		//When the plane equation is normalized,
-		//d is the distance from the origin to the plane
-		float d = Matrix.M42 + Matrix.M44;
-		float len = n.Length();
+		//Matrix hasn't changed, no update needed
+		if (Matrix == _oldMat) return;
 
-		//normalize the plane equation
-		n /= len;
-		d /= len;
-		
-		return Plane(n, d);
+		_oldMat = Matrix;
+		//Store the plane equation coefficients in an array to
+		//make handling easier
+		Vector4 n[6];
+		n[TOP] = { Matrix.M14 - Matrix.M12,
+				   Matrix.M24 - Matrix.M22,
+				   Matrix.M34 - Matrix.M32,
+				   Matrix.M44 - Matrix.M42 };
+
+		n[BOTTOM] = { Matrix.M12 + Matrix.M14,
+					  Matrix.M22 + Matrix.M24,
+					  Matrix.M32 + Matrix.M34,
+					  Matrix.M42 + Matrix.M44 };
+
+		n[LEFT] = { Matrix.M14 + Matrix.M11,
+					Matrix.M24 + Matrix.M21,
+					Matrix.M34 + Matrix.M31,
+					Matrix.M44 + Matrix.M41 };
+
+		n[RIGHT] = { Matrix.M14 - Matrix.M11,
+					 Matrix.M24 - Matrix.M21,
+					 Matrix.M34 - Matrix.M31,
+					 Matrix.M44 - Matrix.M41 };
+
+		n[FRONT] = { Matrix.M13,
+					 Matrix.M23,
+					 Matrix.M33,
+					 Matrix.M43 };
+
+		n[BACK] = { Matrix.M14 - Matrix.M13,
+					Matrix.M24 - Matrix.M23,
+					Matrix.M34 - Matrix.M33,
+					Matrix.M44 - Matrix.M43 };
+
+		for (int i = 0; i < 6; i++)
+		{
+			Vector4& v = n[i];
+			float len = std::sqrtf(v.X*v.X + v.Y*v.Y + v.Z*v.Z);
+
+			//The d coefficient (v.W) of a normalized plane equation is
+			//the distance from the origin to the plane
+			v /= len;
+			_planes[i] = Plane({ v.X, v.Y, v.Z }, v.W);
+		}
+
 	}
 
 	Plane BoundingFrustum::Far() const
