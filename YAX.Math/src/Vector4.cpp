@@ -15,6 +15,10 @@ namespace YAX
 	const Vector4 UnitW = Vector4(0, 0, 0, 1);
 	const Vector4 Zero = Vector4(0, 0, 0, 0);
 
+	Vector4::Vector4()
+		: Vector4(0.0f)
+	{}
+
 	Vector4::Vector4(float v)
 		: X(v), Y(v), Z(v), W(v)
 	{}
