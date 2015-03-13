@@ -18,21 +18,23 @@ namespace YAX
 
 	ContainmentType BoundingBox::Contains(const BoundingBox& bb) const
 	{
-		if (Intersects(bb))
-		{
-			if (Min <= bb.Min && Max >= bb.Max)
-				return ContainmentType::Contains;
-			else
-				return ContainmentType::Intersects;
-		}
+		if (!Intersects(bb)) return ContainmentType::Disjoint;
+		
+		if (Min <= bb.Min && Max >= bb.Max)
+			return ContainmentType::Contains;
 		else
-		{
-			return ContainmentType::Disjoint;
-		}
+			return ContainmentType::Intersects;
+		
 	}
 
 	ContainmentType BoundingBox::Contains(const BoundingFrustum& bf) const
 	{
+		if (!Intersects(bf)) return ContainmentType::Disjoint;
+		
+		BoundingSphere bbSphere = BoundingSphere::CreateFromBoundingBox(*this);
+		BoundingSphere bfSphere = BoundingSphere::CreateFromFrustum(bf);
+		if (!bbSphere.Intersects(bfSphere)) return ContainmentType::Disjoint;
+
 		auto bfCorners = bf.GetCorners();
 		ContainmentType res;
 		i32 numIntersects = 0;
@@ -46,12 +48,10 @@ namespace YAX
 
 		//If all of the frustum points are inside the box,
 		//then the frustum is wholly contained within the box
-		//Else handle no intersection and partial intersection cases
+		//Else it only intersects
 		res = (numIntersects == bfCorners.size()
 			? ContainmentType::Contains
-			: (numIntersects == 0
-				? ContainmentType::Disjoint
-				: ContainmentType::Intersects));
+			: ContainmentType::Intersects);
 
 		return res;
 	}
@@ -153,18 +153,7 @@ namespace YAX
 
 	bool BoundingBox::Intersects(const BoundingFrustum& bf) const
 	{
-		ContainmentType frustumInBox = Contains(bf);
-		if (frustumInBox == ContainmentType::Contains 
-			|| frustumInBox == ContainmentType::Intersects)
-		{
-			return true;
-		}
-		else
-		{
-			ContainmentType boxInFrustum = bf.Contains(*this);
-			return boxInFrustum == ContainmentType::Contains
-				|| boxInFrustum == ContainmentType::Intersects;
-		}
+		return bf.Intersects(*this);
 	}
 
 	bool BoundingBox::Intersects(const BoundingSphere& bs) const
