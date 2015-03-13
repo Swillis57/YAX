@@ -1,6 +1,6 @@
 #include "../include/Short2.h"
-#include "../../Framework.Math/include/Vector2.h"
-#include "../../Framework.Math/include/Vector4.h"
+#include "../../YAX.Math/include/Vector2.h"
+#include "../../YAX.Math/include/Vector4.h"
 
 namespace YAX
 {

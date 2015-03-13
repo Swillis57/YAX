@@ -1,7 +1,7 @@
 #ifndef _PLANE_H
 #define _PLANE_H
 
-#include "../../Framework.Math/include/Vector3.h"
+#include "../../YAX.Math/include/Vector3.h"
 
 namespace YAX
 {

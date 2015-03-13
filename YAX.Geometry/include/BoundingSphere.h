@@ -4,7 +4,7 @@
 #include <memory>
 #include <vector>
 #include "PlaneIntersectionType.h"
-#include "../../Framework.Math/include/Vector3.h"
+#include "../../YAX.Math/include/Vector3.h"
 
 
 namespace YAX

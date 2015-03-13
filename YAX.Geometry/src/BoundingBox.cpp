@@ -7,7 +7,7 @@
 #include "../include/ContainmentType.h"
 #include "../include/Plane.h"
 #include "../include/PlaneIntersectionType.h"
-#include "../../Framework.Math/include/MathHelper.h"
+#include "../../YAX.Math/include/MathHelper.h"
 #include "../include/Ray.h"
 
 namespace YAX

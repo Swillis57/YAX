@@ -6,7 +6,8 @@
 #include "../include/Plane.h"
 #include "../include/PlaneIntersectionType.h"
 #include "../include/Ray.h"
-#include "../../Framework.Math/include/Vector3.h"
+#include "../../YAX.Math/include/Vector3.h"
+#include "../../YAX.Math/include/Vector4.h"
 
 
 

@@ -4,7 +4,7 @@
 
 #include <memory>
 #include "CurveKeyCollection.h"
-#include "../Utils.h"
+#include "../../YAX/include/Utils.h"
 
 namespace YAX
 {

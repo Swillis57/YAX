@@ -2,7 +2,7 @@
 #define _POINT_H
 
 #include <iostream>
-#include "../../Framework/include/Utils.h"
+#include "../../YAX/include/Utils.h"
 
 namespace YAX
 {

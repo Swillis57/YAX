@@ -1,6 +1,6 @@
 #include "../include/Bgra5551.h"
-#include "../../Framework.Math/include/MathHelper.h"
-#include "../../Framework.Math/include/Vector4.h"
+#include "../../YAX.Math/include/MathHelper.h"
+#include "../../YAX.Math/include/Vector4.h"
 
 namespace YAX
 {

@@ -3,8 +3,9 @@
 
 #include <array>   
 #include <memory>
-#include "../../Framework.Math/include/Matrix.h"
-#include "../../Framework/include/Utils.h"
+#include "../../YAX.Math/include/Matrix.h"
+#include "Plane.h"
+#include "../../YAX/include/Utils.h"
 
 namespace YAX
 {

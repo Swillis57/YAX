@@ -3,7 +3,6 @@
 #include "../include/Curve.h"
 #include "../include/CurveLoopType.h"
 #include "../include/CurveTangent.h"
-#include "../../Framework/include/Utils.h"
 
 namespace YAX
 {
