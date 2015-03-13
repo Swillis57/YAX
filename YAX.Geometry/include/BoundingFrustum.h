@@ -26,30 +26,33 @@ namespace YAX
 	
 		BoundingFrustum(YAX::Matrix);
 
-		Plane Bottom() const;
-		Plane Far() const;
-		Plane Left() const;
-		Plane Near() const;
-		Plane Right() const;
-		Plane Top() const;
+		Plane Bottom();
+		Plane Far();
+		Plane Left();
+		Plane Near();
+		Plane Right();
+		Plane Top();
 		
-		ContainmentType Contains(const BoundingBox&) const;
-		ContainmentType Contains(const BoundingFrustum&) const;
-		ContainmentType Contains(const BoundingSphere&) const;
-		ContainmentType Contains(const Vector3&) const;
+		ContainmentType Contains(const BoundingBox&);
+		ContainmentType Contains(BoundingFrustum&);
+		ContainmentType Contains(const BoundingSphere&);
+		ContainmentType Contains(const Vector3&);
 
-		std::array<Vector3, 8> GetCorners() const;
+		std::array<Vector3, BoundingFrustum::CornerCount> GetCorners();
 
-		bool Intersects(const BoundingBox&) const;
-		bool Intersects(const BoundingFrustum&) const;
-		bool Intersects(const BoundingSphere&) const;
-		PlaneIntersectionType Intersects(const Plane&) const;
-		std::unique_ptr<float> Intersects(const Ray&) const;
+		bool Intersects(const BoundingBox&);
+		bool Intersects(const BoundingFrustum&);
+		bool Intersects(const BoundingSphere&);
+		PlaneIntersectionType Intersects(const Plane&);
+		std::unique_ptr<float> Intersects(const Ray&);
 
 		friend bool operator==(const BoundingFrustum&, const BoundingFrustum&);
 		friend bool operator!=(const BoundingFrustum&, const BoundingFrustum&);
 
 	private:
+		std::array<Plane, 6> _planes;
+		YAX::Matrix _oldMat;
+		void updatePlanes();
 	};
 }
 
