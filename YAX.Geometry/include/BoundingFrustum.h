@@ -22,7 +22,9 @@ namespace YAX
 	{
 	public:
 		static const i32 CornerCount = 8;
-		YAX::Matrix Matrix;
+		
+		YAX::Matrix& Matrix();
+		void Matrix(YAX::Matrix);
 	
 		BoundingFrustum(YAX::Matrix);
 
@@ -51,7 +53,7 @@ namespace YAX
 
 	private:
 		std::array<Plane, 6> _planes;
-		YAX::Matrix _oldMat;
+		YAX::Matrix _mat;
 		void updatePlanes();
 	};
 }
