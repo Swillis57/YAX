@@ -272,7 +272,7 @@ namespace YAX
 
 	Vector3 operator-(const Vector3& lhs, const Vector3& rhs)
 	{
-		return -(lhs + rhs);
+		return lhs + (-rhs);
 	}
 
 	Vector3 operator*(const Vector3& lhs, const Vector3& rhs)
