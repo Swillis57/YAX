@@ -53,8 +53,10 @@ namespace YAX
 
 	private:
 		std::array<Plane, 6> _planes;
+		std::array<Vector3, 8> _corners;
 		YAX::Matrix _mat;
 		void updatePlanes();
+		void updateCorners();
 	};
 }
 
