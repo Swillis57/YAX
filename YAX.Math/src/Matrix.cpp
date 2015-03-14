@@ -504,22 +504,40 @@ namespace YAX
 
 	Matrix& Matrix::operator*=(const Matrix& m)
 	{
-		this->M11 *= m.M11;
-		this->M12 *= m.M12;
-		this->M13 *= m.M13;
-		this->M14 *= m.M14;
-		this->M21 *= m.M21;
-		this->M22 *= m.M22;
-		this->M23 *= m.M23;
-		this->M24 *= m.M24;
-		this->M31 *= m.M31;
-		this->M32 *= m.M32;
-		this->M33 *= m.M33;
-		this->M34 *= m.M34;
-		this->M41 *= m.M41;
-		this->M42 *= m.M42;
-		this->M43 *= m.M43;
-		this->M44 *= m.M44;
+		float m11 = M11*m.M11 + M12*m.M21 + M13*m.M31 + M14*m.M41;
+		float m12 = M11*m.M12 + M12*m.M22 + M13*m.M32 + M14*m.M42;
+		float m13 = M11*m.M13 + M12*m.M23 + M13*m.M33 + M14*m.M43;
+		float m14 = M11*m.M14 + M12*m.M24 + M13*m.M34 + M14*m.M44;
+		float m21 = M21*m.M11 + M22*m.M21 + M23*m.M31 + M24*m.M41;
+		float m22 = M21*m.M12 + M22*m.M22 + M23*m.M32 + M24*m.M42;
+		float m23 = M21*m.M13 + M22*m.M23 + M23*m.M33 + M24*m.M43;
+		float m24 = M21*m.M14 + M22*m.M24 + M23*m.M34 + M24*m.M44;
+		float m31 = M31*m.M11 + M32*m.M21 + M33*m.M31 + M34*m.M41;
+		float m32 = M31*m.M12 + M32*m.M22 + M33*m.M32 + M34*m.M42;
+		float m33 = M31*m.M13 + M32*m.M23 + M33*m.M33 + M34*m.M43;
+		float m34 = M31*m.M14 + M32*m.M24 + M33*m.M34 + M34*m.M44;
+		float m41 = M41*m.M11 + M42*m.M21 + M43*m.M31 + M44*m.M41;
+		float m42 = M41*m.M12 + M42*m.M22 + M43*m.M32 + M44*m.M42;
+		float m43 = M41*m.M13 + M42*m.M23 + M43*m.M33 + M44*m.M43;
+		float m44 = M41*m.M14 + M42*m.M24 + M43*m.M34 + M44*m.M44;
+
+		this->M11 = m11;
+		this->M12 = m12;
+		this->M13 = m13;
+		this->M14 = m14;
+		this->M21 = m21;
+		this->M22 = m22;
+		this->M23 = m23;
+		this->M24 = m24;
+		this->M31 = m31;
+		this->M32 = m32;
+		this->M33 = m33;
+		this->M34 = m34;
+		this->M41 = m41;
+		this->M42 = m42;
+		this->M43 = m43;
+		this->M44 = m44;
+		
 
 		return *this;
 	}
