@@ -246,7 +246,7 @@ namespace YAX
 
 	Matrix Matrix::CreateLookAt(const Vector3& cameraPos, const Vector3& cameraTarg, const Vector3& cameraUp)
 	{
-		Vector3 zBasis = Vector3::Normalize(cameraPos - cameraTarg);
+		Vector3 zBasis = Vector3::Normalize(cameraTarg - cameraPos);
 		Vector3 xBasis = Vector3::Normalize(Vector3::Cross(cameraUp, zBasis));
 		Vector3 yBasis = Vector3::Normalize(Vector3::Cross(zBasis, xBasis));
 
