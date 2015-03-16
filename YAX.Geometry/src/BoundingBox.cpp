@@ -192,7 +192,7 @@ namespace YAX
 	std::unique_ptr<float> BoundingBox::Intersects(const Ray& r) const
 	{
 		if (Contains(r.Pos) == ContainmentType::Contains)
-			return std::make_unique<float>(0);
+			return std::make_unique<float>(0.0f);
 
 		//The compiler must support floating point infinities for this to work properly
 		if (!std::numeric_limits<float>::is_iec559)

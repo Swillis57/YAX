@@ -15,6 +15,7 @@ namespace YAX
 
 	struct Plane
 	{
+		Plane();
 		Plane(float, float, float, float);
 		Plane(const Vector3&, float);
 		Plane(const Vector3&, const Vector3&, const Vector3&);
