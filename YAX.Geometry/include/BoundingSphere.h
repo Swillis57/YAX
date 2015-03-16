@@ -20,9 +20,7 @@ namespace YAX
 		Vector3 Center;
 		float Radius;
 		
-		BoundingSphere(const Vector3&, float);
-		BoundingSphere(const BoundingSphere&) = default;
-		BoundingSphere& operator=(const BoundingSphere&) = default;
+		BoundingSphere(const Vector3& center, float radius);
 
 		static BoundingSphere CreateFromBoundingBox(const BoundingBox&);
 		static BoundingSphere CreateFromFrustum(const BoundingFrustum&);
@@ -37,12 +35,10 @@ namespace YAX
 
 		BoundingSphere Transform(const Matrix&) const;
 		
-		friend bool operator==(const BoundingSphere&, const BoundingSphere&);
-		friend bool operator!=(const BoundingSphere&, const BoundingSphere&);
-
-	private:
-
 	};
+	
+	bool operator==(const BoundingSphere&, const BoundingSphere&);
+	bool operator!=(const BoundingSphere&, const BoundingSphere&);
 }
 
 #endif
