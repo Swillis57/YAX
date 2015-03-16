@@ -9,12 +9,23 @@
 #include "../../YAX.Math/include/Vector3.h"
 #include "../../YAX.Math/include/Vector4.h"
 
+//Plane array indices
 #define TOP 0
 #define BOTTOM 1
 #define LEFT 2
 #define RIGHT 3
-#define FRONT 4
-#define BACK 5
+#define NEAR 4
+#define FAR 5
+
+//Corner array indices
+#define NEARTOPLEFT 0
+#define NEARTOPRIGHT 1
+#define NEARBOTRIGHT 2
+#define NEARBOTLEFT 3
+#define FARTOPLEFT 4
+#define FARTOPRIGHT 5
+#define FARBOTRIGHT 6
+#define FARBOTLEFT 7
 
 
 namespace YAX
@@ -26,7 +37,7 @@ namespace YAX
 		updateCorners();
 	}
 
-	YAX::Matrix& BoundingFrustum::Matrix()
+	YAX::Matrix BoundingFrustum::Matrix()
 	{
 		return _mat;
 	}
@@ -63,12 +74,12 @@ namespace YAX
 					 _mat.M34 - _mat.M31,
 					 _mat.M44 - _mat.M41 };
 
-		n[FRONT] = { _mat.M13,
+		n[NEAR] = { _mat.M13,
 					 _mat.M23,
 					 _mat.M33,
 					 _mat.M43 };
 
-		n[BACK] = { _mat.M14 - _mat.M13,
+		n[FAR] = { _mat.M14 - _mat.M13,
 					_mat.M24 - _mat.M23,
 					_mat.M34 - _mat.M33,
 					_mat.M44 - _mat.M43 };
@@ -87,50 +98,61 @@ namespace YAX
 
 	void BoundingFrustum::updateCorners()
 	{
-
+		_corners[NEARTOPLEFT] = triplePlaneIntersect(_planes[NEAR], _planes[TOP], _planes[LEFT]);
+		_corners[NEARTOPRIGHT] = triplePlaneIntersect(_planes[NEAR], _planes[TOP], _planes[RIGHT]);
+		_corners[NEARBOTRIGHT] = triplePlaneIntersect(_planes[NEAR], _planes[BOTTOM], _planes[RIGHT]);
+		_corners[NEARBOTLEFT] = triplePlaneIntersect(_planes[NEAR], _planes[BOTTOM], _planes[LEFT]);
+		_corners[FARTOPLEFT] = triplePlaneIntersect(_planes[FAR], _planes[TOP], _planes[LEFT]);
+		_corners[FARTOPRIGHT] = triplePlaneIntersect(_planes[FAR], _planes[TOP], _planes[RIGHT]);
+		_corners[FARBOTRIGHT] = triplePlaneIntersect(_planes[FAR], _planes[BOTTOM], _planes[RIGHT]);
+		_corners[FARBOTLEFT] = triplePlaneIntersect(_planes[FAR], _planes[BOTTOM], _planes[LEFT]);
 	}
 
-	Plane BoundingFrustum::Bottom()
+	Vector3 BoundingFrustum::triplePlaneIntersect(const Plane& p1, const Plane& p2, const Plane& p3)
 	{
-		updatePlanes();
+		Vector3 p1xp2 = Vector3::Cross(p1.Normal, p2.Normal);
+		Vector3 p2xp3 = Vector3::Cross(p2.Normal, p3.Normal);
+		Vector3 p3xp1 = Vector3::Cross(p3.Normal, p1.Normal);
+
+		float invDet = 1.0f / Vector3::Dot(p1.Normal, p2xp3);
+
+		return invDet * ((p1.D * p2xp3) + (p2.D * p3xp1) + (p3.D * p1xp2));
+	}
+
+	Plane BoundingFrustum::Bottom() const
+	{
 		return _planes[BOTTOM];
 	}
 
-	Plane BoundingFrustum::Far()
+	Plane BoundingFrustum::Far() const
 	{
-		updatePlanes();
-		return _planes[BACK];
+		return _planes[FAR];
 	}
 
-	Plane BoundingFrustum::Left()
+	Plane BoundingFrustum::Left() const
 	{
-		updatePlanes();
 		return _planes[LEFT];
 	}
 
-	Plane BoundingFrustum::Near()
+	Plane BoundingFrustum::Near() const
 	{
-		updatePlanes();
-		return _planes[FRONT];
+		return _planes[NEAR];
 	}
 
-	Plane BoundingFrustum::Right()
+	Plane BoundingFrustum::Right() const
 	{
-		updatePlanes();
 		return _planes[RIGHT];
 	}
 
-	Plane BoundingFrustum::Top()
+	Plane BoundingFrustum::Top() const
 	{
-		updatePlanes();
 		return _planes[TOP];
 	}
 
-	ContainmentType BoundingFrustum::Contains(const BoundingBox& bb)
+	ContainmentType BoundingFrustum::Contains(const BoundingBox& bb) const
 	{
-		i32 intersections = 0;
+		i32 numInside = 0;
 		auto corners = bb.GetCorners();
-		updatePlanes();
 
 		for (const Plane& p : _planes)
 		{
@@ -146,21 +168,20 @@ namespace YAX
 			if (inUpperHalfspace == 0)
 				return ContainmentType::Disjoint;
 			else if (inUpperHalfspace == bb.CornerCount)
-				intersections++;
+				numInside++;
 
 		}
 
-		return (intersections == 6
+		return (numInside == 6
 			? ContainmentType::Contains
 			: ContainmentType::Intersects);
 	
 	}
 
-	ContainmentType BoundingFrustum::Contains(BoundingFrustum& bf)
+	ContainmentType BoundingFrustum::Contains(const BoundingFrustum& bf) const
 	{
 		i32 intersections = 0;
 		auto corners = bf.GetCorners();
-		updatePlanes();
 
 		for (const Plane& p : _planes)
 		{
@@ -185,10 +206,9 @@ namespace YAX
 			: ContainmentType::Intersects);
 	}
 
-	ContainmentType BoundingFrustum::Contains(const BoundingSphere& bs)
+	ContainmentType BoundingFrustum::Contains(const BoundingSphere& bs) const
 	{
 		ContainmentType res = ContainmentType::Contains;
-		updatePlanes();
 
 		//For each plane of the frustum
 		for (const Plane& p : _planes)
@@ -208,9 +228,8 @@ namespace YAX
 		}
 	}
 
-	ContainmentType BoundingFrustum::Contains(const Vector3& v)
+	ContainmentType BoundingFrustum::Contains(const Vector3& v) const
 	{
-		updatePlanes();
 		for (const Plane& p : _planes)
 		{
 			if (p.DotCoordinate(v) < 0)
@@ -220,8 +239,70 @@ namespace YAX
 		return ContainmentType::Contains;
 	}
 
-	std::array<Vector3, BoundingFrustum::CornerCount> BoundingFrustum::GetCorners()
+	std::array<Vector3, BoundingFrustum::CornerCount> BoundingFrustum::GetCorners() const
 	{
-		updatePlanes();
+		return _corners;
+	}
+
+	bool BoundingFrustum::Intersects(const BoundingBox& bb) const
+	{
+		ContainmentType c = Contains(bb);
+		return c != ContainmentType::Disjoint;
+	}
+
+	bool BoundingFrustum::Intersects(const BoundingFrustum& bf) const
+	{
+		ContainmentType c = Contains(bf);
+		return c != ContainmentType::Disjoint;
+	}
+
+	bool BoundingFrustum::Intersects(const BoundingSphere& bs) const
+	{
+		ContainmentType c = Contains(bs);
+		return c != ContainmentType::Disjoint;
+	}
+
+	PlaneIntersectionType BoundingFrustum::Intersects(const Plane& p) const
+	{
+		//true = front, false = back;
+		bool frontOrBack = Vector3::Dot(_corners[0], p.Normal) >= 0;
+
+		//If all of the corners of the frustum aren't in the same half-space,
+		//then it must intersect the plane
+		for (i32 i = 0; i < CornerCount; i++)
+		{
+			if (Vector3::Dot(_corners[i] , p.Normal) >= 0 != frontOrBack)
+				return PlaneIntersectionType::Intersecting;
+		}
+
+		return (frontOrBack ? PlaneIntersectionType::Front : PlaneIntersectionType::Back);
+	}
+
+	std::unique_ptr<float> BoundingFrustum::Intersects(const Ray& r) const
+	{
+		if (Contains(r.Pos) == ContainmentType::Contains) 
+			return std::make_unique<float>(0.0f);
+
+
+		for (const Plane& p : _planes)
+		{
+			float t = -(Vector3::Dot(r.Pos, p.Normal) + p.D) / (Vector3::Dot(r.Dir, p.Normal));
+			Vector3 pointOnPlane = r.Pos + t*(r.Dir);
+
+			if (Contains(pointOnPlane) == ContainmentType::Contains)
+				return std::make_unique<float>(t);
+		}
+
+		return std::make_unique<float>(nullptr);
+	}
+
+	bool operator==(const BoundingFrustum& lhs, const BoundingFrustum& rhs)
+	{
+		return lhs._mat == rhs._mat;
+	}
+
+	bool operator!=(const BoundingFrustum& lhs, const BoundingFrustum& rhs)
+	{
+		return !(lhs == rhs);
 	}
 }
