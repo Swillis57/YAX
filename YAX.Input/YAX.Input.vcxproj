@@ -90,9 +90,6 @@
     <ClInclude Include="include\Mouse.h" />
     <ClInclude Include="include\MouseState.h" />
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="src\CMakeLists.txt" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
