@@ -79,8 +79,8 @@ namespace YAX
 
 	void Rectangle::Location(const Point& p)
 	{
-		_x = p.X();
-		_y = p.Y();
+		_x = p.X;
+		_y = p.Y;
 	}
 
 	i32 Rectangle::Right() const
@@ -95,15 +95,15 @@ namespace YAX
 
 	bool Rectangle::Contains(const Point& p) const
 	{
-		return (((p.X() >= _x) && (p.X() <= _x + _width))
-			&& ((p.Y() >= _y) && (p.Y() <= _y + _height)));
+		return (((p.X >= _x) && (p.X <= _x + _width))
+			&& ((p.Y >= _y) && (p.Y <= _y + _height)));
 	}
 
 	bool Rectangle::Contains(const Rectangle& r) const
 	{
 		return Contains(r.Location())
-			&& (r.Height() <= std::abs(_height - r.Y()))
-			&& (r.Width() <= std::abs(_width - r.X()));
+			&& (r.Height() <= std::abs(_height - r.Y))
+			&& (r.Width() <= std::abs(_width - r.X));
 	}
 
 	void Rectangle::Inflate(i32 dw, i32 dh)
@@ -135,8 +135,8 @@ namespace YAX
 		Point aCenter = Center();
 		Point bCenter = r.Center();
 
-		return (std::abs(aCenter.X() - bCenter.X()) < (_width + r.Width()) / 2)
-			&& (std::abs(aCenter.Y() - bCenter.Y()) < (_height + r.Height()) / 2);
+		return (std::abs(aCenter.X - bCenter.X) < (_width + r.Width()) / 2)
+			&& (std::abs(aCenter.Y - bCenter.Y) < (_height + r.Height()) / 2);
 	}
 
 	void Rectangle::Offset(i32 x, i32 y)
@@ -147,8 +147,8 @@ namespace YAX
 
 	void Rectangle::Offset(const Point& p)
 	{
-		_x += p.X();
-		_y += p.Y();
+		_x += p.X;
+		_y += p.Y;
 	}
 
 	Rectangle Union(const Rectangle& r1, const Rectangle& r2)

@@ -13,16 +13,9 @@ namespace YAX
 	{
 
 	public:
-		static Rectangle Empty();
-		static friend Rectangle Intersect(const Rectangle&, const Rectangle&);
-		static friend Rectangle Intersect(const Rectangle&, const Rectangle&, const Rectangle&);
-		static friend Rectangle Union(const Rectangle&, const Rectangle&);
-		static friend Rectangle Union(const Rectangle&, const Rectangle&, const Rectangle&);
 
 		//x, y, w, h
-		Rectangle(i32, i32, i32, i32);
-		Rectangle(const Rectangle&) = default;
-		Rectangle& operator=(const Rectangle&) = default;	
+		Rectangle(i32 x, i32 y, i32 w, i32 h);
 
 		i32 X() const;
 		void X(i32);
@@ -35,6 +28,7 @@ namespace YAX
 
 		i32 Width() const;
 		void Width(i32);
+		
 
 		i32 Bottom() const;
 		Point Center() const;
@@ -51,6 +45,12 @@ namespace YAX
 		bool Intersects(const Rectangle&) const;
 		void Offset(i32, i32);
 		void Offset(const Point&);
+		
+		static Rectangle Empty();
+		static friend Rectangle Intersect(const Rectangle&, const Rectangle&);
+		static friend Rectangle Intersect(const Rectangle&, const Rectangle&, const Rectangle&);
+		static friend Rectangle Union(const Rectangle&, const Rectangle&);
+		static friend Rectangle Union(const Rectangle&, const Rectangle&, const Rectangle&);
 
 		friend bool operator ==(const Rectangle&, const Rectangle&);
 		friend bool operator !=(const Rectangle&, const Rectangle&);
