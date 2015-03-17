@@ -198,7 +198,7 @@ namespace YAX
 		if (!std::numeric_limits<float>::is_iec559)
 		{
 			throw std::logic_error("Ray to AABB intersection requires IEEE-754 floating point support");
-			return std::unique_ptr<float>(nullptr);
+			return std::unique_ptr<float>();
 		}
 
 		Vector3 inv = 1.0f / r.Dir;
@@ -216,7 +216,7 @@ namespace YAX
 
 		return (far >= near 
 			? std::make_unique<float>(near) 
-			: std::unique_ptr<float>(nullptr));
+			: std::unique_ptr<float>());
 	}
 
 	bool operator==(const BoundingBox& lhs, const BoundingBox& rhs)

@@ -28,7 +28,7 @@ namespace YAX
 
 	std::unique_ptr<float> Ray::Intersects(const Plane& p)
 	{
-		if (Vector3::Dot(Dir, p.Normal) == 1) return std::make_unique<float>(nullptr);
+		if (Vector3::Dot(Dir, p.Normal) == 1) return std::unique_ptr<float>();
 
 		float t = -(Vector3::Dot(Pos, p.Normal) + p.D) / (Vector3::Dot(Dir, p.Normal));
 		return std::make_unique<float>(t);

@@ -292,7 +292,7 @@ namespace YAX
 				return std::make_unique<float>(t);
 		}
 
-		return std::make_unique<float>(nullptr);
+		return std::unique_ptr<float>();
 	}
 
 	bool operator==(const BoundingFrustum& lhs, const BoundingFrustum& rhs)

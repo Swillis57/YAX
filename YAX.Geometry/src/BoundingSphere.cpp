@@ -99,13 +99,13 @@ namespace YAX
 		//If the center of the sphere is behind the ray
 		if (l < 0)
 		{
-			float dist = rayToSphere.LengthSquared();
+			float dist = rayToSphere.LengthSquared();		
 
 			//If the ray's origin is outside the sphere, no collision
 			//Else if it's on the radius, return 0 dist
 			//Else it's inside the sphere so find the point of intersection
 			if (dist > Radius * Radius)
-				return std::make_unique<float>(nullptr);
+				return std::unique_ptr<float>();
 			else if (dist == Radius)
 				return std::make_unique<float>(0.0f);
 			else
@@ -120,7 +120,7 @@ namespace YAX
 			//If the center's projection onto the ray is outside of the radius, no collision
 			//Else find the point of contact closest to the ray's origin
 			if ((proj - Center).LengthSquared() > Radius*Radius)
-				return std::make_unique<float>(nullptr);
+				return std::unique_ptr<float>();
 			else
 			{
 				float d = std::sqrtf(Radius*Radius - (proj - Center).LengthSquared());
