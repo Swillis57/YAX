@@ -4,7 +4,7 @@
 #include "../include/BoundingFrustum.h"
 #include "../include/BoundingSphere.h"
 #include "../include/PlaneIntersectionType.h"
-#include "../../YAX.Math/include/Vector4.h"
+#include "../include/Vector4.h"
 
 namespace YAX
 {

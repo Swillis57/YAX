@@ -3,8 +3,8 @@
 
 #include <array>
 #include <memory>
-#include "../../YAX.Math/include/Vector3.h"
-#include "../../YAX/include/Utils.h"
+#include "Vector3.h"
+#include "Utils.h"
 
 namespace YAX
 {

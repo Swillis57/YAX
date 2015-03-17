@@ -5,8 +5,8 @@
 #include "../include/BoundingFrustum.h"
 #include "../include/Ray.h"
 #include "../include/Plane.h"
-#include "../../YAX.Math/include/MathHelper.h"
-#include "../../YAX.Math/include/Matrix.h"
+#include "../include/MathHelper.h"
+#include "../include/Matrix.h"
 
 namespace YAX
 {

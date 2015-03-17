@@ -2,7 +2,7 @@
 #define _RAY_H
 
 #include <memory>
-#include "../../YAX.Math/include/Vector3.h"
+#include "Vector3.h"
 
 namespace YAX
 {

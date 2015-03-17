@@ -6,8 +6,8 @@
 #include "../include/Plane.h"
 #include "../include/PlaneIntersectionType.h"
 #include "../include/Ray.h"
-#include "../../YAX.Math/include/Vector3.h"
-#include "../../YAX.Math/include/Vector4.h"
+#include "../include/Vector3.h"
+#include "../include/Vector4.h"
 
 //Plane array indices
 #define TOP 0
