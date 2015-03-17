@@ -8,25 +8,16 @@ namespace YAX
 {
 	struct Point
 	{
-	public:
-		static Point Zero();
+		static const Point Zero;
+
+		i32 X, Y;
 
 		Point(i32, i32);
-		Point(const Point&) = default;
-		Point& operator=(const Point&) = default;
 
-		i32 X() const;
-		void X(i32);
-
-		i32 Y() const;
-		void Y(i32);
-
-		friend bool operator==(const Point&, const Point&);
-		friend bool operator!=(const Point&, const Point&);
-
-	private:
-		i32 _x, _y;
 	};
+
+	bool operator==(const Point&, const Point&);
+	bool operator!=(const Point&, const Point&);
 
 	
 }
