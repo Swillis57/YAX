@@ -223,9 +223,8 @@ namespace YAX
 				return ContainmentType::Disjoint;
 			else if (dist <= bs.Radius)
 				res = ContainmentType::Intersects;
-
-			return res;
 		}
+		return res;
 	}
 
 	ContainmentType BoundingFrustum::Contains(const Vector3& v) const

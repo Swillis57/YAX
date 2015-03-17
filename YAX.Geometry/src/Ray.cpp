@@ -39,7 +39,7 @@ namespace YAX
 		return lhs.Pos == rhs.Pos && lhs.Dir == rhs.Dir;
 	}
 
-	bool operator==(const Ray& lhs, const Ray& rhs)
+	bool operator!=(const Ray& lhs, const Ray& rhs)
 	{
 		return !(lhs == rhs);
 	}

@@ -102,8 +102,8 @@ namespace YAX
 	bool Rectangle::Contains(const Rectangle& r) const
 	{
 		return Contains(r.Location())
-			&& (r.Height() <= std::abs(_height - r.Y))
-			&& (r.Width() <= std::abs(_width - r.X));
+			&& (r.Height() <= std::abs(_height - r.Y()))
+			&& (r.Width() <= std::abs(_width - r.X()));
 	}
 
 	void Rectangle::Inflate(i32 dw, i32 dh)
