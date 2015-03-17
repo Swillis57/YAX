@@ -5,7 +5,6 @@
 
 namespace YAX
 {
-	struct Vector3;
 	struct Vector4;
 	struct BoundingBox;
 	struct BoundingSphere;
@@ -14,17 +13,15 @@ namespace YAX
 	enum class PlaneIntersectionType : int;
 
 	struct Plane
-	{
-		Plane();
-		Plane(float, float, float, float);
-		Plane(const Vector3&, float);
-		Plane(const Vector3&, const Vector3&, const Vector3&);
-		Plane(const Vector4&);
-		Plane(const Plane&) = default;
-		Plane& operator=(const Plane&) = default;
-												      
+	{										      
 		float D;
 		Vector3 Normal;
+	
+		Plane();
+		Plane(float x, float y, float z, float d);
+		Plane(const Vector3& normal, float dist);
+		Plane(const Vector3& p1, const Vector3& p2, const Vector3& p3);
+		Plane(const Vector4&);
 
 		float Dot(const Vector4&) const;
 		float DotCoordinate(const Vector3&) const;
