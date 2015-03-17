@@ -36,12 +36,12 @@ namespace YAX
 		Vector3 center;
 		for (const Vector3& v : points)
 			center += v;		
-		center /= points.size();
+		center /= static_cast<float>(points.size());
 
 		//Then find the maximum distance from a point to the avg. center
 		//this is the radius
 		float maxDist = (points[0] - center).LengthSquared();
-		for (i32 i = 1; i < points.size(); i++)
+		for (size_t i = 1; i < points.size(); i++)
 		{
 			maxDist = MathHelper::Max(maxDist, (points[i] - center).LengthSquared());
 		}
