@@ -1,7 +1,7 @@
 #ifndef _MATH_HELPER_H
 #define _MATH_HELPER_H
 
-#include "../../YAX/include/Utils.h"
+#include "Utils.h"
 
 namespace YAX
 {

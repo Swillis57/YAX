@@ -1,10 +1,9 @@
 #ifndef _CURVE_H
 #define _CURVE_H
 
-
 #include <memory>
 #include "CurveKeyCollection.h"
-#include "../../YAX/include/Utils.h"
+#include "Utils.h"
 
 namespace YAX
 {

@@ -1,9 +1,7 @@
 #ifndef _UTILS_H
 #define _UTILS_H
 
-#include <cassert>
 #include <cstdint>
-#include <cstring>
 
 namespace YAX
 {

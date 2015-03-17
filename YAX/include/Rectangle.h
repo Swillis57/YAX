@@ -3,7 +3,7 @@
 
 #include <algorithm>
 #include <iostream>
-#include "../../YAX/include/Utils.h"
+#include "Utils.h"
 
 namespace YAX
 {

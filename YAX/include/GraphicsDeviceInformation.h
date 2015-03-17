@@ -1,8 +1,8 @@
 #ifndef	_GRAPHICS_DEVICE_INFORMATION_H
 #define _GRAPHICS_DEVICE_INFORMATION_H
 
-#include "../../Framework.Graphics/include/GraphicsAdapter.h"
-#include "../../Framework.Graphics/include/PresentationParameters.h"
+#include "../../YAX.Graphics/include/GraphicsAdapter.h"
+#include "../../YAX.Graphics/include/PresentationParameters.h"
 #include "Utils.h"
 
 namespace YAX

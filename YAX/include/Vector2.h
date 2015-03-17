@@ -2,7 +2,7 @@
 #define _VEC2_H
 
 #include <vector>
-#include "../../YAX/include/Utils.h"
+#include "Utils.h"
 
 
 namespace YAX
