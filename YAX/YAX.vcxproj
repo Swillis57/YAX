@@ -127,6 +127,7 @@
     <ClCompile Include="src\BoundingBox.cpp" />
     <ClCompile Include="src\BoundingFrustum.cpp" />
     <ClCompile Include="src\BoundingSphere.cpp" />
+    <ClCompile Include="src\Color.cpp" />
     <ClCompile Include="src\Curve.cpp" />
     <ClCompile Include="src\CurveKey.cpp" />
     <ClCompile Include="src\Game.cpp" />
