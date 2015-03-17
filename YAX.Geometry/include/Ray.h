@@ -13,7 +13,7 @@ namespace YAX
 
 	struct Ray
 	{
-		Ray(const Vector3&, const Vector3&);
+		Ray(const Vector3& position, const Vector3& direction);
 	
 		Vector3 Dir, Pos;
 
@@ -22,9 +22,10 @@ namespace YAX
 		std::unique_ptr<float> Intersects(const BoundingSphere&);
 		std::unique_ptr<float> Intersects(const Plane&);
 
-		friend bool operator==(const Ray&, const Ray&);
-		friend bool operator!=(const Ray&, const Ray&);
 	};
+	
+	bool operator==(const Ray&, const Ray&);
+	bool operator!=(const Ray&, const Ray&);
 }
 
 
