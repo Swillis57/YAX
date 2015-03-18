@@ -3,7 +3,6 @@
 
 #include "../../YAX.Graphics/include/GraphicsAdapter.h"
 #include "../../YAX.Graphics/include/PresentationParameters.h"
-#include "Utils.h"
 
 namespace YAX
 {
@@ -14,19 +13,11 @@ namespace YAX
 	public:
 		GraphicsDeviceInformation();
 
-		GraphicsAdapter Adapter();
-		void Adapter(const GraphicsAdapter&);
+		GraphicsAdapter Adapter;
 
-		YAX::GraphicsProfile GraphicsProfile();
-		void GraphicsProfile(YAX::GraphicsProfile);
+		YAX::GraphicsProfile GraphicsProfile;
 
-		YAX::PresentationParameters PresentationParameters();
-		void PresentationParameters(YAX::PresentationParameters);
-
-	private:
-		YAX::GraphicsAdapter _adapter;
-		YAX::GraphicsProfile _profile;
-		YAX::PresentationParameters _params;
+		YAX::PresentationParameters PresentationParameters;
 	};
 }
 
