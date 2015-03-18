@@ -3,7 +3,7 @@
 
 namespace YAX
 {
-	class ContentManager;
+	//class ContentManager;
 	class GraphicsDevice;
 	class LaunchParameters;
 	class TimeSpan;
@@ -14,9 +14,11 @@ namespace YAX
 	public:
 		Game();
 
+		/* Content Pipeline NYI
 		ContentManager& Content();
-		void Content(const ContentManager&);
+		void Content(const ContentManager&);*/
 		
+
 		YAX::GraphicsDevice& GraphicsDevice();
 		void GraphicsDevice(YAX::GraphicsDevice);
 
