@@ -39,20 +39,100 @@ namespace YAX
 		: Color(v.X, v.Y, v.Z, v.W)
 	{}
 
+	byte Color::R() const
+	{
+		return READBITS(0xFF, 24);
+	}
 
+	void Color::R(byte b)
+	{
+		ui32 bits = b << 24;
+		_packed |= bits;
+	}
 
+	byte Color::G() const
+	{
+		return READBITS(0xFF, 16);
+	}
 
+	void Color::G(byte b)
+	{
+		ui32 bits = b << 16;
+		_packed |= bits;
+	}
 
+	byte Color::B() const
+	{
+		return READBITS(0xFF, 8);
+	}
 
+	void Color::B(byte b)
+	{
+		ui32 bits = b << 8;
+		_packed |= bits;
+	}
 
+	byte Color::A() const
+	{
+		return READBITS(0xFF, 0);
+	}
 
+	void Color::A(byte b)
+	{
+		ui32 bits = b << 0;
+		_packed |= bits;
+	}
 
+	Color Color::FromNonPremultiplied(i32 r, i32 g, i32 b, i32 a)
+	{
+		using MathHelper::Clamp;
 
+		r = Clamp(r, 0, 255);
+		g = Clamp(g, 0, 255);
+		b = Clamp(b, 0, 255);
+		a = Clamp(a, 0, 255);
 
+		//Coefficient to normalize and premultiply 
+		float inv = a / (255 * 255);
+		return Color(r*inv, g*inv, b*inv, inv * 255.0f);
+	}
 
+	Color Color::FromNonPremultiplied(const Vector4& v)
+	{
+		Vector4 clamped = Vector4::Clamp(v, 0, 1);
+		float a = clamped.W;
+		return Color(clamped.X*a, clamped.Y*a, clamped.Z*a, a);
+	}
 
+	Color Color::Lerp(const Color& from, const Color& to, float t)
+	{
+		using MathHelper::Lerp;
+		float r = from.R(), g = from.G(), b = from.B(), a = from.A();
 
+		byte rBits = static_cast<byte>(Lerp(r, to.R(), t));
+		byte gBits = static_cast<byte>(Lerp(g, to.G(), t));
+		byte bBits = static_cast<byte>(Lerp(b, to.B(), t));
+		byte aBits = static_cast<byte>(Lerp(a, to.A(), t));
 
+		return Color(rBits, gBits, bBits, aBits);
+	}
+
+	Vector3 Color::ToVector3() const
+	{
+		float d = 1.0f / 255.0f;
+		return Vector3(R()*d, G()*d, B()*d);
+	}
+
+	Vector4 Color::ToVector4() const
+	{
+		float d = 1.0f / 255.0f;
+		return Vector4(ToVector3(), A()*d);
+	}
+
+	void Color::PackFromVector4(const Vector4& v)
+	{
+		Pack(v.X, v.Y, v.Z, v.W);
+	}
 
 	void Color::Pack(float r, float g, float b, float a)
 	{
@@ -74,6 +154,26 @@ namespace YAX
 		WRITEBITS(a, 0);
 	}
 
+	Color operator*(const Color& c, float f)
+	{
+		Vector4 comp = c.ToVector4();
+		return Color(comp * f);
+	}
+
+	Color operator*(float f, const Color& c)
+	{
+		return c * f;
+	}
+
+	bool operator==(const Color& lhs, const Color& rhs)
+	{
+		return lhs._packed == rhs._packed;
+	}
+
+	bool operator!=(const Color& lhs, const Color& rhs)
+	{
+		return !(lhs == rhs);
+	}
 
 	#pragma region Pre-Defined Color Init
 	const Color Color::AliceBlue(240, 248, 255, 255);

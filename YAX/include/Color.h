@@ -23,9 +23,9 @@ namespace YAX
 		byte A() const;
 		void A(byte);
 
-		static Color FromNonPremultiplied(i32, i32, i32, i32);
+		static Color FromNonPremultiplied(i32 r, i32 g, i32 b, i32 a);
 		static Color FromNonPremultiplied(const Vector4&);
-		static Color Lerp(const Color&, const Color&, float);
+		static Color Lerp(const Color& from, const Color& to, float t);
 
 		Vector3 ToVector3() const;
 		Vector4 ToVector4() const override;
@@ -36,6 +36,11 @@ namespace YAX
 		friend bool operator==(const Color&, const Color&);
 		friend bool operator!=(const Color&, const Color&);
 		
+
+	private:
+		void Pack(float, float, float, float);
+		void Pack(byte, byte, byte, byte);
+
 		#pragma region Pre-Defined Colors
 		static const Color AliceBlue;
 		static const Color AntiqueWhite;
@@ -180,9 +185,6 @@ namespace YAX
 		static const Color YellowGreen;
 #pragma endregion
 
-	private:
-		void Pack(float, float, float, float);
-		void Pack(byte, byte, byte, byte);
 	};
 }
 #endif
