@@ -1,6 +1,7 @@
 #ifndef _GRAPHICS_DEVICE_MANAGER_H
 #define _GRAPHICS_DEVICE_MANAGER_H
 
+#include <memory>
 #include <vector>
 #include "Utils.h"
 
@@ -16,13 +17,15 @@ namespace YAX
 
 	class GraphicsDeviceManager
 	{
+		struct Impl;
+
 	public:
 		GraphicsDeviceManager(Game&);
 
 		static i32 DefaultBackBufferHeight();
 		static i32 DefaultBackBufferWidth();
 
-		YAX::GraphicsDevice GraphicsDevice();
+		YAX::GraphicsDevice& GraphicsDevice();
 
 		bool IsFullScreen();
 		void IsFullScreen(bool);
@@ -55,7 +58,8 @@ namespace YAX
 		virtual void RankDevices(std::vector<GraphicsDeviceInformation>);
 
 	private:
-		static i32 _defaultBufWidth, _defaultBufHeight;
+		static const i32 _defaultBufWidth, _defaultBufHeight;
+		std::unique_ptr<Impl> _impl;
 
 	};
 }

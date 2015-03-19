@@ -133,6 +133,7 @@
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameTime.cpp" />
     <ClCompile Include="src\GraphicsDeviceInformation.cpp" />
+    <ClCompile Include="src\GraphicsDeviceManager.cpp" />
     <ClCompile Include="src\MathHelper.cpp" />
     <ClCompile Include="src\Matrix.cpp" />
     <ClCompile Include="src\Plane.cpp" />
