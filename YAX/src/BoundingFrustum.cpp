@@ -151,31 +151,37 @@ namespace YAX
 
 	ContainmentType BoundingFrustum::Contains(const BoundingBox& bb) const
 	{
-		i32 numInside = 0;
-		auto corners = bb.GetCorners();
+		Vector3 pos, neg;
+		ContainmentType res = ContainmentType::Contains;
 
 		for (const Plane& p : _planes)
 		{
-			i32 inUpperHalfspace = 0;
-			for (const Vector3& c : corners)
+			pos = bb.Min;
+			neg = bb.Max;
+
+			if (p.Normal.X >= 0)
 			{
-				if (p.DotCoordinate(c) >= 0)
-					inUpperHalfspace++; 
+				pos.X = bb.Max.X;
+				neg.X = bb.Min.X;
+			}
+			if (p.Normal.Y >= 0)
+			{
+				pos.Y = bb.Max.Y;
+				neg.Y = bb.Min.Y;
+			}
+			if (p.Normal.Z >= 0)
+			{
+				pos.Z = bb.Max.Z;
+				neg.Z = bb.Min.Z;
 			}
 
-			//If none of the points were in the upper halfspace of the plane,
-			//then there's no way the object could be colliding
-			if (inUpperHalfspace == 0)
+			if (p.DotCoordinate(pos) < 0)
 				return ContainmentType::Disjoint;
-			else if (inUpperHalfspace == bb.CornerCount)
-				numInside++;
-
+			else if (p.DotCoordinate(neg) < 0)
+				res = ContainmentType::Intersects;
 		}
 
-		return (numInside == 6
-			? ContainmentType::Contains
-			: ContainmentType::Intersects);
-	
+		return res;
 	}
 
 	ContainmentType BoundingFrustum::Contains(const BoundingFrustum& bf) const
