@@ -1,13 +1,15 @@
 #ifndef _GAME_H
 #define _GAME_H
 
+struct GLFWwindow;
+
 namespace YAX
 {
 	//class ContentManager;
 	class GraphicsDevice;
+	class GameWindow;
 	class LaunchParameters;
 	class TimeSpan;
-	struct GLFWwindow;
 
 	class Game
 	{
@@ -40,8 +42,8 @@ namespace YAX
 		TimeSpan& TargetElapsedTime();
 		void TargetElapsedTime(const TimeSpan&);
 
-		GLFWwindow* Window();
-		void Window(GLFWwindow*);
+		GameWindow Window();
+		void Window(GameWindow);
 
 
 		void Exit();
