@@ -3,6 +3,8 @@
 
 #include <memory>
 #include <vector>
+#include "IGraphicsDeviceManager.h"
+#include "IGraphicsDeviceService.h"
 #include "Utils.h"
 
 namespace YAX
@@ -15,7 +17,7 @@ namespace YAX
 	class GraphicsDevice;
 	class GraphicsDeviceInformation;
 
-	class GraphicsDeviceManager
+	class GraphicsDeviceManager : public IGraphicsDeviceManager, public IGraphicsDeviceService
 	{
 		struct Impl;
 
@@ -24,8 +26,6 @@ namespace YAX
 
 		static i32 DefaultBackBufferHeight();
 		static i32 DefaultBackBufferWidth();
-
-		YAX::GraphicsDevice& GraphicsDevice();
 
 		bool IsFullScreen();
 		void IsFullScreen(bool);
@@ -49,7 +49,9 @@ namespace YAX
 		void SyncronizeWithVerticalRetrace(bool); 
 
 		void ApplyChanges();
-
+		bool BeginDraw() override;
+		void CreateDevice() override;
+		void EndDraw() override;
 		void ToggleFullScreen();
 
 	protected:
