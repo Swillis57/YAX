@@ -100,6 +100,8 @@
     <ClInclude Include="Framework\Math\Vector4.h" />
     <ClInclude Include="include\GraphicsDeviceInformation.h" />
     <ClInclude Include="include\GraphicsDeviceManager.h" />
+    <ClInclude Include="include\IGraphicsDeviceManager.h" />
+    <ClInclude Include="include\IGraphicsDeviceService.h" />
     <ClInclude Include="include\LaunchParameters.h" />
     <ClInclude Include="include\DisplayOrientation.h" />
     <ClInclude Include="include\Game.h" />
