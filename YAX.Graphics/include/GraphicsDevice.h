@@ -24,7 +24,6 @@
 
 #include "GraphicsAdapter.h"
 #include "BlendState.h"
-#include "../../Framework/include/Color.h"
 #include "DepthStencilState.h"
 #include "DisplayMode.h"
 #include "IndexBuffer.h"
@@ -32,11 +31,12 @@
 #include "RasterizerState.h"		
 #include "RenderTarget2D.h"
 #include "RenderTargetCube.h"
-#include "../../Framework.Geometry/include/Rectangle.h"
 #include "SamplerStateCollection.h"
 #include "TextureCollection.h"
-#include "../../Framework/include/Utils.h"
 #include "Viewport.h"
+#include "../../YAX/include/Utils.h"
+#include "../../YAX/include/Color.h"
+#include "../../YAX/include/Rectangle.h"
 
 
 namespace YAX

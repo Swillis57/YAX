@@ -3,7 +3,7 @@
 
 
 #include "Texture2D.h"
-#include "../../Framework/include/Utils.h"
+#include "../../YAX/include/Utils.h"
 
 namespace YAX
 {

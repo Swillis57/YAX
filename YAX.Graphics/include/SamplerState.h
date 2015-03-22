@@ -2,7 +2,7 @@
 #define _SAMPLER_STATE_H
 
 #include "GraphicsResource.h"
-#include "../../Framework/include/Utils.h"
+#include "../../YAX/include/Utils.h"
 
 namespace YAX
 {

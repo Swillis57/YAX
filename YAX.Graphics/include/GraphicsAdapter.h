@@ -5,7 +5,7 @@
 #include <vector>
 #include <string>
 #include "DisplayMode.h"
-#include "../../Framework/include/Utils.h" 
+#include "../../YAX/include/Utils.h" 
 
 struct GLFWmonitor;
 

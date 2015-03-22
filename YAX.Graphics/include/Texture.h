@@ -3,7 +3,7 @@
 
 #include "../../external/glew/include/GL/glew.h"
 #include "GraphicsResource.h"
-#include "../../Framework/include/Utils.h"
+#include "../../YAX/include/Utils.h"
 
 namespace YAX
 {

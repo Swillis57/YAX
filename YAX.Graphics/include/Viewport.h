@@ -1,7 +1,7 @@
 #ifndef _VIEWPORT_H
 #define _VIEWPORT_H
 
-#include "../../Framework/include/Utils.h"
+#include "../../YAX/include/Utils.h"
 
 namespace YAX
 {

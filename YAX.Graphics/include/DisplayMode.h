@@ -2,7 +2,7 @@
 #define _DISPLAY_MODE_H
 
 #include <memory>
-#include "../../Framework/include/Utils.h"
+#include "../../YAX/include/Utils.h"
 
 namespace YAX
 {

@@ -4,7 +4,7 @@
 #include "DepthFormat.h"
 #include "RenderTargetUsage.h"
 #include "TextureCube.h"
-#include "../../Framework/include/Utils.h"
+#include "../../YAX/include/Utils.h"
 
 
 namespace YAX

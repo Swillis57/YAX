@@ -2,8 +2,8 @@
 #define _BLEND_STATE_H
 
 #include "GraphicsResource.h"
-#include "../../Framework/include/Color.h"
-#include "../../Framework/include/Utils.h"
+#include "../../YAX/include/Color.h"
+#include "../../YAX/include/Utils.h"
 
 namespace YAX
 {

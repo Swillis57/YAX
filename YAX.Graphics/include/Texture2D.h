@@ -13,7 +13,7 @@
 #include <istream>
 #include <vector>
 #include "Texture.h"
-#include "../../Framework/include/Utils.h"
+#include "../../YAX/include/Utils.h"
 
 
 namespace YAX
