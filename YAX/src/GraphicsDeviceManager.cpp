@@ -1,10 +1,16 @@
 #include "../include/GraphicsDeviceManager.h"
 
-#include "../include/Game.h"
+#include <exception>
+#include "../include/Game.h"		
+#include "../include/GameWindow.h"
+#include "../include/GraphicsDeviceInformation.h"
+#include "GLFW/glfw3.h"
+#include "../../YAX.Graphics/include/GraphicsAdapter.h"
 #include "../../YAX.Graphics/include/DepthFormat.h"
 #include "../../YAX.Graphics/include/GraphicsDevice.h"
 #include "../../YAX.Graphics/include/GraphicsProfile.h"
 #include "../../YAX.Graphics/include/SurfaceFormat.h"
+#include "../../YAX.Graphics/include/PresentInterval.h"
 
 namespace YAX
 {
@@ -13,17 +19,18 @@ namespace YAX
 
 	struct GraphicsDeviceManager::Impl
 	{
-		Game* _game;
-		YAX::GraphicsDevice* _graphicsDev;
+		Game* _game = nullptr;
+		std::unique_ptr<YAX::GraphicsDevice> _graphicsDev;
+		YAX::GraphicsProfile _profile;
 		SurfaceFormat _sFmt;
 		DepthFormat _dFmt;
-		bool _isFullScrn, _multiSampPref, _vSync;
+		bool _isFullScrn, _multiSampPref, _vSync, _drawing;
 		i32 _bufHeight, _bufWidth;
 
 		Impl(Game& game)
 		{
 			_game = &game;
-			_graphicsDev = nullptr;
+			_profile = YAX::GraphicsProfile::HiDef;
 			_sFmt = SurfaceFormat::Color;
 			_dFmt = DepthFormat::Depth24;
 			_isFullScrn = false;
@@ -32,6 +39,180 @@ namespace YAX
 			_bufHeight = GraphicsDeviceManager::_defaultBufHeight;
 			_bufWidth = GraphicsDeviceManager::_defaultBufWidth;
 		}
-	};		
+
+		void applyChanges()
+		{
+			//Don't do anything if the graphics device hasn't been initialized yet
+			if (!_graphicsDev) return;
+
+			if (_isFullScrn && (_bufHeight == 0 || _bufWidth == 0)) 
+				throw std::invalid_argument("Full-screen mode cannot be used if a dimension of the screen is zero");
+			
+			PresentationParameters& p = _graphicsDev->PresentationParameters();
+
+			p.BackBufferHeight(_bufHeight);
+			p.BackBufferWidth(_bufWidth);
+			p.IsFullScreen(_isFullScrn);
+			p.BackBufferFormat(_sFmt);
+			p.DepthStencilFormat(_dFmt);
+			
+			if (_vSync)
+				p.PresentationInterval(PresentInterval::One);;
+
+			_graphicsDev->Reset();
+		}
+
+		void createDevice()
+		{
+			GraphicsDeviceInformation info;
+			info.Adapter = GraphicsAdapter::DefaultAdapter();
+			info.GraphicsProfile = _profile;
+			info.PresentationParameters.DeviceWindowHandle(_game->Window().Handle());
+
+			//If events were implemented, there would be a call to
+			//OnPreparingDeviceSettings here, as well as copying the user's changes
+			//to the GDM
+
+			_graphicsDev = std::make_unique<YAX::GraphicsDevice>(info.Adapter, info.GraphicsProfile, info.PresentationParameters);
+			applyChanges();
+		}
+
+		bool beginDraw()
+		{
+			if (_graphicsDev)
+				return (_drawing = true);
+		}
+
+		void endDraw()
+		{
+			if (_graphicsDev && _drawing)
+			{
+				_drawing = false;
+				_graphicsDev->Present();
+			}	
+		}
+
+		void toggleFullScreen()
+		{
+			_isFullScrn = !_isFullScrn;
+			_graphicsDev->PresentationParameters().IsFullScreen(_isFullScrn);
+			_graphicsDev->applyFullscreen();
+		}
+	};
+
+	GraphicsDeviceManager::GraphicsDeviceManager(Game& game)
+		: _impl(std::make_unique<Impl>(game))
+	{}
+
+	YAX::GraphicsDevice* GraphicsDeviceManager::GraphicsDevice()
+	{
+		return _impl->_graphicsDev.get();
+	}
+
+	YAX::GraphicsProfile GraphicsDeviceManager::GraphicsProfile() const
+	{
+		return _impl->_profile;
+	}
+
+	void GraphicsDeviceManager::GraphicsProfile(YAX::GraphicsProfile profile)
+	{
+		_impl->_profile = profile;
+	}
+
+	bool GraphicsDeviceManager::IsFullScreen() const
+	{
+		return _impl->_isFullScrn;
+	}
+
+	void GraphicsDeviceManager::IsFullScreen(bool b)
+	{
+		_impl->_isFullScrn = b;
+	}
+
+	bool GraphicsDeviceManager::PreferMultiSampling() const
+	{
+		return _impl->_multiSampPref;
+	}
+
+	void GraphicsDeviceManager::PreferMultiSampling(bool b)
+	{
+		_impl->_multiSampPref = b;
+	}
+
+	SurfaceFormat GraphicsDeviceManager::PreferredBackBufferFormat() const
+	{
+		return _impl->_sFmt;
+	}
+
+	void GraphicsDeviceManager::PreferredBackBufferFormat(SurfaceFormat sf)
+	{
+		_impl->_sFmt = sf;
+	}
+
+	i32 GraphicsDeviceManager::PreferredBackBufferHeight() const
+	{
+		return _impl->_bufHeight;
+	}
+
+	void GraphicsDeviceManager::PreferredBackBufferHeight(i32 h)
+	{
+		_impl->_bufHeight = h;
+	}
+
+	i32 GraphicsDeviceManager::PreferredBackBufferWidth() const
+	{
+		return _impl->_bufWidth;
+	}
+
+	void GraphicsDeviceManager::PreferredBackBufferWidth(i32 w)
+	{
+		_impl->_bufWidth = w;
+	}
+
+	DepthFormat GraphicsDeviceManager::PreferredDepthStencilFormat() const
+	{
+		return _impl->_dFmt;
+	}
+
+	void GraphicsDeviceManager::PreferredDepthStencilFormat(DepthFormat df)
+	{
+		_impl->_dFmt = df;
+	}
+
+	bool GraphicsDeviceManager::SyncronizeWithVerticalRetrace() const
+	{
+		return _impl->_vSync;
+	}
+
+	void GraphicsDeviceManager::SyncronizeWithVerticalRetrace(bool b)
+	{
+		_impl->_vSync = b;
+	}
+
+	void GraphicsDeviceManager::ApplyChanges()
+	{
+		_impl->applyChanges();
+	}
+
+	bool GraphicsDeviceManager::BeginDraw()
+	{
+		_impl->beginDraw();
+	}
+
+	void GraphicsDeviceManager::CreateDevice()
+	{
+		_impl->createDevice();
+	}
+
+	void GraphicsDeviceManager::EndDraw()
+	{
+		_impl->endDraw();
+	}
+
+	void GraphicsDeviceManager::ToggleFullScreen()
+	{
+		_impl->toggleFullScreen();
+	}
+
 }
 

@@ -27,25 +27,30 @@ namespace YAX
 		static i32 DefaultBackBufferHeight();
 		static i32 DefaultBackBufferWidth();
 
-		bool IsFullScreen();
+		YAX::GraphicsDevice* GraphicsDevice();
+
+		YAX::GraphicsProfile GraphicsProfile() const;
+		void GraphicsProfile(YAX::GraphicsProfile);
+
+		bool IsFullScreen() const;
 		void IsFullScreen(bool);
 
-		bool PreferMultiSampling();
+		bool PreferMultiSampling() const;
 		void PreferMultiSampling(bool);
 
-		SurfaceFormat PreferredBackBufferFormat();
+		SurfaceFormat PreferredBackBufferFormat() const;
 		void PreferredBackBufferFormat(SurfaceFormat);
 
-		i32 PreferredBackBufferHeight();
+		i32 PreferredBackBufferHeight() const;
 		void PreferredBackBufferHeight(i32);
 
-		i32 PreferredBackBufferWidth();
+		i32 PreferredBackBufferWidth() const;
 		void PreferredBackBufferWidth(i32);
 
-		DepthFormat PreferredDepthStencilFormat();
+		DepthFormat PreferredDepthStencilFormat() const;
 		void PreferredDepthStencilFormat(DepthFormat);
 
-		bool SyncronizeWithVerticalRetrace();
+		bool SyncronizeWithVerticalRetrace() const;
 		void SyncronizeWithVerticalRetrace(bool); 
 
 		void ApplyChanges();
@@ -54,10 +59,10 @@ namespace YAX
 		void EndDraw() override;
 		void ToggleFullScreen();
 
-	protected:
+	/*protected: //Not implementing these until there is some demonstrable need
 		virtual bool CanResetDevice();
 		virtual GraphicsDeviceInformation FindBestDevice();
-		virtual void RankDevices(std::vector<GraphicsDeviceInformation>);
+		virtual void RankDevices(std::vector<GraphicsDeviceInformation>);*/
 
 	private:
 		static const i32 _defaultBufWidth, _defaultBufHeight;
