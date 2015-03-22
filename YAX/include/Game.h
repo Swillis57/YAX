@@ -20,9 +20,7 @@ namespace YAX
 		ContentManager& Content();
 		void Content(const ContentManager&);*/
 		
-
-		YAX::GraphicsDevice& GraphicsDevice();
-		void GraphicsDevice(YAX::GraphicsDevice);
+		YAX::GraphicsDevice* GraphicsDevice();
 
 		TimeSpan& InactiveSleepTime();
 		void InactiveSleepTime(const TimeSpan&);
