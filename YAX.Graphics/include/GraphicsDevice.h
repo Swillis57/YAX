@@ -50,9 +50,12 @@ namespace YAX
 	class RenderTargetBinding;
 	class VertexBufferBinding;
 	class VertexBuffer;
+	class GraphicsDeviceManager;
 
 	class GraphicsDevice
 	{
+		friend class GraphicsDeviceManager;
+
 	public:
 		#pragma region Properties
 		GraphicsDevice(const GraphicsAdapter&, const GraphicsProfile&, const YAX::PresentationParameters&);
@@ -164,6 +167,8 @@ namespace YAX
 		SamplerStateCollection _samplerStates;
 		TextureCollection _textures, _vertTextures;
 		YAX::Viewport _viewport;
+
+		void applyFullscreen();
 	};
 }
 #endif
