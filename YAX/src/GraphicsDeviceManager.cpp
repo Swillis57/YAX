@@ -4,13 +4,13 @@
 #include "../include/Game.h"		
 #include "../include/GameWindow.h"
 #include "../include/GraphicsDeviceInformation.h"
-#include "GLFW/glfw3.h"
 #include "../../YAX.Graphics/include/GraphicsAdapter.h"
 #include "../../YAX.Graphics/include/DepthFormat.h"
 #include "../../YAX.Graphics/include/GraphicsDevice.h"
 #include "../../YAX.Graphics/include/GraphicsProfile.h"
 #include "../../YAX.Graphics/include/SurfaceFormat.h"
 #include "../../YAX.Graphics/include/PresentInterval.h"
+#include "../../external/glfw/include/GLFW/glfw3.h"
 
 namespace YAX
 {
@@ -19,7 +19,7 @@ namespace YAX
 
 	struct GraphicsDeviceManager::Impl
 	{
-		Game* _game = nullptr;
+		Game* _game;
 		std::unique_ptr<YAX::GraphicsDevice> _graphicsDev;
 		YAX::GraphicsProfile _profile;
 		SurfaceFormat _sFmt;
@@ -59,6 +59,7 @@ namespace YAX
 			if (_vSync)
 				p.PresentationInterval(PresentInterval::One);;
 
+			
 			_graphicsDev->Reset();
 		}
 
@@ -67,7 +68,7 @@ namespace YAX
 			GraphicsDeviceInformation info;
 			info.Adapter = GraphicsAdapter::DefaultAdapter();
 			info.GraphicsProfile = _profile;
-			info.PresentationParameters.DeviceWindowHandle(_game->Window().Handle());
+			info.PresentationParameters.DeviceWindowHandle(_game->Window()->Handle());
 
 			//If events were implemented, there would be a call to
 			//OnPreparingDeviceSettings here, as well as copying the user's changes
