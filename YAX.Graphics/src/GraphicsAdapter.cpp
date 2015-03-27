@@ -2,7 +2,7 @@
 #include "../include/GraphicsAdapter.h"
 #include "../include/GraphicsProfile.h"
 #include "../include/SurfaceFormat.h"
-#include "../../Framework.Geometry/include/Rectangle.h"
+#include "../../YAX/include/Rectangle.h"
 #include "../../external/glew/include/GL/glew.h"
 
 //Takes the const GLchar* from glGetString and casts it into an std::string
