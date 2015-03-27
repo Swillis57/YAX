@@ -18,7 +18,7 @@ namespace YAX
 	template<typename T, typename F>
 	T BitCast(F val)
 	{
-		assert(sizeof(T) == sizeof(F));
+		static_assert(sizeof(T) == sizeof(F));
 
 		T res;
 		std::memcpy(&res, &val, sizeof(F));
