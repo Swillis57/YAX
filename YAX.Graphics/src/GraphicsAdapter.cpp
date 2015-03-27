@@ -5,6 +5,19 @@
 #include "../../YAX/include/Rectangle.h"
 #include "../../external/glew/include/GL/glew.h"
 
+#include "../../external/glfw/include/GLFW/glfw3.h"
+#ifdef _WIN32
+#	define GLFW_EXPOSE_NATIVE_WIN32
+#	define GLFW_EXPOSE_NATIVE_WGL
+#elif __linux__
+#	define GLFW_EXPOSE_NATIVE_X11
+#	define GLFW_EXPOSE_NATIVE_GLX						
+#else
+#	define GLFW_EXPOSE_NATIVE_COCOA
+#	define GLFW_EXPOSE_NATIVE_NSGL					
+#endif
+#include "../../external/glfw/include/GLFW/glfw3native.h"
+
 //Takes the const GLchar* from glGetString and casts it into an std::string
 #define glGetActualString(enum) (std::string{reinterpret_cast<const char*>(glGetString(enum))} + "\0")
 
@@ -128,7 +141,11 @@ namespace YAX
 
 		for (size_t i = 0; i < fixedMonitorCount; i++)
 		{
+#ifdef GLFW_EXPOSE_NATIVE_WIN32
+			std::string name = glfwGetWin32Adapter(monitors[i]);
+#else
 			std::string name = glfwGetMonitorName(monitors[i]);
+#endif
 			_adapters.emplace_back(GraphicsAdapter {name, desc, vend, monitors[i] });
 
 			if (monitors[i] == defaultMonitor)
