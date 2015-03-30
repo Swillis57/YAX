@@ -20,16 +20,17 @@ namespace YAX
 	struct GraphicsDeviceManager::Impl
 	{
 		Game* _game;
-		std::unique_ptr<YAX::GraphicsDevice> _graphicsDev;
+		GraphicsDeviceManager* _owner;
 		YAX::GraphicsProfile _profile;
 		SurfaceFormat _sFmt;
 		DepthFormat _dFmt;
 		bool _isFullScrn, _multiSampPref, _vSync, _drawing;
 		i32 _bufHeight, _bufWidth;
 
-		Impl(Game& game)
+		Impl(Game* game, GraphicsDeviceManager* owner)
 		{
-			_game = &game;
+			_game = game;
+			_owner = owner;
 			_profile = YAX::GraphicsProfile::HiDef;
 			_sFmt = SurfaceFormat::Color;
 			_dFmt = DepthFormat::Depth24;
@@ -43,12 +44,12 @@ namespace YAX
 		void applyChanges()
 		{
 			//Don't do anything if the graphics device hasn't been initialized yet
-			if (!_graphicsDev) return;
+			if (!_owner->_graphicsDev) return;
 
 			if (_isFullScrn && (_bufHeight == 0 || _bufWidth == 0)) 
 				throw std::invalid_argument("Full-screen mode cannot be used if a dimension of the screen is zero");
 			
-			PresentationParameters& p = _graphicsDev->PresentationParameters();
+			PresentationParameters& p = _owner->_graphicsDev->PresentationParameters();
 
 			p.BackBufferHeight(_bufHeight);
 			p.BackBufferWidth(_bufWidth);
@@ -60,7 +61,7 @@ namespace YAX
 				p.PresentationInterval(PresentInterval::One);;
 
 			
-			_graphicsDev->Reset();
+			_owner->_graphicsDev->Reset();
 		}
 
 		void createDevice()
@@ -74,41 +75,36 @@ namespace YAX
 			//OnPreparingDeviceSettings here, as well as copying the user's changes
 			//to the GDM
 
-			_graphicsDev = std::make_unique<YAX::GraphicsDevice>(info.Adapter, info.GraphicsProfile, info.PresentationParameters);
+			_owner->_graphicsDev = std::make_unique<YAX::GraphicsDevice>(info.Adapter, info.GraphicsProfile, info.PresentationParameters);
 			applyChanges();
 		}
 
 		bool beginDraw()
 		{
-			if (_graphicsDev)
+			if (_owner->_graphicsDev)
 				return (_drawing = true);
 		}
 
 		void endDraw()
 		{
-			if (_graphicsDev && _drawing)
+			if (_owner->_graphicsDev && _drawing)
 			{
 				_drawing = false;
-				_graphicsDev->Present();
+				_owner->_graphicsDev->Present();
 			}	
 		}
 
 		void toggleFullScreen()
 		{
 			_isFullScrn = !_isFullScrn;
-			_graphicsDev->PresentationParameters().IsFullScreen(_isFullScrn);
-			_graphicsDev->applyFullscreen();
+			_owner->_graphicsDev->PresentationParameters().IsFullScreen(_isFullScrn);
+			_owner->_graphicsDev->applyFullscreen();
 		}
 	};
 
-	GraphicsDeviceManager::GraphicsDeviceManager(Game& game)
-		: _impl(std::make_unique<Impl>(game))
+	GraphicsDeviceManager::GraphicsDeviceManager(Game* game)
+		: _impl(std::make_unique<Impl>(game, this))
 	{}
-
-	YAX::GraphicsDevice* GraphicsDeviceManager::GraphicsDevice()
-	{
-		return _impl->_graphicsDev.get();
-	}
 
 	YAX::GraphicsProfile GraphicsDeviceManager::GraphicsProfile() const
 	{

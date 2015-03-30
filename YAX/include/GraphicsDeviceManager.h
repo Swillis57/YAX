@@ -22,12 +22,10 @@ namespace YAX
 		struct Impl;
 
 	public:
-		GraphicsDeviceManager(Game&);
+		GraphicsDeviceManager(Game*);
 
 		static i32 DefaultBackBufferHeight();
 		static i32 DefaultBackBufferWidth();
-
-		YAX::GraphicsDevice* GraphicsDevice();
 
 		YAX::GraphicsProfile GraphicsProfile() const;
 		void GraphicsProfile(YAX::GraphicsProfile);
