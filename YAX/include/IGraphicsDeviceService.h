@@ -1,6 +1,7 @@
 #ifndef _GDS_INTERFACE
 #define _GDS_INTERFACE
 
+#include <memory>
 #include "../../YAX.Graphics/include/GraphicsDevice.h"
 
 namespace YAX
@@ -8,10 +9,10 @@ namespace YAX
 	class IGraphicsDeviceService
 	{
 	public:
-		YAX::GraphicsDevice& GraphicsDevice();
+		YAX::GraphicsDevice* GraphicsDevice() { return _graphicsDev.get(); }
 	
 	protected:
-		YAX::GraphicsDevice _graphicsDevice;
+		std::unique_ptr<YAX::GraphicsDevice> _graphicsDev;
 	};
 	
 }
