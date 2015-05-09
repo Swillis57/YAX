@@ -2,40 +2,48 @@
 #define _GAME_WINDOW_H
 
 #include <string>
+#include "Utils.h"
 
 struct GLFWwindow;
 
 namespace YAX
 {
-	enum class DisplayOrientation : int;
-
+	class Game;
+	class GraphicsDeviceManager;
 	class Rectangle;
 
 	class GameWindow
 	{
+		friend class Game;
+
 	public:
-		bool AllowUserResizing();
+		~GameWindow();
+
+		bool AllowUserResizing() const;
 		void AllowUserResizing(bool);
+		
+		void BeginScreenDeviceChange(bool);
+		void EndScreenDeviceChange(i32);
+		void EndScreenDeviceChange(i32, i32, i32);
 
-		Rectangle ClientBounds();
-
-		DisplayOrientation CurrentOrientation();
+		Rectangle ClientBounds() const;
 
 		GLFWwindow* Handle();
 
-		std::string ScreenDeviceName();
+		std::string ScreenDeviceName() const;
 
-		std::string Title();
-		void Title(std::string);	   
+		std::string Title() const;
+		void Title(std::string);
 
-	protected:
-		void OnActivated();
-		void OnClientSizeChanged();
-		void OnDeactivated();
-		void OnOrientationChanged();
-		void OnScreenDeviceNameChanged();
-		void SetSupportedOrientations();
-		void SetTitle();
+	private:
+		GameWindow(std::string, i32, i32);
+		GameWindow(const GameWindow&) = delete;
+		GameWindow& operator=(const GameWindow&) = delete;
+		
+		bool _userCanResize, _goingFullscreen;
+		i32 _width, _height;
+		GLFWwindow* _handle;
+		std::string _title;
 	};
 }
 
