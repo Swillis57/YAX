@@ -20,7 +20,7 @@ namespace YAX
 	struct GraphicsDeviceManager::Impl
 	{
 		Game* _game;
-		GraphicsDeviceManager* _owner;
+		std::unique_ptr<YAX::GraphicsDevice> _graphicsDev = nullptr;
 		YAX::GraphicsProfile _profile;
 		SurfaceFormat _sFmt;
 		DepthFormat _dFmt;
@@ -30,7 +30,6 @@ namespace YAX
 		Impl(Game* game, GraphicsDeviceManager* owner)
 		{
 			_game = game;
-			_owner = owner;
 			_profile = YAX::GraphicsProfile::HiDef;
 			_sFmt = SurfaceFormat::Color;
 			_dFmt = DepthFormat::Depth24;
@@ -44,12 +43,12 @@ namespace YAX
 		void applyChanges()
 		{
 			//Don't do anything if the graphics device hasn't been initialized yet
-			if (!_owner->_graphicsDev) return;
+			if (!_graphicsDev) return;
 
 			if (_isFullScrn && (_bufHeight == 0 || _bufWidth == 0)) 
 				throw std::invalid_argument("Full-screen mode cannot be used if a dimension of the screen is zero");
 			
-			PresentationParameters& p = _owner->_graphicsDev->PresentationParameters();
+			PresentationParameters& p = _graphicsDev->PresentationParameters();
 
 			p.BackBufferHeight(_bufHeight);
 			p.BackBufferWidth(_bufWidth);
@@ -58,10 +57,10 @@ namespace YAX
 			p.DepthStencilFormat(_dFmt);
 			
 			if (_vSync)
-				p.PresentationInterval(PresentInterval::One);;
+				p.PresentationInterval(PresentInterval::One);
 
 			
-			_owner->_graphicsDev->Reset();
+			_graphicsDev->Reset();
 		}
 
 		void createDevice()
@@ -69,36 +68,36 @@ namespace YAX
 			GraphicsDeviceInformation info;
 			info.Adapter = GraphicsAdapter::DefaultAdapter();
 			info.GraphicsProfile = _profile;
-			info.PresentationParameters.DeviceWindowHandle(_game->Window()->Handle());
+			info.PresentationParameters.DeviceWindowHandle = _game->Window()->Handle();
 
 			//If events were implemented, there would be a call to
 			//OnPreparingDeviceSettings here, as well as copying the user's changes
 			//to the GDM
 
-			_owner->_graphicsDev = std::make_unique<YAX::GraphicsDevice>(info.Adapter, info.GraphicsProfile, info.PresentationParameters);
+			_graphicsDev = std::make_unique<YAX::GraphicsDevice>(info.Adapter, info.GraphicsProfile, info.PresentationParameters);
 			applyChanges();
 		}
 
 		bool beginDraw()
 		{
-			if (_owner->_graphicsDev)
+			if (_graphicsDev)
 				return (_drawing = true);
 		}
 
 		void endDraw()
 		{
-			if (_owner->_graphicsDev && _drawing)
+			if (_graphicsDev && _drawing)
 			{
 				_drawing = false;
-				_owner->_graphicsDev->Present();
+				_graphicsDev->Present();
 			}	
 		}
 
 		void toggleFullScreen()
 		{
 			_isFullScrn = !_isFullScrn;
-			_owner->_graphicsDev->PresentationParameters().IsFullScreen(_isFullScrn);
-			_owner->_graphicsDev->applyFullscreen();
+			_graphicsDev->PresentationParameters().IsFullScreen(_isFullScrn);
+			_graphicsDev->applyFullscreen();
 		}
 	};
 
