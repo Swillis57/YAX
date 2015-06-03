@@ -37,8 +37,6 @@ namespace YAX
 
 	private:
 		GameWindow(std::string, i32, i32);
-		GameWindow(const GameWindow&) = delete;
-		GameWindow& operator=(const GameWindow&) = delete;
 		
 		bool _userCanResize, _goingFullscreen;
 		i32 _width, _height;

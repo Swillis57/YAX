@@ -9,7 +9,7 @@ namespace YAX
 		: ticks(t)
 	{}
 
-	TimeSpan::TimeSpan(Ticks&& t)
+	TimeSpan::TimeSpan(const Ticks& t)
 		: ticks(t.count())
 	{}
 

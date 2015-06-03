@@ -1,9 +1,8 @@
 #ifndef _TIME_SPAN_H
 #define _TIME_SPAN_H
 
-#include <string>
-#include <iostream>
 #include <chrono>
+#include <string>
 #include "Utils.h"
 
 #pragma region using statements
@@ -18,29 +17,23 @@ namespace YAX
 	typedef duration<i32, std::ratio<3600, 1>> Days;
 	
 
-	class TimeSpan
+	struct TimeSpan
 	{
 	public:
-		
-		
 		static const i64 TicksPerMillisecond = 10000;
+		static const TimeSpan Zero;
 		static const i64 TicksPerSecond = TicksPerMillisecond * 1000;
 		static const i64 TicksPerMinute = TicksPerSecond * 60;
 		static const i64 TicksPerHour = TicksPerMinute * 60;
 		static const i64 TicksPerDay = TicksPerHour * 24;
 		static const i64 MaxTicks = 9223372036854775807LL;
 		static const i64 MinTicks = -9223372036854775808LL;
-		
-
 
 		TimeSpan(const Ticks&);
-		TimeSpan(Ticks&&);
 		TimeSpan(i64);
 		TimeSpan(i64, i64, i64);
 		TimeSpan(i64, i64, i64, i64);
 		TimeSpan(i64, i64, i64, i64, i64);
-		
-
 
 		friend TimeSpan operator+(const TimeSpan&, const TimeSpan&);
 		friend TimeSpan operator-(const TimeSpan&, const TimeSpan&);
@@ -54,8 +47,6 @@ namespace YAX
 		friend bool operator<=(const TimeSpan&, const TimeSpan&);
 		TimeSpan operator-();
 
-
-
 		i64 GetDays();
 		i64 GetHours();
 		i64 GetMilliseconds();
@@ -68,13 +59,9 @@ namespace YAX
 		double GetTotalMinutes();
 		double GetTotalSeconds();
 
-
-
 		TimeSpan Duration();
 		int CompareTo(const TimeSpan&);
 		std::string ToString();
-
-
 
 		static TimeSpan FromDays(double);
 		static TimeSpan FromHours(double);
@@ -83,7 +70,6 @@ namespace YAX
 		static TimeSpan FromSeconds(double);
 		static TimeSpan FromTicks(i64);
 
-		static const TimeSpan Zero;
 	private:
 		Ticks ticks;
 		

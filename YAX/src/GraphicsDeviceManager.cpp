@@ -2,14 +2,15 @@
 
 #include <exception>
 #include "../include/Game.h"		
+#include "../include/GameServiceContainer.h"
 #include "../include/GameWindow.h"
 #include "../include/GraphicsDeviceInformation.h"
-#include "../../YAX.Graphics/include/GraphicsAdapter.h"
-#include "../../YAX.Graphics/include/DepthFormat.h"
-#include "../../YAX.Graphics/include/GraphicsDevice.h"
-#include "../../YAX.Graphics/include/GraphicsProfile.h"
-#include "../../YAX.Graphics/include/SurfaceFormat.h"
-#include "../../YAX.Graphics/include/PresentInterval.h"
+#include "../include/Graphics/GraphicsAdapter.h"
+#include "../include/Graphics/DepthFormat.h"
+#include "../include/Graphics/GraphicsDevice.h"
+#include "../include/Graphics/GraphicsProfile.h"
+#include "../include/Graphics/SurfaceFormat.h"
+#include "../include/Graphics/PresentInterval.h"
 #include "../../external/glfw/include/GLFW/glfw3.h"
 
 namespace YAX
@@ -20,14 +21,14 @@ namespace YAX
 	struct GraphicsDeviceManager::Impl
 	{
 		Game* _game;
-		std::unique_ptr<YAX::GraphicsDevice> _graphicsDev = nullptr;
+		std::shared_ptr<YAX::GraphicsDevice> _graphicsDev = nullptr;
 		YAX::GraphicsProfile _profile;
 		SurfaceFormat _sFmt;
 		DepthFormat _dFmt;
 		bool _isFullScrn, _multiSampPref, _vSync, _drawing;
 		i32 _bufHeight, _bufWidth;
 
-		Impl(Game* game, GraphicsDeviceManager* owner)
+		Impl(Game* game, std::shared_ptr<YAX::GraphicsDevice> device)
 		{
 			_game = game;
 			_profile = YAX::GraphicsProfile::HiDef;
@@ -38,6 +39,7 @@ namespace YAX
 			_vSync = true;
 			_bufHeight = GraphicsDeviceManager::_defaultBufHeight;
 			_bufWidth = GraphicsDeviceManager::_defaultBufWidth;
+			_graphicsDev = device;
 		}
 
 		void applyChanges()
@@ -68,13 +70,13 @@ namespace YAX
 			GraphicsDeviceInformation info;
 			info.Adapter = GraphicsAdapter::DefaultAdapter();
 			info.GraphicsProfile = _profile;
-			info.PresentationParameters.DeviceWindowHandle = _game->Window()->Handle();
+			info.PresentationParameters.DeviceWindowHandle(_game->Window()->Handle());
 
 			//If events were implemented, there would be a call to
 			//OnPreparingDeviceSettings here, as well as copying the user's changes
 			//to the GDM
 
-			_graphicsDev = std::make_unique<YAX::GraphicsDevice>(info.Adapter, info.GraphicsProfile, info.PresentationParameters);
+			*_graphicsDev = YAX::GraphicsDevice(info.Adapter, info.GraphicsProfile, info.PresentationParameters);
 			applyChanges();
 		}
 
@@ -102,8 +104,11 @@ namespace YAX
 	};
 
 	GraphicsDeviceManager::GraphicsDeviceManager(Game* game)
-		: _impl(std::make_unique<Impl>(game, this))
-	{}
+		: _impl(std::make_unique<Impl>(game, _graphicsDev))
+	{
+		game->Services()->AddService<IGraphicsDeviceService>(*this);
+		game->Services()->AddService<IGraphicsDeviceManager>(*this);
+	}
 
 	YAX::GraphicsProfile GraphicsDeviceManager::GraphicsProfile() const
 	{

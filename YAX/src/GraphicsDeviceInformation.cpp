@@ -1,5 +1,5 @@
 #include "../include/GraphicsDeviceInformation.h"
-#include "../../YAX.Graphics/include/GraphicsProfile.h"
+#include "../include/Graphics/GraphicsProfile.h"
 
 namespace YAX
 {
