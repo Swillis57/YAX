@@ -17,7 +17,7 @@ namespace YAX
 	class GraphicsDevice;
 	class GraphicsDeviceInformation;
 
-	class GraphicsDeviceManager : public IGraphicsDeviceManager
+	class GraphicsDeviceManager : public IGraphicsDeviceManager, public IGraphicsDeviceService
 	{
 		struct Impl;
 
