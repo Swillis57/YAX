@@ -4,35 +4,35 @@
 #include <exception>
 #include <unordered_map>
 #include <typeinfo>
+#include <typeindex>
 #include <type_traits>
 #include "IGameService.h"
-
 
 namespace YAX
 {
 	class GameServiceContainer
 	{
 	public:
-		GameServiceContainer();
+		GameServiceContainer() = default;
 
 		template<typename Type>
 		void AddService(const Type& service)
 		{
-			const auto& t = typeid(Type);
+			auto t = std::type_index(typeid(Type));
 
 			//If the service already exists or the provided object isn't a service, throw
 			if (_services.find(t) != _services.end())
 				throw std::invalid_argument("A service of this type is already registered.");
-			if (!std::is_base_of<IGameService, type>::value)
+			if (!std::is_base_of<IGameService, Type>::value)
 				throw std::invalid_argument("A service must inherit from the IGameService interface.");
 
-			_services[t] = &service;
+			_services[t] = (IGameService*)&service;
 		}
 		
 		template<typename Type>
 		IGameService* GetService()
 		{
-			const auto& t = typeid(Type);
+			auto t = std::type_index(typeid(Type));
 
 			if (_services.find(t) == _services.end())
 				return nullptr;
@@ -43,7 +43,7 @@ namespace YAX
 		template<typename Type>
 		void RemoveService()
 		{
-			const auto& t = typeid(Type)
+			auto t = std::type_index(typeid(Type));
 
 			if (_services.find(t) != _services.end())
 				_services.erase(t);
@@ -51,7 +51,9 @@ namespace YAX
 
 
 	private:
-		std::unordered_map<std::type_info, IGameService*> _services;
+		
+
+		std::unordered_map<std::type_index, IGameService*> _services;
 	};
 }
  
