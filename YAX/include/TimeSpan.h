@@ -44,6 +44,8 @@ namespace YAX
 
 		friend TimeSpan operator+(const TimeSpan&, const TimeSpan&);
 		friend TimeSpan operator-(const TimeSpan&, const TimeSpan&);
+		friend TimeSpan operator+=(TimeSpan, const TimeSpan&);
+		friend TimeSpan operator-=(TimeSpan, const TimeSpan&);
 		friend bool operator==(const TimeSpan&, const TimeSpan&);
 		friend bool operator>(const TimeSpan&, const TimeSpan&);
 		friend bool operator<(const TimeSpan&, const TimeSpan&);

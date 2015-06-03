@@ -38,6 +38,18 @@ namespace YAX
 		return TimeSpan(lhs.ticks - rhs.ticks);
 	}
 
+	TimeSpan operator+=(TimeSpan lhs, const TimeSpan& rhs)
+	{
+		lhs.ticks += rhs.ticks;
+		return lhs;
+	}
+
+	TimeSpan operator-=(TimeSpan lhs, const TimeSpan& rhs)
+	{
+		lhs.ticks -= rhs.ticks;
+		return lhs;
+	}
+
 	bool operator==(const TimeSpan& lhs, const TimeSpan& rhs)
 	{
 		return (lhs.ticks == rhs.ticks);
