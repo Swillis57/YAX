@@ -84,6 +84,7 @@ namespace YAX
 		{
 			if (_graphicsDev)
 				return (_drawing = true);
+			return false;
 		}
 
 		void endDraw()
@@ -108,6 +109,18 @@ namespace YAX
 	{
 		game->Services()->AddService<IGraphicsDeviceService>(*this);
 		game->Services()->AddService<IGraphicsDeviceManager>(*this);
+	}
+
+	GraphicsDeviceManager::~GraphicsDeviceManager() = default;
+
+	i32 GraphicsDeviceManager::DefaultBackBufferWidth()
+	{
+		return GraphicsDeviceManager::_defaultBufWidth;
+	}
+
+	i32 GraphicsDeviceManager::DefaultBackBufferHeight()
+	{
+		return GraphicsDeviceManager::_defaultBufHeight;
 	}
 
 	YAX::GraphicsProfile GraphicsDeviceManager::GraphicsProfile() const
@@ -197,7 +210,7 @@ namespace YAX
 
 	bool GraphicsDeviceManager::BeginDraw()
 	{
-		_impl->beginDraw();
+		return _impl->beginDraw();
 	}
 
 	void GraphicsDeviceManager::CreateDevice()
