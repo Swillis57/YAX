@@ -36,7 +36,7 @@ namespace YAX
 
 	i64 Stopwatch::ElapsedMilliseconds()
 	{
-		return Elapsed().GetTotalMilliseconds();
+		return (i64)Elapsed().GetTotalMilliseconds();
 	}
 
 	i64 Stopwatch::ElapsedTicks()

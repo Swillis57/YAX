@@ -118,27 +118,27 @@ namespace YAX
 
 	double TimeSpan::GetTotalDays()
 	{
-		return (this->ticks.count() / TicksPerDay);
+		return (double)(this->ticks.count() / TicksPerDay);
 	}
 
 	double TimeSpan::GetTotalHours()
 	{
-		return (this->ticks.count() / TicksPerHour);
+		return (double)(this->ticks.count() / TicksPerHour);
 	}
 
 	double TimeSpan::GetTotalMilliseconds()
 	{
-		return (this->ticks.count() / TicksPerMillisecond);
+		return (double)(this->ticks.count() / TicksPerMillisecond);
 	}
 
 	double TimeSpan::GetTotalMinutes()
 	{
-		return (this->ticks.count() / TicksPerMinute);
+		return (double)(this->ticks.count() / TicksPerMinute);
 	}
 
 	double TimeSpan::GetTotalSeconds()
 	{
-		return (this->ticks.count() / TicksPerSecond);
+		return (double)(this->ticks.count() / TicksPerSecond);
 	}
 
 
