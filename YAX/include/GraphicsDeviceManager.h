@@ -23,6 +23,7 @@ namespace YAX
 
 	public:
 		GraphicsDeviceManager(Game*);
+		~GraphicsDeviceManager();
 
 		static i32 DefaultBackBufferHeight();
 		static i32 DefaultBackBufferWidth();

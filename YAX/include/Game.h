@@ -2,6 +2,7 @@
 #define _GAME_H
 
 #include <memory>
+#include "LaunchParameters.h"
 
 namespace YAX
 {
@@ -10,7 +11,6 @@ namespace YAX
 	class GraphicsDevice;
 	class GameTime;
 	class GameWindow;
-	class LaunchParameters;
 	struct TimeSpan;
 
 	class Game
@@ -19,6 +19,7 @@ namespace YAX
 
 	public:
 		Game();
+		~Game();
 
 		/* Content Pipeline NYI
 		ContentManager& Content();
