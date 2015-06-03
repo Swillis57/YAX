@@ -19,7 +19,7 @@
 namespace YAX
 {
 	class GraphicsDevice;
-	class Rectangle;
+	struct Rectangle;
 
 	enum class SurfaceFormat : int;
 

@@ -1,5 +1,5 @@
-#include "../include/DisplayMode.h"
-#include "../../Framework.Geometry/include/Rectangle.h"
+#include "../../include/Graphics/DisplayMode.h"
+#include "../../include/Rectangle.h"
 
 namespace YAX
 {

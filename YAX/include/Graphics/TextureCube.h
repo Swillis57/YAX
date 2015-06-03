@@ -20,7 +20,7 @@ namespace YAX
 	enum class SurfaceFormat : int;
 
 	class GraphicsDevice;
-	class Rectangle;
+	struct Rectangle;
 	
 	class TextureCube : public Texture
 	{

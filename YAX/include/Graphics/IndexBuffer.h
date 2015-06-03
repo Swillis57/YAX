@@ -26,6 +26,7 @@ namespace YAX
 
 	class IndexBuffer : public GraphicsResource
 	{
+	public:
 		IndexBuffer(YAX::GraphicsDevice&, YAX::IndexElementSize, i32, YAX::BufferUsage);
 		IndexBuffer(const IndexBuffer&) = delete;
 		IndexBuffer& operator=(const IndexBuffer&) = delete;

@@ -1,6 +1,6 @@
-#include "../include/HalfVector4.h"
-#include "../include/HalfSingle.h"
-#include "../../YAX.Math/include/Vector4.h"
+#include "../../../include/Graphics/PackedVector/HalfVector4.h"
+#include "../../../include/Graphics/PackedVector/HalfSingle.h"
+#include "../../../include/Vector4.h"
 
 namespace YAX
 {

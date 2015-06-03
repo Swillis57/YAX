@@ -1,7 +1,7 @@
-#include "../include/NormalizedShort2.h"
-#include "../../YAX.Math/include/MathHelper.h"
-#include "../../YAX.Math/include/Vector2.h"
-#include "../../YAX.Math/include/Vector4.h"
+#include "../../../include/Graphics/PackedVector/NormalizedShort2.h"
+#include "../../../include/MathHelper.h"
+#include "../../../include/Vector2.h"
+#include "../../../include/Vector4.h"
 
 namespace YAX
 {

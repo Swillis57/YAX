@@ -1,6 +1,8 @@
 #ifndef _STOPWATCH_H
 #define _STOPWATCH_H
 
+#include "Utils.h"
+
 namespace YAX
 {
 	struct TimeSpan;

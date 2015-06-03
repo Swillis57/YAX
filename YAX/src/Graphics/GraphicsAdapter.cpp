@@ -1,11 +1,11 @@
-#include "../include/DepthFormat.h"
-#include "../include/GraphicsAdapter.h"
-#include "../include/GraphicsProfile.h"
-#include "../include/SurfaceFormat.h"
-#include "../../YAX/include/Rectangle.h"
+#include "../../include/Graphics/DepthFormat.h"
+#include "../../include/Graphics/GraphicsAdapter.h"
+#include "../../include/Graphics/GraphicsProfile.h"
+#include "../../include/Graphics/SurfaceFormat.h"
+#include "../../include/Rectangle.h"
 #include "../../../external/glew/include/GL/glew.h"
+#include "../../../external/glfw/include/GLFW/glfw3.h"
 
-#include "../../external/glfw/include/GLFW/glfw3.h"
 #ifdef _WIN32
 #	define GLFW_EXPOSE_NATIVE_WIN32
 #	define GLFW_EXPOSE_NATIVE_WGL
@@ -16,7 +16,7 @@
 #	define GLFW_EXPOSE_NATIVE_COCOA
 #	define GLFW_EXPOSE_NATIVE_NSGL					
 #endif
-#include "../../external/glfw/include/GLFW/glfw3native.h"
+#include "../../../external/glfw/include/GLFW/glfw3native.h"
 
 //Takes the const GLchar* from glGetString and casts it into an std::string
 #define glGetActualString(enum) (std::string{reinterpret_cast<const char*>(glGetString(enum))} + "\0")

@@ -13,7 +13,6 @@ namespace YAX
 	enum class DepthFormat : int;
 	enum class RenderTargetUsage : int;
 
-
 	struct Rectangle;
 
 	class PresentationParameters

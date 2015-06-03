@@ -3,6 +3,8 @@
 #include <chrono>
 #include <thread>
 #include <exception>
+#include <iostream>
+#include <cstdlib>
 #include "../include/Graphics/GraphicsDevice.h"
 #include "../../external/glew/include/GL/glew.h"
 #include "../../external/glfw/include/GLFW/glfw3.h"
@@ -11,7 +13,6 @@
 #include "../include/GameWindow.h"
 #include "../include/GraphicsDeviceManager.h"
 #include "../include/MathHelper.h"
-#include "../include/LaunchParameters.h"
 #include "../include/Stopwatch.h"
 #include "../include/TimeSpan.h"
 
@@ -24,15 +25,14 @@ namespace YAX
 		GameServiceContainer _services;
 		GameTime _gameTime;
 		IGraphicsDeviceService* _gdService;
-		GameWindow _window;
+		std::unique_ptr<GameWindow> _window;
 		YAX::LaunchParameters _params;
-		long _prevTime, _frameLag;
+		i64 _prevTime, _frameLag;
 		Stopwatch _timer;
 		TimeSpan _sleepTime, _targElapsedTime, _totalUpdateTime;
 
 		Impl()
-			: _window("", GraphicsDeviceManager::DefaultBackBufferWidth(), GraphicsDeviceManager::DefaultBackBufferHeight()),
-			_sleepTime(TimeSpan::FromMilliseconds(20)),
+			: _sleepTime(TimeSpan::FromMilliseconds(20)),
 			_targElapsedTime(TimeSpan::FromTicks(166667)),
 			_totalUpdateTime(0),
 			_gdService(nullptr),
@@ -52,6 +52,8 @@ namespace YAX
 	Game::Game()
 		: _impl(std::make_unique<Impl>())
 	{}
+	
+	Game::~Game() = default;
 
 	GameServiceContainer* Game::Services()
 	{
@@ -128,12 +130,12 @@ namespace YAX
 
 	GameWindow* Game::Window()
 	{
-		return &_impl->_window;
+		return _impl->_window.get();
 	}
 
 	void Game::Exit()
 	{
-		glfwSetWindowShouldClose(_impl->_window.Handle(), 1);
+		glfwSetWindowShouldClose(_impl->_window->Handle(), 1);
 		_impl->_shouldRun = false;
 	}
 
@@ -181,7 +183,7 @@ namespace YAX
 		TimeSpan maxUpdateTime = TimeSpan::FromMilliseconds(500);
 		
 		//Based on FNA's Tick implementation
-		long curTime = _impl->_timer.Elapsed().GetTicks();
+		i64 curTime = _impl->_timer.Elapsed().GetTicks();
 		_impl->_totalUpdateTime += TimeSpan::FromTicks(curTime - _impl->_prevTime);
 		_impl->_prevTime = curTime;
 
@@ -190,7 +192,7 @@ namespace YAX
 		{
 			while (_impl->_totalUpdateTime < _impl->_targElapsedTime)
 			{
-				int sleepTime = (_impl->_targElapsedTime - _impl->_totalUpdateTime).GetTotalMilliseconds();
+				i32 sleepTime = (i32)(_impl->_targElapsedTime - _impl->_totalUpdateTime).GetTotalMilliseconds();
 
 				std::this_thread::sleep_for((milliseconds)sleepTime);
 
@@ -210,7 +212,7 @@ namespace YAX
 		if (_impl->_isFixedTimeStep)
 		{
 			_impl->_gameTime.ElapsedGameTime(_impl->_targElapsedTime);
-			int steps = 0;
+			i32 steps = 0;
 
 			while (_impl->_totalUpdateTime >= _impl->_targElapsedTime)
 			{
@@ -222,7 +224,7 @@ namespace YAX
 			}
 
 			//If Update was called more than once per frame, then the game is running slow
-			_impl->_frameLag += MathHelper::Max(0, steps - 1);
+			_impl->_frameLag += (i32)MathHelper::Max(0, (float)(steps - 1));
 
 			//If the lag has passed, turn the RunningSlow flag off
 			//else if the number of frames that have lagged > 5, turn the flag on
@@ -294,6 +296,47 @@ namespace YAX
 
 	void Game::Initialize()
 	{
-			
+		if (!glfwInit())
+		{
+			std::cout << "Error initializing GLFW" << std::endl;
+			std::cin.get();
+			std::exit(EXIT_FAILURE);
+		}
+
+		glewExperimental = true;
+		if (!glewInit())
+		{
+			std::cout << "Error initializing GLEW" << std::endl;
+			std::cin.get();
+			std::exit(EXIT_FAILURE);
+		}
+
+		_impl->_window = std::unique_ptr<GameWindow>(new GameWindow(
+			"",
+			GraphicsDeviceManager::DefaultBackBufferWidth(),
+			GraphicsDeviceManager::DefaultBackBufferHeight()
+			));
+
+		_impl->_gdService = (IGraphicsDeviceService*)_impl->_services.GetService<IGraphicsDeviceService>();
+
+		if (_impl->_gdService && _impl->_gdService->GraphicsDevice())
+		{
+			LoadContent();
+		}
+	}
+
+	void Game::LoadContent()
+	{
+		//Content Pipeline NYI
+	}
+
+	void Game::UnloadContent()
+	{
+
+	}
+
+	void Game::Update(const GameTime& gt)
+	{
+		//Not using GameComponents, so the base Update does nothing	
 	}
 }

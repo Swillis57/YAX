@@ -10,7 +10,7 @@ namespace YAX
 {
 	class Game;
 	class GraphicsDeviceManager;
-	class Rectangle;
+	struct Rectangle;
 
 	class GameWindow
 	{

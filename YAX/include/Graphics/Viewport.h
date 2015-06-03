@@ -5,9 +5,9 @@
 
 namespace YAX
 {
-	class Rectangle;
-	class Vector3;
-	class Matrix;
+	struct Rectangle;
+	struct Vector3;
+	struct Matrix;
 
 	struct Viewport
 	{

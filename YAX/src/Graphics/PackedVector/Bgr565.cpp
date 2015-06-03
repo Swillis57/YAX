@@ -1,7 +1,7 @@
-#include "../include/Bgr565.h"
-#include "../../YAX.Math/include/MathHelper.h"
-#include "../../YAX.Math/include/Vector3.h"
-#include "../../YAX.Math/include/Vector4.h"
+#include "../../../include/Graphics/PackedVector/Bgr565.h"
+#include "../../../include/MathHelper.h"
+#include "../../../include/Vector3.h"
+#include "../../../include/Vector4.h"
 
 namespace YAX
 {

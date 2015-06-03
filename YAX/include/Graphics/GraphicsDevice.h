@@ -45,7 +45,7 @@ namespace YAX
 	enum class PrimitiveType : int;
 	enum class ClearOptions : int;
 
-	class Vector4;
+	struct Vector4;
 	class VertexDeclaration;
 	class RenderTargetBinding;
 	class VertexBufferBinding;
