@@ -2,17 +2,19 @@
 #define _GDS_INTERFACE
 
 #include <memory>
-#include "../../YAX.Graphics/include/GraphicsDevice.h"
+#include "IGameService.h"
 
 namespace YAX
 {
-	class IGraphicsDeviceService
+	class GraphicsDevice;
+
+	class IGraphicsDeviceService : public IGameService
 	{
 	public:
 		YAX::GraphicsDevice* GraphicsDevice() { return _graphicsDev.get(); }
 	
 	protected:
-		std::unique_ptr<YAX::GraphicsDevice> _graphicsDev;
+		std::shared_ptr<YAX::GraphicsDevice> _graphicsDev;
 	};
 	
 }
