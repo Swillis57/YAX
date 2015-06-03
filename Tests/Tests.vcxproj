@@ -40,7 +40,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)build/$(Configuration)/</OutDir>
-    <LibraryPath>$(SolutionDir)build/$(Configuration)/;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)build/$(Configuration)/;$(SolutionDir)lib/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)build/$(Configuration)/</OutDir>
@@ -50,11 +50,16 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Framework.Math.lib;Framework.Geometry.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>YAX.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>LinkVerbose</ShowProgress>
     </Link>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -77,6 +82,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="catch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YAX\YAX.vcxproj">
+      <Project>{5f0b0ef7-b99a-4db0-a9a3-7d3758a8e971}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

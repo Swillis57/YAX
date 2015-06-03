@@ -1,12 +1,46 @@
 //For testing purposes
 
 #include <iostream>
-#define CATCH_CONFIG_RUNNER
-#include "catch.h"
+#include "../YAX/include/Game.h"
+#include "../YAX/include/GraphicsDeviceManager.h"
+#include "../YAX/include/GameTime.h"
 
-int main(int argc, char* const argv[])
+using namespace YAX;
+
+class Game1 : public Game
 {
-	int res = Catch::Session().run(argc, argv);
-	std::cin.get();
-	return res;
+	using Base = Game;
+
+public:
+	GraphicsDeviceManager graphics;
+
+	Game1()
+		: Base(), 
+		graphics(this)
+	{}
+
+protected:
+	void Initialize() override
+	{
+		Base::Initialize();
+	}
+
+	void Update(const GameTime& gt) override
+	{
+		Base::Update(gt);
+	}
+
+	void Draw() override
+	{
+		Base::Draw();
+	}
+
+};
+
+
+int main()
+{
+	Game g {};
+
+	g.Run();
 }
