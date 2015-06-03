@@ -1,18 +1,22 @@
 #ifndef _GAME_H
 #define _GAME_H
 
-struct GLFWwindow;
+#include <memory>
 
 namespace YAX
 {
 	//class ContentManager;
+	class GameServiceContainer;
 	class GraphicsDevice;
+	class GameTime;
 	class GameWindow;
 	class LaunchParameters;
-	class TimeSpan;
+	struct TimeSpan;
 
 	class Game
 	{
+		struct Impl;
+
 	public:
 		Game();
 
@@ -20,9 +24,11 @@ namespace YAX
 		ContentManager& Content();
 		void Content(const ContentManager&);*/
 		
-		YAX::GraphicsDevice& GraphicsDevice();
+		GameServiceContainer* Services();
 
-		TimeSpan& InactiveSleepTime();
+		YAX::GraphicsDevice* GraphicsDevice();
+
+		TimeSpan InactiveSleepTime();
 		void InactiveSleepTime(const TimeSpan&);
 
 		bool IsActive();
@@ -34,14 +40,12 @@ namespace YAX
 		bool IsMouseVisible();
 		void IsMouseVisible(bool);
 
-		YAX::LaunchParameters* LaunchParameters();
-		void LaunchParameters(const YAX::LaunchParameters&);
+		YAX::LaunchParameters LaunchParameters();
 
-		TimeSpan* TargetElapsedTime();
+		TimeSpan TargetElapsedTime();
 		void TargetElapsedTime(const TimeSpan&);
 
 		GameWindow* Window();
-		void Window(GameWindow);
 
 		void Exit();
 		void ResetElapsedTime();
@@ -51,7 +55,7 @@ namespace YAX
 		void Tick();
 
 	protected:
-		virtual void BeginDraw();
+		virtual bool BeginDraw();
 		virtual void BeginRun();
 		virtual void Draw();
 		virtual void EndDraw();
@@ -59,7 +63,10 @@ namespace YAX
 		virtual void Initialize();
 		virtual void LoadContent();
 		virtual void UnloadContent();
-		virtual void Update();
+		virtual void Update(const GameTime&);
+
+	private:
+		std::unique_ptr<Impl> _impl;
 	};
 }
 #endif
