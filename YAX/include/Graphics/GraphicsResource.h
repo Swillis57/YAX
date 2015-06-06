@@ -9,15 +9,17 @@ namespace YAX
 
 	class GraphicsResource
 	{
-	public:
-		GraphicsResource(YAX::GraphicsDevice&, std::string);
-		virtual ~GraphicsResource() = 0;
+		friend class YAX::GraphicsDevice;
 
-		YAX::GraphicsDevice& GraphicsDevice();
+	public:
+		GraphicsResource(std::string);
+		virtual ~GraphicsResource();
+
+		YAX::GraphicsDevice* GraphicsDevice();
 		std::string Name();
 	
 	protected:
-		YAX::GraphicsDevice& _device;
+		YAX::GraphicsDevice* _device;
 		std::string _name;
 	};
 }
