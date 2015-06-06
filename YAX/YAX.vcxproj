@@ -253,6 +253,7 @@
     <ClCompile Include="src\GraphicsDeviceInformation.cpp" />
     <ClCompile Include="src\GraphicsDeviceManager.cpp" />
     <ClCompile Include="src\Graphics\BlendState.cpp" />
+    <ClCompile Include="src\Graphics\DepthStencilState.cpp" />
     <ClCompile Include="src\Graphics\DisplayMode.cpp" />
     <ClCompile Include="src\Graphics\GraphicsAdapter.cpp" />
     <ClCompile Include="src\Graphics\GraphicsDevice.cpp" />

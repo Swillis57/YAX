@@ -12,56 +12,58 @@ namespace YAX
 	class DepthStencilState : public GraphicsResource
 	{
 	public:
-		DepthStencilState();
-		DepthStencilState(const DepthStencilState&);
-		DepthStencilState& operator=(const DepthStencilState&);
+		static const DepthStencilState Default;
+		static const DepthStencilState DepthRead;
+		static const DepthStencilState None;
 
-		StencilOperation CounterClockwiseStencilDepthBufferFail() const;
+		DepthStencilState(bool, bool);
+
+		StencilOperation CounterClockwiseStencilDepthBufferFail();
 		void CounterClockwiseStencilDepthBufferFail(StencilOperation);
 
-		StencilOperation CounterClockwiseStencilFail() const;
+		StencilOperation CounterClockwiseStencilFail();
 		void CounterClockwiseStencilFail(StencilOperation);
 
-		StencilOperation CounterClockwiseStencilFunction() const;
-		void CounterClockwiseStencilFunction(StencilOperation);
+		CompareFunction CounterClockwiseStencilFunction();
+		void CounterClockwiseStencilFunction(CompareFunction);
 
-		StencilOperation CounterClockwiseStencilPass() const;
-		void CounteClockwiseStencilPass(StencilOperation);
+		StencilOperation CounterClockwiseStencilPass();
+		void CounterClockwiseStencilPass(StencilOperation);
 
-		bool DepthBufferEnable() const;
+		bool DepthBufferEnable();
 		void DepthBufferEnable(bool);
 
-		CompareFunction DepthBufferFunction() const;
+		CompareFunction DepthBufferFunction();
 		void DepthBufferFunction(CompareFunction);
 
-		bool DepthBufferWriteEnable() const;
+		bool DepthBufferWriteEnable();
 		void DepthBufferWriteEnable(bool);
 
-		i32 ReferenceStencil() const;
+		i32 ReferenceStencil();
 		void ReferenceStencil(i32);
 
-		StencilOperation StencilDepthBufferFail() const;
+		StencilOperation StencilDepthBufferFail();
 		void StencilDepthBufferFail(StencilOperation);
 
-		bool StencilEnable() const;
+		bool StencilEnable();
 		void StencilEnable(bool);
 
-		StencilOperation StencilFail() const;
+		StencilOperation StencilFail();
 		void StencilFail(StencilOperation);
 
-		CompareFunction StencilFunction() const;
+		CompareFunction StencilFunction();
 		void StencilFunction(CompareFunction);
 
-		i32 StencilMask() const;
+		i32 StencilMask();
 		void StencilMask(i32);
 
-		StencilOperation StencilPass() const;
+		StencilOperation StencilPass();
 		void StencilPass(StencilOperation);
 
-		i32 StencilWriteMask() const;
+		i32 StencilWriteMask();
 		void StencilWriteMask(i32);
 
-		bool TwoSidedStencilMode() const;
+		bool TwoSidedStencilMode();
 		void TwoSidedStencilMode(bool);
 
 	private:
@@ -69,7 +71,7 @@ namespace YAX
 						 _stencilDepthBufferFail, _stencilFail, _stencilPass;
 		CompareFunction _ccwStencilFunc, _depthBufferFunc, _stencilFunc;
 		bool _depthBufferEnable, _stencilEnable, _depthBufferWriteEnable, _twoSidedStencilMode;
-		i32 _refStencil, _stencilMask;
+		i32 _refStencil, _stencilMask, _stencilWriteMask;
 
 	};
 }
