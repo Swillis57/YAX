@@ -37,11 +37,7 @@ namespace YAX
 		friend bool operator!=(const Color&, const Color&);
 		
 
-	private:
-		void Pack(float, float, float, float);
-		void Pack(byte, byte, byte, byte);
-
-		#pragma region Pre-Defined Colors
+#pragma region Pre-Defined Colors
 		static const Color AliceBlue;
 		static const Color AntiqueWhite;
 		static const Color Aqua;
@@ -185,6 +181,9 @@ namespace YAX
 		static const Color YellowGreen;
 #pragma endregion
 
+	private:
+		void Pack(float, float, float, float);
+		void Pack(byte, byte, byte, byte);
 	};
 }
 #endif
