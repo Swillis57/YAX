@@ -8,6 +8,38 @@
 
 namespace YAX
 {
+	const BlendState BlendState::Additive = BlendState(
+		"BlendState::Additive",
+		Blend::SourceAlpha,
+		Blend::SourceAlpha,
+		Blend::One,
+		Blend::One
+	);
+
+	const BlendState BlendState::AlphaBlend = BlendState(
+		"BlendState::AlphaBlend",
+		Blend::One,
+		Blend::One,
+		Blend::InverseSourceAlpha,
+		Blend::InverseSourceAlpha
+	);
+
+	const BlendState BlendState::NonPremultiplied = BlendState(
+		"BlendState::NonPremultiplied",
+		Blend::SourceAlpha,
+		Blend::SourceAlpha,
+		Blend::InverseSourceAlpha,
+		Blend::InverseSourceAlpha
+	);
+
+	const BlendState BlendState::Opaque = BlendState(
+		"BlendState::Opaque",
+		Blend::One,
+		Blend::One,
+		Blend::Zero,
+		Blend::Zero
+	);
+
 	BlendState::BlendState(
 		std::string name = "",
 		Blend colorSourceBlend = Blend::One, 
