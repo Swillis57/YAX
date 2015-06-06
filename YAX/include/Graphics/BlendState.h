@@ -22,40 +22,40 @@ namespace YAX
 
 		BlendState(std::string, Blend, Blend, Blend, Blend);
 		
-		BlendFunction* AlphaBlendFunction();
+		BlendFunction AlphaBlendFunction();
 		void AlphaBlendFunction(BlendFunction);
 
-		Blend* AlphaDestinationBlend();
+		Blend AlphaDestinationBlend();
 		void AlphaDestinationBlend(Blend);
 
-		Blend* AlphaSourceBlend();
+		Blend AlphaSourceBlend();
 		void AlphaSourceBlend(Blend);
 
-		Color* BlendFactor();
+		Color BlendFactor();
 		void BlendFactor(const Color&);
 
-		BlendFunction* ColorBlendFunction();
+		BlendFunction ColorBlendFunction();
 		void ColorBlendFunction(BlendFunction);
 
-		Blend* ColorDestinationBlend();
+		Blend ColorDestinationBlend();
 		void ColorDestinationBlend(Blend);
 
-		Blend* ColorSourceBlend();
+		Blend ColorSourceBlend();
 		void ColorSourceBlend(Blend);
 
-		ColorWriteChannels* ColorWriteChannels0();
+		ColorWriteChannels ColorWriteChannels0();
 		void ColorWriteChannels0(ColorWriteChannels); 
 
-		ColorWriteChannels* ColorWriteChannels1();
+		ColorWriteChannels ColorWriteChannels1();
 		void ColorWriteChannels1(ColorWriteChannels);
 
-		ColorWriteChannels* ColorWriteChannels2();
+		ColorWriteChannels ColorWriteChannels2();
 		void ColorWriteChannels2(ColorWriteChannels);
 
-		ColorWriteChannels* ColorWriteChannels3();
+		ColorWriteChannels ColorWriteChannels3();
 		void ColorWriteChannels3(ColorWriteChannels);
 
-		i32* MultiSampleMask();
+		i32 MultiSampleMask();
 		void MultiSampleMask(i32);
 
 	private:

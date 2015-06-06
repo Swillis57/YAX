@@ -30,9 +30,9 @@ namespace YAX
 		_multiSampleMask(-1)
 	{}
 
-	BlendFunction* BlendState::AlphaBlendFunction()
+	BlendFunction BlendState::AlphaBlendFunction()
 	{
-		return &_alphaBlendFunc;
+		return _alphaBlendFunc;
 	}
 
 	void BlendState::AlphaBlendFunction(BlendFunction func)
@@ -40,9 +40,9 @@ namespace YAX
 		_alphaBlendFunc = func;
 	}
 
-	Blend* BlendState::AlphaDestinationBlend()
+	Blend BlendState::AlphaDestinationBlend()
 	{
-		return &_alphaDestBlend;
+		return _alphaDestBlend;
 	}
 
 	void BlendState::AlphaDestinationBlend(Blend b)
@@ -50,9 +50,9 @@ namespace YAX
 		_alphaDestBlend = b;
 	}
 
-	Blend* BlendState::AlphaSourceBlend()
+	Blend BlendState::AlphaSourceBlend()
 	{
-		return &_alphaSrcBlend;
+		return _alphaSrcBlend;
 	}
 
 	void BlendState::AlphaSourceBlend(Blend b)
@@ -60,9 +60,9 @@ namespace YAX
 		_alphaSrcBlend = b;
 	}
 
-	Color* BlendState::BlendFactor()
+	Color BlendState::BlendFactor()
 	{
-		return &_blendFactor;
+		return _blendFactor;
 	}
 
 	void BlendState::BlendFactor(const Color& c)
@@ -70,9 +70,9 @@ namespace YAX
 		_blendFactor = c;
 	}
 
-	BlendFunction* BlendState::ColorBlendFunction()
+	BlendFunction BlendState::ColorBlendFunction()
 	{
-		return &_colorBlendFunc;
+		return _colorBlendFunc;
 	}
 
 	void BlendState::ColorBlendFunction(BlendFunction func)
@@ -80,9 +80,9 @@ namespace YAX
 		_colorBlendFunc = func;
 	}
 
-	Blend* BlendState::ColorDestinationBlend()
+	Blend BlendState::ColorDestinationBlend()
 	{
-		return &_colorDestBlend;
+		return _colorDestBlend;
 	}
 
 	void BlendState::ColorDestinationBlend(Blend b)
@@ -90,9 +90,9 @@ namespace YAX
 		_colorDestBlend = b;
 	}
 
-	Blend* BlendState::ColorSourceBlend()
+	Blend BlendState::ColorSourceBlend()
 	{
-		return &_colorSrcBlend;
+		return _colorSrcBlend;
 	}
 
 	void BlendState::ColorSourceBlend(Blend b)
@@ -100,9 +100,9 @@ namespace YAX
 		_colorSrcBlend = b;
 	}
 
-	ColorWriteChannels* BlendState::ColorWriteChannels0()
+	ColorWriteChannels BlendState::ColorWriteChannels0()
 	{
-		return &_cwc0;
+		return _cwc0;
 	}
 
 	void BlendState::ColorWriteChannels0(ColorWriteChannels cwc)
@@ -110,27 +110,27 @@ namespace YAX
 		_cwc0 = cwc;
 	}
 
-	ColorWriteChannels* BlendState::ColorWriteChannels1()
+	ColorWriteChannels BlendState::ColorWriteChannels1()
 	{
-		return &_cwc1;
+		return _cwc1;
 	}
 
 	void BlendState::ColorWriteChannels1(ColorWriteChannels cwc)
 	{
 		_cwc1 = cwc;
 	}
-	ColorWriteChannels* BlendState::ColorWriteChannels2()
+	ColorWriteChannels BlendState::ColorWriteChannels2()
 	{
-		return &_cwc2;
+		return _cwc2;
 	}
 
 	void BlendState::ColorWriteChannels2(ColorWriteChannels cwc)
 	{
 		_cwc2 = cwc;
 	}
-	ColorWriteChannels* BlendState::ColorWriteChannels3()
+	ColorWriteChannels BlendState::ColorWriteChannels3()
 	{
-		return &_cwc3;
+		return _cwc3;
 	}
 
 	void BlendState::ColorWriteChannels3(ColorWriteChannels cwc)
@@ -138,9 +138,9 @@ namespace YAX
 		_cwc3 = cwc;
 	}
 
-	i32* BlendState::MultiSampleMask()
+	i32 BlendState::MultiSampleMask()
 	{
-		return &_multiSampleMask;
+		return _multiSampleMask;
 	}
 
 	void BlendState::MultiSampleMask(i32 ms)
