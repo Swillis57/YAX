@@ -7,17 +7,26 @@
 namespace YAX
 {
 	enum class GraphicsProfile : int;
+	class GraphicsAdapter;
 
 	class GraphicsDeviceInformation
 	{
 	public:
 		GraphicsDeviceInformation();
 
-		GraphicsAdapter Adapter;
+		GraphicsAdapter* Adapter();
+		void Adapter(GraphicsAdapter*);
 
-		YAX::GraphicsProfile GraphicsProfile;
+		YAX::GraphicsProfile GraphicsProfile();
+		void GraphicsProfile(YAX::GraphicsProfile);
 
-		YAX::PresentationParameters PresentationParameters;
+		YAX::PresentationParameters PresentationParameters();
+		void PresentationParameters(YAX::PresentationParameters);
+	
+	private:
+		GraphicsAdapter* _adapter;
+		YAX::GraphicsProfile _profile;
+		YAX::PresentationParameters _params;
 	};
 }
 
