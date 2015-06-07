@@ -72,18 +72,18 @@ namespace YAX
 
 		bool IsDefault() const
 		{
-			return _handle == _defaultAdapter.MonitorHandle();
+			return _handle == _defaultAdapter->MonitorHandle();
 		}
 
 		bool IsWideScreen() const
 		{
 			//A widescreen aspect ratio is either 16:9 or 16:10
 			float aspRat = CurrentDisplayMode().AspectRatio();
-			return aspRat == 1.77f || aspRat == 1.6;
+			return aspRat == 1.77f || aspRat == 1.6f;
 		}
 	};
 
-	GraphicsAdapter& GraphicsAdapter::_defaultAdapter = GraphicsAdapter("", "", "", nullptr);
+	GraphicsAdapter* GraphicsAdapter::_defaultAdapter;
 	std::vector<GraphicsAdapter> GraphicsAdapter::_adapters;
 
 	GraphicsAdapter::GraphicsAdapter(std::string name, std::string desc, std::string vend, GLFWmonitor* hnd)
@@ -113,12 +113,12 @@ namespace YAX
 		return *this;
 	}
 
-	const std::vector<GraphicsAdapter>& GraphicsAdapter::Adapters()
+	const std::vector<GraphicsAdapter>* GraphicsAdapter::Adapters()
 	{
-		return _adapters;
+		return &_adapters;
 	}
 
-	GraphicsAdapter GraphicsAdapter::DefaultAdapter()
+	GraphicsAdapter* GraphicsAdapter::DefaultAdapter()
 	{
 		return _defaultAdapter;
 	}
@@ -149,7 +149,7 @@ namespace YAX
 			_adapters.emplace_back(GraphicsAdapter {name, desc, vend, monitors[i] });
 
 			if (monitors[i] == defaultMonitor)
-				_defaultAdapter = _adapters[_adapters.size() - 1];
+				_defaultAdapter = &_adapters[_adapters.size() - 1];
 		}
 	}
 

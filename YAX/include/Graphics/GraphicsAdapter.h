@@ -32,8 +32,8 @@ namespace YAX
 		GraphicsAdapter& operator=(const GraphicsAdapter&);
 		GraphicsAdapter& operator=(GraphicsAdapter&&);
 
-		static const std::vector<GraphicsAdapter>& Adapters();
-		static GraphicsAdapter DefaultAdapter();
+		static const std::vector<GraphicsAdapter>* Adapters();
+		static GraphicsAdapter* DefaultAdapter();
 		static void FindAdapters();
 		
 		
@@ -51,7 +51,7 @@ namespace YAX
 		std::unique_ptr<Impl> _impl;
 
 		static std::vector<GraphicsAdapter> _adapters;
-		static GraphicsAdapter& _defaultAdapter;
+		static GraphicsAdapter* _defaultAdapter;
 		static bool _useNull, _useRef;
 
 	};
