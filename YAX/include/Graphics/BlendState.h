@@ -21,6 +21,7 @@ namespace YAX
 		static const BlendState Opaque;
 
 		BlendState(std::string, Blend, Blend, Blend, Blend);
+		~BlendState() = default;
 		
 		BlendFunction AlphaBlendFunction();
 		void AlphaBlendFunction(BlendFunction);

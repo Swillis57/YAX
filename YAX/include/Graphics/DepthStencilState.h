@@ -17,6 +17,7 @@ namespace YAX
 		static const DepthStencilState None;
 
 		DepthStencilState(bool, bool);
+		~DepthStencilState() = default;
 
 		StencilOperation CounterClockwiseStencilDepthBufferFail();
 		void CounterClockwiseStencilDepthBufferFail(StencilOperation);
