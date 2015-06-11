@@ -24,6 +24,9 @@ namespace YAX
 		std::memcpy(&res, &val, sizeof(F));
 		return res;
 	}	
+
+	template<size_t L, size_t R>
+	struct is_leq_to { static const bool value = L <= R; };
 }
 
 #endif
