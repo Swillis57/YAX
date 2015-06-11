@@ -5,7 +5,7 @@
 
 namespace YAX
 {
-	enum class IndexElementSize : int 
+	enum class IndexElementSize : GLsizeiptr 
 	{
 		EightBits = sizeof(GLubyte),
 		SixteenBits = sizeof(GLushort),
