@@ -68,9 +68,10 @@ namespace YAX
 		void createDevice()
 		{
 			GraphicsDeviceInformation info;
-			info.Adapter = GraphicsAdapter::DefaultAdapter();
-			info.GraphicsProfile = _profile;
-			info.PresentationParameters.DeviceWindowHandle(_game->Window()->Handle());
+			info.Adapter(GraphicsAdapter::DefaultAdapter());
+			info.GraphicsProfile(_profile);
+			auto pp = info.PresentationParameters();
+			pp.DeviceWindowHandle(_game->Window()->Handle());
 
 			//If events were implemented, there would be a call to
 			//OnPreparingDeviceSettings here, as well as copying the user's changes
