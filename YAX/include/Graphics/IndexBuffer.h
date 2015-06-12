@@ -95,7 +95,7 @@ namespace YAX
 				GL_ELEMENT_ARRAY_BUFFER,
 				offset,
 				(GLsizeiptr)count * sizeof(indexType),
-				GL_MAP_READ_BIT | GL_MAP_INVALIDATE_RANGE_BIT);
+				GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_RANGE_BIT);
 
 			if (data != nullptr)
 			{
