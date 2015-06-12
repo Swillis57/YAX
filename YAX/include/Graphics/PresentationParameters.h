@@ -7,10 +7,9 @@ struct GLFWwindow;
 
 namespace YAX
 {
-	enum class DisplayOrientation : int;
 	enum class PresentInterval : int;
-	enum class SurfaceFormat : int;
-	enum class DepthFormat : int;
+	enum class SurfaceFormat : ui32;
+	enum class DepthFormat : ui32;
 	enum class RenderTargetUsage : int;
 
 	struct Rectangle;
@@ -55,7 +54,7 @@ namespace YAX
 		SurfaceFormat _backBufFormat;
 		i32 _backBufHeight, _backBufWidth;
 		DepthFormat _depthFormat;
-		//GLFWwindow* _winHandle;
+		GLFWwindow* _winHandle;
 		bool _fullScreen;
 		i32 _sampleCount;
 		PresentInterval _interval;
