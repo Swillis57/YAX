@@ -12,7 +12,8 @@ namespace YAX
 	{
 	public:
 		YAX::GraphicsDevice* GraphicsDevice() { return _graphicsDev.get(); }
-	
+		~IGraphicsDeviceService() = default;
+
 	protected:
 		std::shared_ptr<YAX::GraphicsDevice> _graphicsDev;
 	};

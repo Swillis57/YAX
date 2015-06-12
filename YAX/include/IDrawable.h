@@ -7,10 +7,8 @@ namespace YAX
 	{
 	public:
 		virtual void Draw() = 0;
-		virtual ~IDrawable() = 0;
+		virtual ~IDrawable() = default;
 	};
-
-	inline IDrawable::~IDrawable() {}
 }
 
 

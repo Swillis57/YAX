@@ -7,10 +7,8 @@ namespace YAX
 	{
 	public:
 		virtual void Update() = 0;
-		virtual ~IUpdateable() = 0;
+		virtual ~IUpdateable() = default;
 	};
-
-	inline IUpdateable::~IUpdateable() {}
 }
 
 
