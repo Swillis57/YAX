@@ -10,8 +10,8 @@
 namespace YAX
 {
 	enum class GraphicsProfile : int;
-	enum class DepthFormat : int;
-	enum class SurfaceFormat : int;
+	enum class DepthFormat : ui32;
+	enum class SurfaceFormat : ui32;
 
 	class Game;
 	class GraphicsDevice;

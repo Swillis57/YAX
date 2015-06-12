@@ -11,8 +11,8 @@ struct GLFWmonitor;
 
 namespace YAX
 {
-	enum class SurfaceFormat : int;
-	enum class DepthFormat : int;
+	enum class SurfaceFormat : ui32;
+	enum class DepthFormat : ui32;
 	enum class GraphicsProfile : int;
 
 	typedef std::vector<DisplayMode> DisplayModeCollection;

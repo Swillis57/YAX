@@ -7,7 +7,7 @@
 
 namespace YAX
 {
-	enum class SurfaceFormat : int;
+	enum class SurfaceFormat : ui32;
 
 	class GraphicsDevice;
 

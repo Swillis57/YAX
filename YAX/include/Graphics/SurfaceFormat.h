@@ -5,7 +5,7 @@
 
 namespace YAX
 {
-	enum class SurfaceFormat : int 
+	enum class SurfaceFormat : ui32 
 	{
 		Color = GL_RGBA8UI,
 		Rgb565 = GL_RGB565,

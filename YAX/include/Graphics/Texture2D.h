@@ -21,7 +21,7 @@ namespace YAX
 	class GraphicsDevice;
 	struct Rectangle;
 
-	enum class SurfaceFormat : int;
+	enum class SurfaceFormat : ui32;
 
 	class Texture2D : public Texture
 	{
