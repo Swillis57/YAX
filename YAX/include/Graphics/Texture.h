@@ -9,20 +9,23 @@ namespace YAX
 {
 	enum class SurfaceFormat : ui32;
 
-	class GraphicsDevice;
-
 	class Texture : public GraphicsResource
 	{
 	public:
-		Texture(YAX::GraphicsDevice&);
-		virtual ~Texture() = 0;
+		Texture();
+		virtual ~Texture();
+		
+		Texture(const Texture&) = delete;
+		Texture& operator=(const Texture&) = delete;
+		Texture(Texture&&);
+		Texture& operator=(Texture&&);
 
 		SurfaceFormat Format() const;
 		i32 LevelCount() const;
 
 	protected:
 		void Format(SurfaceFormat);
-		void LevelCount(int);
+		void LevelCount(i32);
 
 		SurfaceFormat _format;
 		i32 _levelCount;
