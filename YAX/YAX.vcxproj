@@ -278,6 +278,7 @@
     <ClCompile Include="src\Graphics\PackedVector\Short2.cpp" />
     <ClCompile Include="src\Graphics\PackedVector\Short4.cpp" />
     <ClCompile Include="src\Graphics\PresentationParameters.cpp" />
+    <ClCompile Include="src\Graphics\RasterizerState.cpp" />
     <ClCompile Include="src\MathHelper.cpp" />
     <ClCompile Include="src\Matrix.cpp" />
     <ClCompile Include="src\Plane.cpp" />

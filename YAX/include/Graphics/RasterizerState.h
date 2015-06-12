@@ -2,11 +2,12 @@
 #define _RASTERIZER_STATE_H
 
 #include "GraphicsResource.h"
+#include "../Utils.h"
 
 namespace YAX
 {
-	enum class CullMode : int;
-	enum class FillMode : int;
+	enum class CullMode : ui32;
+	enum class FillMode : ui32;
 
 	struct RasterizerState : public GraphicsResource
 	{
@@ -15,6 +16,7 @@ namespace YAX
 		static const RasterizerState CullNone;
 
 		RasterizerState();
+		~RasterizerState() = default;
 
 		YAX::CullMode CullMode() const;
 		void CullMode(YAX::CullMode);
@@ -35,8 +37,10 @@ namespace YAX
 		void SlopeScaleDepthBias(float);
 
 	private:
+		RasterizerState(YAX::CullMode cm, std::string name);
+
 		YAX::CullMode _cullMode;
-		float _depthBias, _slopeScale;
+		float _depthBias, _slopeScaleDepthBias;
 		YAX::FillMode _fillMode;
 		bool _msaa, _scissorTest;
 
