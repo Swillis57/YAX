@@ -19,8 +19,11 @@ namespace YAX
 
 	IndexBuffer::~IndexBuffer()
 	{
-		glDeleteBuffers(1, &_bufID);
-		_bufID = 0;
+		if (_bufID != 0)
+		{
+			glDeleteBuffers(1, &_bufID);
+			_bufID = 0;
+		}
 	}
 
 	IndexBuffer::IndexBuffer(IndexBuffer&& old)
@@ -31,6 +34,7 @@ namespace YAX
 		GraphicsResource("")
 	{
 		old._bufID = 0;
+		old._indCount = 0;
 	}
 
 	IndexBuffer& IndexBuffer::operator=(IndexBuffer&& old)
