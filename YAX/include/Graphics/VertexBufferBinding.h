@@ -6,22 +6,21 @@
 
 namespace YAX
 {
-	struct VertexBufferBinding
-	{
-		VertexBufferBinding(VertexBuffer&);
-		VertexBufferBinding(VertexBuffer&, i32);
-		VertexBufferBinding(VertexBuffer&, i32, i32);
+    struct VertexBufferBinding
+    {
+    public:
+        VertexBufferBinding(YAX::VertexBuffer* buf, i32 offset = 0, i32 instanceFrequency = 0);
 
-		i32 InstanceFrequency() const;		 
+        i32 InstanceFrequency() const;		 
 
-		YAX::VertexBuffer& VertexBuffer() const;
+        YAX::VertexBuffer* VertexBuffer() const;
 
-		i32 VertexOffset() const;
+        i32 VertexOffset() const;
 
-	private:
-		i32 _instFreq, _vertOffset;
-		YAX::VertexBuffer& _vertBuf;
-	};
+    private:
+        i32 _instFreq, _vertOffset;
+        YAX::VertexBuffer* _vertBuf;
+    };
 }
 
 

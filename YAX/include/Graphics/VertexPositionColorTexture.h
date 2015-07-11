@@ -9,31 +9,31 @@
 
 namespace YAX
 {
-	struct VertexPositionColorTexture : public IVertexType
-	{
-		VertexPositionColorTexture(Vector3, Color, Vector2);
+    struct VertexPositionColorTexture : public IVertexType
+    {
+    public:
+        static const YAX::VertexDeclaration VertexDeclaration;
+        
+        VertexPositionColorTexture(const Vector3& pos, const YAX::Color& color, const Vector2& texCoord);
+        ~VertexPositionColorTexture() = default;
 
-		YAX::Color Color();
-		void Color(YAX::Color);
+        YAX::Color Color() const;
+        void Color(const YAX::Color&);
 
-		Vector3 Position();
-		void Position(Vector3);
+        Vector3 Position() const;
+        void Position(const Vector3&);
 
-		Vector2 TextureCoordinate();
-		void TextureCoordinate(Vector2);
+        Vector2 TextureCoordinate() const;
+        void TextureCoordinate(const Vector2&);
 
-		static const YAX::VertexDeclaration VertexDeclaration();
-		static const void VertexDeclaration(YAX::VertexDeclaration);
+        friend bool operator==(const VertexPositionColorTexture&, const VertexPositionColorTexture&);
+        friend bool operator!=(const VertexPositionColorTexture&, const VertexPositionColorTexture&);
 
-		friend bool operator==(const VertexPositionColorTexture&, const VertexPositionColorTexture&);
-		friend bool operator!=(const VertexPositionColorTexture&, const VertexPositionColorTexture&);
-
-	private:
-		YAX::Color _color;
-		Vector3 _pos;
-		Vector2 _texCoord;
-		static const YAX::VertexDeclaration _vertDecl;
-	};
+    private:
+        Vector3 _pos;
+        YAX::Color _color;
+        Vector2 _texCoord;
+    };
 }
 
 

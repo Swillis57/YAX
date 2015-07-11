@@ -9,28 +9,28 @@
 
 namespace YAX
 {
-	struct VertexPositionColor : public IVertexType
-	{
-		VertexPositionColor(Vector3, YAX::Color);
-		
-		YAX::Color Color();
-		void Color(YAX::Color);
+    struct VertexPositionColor : public IVertexType
+    {
+    public:
+        static const YAX::VertexDeclaration VertexDeclaration;
+        
+        VertexPositionColor(const Vector3& pos, const YAX::Color& color);
+        ~VertexPositionColor() = default;
 
-		Vector3 Position();
-		void Position(Vector3);
+        YAX::Color Color() const;
+        void Color(const YAX::Color&);
 
-		static const YAX::VertexDeclaration VertexDeclaration();
-		static const void VertexDeclaration(YAX::VertexDeclaration);
-	
-		friend bool operator==(const VertexPositionColor&, const VertexPositionColor&);
-		friend bool operator!=(const VertexPositionColor&, const VertexPositionColor&);
+        Vector3 Position() const;
+        void Position(const Vector3&);
+    
+        friend bool operator==(const VertexPositionColor&, const VertexPositionColor&);
+        friend bool operator!=(const VertexPositionColor&, const VertexPositionColor&);
 
-	private:
-		YAX::Color _color;
-		Vector3 _pos;
-		static const YAX::VertexDeclaration _vertDecl;
+    private:
+        Vector3 _pos;
+        YAX::Color _color;
 
-	};
+    };
 }
 
 

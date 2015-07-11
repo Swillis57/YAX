@@ -40,7 +40,5 @@ protected:
 
 int main()
 {
-	Game g {};
-
-	g.Run();
+	
 }

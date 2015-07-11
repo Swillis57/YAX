@@ -1,7 +1,6 @@
 #ifndef _RENDER_TARGET_2D_H
 #define _RENDER_TARGET_2D_H
 
-
 #include "Texture2D.h"
 #include "../Utils.h"
 

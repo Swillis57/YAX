@@ -2,24 +2,24 @@
 #define _DIRECTIONAL_LIGHT_H
 
 #include "../Vector3.h"
+#include "EffectParameter.h"
 
 namespace YAX
 {
-	class EffectParameter;
-
 	class DirectionalLight
 	{
+
 	public:
-		DirectionalLight(const EffectParameter&, const EffectParameter&, const EffectParameter&);
+		DirectionalLight(const EffectParameter& dir, const EffectParameter& diffuse, const EffectParameter& specular);
 		DirectionalLight(const DirectionalLight&);
 
-		Vector3& DiffuseColor() const;
+		Vector3 DiffuseColor() const;
 		void DiffuseColor(const Vector3&);
 
-		Vector3& Direction() const;
+		Vector3 Direction() const;
 		void Direction(const Vector3&);
 
-		Vector3& SpecularColor() const;
+		Vector3 SpecularColor() const;
 		void SpecularColor(const Vector3&);
 
 		bool Enabled() const;
@@ -27,6 +27,7 @@ namespace YAX
 
 	private:
 		Vector3 _diffColor, _specColor, _dir;
+		EffectParameter _diffParam, _specParam, _dirParam;
 		bool _enabled;
 	};
 }

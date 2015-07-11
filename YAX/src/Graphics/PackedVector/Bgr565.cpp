@@ -5,60 +5,62 @@
 
 namespace YAX
 {
-	Bgr565::Bgr565(float b, float g, float r)
-		: Bgr565::Base()
-	{
-		Pack(b, g, r);
-	}
+    const SurfaceFormat Bgr565::Format = SurfaceFormat::Bgr565;
 
-	Bgr565::Bgr565(const Vector3& source)
-		: Bgr565(source.X, source.Y, source.Z)
-	{}
+    Bgr565::Bgr565(float b, float g, float r)
+        : Base()
+    {
+        Pack(b, g, r);
+    }
 
-	Bgr565::~Bgr565() = default;
+    Bgr565::Bgr565(const Vector3& source)
+        : Bgr565(source.X, source.Y, source.Z)
+    {}
 
-	Vector3 Bgr565::ToVector3() const
-	{
-		return Vector3
-		(
-			READBITS(0x1F, 11) / 31.0f,
-			READBITS(0x3F, 5) / 63.0f,
-			READBITS(0x1F, 0) / 31.0f
-		);
-	}
+    Bgr565::~Bgr565() = default;
 
-	Vector4 Bgr565::ToVector4() const
-	{
-		return Vector4(ToVector3(), 1.0f);
-	}
+    Vector3 Bgr565::ToVector3() const
+    {
+        return Vector3
+        (
+            READBITS(0x1F, 11) / 31.0f,
+            READBITS(0x3F, 5) / 63.0f,
+            READBITS(0x1F, 0) / 31.0f
+        );
+    }
 
-	void Bgr565::PackFromVector4(const Vector4& source)
-	{
-		Pack(source.Z, source.Y, source.X);
-	}
+    Vector4 Bgr565::ToVector4() const
+    {
+        return Vector4(ToVector3(), 1.0f);
+    }
 
-	bool operator==(const Bgr565& lhs, const Bgr565& rhs)
-	{
-		return (lhs._packed == rhs._packed);
-	}
+    void Bgr565::PackFromVector4(const Vector4& source)
+    {
+        Pack(source.Z, source.Y, source.X);
+    }
 
-	bool operator!=(const Bgr565& lhs, const Bgr565& rhs)
-	{
-		return !(lhs == rhs);
-	}
+    bool operator==(const Bgr565& lhs, const Bgr565& rhs)
+    {
+        return (lhs._packed == rhs._packed);
+    }
 
-	void Bgr565::Pack(float b, float g, float r)
-	{
-		using MathHelper::Clamp;
+    bool operator!=(const Bgr565& lhs, const Bgr565& rhs)
+    {
+        return !(lhs == rhs);
+    }
 
-		byte redBits =   static_cast<byte>(Clamp(r, 0, 1) * 31);
-		byte greenBits = static_cast<byte>(Clamp(g, 0, 1) * 63);
-		byte blueBits =  static_cast<byte>(Clamp(b, 0, 1) * 31);
+    void Bgr565::Pack(float b, float g, float r)
+    {
+        using MathHelper::Clamp;
 
-		_packed ^= _packed;
-		WRITEBITS(blueBits, 6)
-		WRITEBITS(greenBits, 5)
-		WRITEBITS(redBits, 0);
-	}
-	
+        byte redBits =   static_cast<byte>(Clamp(r, 0, 1) * 31);
+        byte greenBits = static_cast<byte>(Clamp(g, 0, 1) * 63);
+        byte blueBits =  static_cast<byte>(Clamp(b, 0, 1) * 31);
+
+        _packed ^= _packed;
+        WRITEBITS(blueBits, 6)
+        WRITEBITS(greenBits, 5)
+        WRITEBITS(redBits, 0);
+    }
+    
 }

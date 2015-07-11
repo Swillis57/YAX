@@ -61,7 +61,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;glewd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glewd.lib;stb_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ShowProgress>NotSet</ShowProgress>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
@@ -131,9 +131,8 @@
     <ClInclude Include="include\Graphics\EffectParameterClass.h" />
     <ClInclude Include="include\Graphics\EffectParameterCollection.h" />
     <ClInclude Include="include\Graphics\EffectParameterType.h" />
-    <ClInclude Include="include\Graphics\EffectProgram.h" />
-    <ClInclude Include="include\Graphics\EffectProgramCollection.h" />
     <ClInclude Include="include\Graphics\FillMode.h" />
+    <ClInclude Include="include\Graphics\GLConversions.h" />
     <ClInclude Include="include\Graphics\GraphicsAdapter.h" />
     <ClInclude Include="include\Graphics\GraphicsDevice.h" />
     <ClInclude Include="include\Graphics\GraphicsDeviceStatus.h" />
@@ -257,6 +256,10 @@
     <ClCompile Include="src\Graphics\BlendState.cpp" />
     <ClCompile Include="src\Graphics\DepthStencilState.cpp" />
     <ClCompile Include="src\Graphics\DisplayMode.cpp" />
+    <ClCompile Include="src\Graphics\DynamicIndexBuffer.cpp" />
+    <ClCompile Include="src\Graphics\DynamicVertexBuffer.cpp" />
+    <ClCompile Include="src\Graphics\Effect.cpp" />
+    <ClCompile Include="src\Graphics\EffectParameter.cpp" />
     <ClCompile Include="src\Graphics\GraphicsAdapter.cpp" />
     <ClCompile Include="src\Graphics\GraphicsDevice.cpp" />
     <ClCompile Include="src\Graphics\IndexBuffer.cpp" />
@@ -279,6 +282,19 @@
     <ClCompile Include="src\Graphics\PackedVector\Short4.cpp" />
     <ClCompile Include="src\Graphics\PresentationParameters.cpp" />
     <ClCompile Include="src\Graphics\RasterizerState.cpp" />
+    <ClCompile Include="src\Graphics\Texture.cpp" />
+    <ClCompile Include="src\Graphics\Texture2D.cpp" />
+    <ClCompile Include="src\Graphics\Texture3D.cpp" />
+    <ClCompile Include="src\Graphics\TextureCube.cpp" />
+    <ClCompile Include="src\Graphics\VertexBuffer.cpp" />
+    <ClCompile Include="src\Graphics\VertexBufferBinding.cpp" />
+    <ClCompile Include="src\Graphics\VertexDeclaration.cpp" />
+    <ClCompile Include="src\Graphics\VertexElement.cpp" />
+    <ClCompile Include="src\Graphics\VertexPositionColor.cpp" />
+    <ClCompile Include="src\Graphics\VertexPositionColorTexture.cpp" />
+    <ClCompile Include="src\Graphics\VertexPositionNormalTexture.cpp" />
+    <ClCompile Include="src\Graphics\VertexPositionTexture.cpp" />
+    <ClCompile Include="src\Graphics\Viewport.cpp" />
     <ClCompile Include="src\MathHelper.cpp" />
     <ClCompile Include="src\Matrix.cpp" />
     <ClCompile Include="src\Plane.cpp" />

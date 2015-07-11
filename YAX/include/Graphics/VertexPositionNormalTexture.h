@@ -1,37 +1,36 @@
 #ifndef _VERTEX_POSITION_NORMAL_TEXTURE_H
 #define _VERTEX_POSITION_NORMAL_TEXTURE_H
 
-
 #include "IVertexType.h"
 #include "../Vector2.h"
 #include "../Vector3.h"
 
 namespace YAX
 {
-	struct VertexPositionNormalTexture : public IVertexType
-	{
-		VertexPositionNormalTexture(Vector3, Vector3, Vector2);
+    struct VertexPositionNormalTexture : public IVertexType
+    {
+    public:
+        static const YAX::VertexDeclaration VertexDeclaration;
+        
+        VertexPositionNormalTexture(const Vector3& pos, const Vector3& norm, const Vector2& texCoord);
+        ~VertexPositionNormalTexture() = default;
 
-		Vector3 Normal();
-		void Normal(Vector3);
+        Vector3 Normal() const;
+        void Normal(const Vector3&);
 
-		Vector3 Position();
-		void Position(Vector3);
+        Vector3 Position() const;
+        void Position(const Vector3&);
 
-		Vector2 TextureCoordinate();
-		void TextureCoordinate(Vector2);
+        Vector2 TextureCoordinate() const;
+        void TextureCoordinate(const Vector2&);
 
-		static const YAX::VertexDeclaration VertexDeclaration();
-		static const void VertexDeclaration(YAX::VertexDeclaration);
+        friend bool operator==(const VertexPositionNormalTexture&, const VertexPositionNormalTexture&);
+        friend bool operator!=(const VertexPositionNormalTexture&, const VertexPositionNormalTexture&);
 
-		friend bool operator==(const VertexPositionNormalTexture&, const VertexPositionNormalTexture&);
-		friend bool operator!=(const VertexPositionNormalTexture&, const VertexPositionNormalTexture&);
-
-	private:
-		Vector3 _pos, _norm;
-		Vector2 _texCoord;
-		static const YAX::VertexDeclaration _vertDecl;
-	};
+    private:
+        Vector3 _pos, _norm;
+        Vector2 _texCoord;
+    };
 }
 
 

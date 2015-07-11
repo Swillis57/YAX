@@ -8,20 +8,20 @@
 
 namespace YAX
 {
-	class VertexDeclaration : public GraphicsResource
-	{
-	public:
-		VertexDeclaration(const std::vector<VertexElement>&);
-		VertexDeclaration(i32, const std::vector<VertexElement>&);
-		
+    class VertexDeclaration : public GraphicsResource
+    {
+    public:
+        VertexDeclaration(std::vector<VertexElement>);
+        VertexDeclaration(i32 stride, std::vector<VertexElement>);
+        
+        i32 VertexStride() const;
 
-		i32 VertexStride() const;
+        std::vector<VertexElement> GetVertexElements() const;
 
-		std::vector<VertexElement>& GetVertexElements() const;
-
-	private:
-		std::vector<VertexElement> _elements;
-	};
+    private:
+        std::vector<VertexElement> _elements;
+        i32 _stride;
+    };
 }
 
 

@@ -1,41 +1,36 @@
 #ifndef _EFFECT_H
 #define _EFFECT_H
 
-#include <vector>
+#include <string>
+#include "../../../external/glew/include/GL/glew.h"
 #include "GraphicsResource.h"
 #include "EffectParameterCollection.h"
-#include "EffectProgramCollection.h"
-#include "EffectProgram.h"
 
 namespace YAX
 {
-	typedef char byte;
+    class Effect : public GraphicsResource
+    {
+    public:
+        EffectParameterCollection Parameters;
+        
+        Effect(const std::string&, const std::string&);
+        Effect(const Effect&) = delete;
+        Effect& operator=(const Effect&) = delete;
+        Effect(Effect&&);
+        Effect& operator=(Effect&&);
+        ~Effect();
 
-	class GraphicsDevice;
+        void Apply() const;
+        
+        std::string Name() const;
 
-	//An Effect represents a collection of shader techniques.
-	class Effect : public GraphicsResource
-	{
-	public:
-		Effect(YAX::GraphicsDevice&, const std::vector<byte>&);
-		Effect(const Effect&) = delete;
-		Effect& operator=(const Effect&) = delete;
-		Effect(Effect&&);
-		Effect& operator=(Effect&&);
-		~Effect();
-	
-		EffectProgram CurrentProgram() const;
-		void CurrentProgram(const EffectProgram&);
-		
-		EffectParameterCollection Parameters() const;
 
-		EffectProgramCollection Programs() const;
+    protected:
+        GLuint CreateShader(const std::string&, GLenum);
 
-	protected:
-		EffectProgram&_currProgram;
-		EffectParameterCollection _params;
-		EffectProgramCollection _programs;
-	};
+        std::string _name;
+        GLuint _id;
+    };
 }
 
 

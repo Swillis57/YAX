@@ -2,10 +2,11 @@
 #define _TEXTURE_FILTER_H
 
 #include "../../../external/glew/include/GL/glew.h"
+#include "../Utils.h"
 
 namespace YAX
 {
-	enum class TextureFilter : int 
+	enum class TextureFilter : ui32 
 	{
 		Linear = GL_LINEAR,
 		Point = GL_NEAREST,

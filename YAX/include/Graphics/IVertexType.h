@@ -5,15 +5,18 @@
 
 namespace YAX
 {
-	struct IVertexType
-	{
-		virtual ~IVertexType() = 0;
+    struct IVertexType
+    {
+        virtual ~IVertexType() {};
 
-	    YAX::VertexDeclaration VertexDeclaration();
+        YAX::VertexDeclaration VertexDeclaration()
+        {
+            return *_vertDecl;
+        }
 
-	protected:
-		YAX::VertexDeclaration _vertDecl;
-	};
+    protected:
+        const YAX::VertexDeclaration* _vertDecl;
+    };
 }
 
 

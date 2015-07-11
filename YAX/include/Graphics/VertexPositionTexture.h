@@ -9,28 +9,27 @@
 
 namespace YAX
 {
-	struct VertexPositionTexture : public IVertexType
-	{
-		VertexPositionTexture(Vector3, Vector2);
+    struct VertexPositionTexture : public IVertexType
+    {
+    public:
+        static const YAX::VertexDeclaration VertexDeclaration;
+        
+        VertexPositionTexture(const Vector3& pos, const Vector2& coord);
+        ~VertexPositionTexture() = default;
 
-		Vector2 TextureCoordinate();
-		void TextureCoordinate(Vector2);
+        Vector2 TextureCoordinate() const;
+        void TextureCoordinate(const Vector2&);
 
-		Vector3 Position();
-		void Position(Vector3);
+        Vector3 Position() const;
+        void Position(const Vector3&);
 
-		static const YAX::VertexDeclaration VertexDeclaration();
-		static const void VertexDeclaration(YAX::VertexDeclaration);
+        friend bool operator==(const VertexPositionTexture&, const VertexPositionTexture&);
+        friend bool operator!=(const VertexPositionTexture&, const VertexPositionTexture&);
 
-		friend bool operator==(const VertexPositionTexture&, const VertexPositionTexture&);
-		friend bool operator!=(const VertexPositionTexture&, const VertexPositionTexture&);
-
-	private:
-		Vector2 _texCoord;
-		Vector3 _pos;
-		static const YAX::VertexDeclaration _vertDecl;
-
-	};
+    private:
+        Vector3 _pos;
+        Vector2 _texCoord;
+    };
 }
 
 

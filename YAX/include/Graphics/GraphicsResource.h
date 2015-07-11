@@ -5,23 +5,29 @@
 
 namespace YAX
 {
-	class GraphicsDevice;
+    class GraphicsDevice;
 
-	class GraphicsResource
-	{
-		friend class YAX::GraphicsDevice;
+    class GraphicsResource
+    {
+    public:
+        GraphicsResource(std::string);
+        GraphicsResource(GraphicsResource&& old)
+            : _name(old._name) 
+        {}
+        GraphicsResource& operator=(GraphicsResource&& old)
+        {
+            this->_name = old._name;
+            return *this;
+        }
 
-	public:
-		GraphicsResource(std::string);
-		virtual ~GraphicsResource();
+        virtual ~GraphicsResource();
 
-		YAX::GraphicsDevice* GraphicsDevice();
-		std::string Name();
-	
-	protected:
-		YAX::GraphicsDevice* _device;
-		std::string _name;
-	};
+        std::string Name();
+        void Name(std::string s) { _name = s; }
+    
+    protected:
+        std::string _name;
+    };
 }
 
 

@@ -51,8 +51,6 @@ namespace YAX
 
 
 	private:
-		
-
 		std::unordered_map<std::type_index, IGameService*> _services;
 	};
 }

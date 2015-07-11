@@ -4,38 +4,40 @@
 
 namespace YAX
 {
-	Alpha8::Alpha8(float val)
-		: Base()
-	{
-		using MathHelper::Clamp;
-		_packed = static_cast<byte>(Clamp(val, 0, 1) * 255);
-	}
+    const SurfaceFormat Alpha8::Format = SurfaceFormat::Alpha8;
 
-	Alpha8::~Alpha8() = default;
+    Alpha8::Alpha8(float val)
+        : Base()
+    {
+        using MathHelper::Clamp;
+        _packed = static_cast<byte>(Clamp(val, 0, 1) * 255);
+    }
 
-	float Alpha8::ToAlpha() const
-	{
-		return _packed / 255.0f;
-	}
+    Alpha8::~Alpha8() = default;
 
-	void Alpha8::PackFromVector4(const Vector4& vec)
-	{
-		using MathHelper::Clamp;
-		_packed = static_cast<byte>(Clamp(vec.W, 0, 1) * 255);
-	}
+    float Alpha8::ToAlpha() const
+    {
+        return _packed / 255.0f;
+    }
 
-	Vector4 Alpha8::ToVector4() const
-	{
-		return Vector4(0.0f, 0.0f, 0.0f, ToAlpha());
-	}
+    void Alpha8::PackFromVector4(const Vector4& vec)
+    {
+        using MathHelper::Clamp;
+        _packed = static_cast<byte>(Clamp(vec.W, 0, 1) * 255);
+    }
 
-	bool operator==(const Alpha8& lhs, const Alpha8& rhs)
-	{
-		return lhs._packed == rhs._packed;
-	}
+    Vector4 Alpha8::ToVector4() const
+    {
+        return Vector4(0.0f, 0.0f, 0.0f, ToAlpha());
+    }
 
-	bool operator!=(const Alpha8& lhs, const Alpha8& rhs)
-	{
-		return !(lhs == rhs);
-	}
+    bool operator==(const Alpha8& lhs, const Alpha8& rhs)
+    {
+        return lhs._packed == rhs._packed;
+    }
+
+    bool operator!=(const Alpha8& lhs, const Alpha8& rhs)
+    {
+        return !(lhs == rhs);
+    }
 }

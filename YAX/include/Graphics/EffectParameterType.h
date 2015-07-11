@@ -1,21 +1,20 @@
 #ifndef _EFFECT_PARAMTER_TYPE_H
 #define _EFFECT_PARAMTER_TYPE_H
 
+#include "../Utils.h"
+
 namespace YAX
 {
-	enum class EffectParameterType : int 
-	{
-		Bool,
-		Int32,
-		Single,
-		String,
-		Texture,
-		Texture1D,
-		Texture2D,
-		Texture2D,
-		TextureCube,
-		Void
-	};
+    enum class EffectParameterType : ui32 
+    {
+        Bool,
+        Int32,
+        Single,
+        Texture1D,
+        Texture2D,
+        Texture2D,
+        TextureCube,
+    };
 }
 
 

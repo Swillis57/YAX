@@ -5,57 +5,59 @@
 
 namespace YAX
 {
-	Byte4::Byte4(float r, float g, float b, float a)
-		: Byte4::Base()
-	{
-		Pack(r, g, b, a);
-	}
+    const SurfaceFormat Byte4::Format = SurfaceFormat::Color;
 
-	Byte4::Byte4(const Vector4& source)
-		: Byte4(source.X, source.Y, source.Z, source.W)
-	{}
+    Byte4::Byte4(float r, float g, float b, float a)
+        : Base()
+    {
+        Pack(r, g, b, a);
+    }
 
-	Byte4::~Byte4() = default;
+    Byte4::Byte4(const Vector4& source)
+        : Byte4(source.X, source.Y, source.Z, source.W)
+    {}
 
-	Vector4 Byte4::ToVector4() const
-	{
-		byte r = READBITS(0xFF, 24);
-		byte g = READBITS(0xFF, 16);
-		byte b = READBITS(0xFF, 8);
-		byte a = READBITS(0xFF, 0);
+    Byte4::~Byte4() = default;
 
-		return Vector4(r, g, b, a);
-	}
+    Vector4 Byte4::ToVector4() const
+    {
+        byte r = READBITS(0xFF, 24);
+        byte g = READBITS(0xFF, 16);
+        byte b = READBITS(0xFF, 8);
+        byte a = READBITS(0xFF, 0);
 
-	void Byte4::PackFromVector4(const Vector4& source)
-	{
-		Pack(source.X, source.Y, source.Z, source.W);
-	}
+        return Vector4(r, g, b, a);
+    }
 
-	bool operator==(const Byte4& lhs, const Byte4& rhs)
-	{
-		return lhs._packed == rhs._packed;
-	}
+    void Byte4::PackFromVector4(const Vector4& source)
+    {
+        Pack(source.X, source.Y, source.Z, source.W);
+    }
 
-	bool operator!=(const Byte4 lhs, const Byte4& rhs)
-	{
-		return !(lhs == rhs);
-	}
+    bool operator==(const Byte4& lhs, const Byte4& rhs)
+    {
+        return lhs._packed == rhs._packed;
+    }
 
-	void Byte4::Pack(float r, float b, float g, float a)
-	{
-		using std::round;
-		using MathHelper::Clamp;
+    bool operator!=(const Byte4 lhs, const Byte4& rhs)
+    {
+        return !(lhs == rhs);
+    }
 
-		byte redBits = static_cast<byte>(Clamp(round(r), 0, 255));
-		byte greenBits = static_cast<byte>(Clamp(round(g), 0, 255));
-		byte blueBits = static_cast<byte>(Clamp(round(b), 0, 255));
-		byte alphaBits = static_cast<byte>(Clamp(round(a), 0, 255)); 
+    void Byte4::Pack(float r, float b, float g, float a)
+    {
+        using std::round;
+        using MathHelper::Clamp;
 
-		_packed ^= _packed;
-		WRITEBITS(redBits, 8);
-		WRITEBITS(greenBits, 8);
-		WRITEBITS(blueBits, 8);
-		WRITEBITS(alphaBits, 0);
-	}
+        byte redBits = static_cast<byte>(Clamp(round(r), 0, 255));
+        byte greenBits = static_cast<byte>(Clamp(round(g), 0, 255));
+        byte blueBits = static_cast<byte>(Clamp(round(b), 0, 255));
+        byte alphaBits = static_cast<byte>(Clamp(round(a), 0, 255)); 
+
+        _packed ^= _packed;
+        WRITEBITS(redBits, 8);
+        WRITEBITS(greenBits, 8);
+        WRITEBITS(blueBits, 8);
+        WRITEBITS(alphaBits, 0);
+    }
 }
