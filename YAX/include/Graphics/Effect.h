@@ -21,15 +21,15 @@ namespace YAX
         ~Effect();
 
         void Apply() const;
-        
         std::string Name() const;
-
+        ui32 RequestTextureUnit();
 
     protected:
         GLuint CreateShader(const std::string&, GLenum);
 
         std::string _name;
         GLuint _id;
+        ui32 _texUnitCounter;
     };
 }
 

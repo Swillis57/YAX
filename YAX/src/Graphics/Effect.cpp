@@ -5,7 +5,8 @@
 namespace YAX
 {
     Effect::Effect(const std::string& vert, const std::string& frag)
-        : GraphicsResource("")
+        : GraphicsResource(""),
+        _texUnitCounter(0)
     {
         _id = glCreateProgram();
         GLuint vs = CreateShader(vert, GL_VERTEX_SHADER);
@@ -67,14 +68,20 @@ namespace YAX
         return *this;
     }
 
+    void Effect::Apply() const
+    {
+
+    }
+    
     std::string Effect::Name() const
     {
         return _name;
     }
 
-    void Effect::Apply() const
+    ui32 Effect::RequestTextureUnit()
     {
-
+        ui32 r = _texUnitCounter++;
+        return r;
     }
 
     GLuint Effect::CreateShader(const std::string& source, GLenum type)
