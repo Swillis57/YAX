@@ -14,6 +14,7 @@ namespace YAX
     {
         _format = fmt;
         _levelCount = CalcMaxMipLevel(_dim);
+        _type = GL_TEXTURE_CUBE_MAP;
 
         glGenTextures(1, &_id);
         glBindTexture(GL_TEXTURE_CUBE_MAP, _id);

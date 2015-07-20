@@ -20,6 +20,7 @@ namespace YAX
         Texture(Texture&&);
         Texture& operator=(Texture&&);
 
+        void Bind(GLuint unit) const;
         SurfaceFormat Format() const;
         i32 LevelCount() const;
 
@@ -30,6 +31,7 @@ namespace YAX
         i32 _levelCount;
         float _anisoLevel, _lodBias;
         GLuint _id;
+        GLenum _type;
 
     };
 }

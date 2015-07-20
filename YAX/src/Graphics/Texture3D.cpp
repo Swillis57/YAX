@@ -14,6 +14,7 @@ namespace YAX
     {
         _format = fmt;
         _levelCount = (mipMap ? CalcMaxMipLevel(w, h, d) : 1);
+        _type = GL_TEXTURE_3D;
 
         glGenTextures(1, &_id);
         glActiveTexture(GL_TEXTURE0);

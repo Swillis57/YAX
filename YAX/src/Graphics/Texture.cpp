@@ -52,6 +52,12 @@ namespace YAX
         return *this;
     }
 
+    void Texture::Bind(GLuint unit) const
+    {
+        glActiveTexture(GL_TEXTURE0 + unit);
+        glBindTexture(_type, _id);
+    }
+
     SurfaceFormat Texture::Format() const
     {
         return _format;
