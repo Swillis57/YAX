@@ -14,6 +14,10 @@ namespace YAX
         Texture2D,
         Texture2D,
         TextureCube,
+        Vector2,
+        Vector3,
+        Vector4,
+        Void
     };
 }
 
