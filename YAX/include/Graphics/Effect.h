@@ -2,9 +2,10 @@
 #define _EFFECT_H
 
 #include <string>
+#include "EffectParameterCollection.h"
 #include "../../../external/glew/include/GL/glew.h"
 #include "GraphicsResource.h"
-#include "EffectParameterCollection.h"
+#include "../Utils.h"
 
 namespace YAX
 {

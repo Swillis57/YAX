@@ -12,7 +12,7 @@ namespace YAX
         Single,
         Texture1D,
         Texture2D,
-        Texture2D,
+        Texture3D,
         TextureCube,
         Vector2,
         Vector3,

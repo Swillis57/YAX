@@ -1,6 +1,7 @@
 #include "../../include/Graphics/Effect.h"
 
 #include <exception>
+#include "../../include/Graphics/Texture.h"
 
 namespace YAX
 {
@@ -70,18 +71,22 @@ namespace YAX
 
     void Effect::Apply() const
     {
+        //Tell OpenGL to use this Effect's shader and link any textures to
+        //their requested texture units
+        glUseProgram(_id);
+        for (auto& kv : Parameters)
+        {
+            auto& currP = kv.second;
 
+            //If _tex isn't null, then the parameter represents a texture
+            if (currP._tex)
+                currP._tex->Bind(currP._texUnit);
+        }
     }
     
     std::string Effect::Name() const
     {
         return _name;
-    }
-
-    ui32 Effect::RequestTextureUnit()
-    {
-        ui32 r = _texUnitCounter++;
-        return r;
     }
 
     GLuint Effect::CreateShader(const std::string& source, GLenum type)

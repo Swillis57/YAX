@@ -7,7 +7,7 @@
 
 namespace YAX
 {
-	typedef std::unordered_map<std::string, EffectParameter> EffectParameterCollection;
+    typedef std::unordered_map<std::string, EffectParameter> EffectParameterCollection;
 }
 
 
