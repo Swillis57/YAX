@@ -9,18 +9,14 @@
 
 namespace YAX
 {
-	enum class GraphicsProfile : int;
+	enum class GraphicsProfile : ui32;
 	enum class DepthFormat : ui32;
 	enum class SurfaceFormat : ui32;
 
 	class Game;
-	class GraphicsDevice;
-	class GraphicsDeviceInformation;
 
 	class GraphicsDeviceManager : public IGraphicsDeviceManager, public IGraphicsDeviceService
 	{
-		struct Impl;
-
 	public:
 		GraphicsDeviceManager(Game*);
 		~GraphicsDeviceManager();
@@ -65,8 +61,13 @@ namespace YAX
 
 	private:
 		static const i32 _defaultBufWidth, _defaultBufHeight;
-		std::unique_ptr<Impl> _impl;
 
+        Game* _game;
+        YAX::GraphicsProfile _profile;
+        SurfaceFormat _sFmt;
+        DepthFormat _dFmt;
+        bool _isFullScrn, _multiSampPref, _vSync;
+        i32 _bufHeight, _bufWidth;
 	};
 }
 
