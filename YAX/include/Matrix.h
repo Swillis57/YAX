@@ -20,6 +20,8 @@ namespace YAX
 		static const Matrix Identity;
 		static const Matrix CatmullRomMat;
 
+        Matrix();
+
 		Matrix(
 			float, float, float, float,
 			float, float, float, float,

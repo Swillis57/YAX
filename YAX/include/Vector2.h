@@ -16,10 +16,9 @@ namespace YAX
 
 		float X, Y;
 
-
+        Vector2();
 		Vector2(float val);
 		Vector2(float x, float y);
-
 
 		void Normalize();
 		float Length() const;

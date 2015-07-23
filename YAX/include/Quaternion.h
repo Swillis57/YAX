@@ -8,10 +8,10 @@ namespace YAX
 
 	struct Quaternion
 	{	
-
 		float X, Y, Z, W;
 		static const Quaternion Identity;
 
+        Quaternion();
 		Quaternion(float x, float y, float z, float w);
 		Quaternion(Vector3 xyz, float w);
 

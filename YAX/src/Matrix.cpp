@@ -7,6 +7,10 @@
 
 namespace YAX
 {
+    Matrix::Matrix()
+        : Matrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    {}
+
     Matrix::Matrix(
         float m11, float m12, float m13, float m14,
         float m21, float m22, float m23, float m24,

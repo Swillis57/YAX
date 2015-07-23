@@ -11,6 +11,10 @@ namespace YAX
 	const Vector2 Vector2::UnitY = Vector2(0, 1);
 	const Vector2 Vector2::Zero = Vector2(0);
 
+    Vector2::Vector2()
+        : Vector2(0.0f)
+    {}
+
 	Vector2::Vector2(float val)
 		: X(val), Y(val)
 	{}

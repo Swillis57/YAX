@@ -8,6 +8,10 @@ namespace YAX
 {
 	const Quaternion Quaternion::Identity(0, 0, 0, 1.0f);
 
+    Quaternion::Quaternion()
+        : Quaternion(Identity)
+    {}
+
 	Quaternion::Quaternion(float x, float y, float z, float w)
 		: X(x), Y(y), Z(z), W(w)
 	{}
