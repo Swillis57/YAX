@@ -43,10 +43,15 @@ namespace YAX
 
         Vector3 Project(const Vector3& source, const Matrix& proj, const Matrix& view, const Matrix& world) const;
         Vector3 Unproject(const Vector3& source, const Matrix& proj, const Matrix& view, const Matrix& world) const;
+    
+        friend bool operator==(const Viewport&, const Viewport&);
+        friend bool operator!=(const Viewport&, const Viewport&);
+    
     private:
         float _minDepth, _maxDepth;
         Rectangle _dim;
     };
+
 }
 
 

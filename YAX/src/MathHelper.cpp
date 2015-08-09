@@ -1,6 +1,6 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
-#include "../include/MathHelper.h"
+#include "MathHelper.h"
 
 namespace YAX
 {

@@ -5,7 +5,7 @@
 
 namespace YAX
 {
-	enum class CompareFunction : int 
+	enum class CompareFunction : GLenum 
 	{
 		Always = GL_ALWAYS,
 		Equal = GL_EQUAL,

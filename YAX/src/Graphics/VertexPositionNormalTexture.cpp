@@ -1,7 +1,7 @@
-#include "../../include/Graphics/VertexPositionNormalTexture.h"
+#include "Graphics/VertexPositionNormalTexture.h"
 
-#include "../../include/Graphics/VertexElementFormat.h"
-#include "../../include/Graphics/VertexElementUsage.h"
+#include "Graphics/VertexElementFormat.h"
+#include "Graphics/VertexElementUsage.h"
 
 namespace YAX
 {
@@ -16,9 +16,7 @@ namespace YAX
         _pos(pos),
         _norm(norm),
         _texCoord(texCoord)
-    {
-        _vertDecl = &VertexDeclaration;
-    }
+    {}
 
     Vector3 VertexPositionNormalTexture::Normal() const
     {

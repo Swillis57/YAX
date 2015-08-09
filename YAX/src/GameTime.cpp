@@ -1,4 +1,4 @@
-#include "../include/GameTime.h"
+#include "GameTime.h"
 
 namespace YAX
 {

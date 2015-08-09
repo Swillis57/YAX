@@ -1,14 +1,14 @@
-#include "../include/BoundingBox.h"
+#include "BoundingBox.h"
 
 #include <exception>
 #include <numeric>
-#include "../include/BoundingFrustum.h"
-#include "../include/BoundingSphere.h"
-#include "../include/ContainmentType.h"
-#include "../include/Plane.h"
-#include "../include/PlaneIntersectionType.h"
-#include "../include/MathHelper.h"
-#include "../include/Ray.h"
+#include "BoundingFrustum.h"
+#include "BoundingSphere.h"
+#include "ContainmentType.h"
+#include "Plane.h"
+#include "PlaneIntersectionType.h"
+#include "MathHelper.h"
+#include "Ray.h"
 
 namespace YAX
 {

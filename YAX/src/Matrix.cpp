@@ -1,9 +1,9 @@
-#include "../include/Matrix.h"
+#include "Matrix.h"
 #include <exception>
-#include "../include/Plane.h"
-#include "../include/MathHelper.h"
-#include "../include/Quaternion.h"
-#include "../include/Vector3.h"
+#include "Plane.h"
+#include "MathHelper.h"
+#include "Quaternion.h"
+#include "Vector3.h"
 
 namespace YAX
 {

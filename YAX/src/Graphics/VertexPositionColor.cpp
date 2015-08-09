@@ -1,8 +1,8 @@
-#include "../../include/Graphics/VertexPositionColor.h"
+#include "Graphics/VertexPositionColor.h"
 
-#include "../../include/Graphics/VertexElement.h"
-#include "../../include/Graphics/VertexElementFormat.h"
-#include "../../include/Graphics/VertexElementUsage.h"
+#include "Graphics/VertexElement.h"
+#include "Graphics/VertexElementFormat.h"
+#include "Graphics/VertexElementUsage.h"
 
 namespace YAX
 {
@@ -15,9 +15,7 @@ namespace YAX
         : IVertexType(),
         _pos(pos),
         _color(color)
-    {
-        _vertDecl = &VertexDeclaration;
-    }
+    {}
 
     YAX::Color VertexPositionColor::Color() const
     {

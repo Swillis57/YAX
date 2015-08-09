@@ -1,50 +1,51 @@
 #ifndef _RASTERIZER_STATE_H
 #define _RASTERIZER_STATE_H
 
-#include "GraphicsResource.h"
 #include "../Utils.h"
 
 namespace YAX
 {
-	enum class CullMode : ui32;
-	enum class FillMode : ui32;
+    enum class CullMode : ui32;
+    enum class FillMode : ui32;
 
-	struct RasterizerState : public GraphicsResource
-	{
-		static const RasterizerState CullClockwise;
-		static const RasterizerState CullCounterClockwise;
-		static const RasterizerState CullNone;
+    struct RasterizerState
+    {
+        friend class GraphicsDevice;
 
-		RasterizerState();
-		~RasterizerState() = default;
+        static const RasterizerState CullClockwise;
+        static const RasterizerState CullCounterClockwise;
+        static const RasterizerState CullNone;
 
-		YAX::CullMode CullMode() const;
-		void CullMode(YAX::CullMode);
+        RasterizerState();
+        ~RasterizerState() = default;
 
-		float DepthBias() const;
-		void DepthBias(float);
+        YAX::CullMode CullMode() const;
+        void CullMode(YAX::CullMode);
 
-		YAX::FillMode FillMode() const;
-		void FillMode(YAX::FillMode);
+        float DepthBias() const;
+        void DepthBias(float);
 
-		bool MultiSampleAntiAlias() const;
-		void MultiSampleAntiAlias(bool);
+        YAX::FillMode FillMode() const;
+        void FillMode(YAX::FillMode);
 
-		bool ScissorTestEnable() const;
-		void ScissorTestEnable(bool);
+        bool MultiSampleAntiAlias() const;
+        void MultiSampleAntiAlias(bool);
 
-		float SlopeScaleDepthBias() const;
-		void SlopeScaleDepthBias(float);
+        bool ScissorTestEnable() const;
+        void ScissorTestEnable(bool);
 
-	private:
-		RasterizerState(YAX::CullMode cm, std::string name);
+        float SlopeScaleDepthBias() const;
+        void SlopeScaleDepthBias(float);
 
-		YAX::CullMode _cullMode;
-		float _depthBias, _slopeScaleDepthBias;
-		YAX::FillMode _fillMode;
-		bool _msaa, _scissorTest;
+    private:
+        RasterizerState(YAX::CullMode cm);
 
-	};
+        YAX::CullMode _cullMode;
+        float _depthBias, _slopeScaleDepthBias;
+        YAX::FillMode _fillMode;
+        bool _msaa, _scissorTest;
+
+    };
 }
 
 

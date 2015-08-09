@@ -5,14 +5,13 @@
 #include <vector>
 #include "BufferUsage.h"
 #include "../../../external/glew/include/GL/glew.h"
-#include "GraphicsResource.h"
 #include "../Utils.h"
 
 namespace YAX
 {
     enum class IndexElementSize : ui32;
 
-    class IndexBuffer : public GraphicsResource
+    class IndexBuffer
     {
     public:
         IndexBuffer(YAX::IndexElementSize size, i32 count, YAX::BufferUsage usage);
@@ -20,13 +19,11 @@ namespace YAX
         IndexBuffer& operator=(const IndexBuffer&) = delete;
         IndexBuffer(IndexBuffer&&);
         IndexBuffer& operator=(IndexBuffer&&);
-
         virtual ~IndexBuffer();
 
+        void Bind() const;
         YAX::BufferUsage BufferUsage();
-
         i32 IndexCount();
-
         YAX::IndexElementSize IndexElementSize();
 
         template<typename indexType>
@@ -85,7 +82,7 @@ namespace YAX
         }
 
         template<typename indexType>
-        void SetDate(const std::vector<indexType>& src)
+        void SetData(const std::vector<indexType>& src)
         {
             SetData(0, src, 0, _indCount);
         }

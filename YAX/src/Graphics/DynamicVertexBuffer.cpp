@@ -1,6 +1,6 @@
-#include "../../include/Graphics/DynamicVertexBuffer.h"
+#include "Graphics/DynamicVertexBuffer.h"
 
-#include "../../include/Graphics/BufferUsage.h"
+#include "Graphics/BufferUsage.h"
 
 namespace YAX
 {

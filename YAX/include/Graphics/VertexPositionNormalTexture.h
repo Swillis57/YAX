@@ -7,11 +7,9 @@
 
 namespace YAX
 {
-    struct VertexPositionNormalTexture : public IVertexType
+    struct VertexPositionNormalTexture : public IVertexType<VertexPositionNormalTexture>
     {
     public:
-        static const YAX::VertexDeclaration VertexDeclaration;
-        
         VertexPositionNormalTexture(const Vector3& pos, const Vector3& norm, const Vector2& texCoord);
         ~VertexPositionNormalTexture() = default;
 

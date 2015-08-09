@@ -8,11 +8,8 @@ namespace YAX
     enum class EffectParameterClass : ui32 
     {
         Array,
-        Matrix,
         Scalar,
-        Struct,
-        Texture,
-        Vector
+        Texture
     };
 }
 

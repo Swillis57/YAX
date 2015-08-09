@@ -1,15 +1,14 @@
-#include "../../include/Graphics/IndexBuffer.h"
+#include "Graphics/IndexBuffer.h"
 
-#include "../../include/Graphics/IndexElementSize.h"
-#include "../../include/Graphics/BufferUsage.h"
+#include "Graphics/IndexElementSize.h"
+#include "Graphics/BufferUsage.h"
 
 namespace YAX
 {
     IndexBuffer::IndexBuffer(YAX::IndexElementSize size, i32 count, YAX::BufferUsage usage)
         : _elemSize(size), 
         _indCount(count), 
-        _bufUsage(usage), 
-        GraphicsResource("")
+        _bufUsage(usage)
     {
         glGenBuffers(1, &_id);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _id);
@@ -27,8 +26,7 @@ namespace YAX
     }
 
     IndexBuffer::IndexBuffer(IndexBuffer&& old)
-        : GraphicsResource(std::move(old)),
-        _elemSize(old._elemSize),
+        : _elemSize(old._elemSize),
         _indCount(old._indCount),
         _bufUsage(old._bufUsage),
         _id(old._id)
@@ -39,7 +37,6 @@ namespace YAX
 
     IndexBuffer& IndexBuffer::operator=(IndexBuffer&& old)
     {
-        GraphicsResource::operator=(std::move(old));
         this->_elemSize = old._elemSize;
         this->_indCount = old._indCount;
         this->_bufUsage = old._bufUsage;
@@ -48,6 +45,11 @@ namespace YAX
         old._id = 0;
 
         return *this;
+    }
+
+    void IndexBuffer::Bind() const
+    {
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _id);
     }
 
     YAX::BufferUsage IndexBuffer::BufferUsage()

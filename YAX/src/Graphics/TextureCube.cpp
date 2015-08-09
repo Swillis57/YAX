@@ -1,10 +1,10 @@
-#include "../../include/Graphics/TextureCube.h"
+#include "Graphics/TextureCube.h"
 
-#include "../../include/MathHelper.h"
-#include "../../include/Rectangle.h"
-#include "../../include/Graphics/CubeMapFace.h"
-#include "../../include/Graphics/GLConversions.h"
-#include "../../include/Graphics/SurfaceFormat.h"
+#include "MathHelper.h"
+#include "Rectangle.h"
+#include "Graphics/CubeMapFace.h"
+#include "Graphics/GLConversions.h"
+#include "Graphics/SurfaceFormat.h"
 
 namespace YAX
 {

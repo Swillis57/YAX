@@ -1,7 +1,7 @@
-#include "../../../include/Graphics/PackedVector/Byte4.h"
+#include "Graphics/PackedVector/Byte4.h"
 #include <cmath>
-#include "../../../include/MathHelper.h"
-#include "../../../include/Vector4.h"
+#include "MathHelper.h"
+#include "Vector4.h"
 
 namespace YAX
 {

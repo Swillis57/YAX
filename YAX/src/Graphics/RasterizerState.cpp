@@ -1,17 +1,16 @@
-#include "../../include/Graphics/RasterizerState.h"
+#include "Graphics/RasterizerState.h"
 
-#include "../../include/Graphics/CullMode.h"
-#include "../../include/Graphics/FillMode.h"
+#include "Graphics/CullMode.h"
+#include "Graphics/FillMode.h"
 
 namespace YAX
 {
-	const RasterizerState RasterizerState::CullClockwise(CullMode::CullClockwiseFace, "RasterizerState::CullClockwise");
-	const RasterizerState RasterizerState::CullCounterClockwise(CullMode::CullCounterClockwiseFace, "RasterizerState::CullCounterClockwise");
-	const RasterizerState RasterizerState::CullNone(CullMode::None, "RasterizerState::CullNone");
+	const RasterizerState RasterizerState::CullClockwise(CullMode::CullClockwiseFace);
+	const RasterizerState RasterizerState::CullCounterClockwise(CullMode::CullCounterClockwiseFace);
+	const RasterizerState RasterizerState::CullNone(CullMode::None);
 
 	RasterizerState::RasterizerState()
-		: GraphicsResource(""),
-		_cullMode(CullMode::CullCounterClockwiseFace),
+		: _cullMode(CullMode::CullCounterClockwiseFace),
 		_fillMode(FillMode::Solid),
 		_scissorTest(false),
 		_msaa(true),
@@ -19,9 +18,8 @@ namespace YAX
 		_slopeScaleDepthBias(0)
 	{}
 
-	RasterizerState::RasterizerState(YAX::CullMode cm, std::string name)
-		: GraphicsResource(name),
-		_cullMode(cm),
+	RasterizerState::RasterizerState(YAX::CullMode cm)
+		: _cullMode(cm),
 		_fillMode(FillMode::Solid),
 		_scissorTest(false),
 		_msaa(true),

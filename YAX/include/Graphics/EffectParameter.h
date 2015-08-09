@@ -1,6 +1,7 @@
 #ifndef _EFFECT_PARAMETER_H
 #define _EFFECT_PARAMETER_H
 
+#include <functional>
 #include <memory>
 #include <string>
 #include <vector>
@@ -32,8 +33,10 @@ namespace YAX
             EffectParameterClass,
             EffectParameterType,
             i32 rowCount,
-            i32 colCount
+            i32 colCount,
+            i32 numElements
         );
+
 
         i32 ColumnCount() const;
         std::string Name() const;
@@ -80,22 +83,29 @@ namespace YAX
         void SetValue(const std::vector<Vector2>&);
         void SetValue(const std::vector<Vector3>&);
         void SetValue(const std::vector<Vector4>&);
+        
 
     private:
         template<typename T>
         std::unique_ptr<T[]> GetData() const;
-        
+
         Matrix AssembleMatrix(float*) const;
-        void FindMatrixUploadFunc(const Matrix&, i32 count, bool transpose) const;
+        void SelectMatrixUploadFunc(float*, i32 count);
+        void SelectApplyCallback();
+
 
         GLint _loc;
         GLuint _progID;
-        i32 _colCount, _rowCount;
+        i32 _colCount, _rowCount, _numElements;
+        std::function<void()> _applyFunc;
         std::string _name;
         EffectParameterClass _epc;
         EffectParameterType _ept;
         Texture* _tex;
         ui32 _texUnit;
+        bool _transpose;
+        std::unique_ptr<unsigned char[]> _value;
+        unsigned char* _rawPtr;
     };
 }
 

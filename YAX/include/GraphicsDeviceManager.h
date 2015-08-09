@@ -9,58 +9,58 @@
 
 namespace YAX
 {
-	enum class GraphicsProfile : ui32;
-	enum class DepthFormat : ui32;
-	enum class SurfaceFormat : ui32;
+    enum class GraphicsProfile : ui32;
+    enum class DepthFormat : ui32;
+    enum class SurfaceFormat : ui32;
 
-	class Game;
+    class Game;
 
-	class GraphicsDeviceManager : public IGraphicsDeviceManager, public IGraphicsDeviceService
-	{
-	public:
-		GraphicsDeviceManager(Game*);
-		~GraphicsDeviceManager();
+    class GraphicsDeviceManager : public IGraphicsDeviceManager, public IGraphicsDeviceService
+    {
+    public:
+        GraphicsDeviceManager(Game*);
+        ~GraphicsDeviceManager();
 
-		static i32 DefaultBackBufferHeight();
-		static i32 DefaultBackBufferWidth();
+        static i32 DefaultBackBufferHeight();
+        static i32 DefaultBackBufferWidth();
 
-		YAX::GraphicsProfile GraphicsProfile() const;
-		void GraphicsProfile(YAX::GraphicsProfile);
+        YAX::GraphicsProfile GraphicsProfile() const;
+        void GraphicsProfile(YAX::GraphicsProfile);
 
-		bool IsFullScreen() const;
-		void IsFullScreen(bool);
+        bool IsFullScreen() const;
+        void IsFullScreen(bool);
 
-		bool PreferMultiSampling() const;
-		void PreferMultiSampling(bool);
+        bool PreferMultiSampling() const;
+        void PreferMultiSampling(bool);
 
-		SurfaceFormat PreferredBackBufferFormat() const;
-		void PreferredBackBufferFormat(SurfaceFormat);
+        SurfaceFormat PreferredBackBufferFormat() const;
+        void PreferredBackBufferFormat(SurfaceFormat);
 
-		i32 PreferredBackBufferHeight() const;
-		void PreferredBackBufferHeight(i32);
+        i32 PreferredBackBufferHeight() const;
+        void PreferredBackBufferHeight(i32);
 
-		i32 PreferredBackBufferWidth() const;
-		void PreferredBackBufferWidth(i32);
+        i32 PreferredBackBufferWidth() const;
+        void PreferredBackBufferWidth(i32);
 
-		DepthFormat PreferredDepthStencilFormat() const;
-		void PreferredDepthStencilFormat(DepthFormat);
+        DepthFormat PreferredDepthStencilFormat() const;
+        void PreferredDepthStencilFormat(DepthFormat);
 
-		bool SyncronizeWithVerticalRetrace() const;
-		void SyncronizeWithVerticalRetrace(bool); 
+        bool SyncronizeWithVerticalRetrace() const;
+        void SyncronizeWithVerticalRetrace(bool); 
 
-		void ApplyChanges();
-		bool BeginDraw() override;
-		void CreateDevice() override;
-		void EndDraw() override;
-		void ToggleFullScreen();
+        void ApplyChanges();
+        bool BeginDraw() override;
+        void CreateDevice() override;
+        void EndDraw() override;
+        void ToggleFullScreen();
 
-	/*protected: //Not implementing these until there is some demonstrable need
-		virtual bool CanResetDevice();
-		virtual GraphicsDeviceInformation FindBestDevice();
-		virtual void RankDevices(std::vector<GraphicsDeviceInformation>);*/
+    /*protected: //Not implementing these until there is some demonstrable need
+        virtual bool CanResetDevice();
+        virtual GraphicsDeviceInformation FindBestDevice();
+        virtual void RankDevices(std::vector<GraphicsDeviceInformation>);*/
 
-	private:
-		static const i32 _defaultBufWidth, _defaultBufHeight;
+    private:
+        static const i32 _defaultBufWidth, _defaultBufHeight;
 
         Game* _game;
         YAX::GraphicsProfile _profile;
@@ -68,7 +68,7 @@ namespace YAX
         DepthFormat _dFmt;
         bool _isFullScrn, _multiSampPref, _vSync;
         i32 _bufHeight, _bufWidth;
-	};
+    };
 }
 
 

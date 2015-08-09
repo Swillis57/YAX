@@ -1,7 +1,7 @@
-#include "../../../include/Graphics/PackedVector/Rg32.h"
-#include "../../../include/MathHelper.h"
-#include "../../../include/Vector2.h"
-#include "../../../include/Vector4.h"
+#include "Graphics/PackedVector/Rg32.h"
+#include "MathHelper.h"
+#include "Vector2.h"
+#include "Vector4.h"
 
 namespace YAX
 {

@@ -1,9 +1,9 @@
-#include "../include/Ray.h"
+#include "Ray.h"
 
-#include "../include/BoundingBox.h"
-#include "../include/BoundingFrustum.h"
-#include "../include/BoundingSphere.h"
-#include "../include/Plane.h"
+#include "BoundingBox.h"
+#include "BoundingFrustum.h"
+#include "BoundingSphere.h"
+#include "Plane.h"
 
 namespace YAX
 {

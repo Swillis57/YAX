@@ -2,7 +2,7 @@
 #define __glew_h__
 #define __GLEW_H__
 
-#if defined(__gl_h_) || defined(__GL_H__) || defined(__X_GL_H)
+#if defined(__gl_h_) || defined(__GL_H__) || defined(_GL_H) || defined(__X_GL_H)
 #error gl.h included before glew.h
 #endif
 #if defined(__gl2_h_)
@@ -24,6 +24,7 @@
 #define __gl_h_
 #define __gl2_h_
 #define __GL_H__
+#define _GL_H
 #define __gltypes_h_
 #define __REGAL_H__
 #define __X_GL_H
@@ -1104,6 +1105,15 @@ GLAPI void GLAPIENTRY glViewport (GLint x, GLint y, GLsizei width, GLsizei heigh
 #endif /* GL_VERSION_1_1 */
 
 /* ---------------------------------- GLU ---------------------------------- */
+
+#ifndef GLEW_NO_GLU
+#  ifdef __APPLE__
+#    include <Availability.h>
+#    if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
+#      define GLEW_NO_GLU
+#    endif
+#  endif
+#endif
 
 #ifndef GLEW_NO_GLU
 /* this is where we can safely include GLU */

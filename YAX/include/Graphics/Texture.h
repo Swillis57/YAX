@@ -2,14 +2,13 @@
 #define _TEXTURE_H
 
 #include "../../../external/glew/include/GL/glew.h"
-#include "GraphicsResource.h" 
 #include "../Utils.h"
 
 namespace YAX
 {
     enum class SurfaceFormat : ui32;
 
-    class Texture : public GraphicsResource
+    class Texture
     {
     public:
         Texture();
@@ -20,9 +19,10 @@ namespace YAX
         Texture(Texture&&);
         Texture& operator=(Texture&&);
 
-        void Bind(GLuint unit) const;
+        void Bind(GLuint) const;
         SurfaceFormat Format() const;
         i32 LevelCount() const;
+        GLenum Type() const;
 
     protected:
         i32 CalcMaxMipLevel(i32 w, i32 h = 0, i32 d = 0);

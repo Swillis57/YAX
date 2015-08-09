@@ -1,8 +1,8 @@
 #include <cmath>
 
-#include "../include/Curve.h"
-#include "../include/CurveLoopType.h"
-#include "../include/CurveTangent.h"
+#include "Curve.h"
+#include "CurveLoopType.h"
+#include "CurveTangent.h"
 
 namespace YAX
 {

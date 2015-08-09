@@ -2,71 +2,76 @@
 #define _BLEND_STATE_H
 
 #include <string>
-#include "GraphicsResource.h"
 #include "../Color.h"
 #include "../Utils.h"
 
 namespace YAX
 {
-	enum class Blend : int;
-	enum class BlendFunction : int;
-	enum class ColorWriteChannels : int;
+    enum class Blend : ui32;
+    enum class BlendFunction : ui32;
+    enum class ColorWriteChannels : ui32;
 
-	class BlendState : public GraphicsResource
-	{
-	public:
-		static const BlendState Additive;
-		static const BlendState AlphaBlend;
-		static const BlendState NonPremultiplied;
-		static const BlendState Opaque;
+    class BlendState
+    {
+    public:
+        friend class GraphicsDevice;
 
-		BlendState(std::string, Blend, Blend, Blend, Blend);
-		~BlendState() = default;
-		
-		BlendFunction AlphaBlendFunction();
-		void AlphaBlendFunction(BlendFunction);
+        static const BlendState Additive;
+        static const BlendState AlphaBlend;
+        static const BlendState NonPremultiplied;
+        static const BlendState Opaque;
 
-		Blend AlphaDestinationBlend();
-		void AlphaDestinationBlend(Blend);
+        BlendState(std::string, Blend, Blend, Blend, Blend);
+        BlendState(const BlendState&) = default;
+        ~BlendState() = default;
+        
+        BlendFunction AlphaBlendFunction() const;
+        void AlphaBlendFunction(BlendFunction);
 
-		Blend AlphaSourceBlend();
-		void AlphaSourceBlend(Blend);
+        Blend AlphaDestinationBlend() const;
+        void AlphaDestinationBlend(Blend);
 
-		Color BlendFactor();
-		void BlendFactor(const Color&);
+        Blend AlphaSourceBlend() const;
+        void AlphaSourceBlend(Blend);
 
-		BlendFunction ColorBlendFunction();
-		void ColorBlendFunction(BlendFunction);
+        Color BlendFactor() const;
+        void BlendFactor(const Color&);
 
-		Blend ColorDestinationBlend();
-		void ColorDestinationBlend(Blend);
+        BlendFunction ColorBlendFunction() const;
+        void ColorBlendFunction(BlendFunction);
 
-		Blend ColorSourceBlend();
-		void ColorSourceBlend(Blend);
+        Blend ColorDestinationBlend() const;
+        void ColorDestinationBlend(Blend);
 
-		ColorWriteChannels ColorWriteChannels0();
-		void ColorWriteChannels0(ColorWriteChannels); 
+        Blend ColorSourceBlend() const;
+        void ColorSourceBlend(Blend);
 
-		ColorWriteChannels ColorWriteChannels1();
-		void ColorWriteChannels1(ColorWriteChannels);
+        ColorWriteChannels ColorWriteChannels0() const;
+        void ColorWriteChannels0(ColorWriteChannels); 
 
-		ColorWriteChannels ColorWriteChannels2();
-		void ColorWriteChannels2(ColorWriteChannels);
+        ColorWriteChannels ColorWriteChannels1() const;
+        void ColorWriteChannels1(ColorWriteChannels);
 
-		ColorWriteChannels ColorWriteChannels3();
-		void ColorWriteChannels3(ColorWriteChannels);
+        ColorWriteChannels ColorWriteChannels2() const;
+        void ColorWriteChannels2(ColorWriteChannels);
 
-		i32 MultiSampleMask();
-		void MultiSampleMask(i32);
+        ColorWriteChannels ColorWriteChannels3() const;
+        void ColorWriteChannels3(ColorWriteChannels);
 
-	private:
-		BlendFunction _alphaBlendFunc, _colorBlendFunc;
-		Blend _alphaDestBlend, _alphaSrcBlend, _colorDestBlend, _colorSrcBlend;
-		Color _blendFactor;
-		ColorWriteChannels _cwc0, _cwc1, _cwc2, _cwc3;
-		i32 _multiSampleMask;
+        i32 MultiSampleMask() const;
+        void MultiSampleMask(i32);
 
-	};
+        friend bool operator==(const BlendState&, const BlendState&);
+        friend bool operator!=(const BlendState&, const BlendState&);
+
+    private:
+        BlendFunction _alphaBlendFunc, _colorBlendFunc;
+        Blend _alphaDestBlend, _alphaSrcBlend, _colorDestBlend, _colorSrcBlend;
+        Color _blendFactor;
+        ColorWriteChannels _cwc0, _cwc1, _cwc2, _cwc3;
+        i32 _multiSampleMask;
+
+    };
 }
 
 

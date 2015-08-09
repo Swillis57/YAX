@@ -1,5 +1,5 @@
-#include "../../../include/Graphics/PackedVector/Short4.h"
-#include "../../../include/Vector4.h"
+#include "Graphics/PackedVector/Short4.h"
+#include "Vector4.h"
 
 namespace YAX
 {

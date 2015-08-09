@@ -1,10 +1,10 @@
-#include "../include/Plane.h"
+#include "Plane.h"
 
-#include "../include/BoundingBox.h"
-#include "../include/BoundingFrustum.h"
-#include "../include/BoundingSphere.h"
-#include "../include/PlaneIntersectionType.h"
-#include "../include/Vector4.h"
+#include "BoundingBox.h"
+#include "BoundingFrustum.h"
+#include "BoundingSphere.h"
+#include "PlaneIntersectionType.h"
+#include "Vector4.h"
 
 namespace YAX
 {

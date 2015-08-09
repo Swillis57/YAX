@@ -1,80 +1,82 @@
 #ifndef _DEPTH_STENCIL_STATE_H
 #define _DEPTH_STENCIL_STATE_H
 
-#include "GraphicsResource.h"
 #include "../Utils.h"
 
 namespace YAX
 {
-	enum class CompareFunction : int;
-	enum class StencilOperation : int;
+    enum class CompareFunction : ui32;
+    enum class StencilOperation : ui32;
 
-	class DepthStencilState : public GraphicsResource
-	{
-	public:
-		static const DepthStencilState Default;
-		static const DepthStencilState DepthRead;
-		static const DepthStencilState None;
+    class DepthStencilState
+    {
+        friend class GraphicsDevice;
 
-		DepthStencilState(bool, bool);
-		~DepthStencilState() = default;
+    public:
+        static const DepthStencilState Default;
+        static const DepthStencilState DepthRead;
+        static const DepthStencilState None;
 
-		StencilOperation CounterClockwiseStencilDepthBufferFail();
-		void CounterClockwiseStencilDepthBufferFail(StencilOperation);
+        DepthStencilState();
+        DepthStencilState(bool, bool);
+        ~DepthStencilState() = default;
 
-		StencilOperation CounterClockwiseStencilFail();
-		void CounterClockwiseStencilFail(StencilOperation);
+        StencilOperation CounterClockwiseStencilDepthBufferFail();
+        void CounterClockwiseStencilDepthBufferFail(StencilOperation);
 
-		CompareFunction CounterClockwiseStencilFunction();
-		void CounterClockwiseStencilFunction(CompareFunction);
+        StencilOperation CounterClockwiseStencilFail();
+        void CounterClockwiseStencilFail(StencilOperation);
 
-		StencilOperation CounterClockwiseStencilPass();
-		void CounterClockwiseStencilPass(StencilOperation);
+        CompareFunction CounterClockwiseStencilFunction();
+        void CounterClockwiseStencilFunction(CompareFunction);
 
-		bool DepthBufferEnable();
-		void DepthBufferEnable(bool);
+        StencilOperation CounterClockwiseStencilPass();
+        void CounterClockwiseStencilPass(StencilOperation);
 
-		CompareFunction DepthBufferFunction();
-		void DepthBufferFunction(CompareFunction);
+        bool DepthBufferEnable();
+        void DepthBufferEnable(bool);
 
-		bool DepthBufferWriteEnable();
-		void DepthBufferWriteEnable(bool);
+        CompareFunction DepthBufferFunction();
+        void DepthBufferFunction(CompareFunction);
 
-		i32 ReferenceStencil();
-		void ReferenceStencil(i32);
+        bool DepthBufferWriteEnable();
+        void DepthBufferWriteEnable(bool);
 
-		StencilOperation StencilDepthBufferFail();
-		void StencilDepthBufferFail(StencilOperation);
+        i32 ReferenceStencil();
+        void ReferenceStencil(i32);
 
-		bool StencilEnable();
-		void StencilEnable(bool);
+        StencilOperation StencilDepthBufferFail();
+        void StencilDepthBufferFail(StencilOperation);
 
-		StencilOperation StencilFail();
-		void StencilFail(StencilOperation);
+        bool StencilEnable();
+        void StencilEnable(bool);
 
-		CompareFunction StencilFunction();
-		void StencilFunction(CompareFunction);
+        StencilOperation StencilFail();
+        void StencilFail(StencilOperation);
 
-		i32 StencilMask();
-		void StencilMask(i32);
+        CompareFunction StencilFunction();
+        void StencilFunction(CompareFunction);
 
-		StencilOperation StencilPass();
-		void StencilPass(StencilOperation);
+        i32 StencilMask();
+        void StencilMask(i32);
 
-		i32 StencilWriteMask();
-		void StencilWriteMask(i32);
+        StencilOperation StencilPass();
+        void StencilPass(StencilOperation);
 
-		bool TwoSidedStencilMode();
-		void TwoSidedStencilMode(bool);
+        i32 StencilWriteMask();
+        void StencilWriteMask(i32);
 
-	private:
-		StencilOperation _ccwStencilDepthBufferFail, _ccwStencilFail, _ccwStencilPass, 
-						 _stencilDepthBufferFail, _stencilFail, _stencilPass;
-		CompareFunction _ccwStencilFunc, _depthBufferFunc, _stencilFunc;
-		bool _depthBufferEnable, _stencilEnable, _depthBufferWriteEnable, _twoSidedStencilMode;
-		i32 _refStencil, _stencilMask, _stencilWriteMask;
+        bool TwoSidedStencilMode();
+        void TwoSidedStencilMode(bool);
 
-	};
+    private:
+        StencilOperation _ccwStencilDepthBufferFail, _ccwStencilFail, _ccwStencilPass, 
+                         _stencilDepthBufferFail, _stencilFail, _stencilPass;
+        CompareFunction _ccwStencilFunc, _depthBufferFunc, _stencilFunc;
+        bool _depthBufferEnable, _stencilEnable, _depthBufferWriteEnable, _twoSidedStencilMode;
+        i32 _refStencil, _stencilMask, _stencilWriteMask;
+
+    };
 }
 
 

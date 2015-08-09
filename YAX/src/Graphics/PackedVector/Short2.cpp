@@ -1,6 +1,6 @@
-#include "../../../include/Graphics/PackedVector/Short2.h"
-#include "../../../include/Vector2.h"
-#include "../../../include/Vector4.h"
+#include "Graphics/PackedVector/Short2.h"
+#include "Vector2.h"
+#include "Vector4.h"
 
 namespace YAX
 {

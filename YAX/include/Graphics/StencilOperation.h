@@ -5,7 +5,7 @@
 
 namespace YAX
 {
-	enum class StencilOperation : int 
+	enum class StencilOperation : GLenum 
 	{
 		Decrement = GL_DECR_WRAP,
 		DecrementSaturation = GL_DECR,

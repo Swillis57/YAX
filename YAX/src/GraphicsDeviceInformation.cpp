@@ -1,5 +1,7 @@
-#include "../include/GraphicsDeviceInformation.h"
-#include "../include/Graphics/GraphicsProfile.h"
+#include "GraphicsDeviceInformation.h"
+
+#include "Graphics/GraphicsAdapter.h"
+#include "Graphics/GraphicsProfile.h"
 
 namespace YAX
 {

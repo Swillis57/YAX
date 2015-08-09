@@ -1,192 +1,195 @@
-#include "../../include/Graphics/DepthStencilState.h"
+#include "Graphics/DepthStencilState.h"
 
-#include "../../include/Graphics/CompareFunction.h"
-#include "../../include/Graphics/StencilOperation.h"
+#include "Graphics/CompareFunction.h"
+#include "Graphics/StencilOperation.h"
 
 namespace YAX
 {
-	const DepthStencilState DepthStencilState::Default = DepthStencilState(true, true);
-	const DepthStencilState DepthStencilState::DepthRead = DepthStencilState(true, false);
-	const DepthStencilState DepthStencilState::None = DepthStencilState(false, false);
+    const DepthStencilState DepthStencilState::Default = DepthStencilState(true, true);
+    const DepthStencilState DepthStencilState::DepthRead = DepthStencilState(true, false);
+    const DepthStencilState DepthStencilState::None = DepthStencilState(false, false);
 
-	DepthStencilState::DepthStencilState(bool bufEnable = true, bool bufWriteEnable = true)
-		: GraphicsResource(""),
-		_ccwStencilDepthBufferFail(StencilOperation::Keep),
-		_ccwStencilFail(StencilOperation::Keep),
-		_ccwStencilFunc(CompareFunction::Always),
-		_ccwStencilPass(StencilOperation::Keep),
-		_depthBufferEnable(bufEnable),
-		_depthBufferFunc(CompareFunction::LessEqual),
-		_depthBufferWriteEnable(bufWriteEnable),
-		_refStencil(0),
-		_stencilDepthBufferFail(StencilOperation::Keep),
-		_stencilEnable(false),
-		_stencilFail(StencilOperation::Keep),
-		_stencilFunc(CompareFunction::Always),
-		_stencilMask(0x7FFFFFFF),
-		_stencilPass(StencilOperation::Keep),
-		_stencilWriteMask(0x7FFFFFFF),
-		_twoSidedStencilMode(false)
-	{}
+    DepthStencilState::DepthStencilState()
+        : DepthStencilState(true, true)
+    {}
 
-	StencilOperation DepthStencilState::CounterClockwiseStencilDepthBufferFail()
-	{
-		return _ccwStencilDepthBufferFail;
-	}
+    DepthStencilState::DepthStencilState(bool bufEnable = true, bool bufWriteEnable = true)
+        : _ccwStencilDepthBufferFail(StencilOperation::Keep),
+        _ccwStencilFail(StencilOperation::Keep),
+        _ccwStencilFunc(CompareFunction::Always),
+        _ccwStencilPass(StencilOperation::Keep),
+        _depthBufferEnable(bufEnable),
+        _depthBufferFunc(CompareFunction::LessEqual),
+        _depthBufferWriteEnable(bufWriteEnable),
+        _refStencil(0),
+        _stencilDepthBufferFail(StencilOperation::Keep),
+        _stencilEnable(false),
+        _stencilFail(StencilOperation::Keep),
+        _stencilFunc(CompareFunction::Always),
+        _stencilMask(0x7FFFFFFF),
+        _stencilPass(StencilOperation::Keep),
+        _stencilWriteMask(0x7FFFFFFF),
+        _twoSidedStencilMode(false)
+    {}
 
-	void DepthStencilState::CounterClockwiseStencilDepthBufferFail(StencilOperation s)
-	{
-		_ccwStencilDepthBufferFail = s;
-	}
+    StencilOperation DepthStencilState::CounterClockwiseStencilDepthBufferFail()
+    {
+        return _ccwStencilDepthBufferFail;
+    }
 
-	StencilOperation DepthStencilState::CounterClockwiseStencilFail()
-	{
-		return _ccwStencilFail;
-	}
+    void DepthStencilState::CounterClockwiseStencilDepthBufferFail(StencilOperation s)
+    {
+        _ccwStencilDepthBufferFail = s;
+    }
 
-	void DepthStencilState::CounterClockwiseStencilFail(StencilOperation s)
-	{
-		_ccwStencilFail = s;
-	}
+    StencilOperation DepthStencilState::CounterClockwiseStencilFail()
+    {
+        return _ccwStencilFail;
+    }
 
-	CompareFunction DepthStencilState::CounterClockwiseStencilFunction()
-	{
-		return _ccwStencilFunc;
-	}
+    void DepthStencilState::CounterClockwiseStencilFail(StencilOperation s)
+    {
+        _ccwStencilFail = s;
+    }
 
-	void DepthStencilState::CounterClockwiseStencilFunction(CompareFunction c)
-	{
-		_ccwStencilFunc = c;
-	}
+    CompareFunction DepthStencilState::CounterClockwiseStencilFunction()
+    {
+        return _ccwStencilFunc;
+    }
 
-	StencilOperation DepthStencilState::CounterClockwiseStencilPass()
-	{
-		return _ccwStencilPass;
-	}
+    void DepthStencilState::CounterClockwiseStencilFunction(CompareFunction c)
+    {
+        _ccwStencilFunc = c;
+    }
 
-	void DepthStencilState::CounterClockwiseStencilPass(StencilOperation s)
-	{
-		_ccwStencilPass = s;
-	}
+    StencilOperation DepthStencilState::CounterClockwiseStencilPass()
+    {
+        return _ccwStencilPass;
+    }
 
-	bool DepthStencilState::DepthBufferEnable()
-	{
-		return _depthBufferEnable;
-	}
+    void DepthStencilState::CounterClockwiseStencilPass(StencilOperation s)
+    {
+        _ccwStencilPass = s;
+    }
 
-	void DepthStencilState::DepthBufferEnable(bool b)
-	{
-		_depthBufferEnable = b;
-	}
+    bool DepthStencilState::DepthBufferEnable()
+    {
+        return _depthBufferEnable;
+    }
 
-	CompareFunction DepthStencilState::DepthBufferFunction()
-	{
-		return _depthBufferFunc;
-	}
+    void DepthStencilState::DepthBufferEnable(bool b)
+    {
+        _depthBufferEnable = b;
+    }
 
-	void DepthStencilState::DepthBufferFunction(CompareFunction c)
-	{
-		_depthBufferFunc = c;
-	}
+    CompareFunction DepthStencilState::DepthBufferFunction()
+    {
+        return _depthBufferFunc;
+    }
 
-	bool DepthStencilState::DepthBufferWriteEnable()
-	{
-		return _depthBufferWriteEnable;
-	}
+    void DepthStencilState::DepthBufferFunction(CompareFunction c)
+    {
+        _depthBufferFunc = c;
+    }
 
-	void DepthStencilState::DepthBufferWriteEnable(bool b)
-	{
-		_depthBufferWriteEnable = b;
-	}
+    bool DepthStencilState::DepthBufferWriteEnable()
+    {
+        return _depthBufferWriteEnable;
+    }
 
-	i32 DepthStencilState::ReferenceStencil()
-	{
-		return _refStencil;
-	}
+    void DepthStencilState::DepthBufferWriteEnable(bool b)
+    {
+        _depthBufferWriteEnable = b;
+    }
 
-	void DepthStencilState::ReferenceStencil(i32 i)
-	{
-		_refStencil = i;
-	}
+    i32 DepthStencilState::ReferenceStencil()
+    {
+        return _refStencil;
+    }
 
-	StencilOperation DepthStencilState::StencilDepthBufferFail()
-	{
-		return _stencilDepthBufferFail;
-	}
+    void DepthStencilState::ReferenceStencil(i32 i)
+    {
+        _refStencil = i;
+    }
 
-	void DepthStencilState::StencilDepthBufferFail(StencilOperation s)
-	{
-		_stencilDepthBufferFail = s;
-	}
+    StencilOperation DepthStencilState::StencilDepthBufferFail()
+    {
+        return _stencilDepthBufferFail;
+    }
 
-	bool DepthStencilState::StencilEnable()
-	{
-		return _stencilEnable;
-	}
+    void DepthStencilState::StencilDepthBufferFail(StencilOperation s)
+    {
+        _stencilDepthBufferFail = s;
+    }
 
-	void DepthStencilState::StencilEnable(bool b)
-	{
-		_stencilEnable = b;
-	}
+    bool DepthStencilState::StencilEnable()
+    {
+        return _stencilEnable;
+    }
 
-	StencilOperation DepthStencilState::StencilFail()
-	{
-		return _stencilFail;
-	}
+    void DepthStencilState::StencilEnable(bool b)
+    {
+        _stencilEnable = b;
+    }
 
-	void DepthStencilState::StencilFail(StencilOperation s)
-	{
-		_stencilFail = s;
-	}
+    StencilOperation DepthStencilState::StencilFail()
+    {
+        return _stencilFail;
+    }
 
-	CompareFunction DepthStencilState::StencilFunction()
-	{
-		return _stencilFunc;
-	}
+    void DepthStencilState::StencilFail(StencilOperation s)
+    {
+        _stencilFail = s;
+    }
 
-	void DepthStencilState::StencilFunction(CompareFunction c)
-	{
-		_stencilFunc = c;
-	}
+    CompareFunction DepthStencilState::StencilFunction()
+    {
+        return _stencilFunc;
+    }
 
-	i32 DepthStencilState::StencilMask()
-	{
-		return _stencilMask;
-	}
+    void DepthStencilState::StencilFunction(CompareFunction c)
+    {
+        _stencilFunc = c;
+    }
 
-	void DepthStencilState::StencilMask(i32 mask)
-	{
-		_stencilMask = mask;
-	}
+    i32 DepthStencilState::StencilMask()
+    {
+        return _stencilMask;
+    }
 
-	StencilOperation DepthStencilState::StencilPass()
-	{
-		return _stencilPass;
-	}
+    void DepthStencilState::StencilMask(i32 mask)
+    {
+        _stencilMask = mask;
+    }
 
-	void DepthStencilState::StencilPass(StencilOperation s)
-	{
-		_stencilPass = s;
-	}
+    StencilOperation DepthStencilState::StencilPass()
+    {
+        return _stencilPass;
+    }
 
-	i32 DepthStencilState::StencilWriteMask()
-	{
-		return _stencilWriteMask;
-	}
+    void DepthStencilState::StencilPass(StencilOperation s)
+    {
+        _stencilPass = s;
+    }
 
-	void DepthStencilState::StencilWriteMask(i32 mask)
-	{
-		_stencilWriteMask = mask;
-	}
+    i32 DepthStencilState::StencilWriteMask()
+    {
+        return _stencilWriteMask;
+    }
 
-	bool DepthStencilState::TwoSidedStencilMode()
-	{
-		return _twoSidedStencilMode;
-	}
+    void DepthStencilState::StencilWriteMask(i32 mask)
+    {
+        _stencilWriteMask = mask;
+    }
 
-	void DepthStencilState::TwoSidedStencilMode(bool b)
-	{
-		_twoSidedStencilMode = b;
-	}
+    bool DepthStencilState::TwoSidedStencilMode()
+    {
+        return _twoSidedStencilMode;
+    }
+
+    void DepthStencilState::TwoSidedStencilMode(bool b)
+    {
+        _twoSidedStencilMode = b;
+    }
 
 }

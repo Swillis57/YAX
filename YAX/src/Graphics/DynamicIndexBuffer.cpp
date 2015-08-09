@@ -1,6 +1,6 @@
-#include "../../include/Graphics/DynamicIndexBuffer.h"
+#include "Graphics/DynamicIndexBuffer.h"
 
-#include "../../include/Graphics/IndexElementSize.h"
+#include "Graphics/IndexElementSize.h"
 
 namespace YAX
 {

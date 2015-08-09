@@ -9,11 +9,9 @@
 
 namespace YAX
 {
-    struct VertexPositionColor : public IVertexType
+    struct VertexPositionColor : public IVertexType<VertexPositionColor>
     {
     public:
-        static const YAX::VertexDeclaration VertexDeclaration;
-        
         VertexPositionColor(const Vector3& pos, const YAX::Color& color);
         ~VertexPositionColor() = default;
 

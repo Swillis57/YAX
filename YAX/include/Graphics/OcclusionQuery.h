@@ -2,14 +2,13 @@
 #define _OCCLUSION_QUERY_H
 
 #include "../../../external/glew/include/GL/glew.h"
-#include "GraphicsResource.h"
 #include "../Utils.h"
 
 namespace YAX
 {
 	class GraphicsDevice;
 
-	class OcclusionQuery : public GraphicsResource
+	class OcclusionQuery
 	{
 	public:
 		OcclusionQuery(YAX::GraphicsDevice&);

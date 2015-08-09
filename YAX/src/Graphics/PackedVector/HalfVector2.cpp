@@ -1,7 +1,7 @@
-#include "../../../include/Graphics/PackedVector/HalfVector2.h"
-#include "../../../include/Graphics/PackedVector/HalfSingle.h"
-#include "../../../include/Vector2.h"
-#include "../../../include/Vector4.h"
+#include "Graphics/PackedVector/HalfVector2.h"
+#include "Graphics/PackedVector/HalfSingle.h"
+#include "Vector2.h"
+#include "Vector4.h"
 
 namespace YAX
 {

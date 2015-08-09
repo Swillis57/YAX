@@ -1,5 +1,5 @@
-#include "../include/Rectangle.h"
-#include "../include/Point.h"
+#include "Rectangle.h"
+#include "Point.h"
 
 namespace YAX
 {

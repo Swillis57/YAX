@@ -5,7 +5,7 @@
 
 namespace YAX
 {
-	enum class BlendFunction : int 
+	enum class BlendFunction : GLenum
 	{
 		Add = GL_FUNC_ADD,
 		Max = GL_MAX,

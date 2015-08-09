@@ -15,7 +15,7 @@ namespace YAX
 		~IGraphicsDeviceService() = default;
 
 	protected:
-		std::shared_ptr<YAX::GraphicsDevice> _graphicsDev;
+		std::unique_ptr<YAX::GraphicsDevice> _graphicsDev;
 	};
 	
 }

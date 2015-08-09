@@ -4,7 +4,6 @@
 #include <vector>
 #include "DynamicIndexBuffer.h"
 #include "DynamicVertexBuffer.h"
-#include "GraphicsResource.h"
 #include "../Rectangle.h"
 #include "SpriteEffects.h"
 #include "Texture2D.h"
@@ -26,7 +25,7 @@ namespace YAX
 	struct Color;
 	struct Vector2;
 
-	class SpriteBatch : public GraphicsResource
+	class SpriteBatch
 	{
 		struct SpriteInfo
 		{

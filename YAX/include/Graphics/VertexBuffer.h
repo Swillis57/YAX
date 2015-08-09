@@ -6,7 +6,6 @@
 #include <vector>
 
 #include "../../../external/glew/include/GL/glew.h"
-#include "GraphicsResource.h"
 #include "PackedVector/IPackedVector.h"
 #include "IVertexType.h"
 #include "VertexDeclaration.h"
@@ -14,10 +13,13 @@
 
 namespace YAX
 {
+
     enum class BufferUsage : ui32;
 
-    class VertexBuffer : public GraphicsResource
+    class VertexBuffer
     {
+        friend struct VertexBufferBinding;
+    
     public:
         VertexBuffer(YAX::VertexDeclaration decl, i32 vertCount, BufferUsage usage);
         VertexBuffer(const VertexBuffer&) = delete;

@@ -9,7 +9,10 @@ namespace YAX
     struct VertexBufferBinding
     {
     public:
+        VertexBufferBinding();
         VertexBufferBinding(YAX::VertexBuffer* buf, i32 offset = 0, i32 instanceFrequency = 0);
+
+        void Bind() const;
 
         i32 InstanceFrequency() const;		 
 

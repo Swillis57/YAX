@@ -7,10 +7,10 @@ struct GLFWwindow;
 
 namespace YAX
 {
-	enum class PresentInterval : int;
+	enum class PresentInterval : ui32;
 	enum class SurfaceFormat : ui32;
 	enum class DepthFormat : ui32;
-	enum class RenderTargetUsage : int;
+	enum class RenderTargetUsage : ui32;
 
 	struct Rectangle;
 

@@ -1,7 +1,7 @@
-#include "../../include/Graphics/VertexPositionTexture.h"
+#include "Graphics/VertexPositionTexture.h"
 
-#include "../../include/Graphics/VertexElementFormat.h"
-#include "../../include/Graphics/VertexElementUsage.h"
+#include "Graphics/VertexElementFormat.h"
+#include "Graphics/VertexElementUsage.h"
 
 namespace YAX
 {
@@ -14,9 +14,7 @@ namespace YAX
         : IVertexType(),
         _pos(pos),
         _texCoord(coord)
-    {
-        _vertDecl = &VertexDeclaration;
-    }
+    {}
 
     Vector2 VertexPositionTexture::TextureCoordinate() const
     {

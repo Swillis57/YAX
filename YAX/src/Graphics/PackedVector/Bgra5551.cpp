@@ -1,6 +1,6 @@
-#include "../../../include/Graphics/PackedVector/Bgra5551.h"
-#include "../../../include/MathHelper.h"
-#include "../../../include/Vector4.h"
+#include "Graphics/PackedVector/Bgra5551.h"
+#include "MathHelper.h"
+#include "Vector4.h"
 
 namespace YAX
 {

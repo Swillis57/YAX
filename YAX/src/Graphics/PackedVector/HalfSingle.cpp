@@ -1,5 +1,5 @@
-#include "../../../include/Graphics/PackedVector/HalfSingle.h"
-#include "../../../include/Vector4.h"
+#include "Graphics/PackedVector/HalfSingle.h"
+#include "Vector4.h"
 
 namespace YAX
 {

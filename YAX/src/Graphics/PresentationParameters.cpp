@@ -1,10 +1,10 @@
-#include "../../include/Graphics/PresentationParameters.h"
+#include "Graphics/PresentationParameters.h"
 
-#include "../../include/Graphics/PresentInterval.h"
-#include "../../include/Graphics/SurfaceFormat.h"
-#include "../../include/Graphics/DepthFormat.h"
-#include "../../include/Graphics/RenderTargetUsage.h"
-#include "../../include/Rectangle.h"
+#include "Graphics/PresentInterval.h"
+#include "Graphics/SurfaceFormat.h"
+#include "Graphics/DepthFormat.h"
+#include "Graphics/RenderTargetUsage.h"
+#include "Rectangle.h"
 
 namespace YAX
 {

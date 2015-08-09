@@ -5,11 +5,11 @@
 
 namespace YAX
 {
-	enum class IndexElementSize : GLsizeiptr 
+	enum class IndexElementSize : GLenum 
 	{
-		EightBits = sizeof(GLubyte),
-		SixteenBits = sizeof(GLushort),
-		ThirtyTwoBits = sizeof(GLuint),
+		EightBits = GL_UNSIGNED_BYTE,
+		SixteenBits = GL_UNSIGNED_SHORT,
+		ThirtyTwoBits = GL_UNSIGNED_INT
 	};
 }
 

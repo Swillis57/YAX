@@ -1,8 +1,8 @@
-#include "../include/Stopwatch.h"
+#include "Stopwatch.h"
 
 #include <chrono>
-#include "../include/TimeSpan.h"
-#include "../include/Utils.h"
+#include "TimeSpan.h"
+#include "Utils.h"
 
 using std::chrono::duration_cast;
 using std::chrono::steady_clock;

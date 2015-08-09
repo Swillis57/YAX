@@ -1,5 +1,5 @@
-#ifndef _EFFECT_PARAMTER_TYPE_H
-#define _EFFECT_PARAMTER_TYPE_H
+#ifndef _EFFECT_PARAMETER_TYPE_H
+#define _EFFECT_PARAMETER_TYPE_H
 
 #include "../Utils.h"
 
@@ -9,6 +9,7 @@ namespace YAX
     {
         Bool,
         Int32,
+        Matrix,
         Single,
         Texture1D,
         Texture2D,
@@ -16,8 +17,7 @@ namespace YAX
         TextureCube,
         Vector2,
         Vector3,
-        Vector4,
-        Void
+        Vector4
     };
 }
 

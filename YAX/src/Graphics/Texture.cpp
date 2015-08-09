@@ -1,13 +1,12 @@
-#include "../../include/Graphics/Texture.h"
+#include "Graphics/Texture.h"
 
-#include "../../include/MathHelper.h"
-#include "../../include/Graphics/SurfaceFormat.h"
+#include "MathHelper.h"
+#include "Graphics/SurfaceFormat.h"
 
 namespace YAX
 {
     Texture::Texture()
-        : GraphicsResource(""),
-        _format(SurfaceFormat::Color),
+        : _format(SurfaceFormat::Color),
         _levelCount(0),
         _anisoLevel(4.0f),
         _lodBias(0.0f)
@@ -23,8 +22,7 @@ namespace YAX
     }
 
     Texture::Texture(Texture&& old)
-        : GraphicsResource(std::move(old)),
-        _format(old._format),
+        : _format(old._format),
         _levelCount(old._levelCount),
         _id(old._id),
         _anisoLevel(old._anisoLevel),
@@ -37,11 +35,9 @@ namespace YAX
 
     Texture& Texture::operator=(Texture&& old)
     {
-        GraphicsResource::operator=(std::move(old));
         this->_id = old._id;
         this->_levelCount = old._levelCount;
         this->_format = old._format;
-        this->_name = old._name;
         this->_anisoLevel = old._anisoLevel;
         this->_lodBias = old._lodBias;
 
@@ -66,6 +62,11 @@ namespace YAX
     i32 Texture::LevelCount() const
     {														  
         return _levelCount;
+    }
+
+    GLenum Texture::Type() const
+    {
+        return _type;
     }
 
     i32 Texture::CalcMaxMipLevel(i32 w, i32 h, i32 d)

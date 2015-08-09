@@ -2,13 +2,12 @@
 #define _VERTEX_DECLARATION_H
 
 #include <vector>
-#include "GraphicsResource.h"
 #include "VertexElement.h"
 
 
 namespace YAX
 {
-    class VertexDeclaration : public GraphicsResource
+    class VertexDeclaration
     {
     public:
         VertexDeclaration(std::vector<VertexElement>);
@@ -17,6 +16,9 @@ namespace YAX
         i32 VertexStride() const;
 
         std::vector<VertexElement> GetVertexElements() const;
+
+        friend bool operator==(const VertexDeclaration&, const VertexDeclaration&);
+        friend bool operator!=(const VertexDeclaration&, const VertexDeclaration&);
 
     private:
         std::vector<VertexElement> _elements;

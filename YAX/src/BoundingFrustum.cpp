@@ -1,13 +1,13 @@
-#include "../include/BoundingFrustum.h"
+#include "BoundingFrustum.h"
 
-#include "../include/BoundingBox.h"
-#include "../include/BoundingSphere.h"
-#include "../include/ContainmentType.h"
-#include "../include/Plane.h"
-#include "../include/PlaneIntersectionType.h"
-#include "../include/Ray.h"
-#include "../include/Vector3.h"
-#include "../include/Vector4.h"
+#include "BoundingBox.h"
+#include "BoundingSphere.h"
+#include "ContainmentType.h"
+#include "Plane.h"
+#include "PlaneIntersectionType.h"
+#include "Ray.h"
+#include "Vector3.h"
+#include "Vector4.h"
 
 //Plane array indices
 #define TOP 0

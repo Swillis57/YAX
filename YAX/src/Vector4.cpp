@@ -1,10 +1,10 @@
-#include "../include/Vector4.h"
+#include "Vector4.h"
 
-#include "../include/Matrix.h"
-#include "../include/MathHelper.h"
-#include "../include/Quaternion.h"
-#include "../include/Vector2.h"
-#include "../include/Vector3.h"
+#include "Matrix.h"
+#include "MathHelper.h"
+#include "Quaternion.h"
+#include "Vector2.h"
+#include "Vector3.h"
 
 namespace YAX
 {

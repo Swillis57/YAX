@@ -1,7 +1,7 @@
-#include "../../include/Graphics/VertexElement.h"
+#include "Graphics/VertexElement.h"
 
-#include "../../include/Graphics/VertexElementFormat.h"
-#include "../../include/Graphics/VertexElementUsage.h"
+#include "Graphics/VertexElementFormat.h"
+#include "Graphics/VertexElementUsage.h"
 
 namespace YAX
 {

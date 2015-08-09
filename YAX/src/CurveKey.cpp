@@ -1,5 +1,5 @@
-#include "../include/CurveKey.h"
-#include "../include/CurveContinuity.h"
+#include "CurveKey.h"
+#include "CurveContinuity.h"
 
 namespace YAX
 {

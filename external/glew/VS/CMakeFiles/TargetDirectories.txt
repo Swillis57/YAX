@@ -1,5 +1,0 @@
-C:/Users/Sam/Documents/GitHub/xna/external/glew/VS/CMakeFiles/glewinfo.dir
-C:/Users/Sam/Documents/GitHub/xna/external/glew/VS/CMakeFiles/ALL_BUILD.dir
-C:/Users/Sam/Documents/GitHub/xna/external/glew/VS/CMakeFiles/ZERO_CHECK.dir
-C:/Users/Sam/Documents/GitHub/xna/external/glew/VS/CMakeFiles/libglew_static.dir
-C:/Users/Sam/Documents/GitHub/xna/external/glew/VS/CMakeFiles/visualinfo.dir

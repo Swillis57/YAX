@@ -1,15 +1,15 @@
-#include "../include/Color.h"
+#include "Color.h"
 
-#include "../include/MathHelper.h"
-#include "../include/Vector3.h"
-#include "../include/Vector4.h"
+#include "MathHelper.h"
+#include "Vector3.h"
+#include "Vector4.h"
 
 namespace YAX
 {
     const SurfaceFormat Color::Format = SurfaceFormat::Color;
 
     Color::Color(i32 r, i32 g, i32 b)
-        : Color(r, g, b, 1)
+        : Color(r, g, b, 255)
     {}
 
     Color::Color(i32 r, i32 g, i32 b, i32 a)
@@ -43,42 +43,42 @@ namespace YAX
 
     byte Color::R() const
     {
-        return READBITS(0xFF, 0);
+        return READBITS(0xFF, 24);
     }
 
     void Color::R(byte b)
     {
-        WRITEBITS(b, 0);
+        WRITEBITS(b, 24);
     }
 
     byte Color::G() const
     {
-        return READBITS(0xFF, 8);
+        return READBITS(0xFF, 16);
     }
 
     void Color::G(byte b)
     {
-        WRITEBITS(b, 8);
+        WRITEBITS(b, 16);
     }
 
     byte Color::B() const
     {
-        return READBITS(0xFF, 16);
+        return READBITS(0xFF, 8);
     }
 
     void Color::B(byte b)
     {
-        WRITEBITS(b, 16);
+        WRITEBITS(b, 8);
     }
 
     byte Color::A() const
     {
-        return READBITS(0xFF, 24);
+        return READBITS(0xFF, 0);
     }
 
     void Color::A(byte b)
     {
-        WRITEBITS(b, 24);
+        WRITEBITS(b, 0);
     }
 
     Color Color::FromNonPremultiplied(i32 r, i32 g, i32 b, i32 a)
@@ -147,10 +147,10 @@ namespace YAX
 
     void Color::Pack(byte r, byte g, byte b, byte a)
     {
-        WRITEBITS(a, 8);
-        WRITEBITS(b, 8);
-        WRITEBITS(g, 8);
-        WRITEBITS(r, 0);
+        R(r);
+        B(b);
+        G(g);
+        A(a);
     }
 
     Color operator*(const Color& c, float f)

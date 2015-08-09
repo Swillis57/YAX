@@ -1,9 +1,9 @@
-#include "../../include/Graphics/Viewport.h"
+#include "Graphics/Viewport.h"
 
-#include "../../include/Matrix.h"
-#include "../../include/MathHelper.h"
-#include "../../include/Vector3.h"
-#include "../../include/Vector4.h"
+#include "Matrix.h"
+#include "MathHelper.h"
+#include "Vector3.h"
+#include "Vector4.h"
 
 namespace YAX
 {
@@ -140,4 +140,15 @@ namespace YAX
         return Vector3(v.X, v.Y, v.Z);
     }
 
+    bool operator==(const Viewport& lhs, const Viewport& rhs)
+    {
+        return (lhs._dim == rhs._dim 
+                && lhs._minDepth == rhs._minDepth
+                && lhs._maxDepth == rhs._maxDepth);
+    }
+
+    bool operator!=(const Viewport& lhs, const Viewport& rhs)
+    {
+        return !(lhs == rhs);
+    }
 }

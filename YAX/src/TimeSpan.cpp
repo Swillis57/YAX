@@ -1,4 +1,4 @@
-#include "../include/TimeSpan.h"
+#include "TimeSpan.h"
 
 namespace YAX
 {
@@ -38,13 +38,13 @@ namespace YAX
 		return TimeSpan(lhs.ticks - rhs.ticks);
 	}
 
-	TimeSpan operator+=(TimeSpan lhs, const TimeSpan& rhs)
+	TimeSpan& operator+=(TimeSpan& lhs, const TimeSpan& rhs)
 	{
 		lhs.ticks += rhs.ticks;
 		return lhs;
 	}
 
-	TimeSpan operator-=(TimeSpan lhs, const TimeSpan& rhs)
+	TimeSpan& operator-=(TimeSpan& lhs, const TimeSpan& rhs)
 	{
 		lhs.ticks -= rhs.ticks;
 		return lhs;

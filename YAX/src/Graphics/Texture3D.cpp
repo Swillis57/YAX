@@ -1,8 +1,8 @@
-#include "../../include/Graphics/Texture3D.h"
+#include "Graphics/Texture3D.h"
 
-#include "../../include/Graphics/GLConversions.h"
-#include "../../include/MathHelper.h"
-#include "../../include/Graphics/SurfaceFormat.h"
+#include "Graphics/GLConversions.h"
+#include "MathHelper.h"
+#include "Graphics/SurfaceFormat.h"
 
 namespace YAX
 {
@@ -71,6 +71,12 @@ namespace YAX
         this->_width = old._width;
         this->_height = old._height;
         this->_depth = old._depth;
+
+        old._width = 0;
+        old._height = 0;
+        old._depth = 0;
+
+        return *this;
     }
 
     i32 Texture3D::Depth() const

@@ -5,7 +5,7 @@
 
 namespace YAX
 {
-	enum class PrimitiveType : int 
+	enum class PrimitiveType : GLenum 
 	{
 		TriangleList = GL_TRIANGLES,
 		TriangleStrip = GL_TRIANGLE_STRIP,

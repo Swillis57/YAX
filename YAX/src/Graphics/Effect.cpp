@@ -1,13 +1,13 @@
-#include "../../include/Graphics/Effect.h"
+#include "Graphics/Effect.h"
 
 #include <exception>
-#include "../../include/Graphics/Texture.h"
+#include "Graphics/GraphicsDevice.h"
+#include "Graphics/Texture.h"
 
 namespace YAX
 {
-    Effect::Effect(const std::string& vert, const std::string& frag)
-        : GraphicsResource(""),
-        _texUnitCounter(0)
+    Effect::Effect(GraphicsDevice& device, const std::string& vert, const std::string& frag)
+        : _device(&device)
     {
         _id = glCreateProgram();
         GLuint vs = CreateShader(vert, GL_VERTEX_SHADER);
@@ -51,8 +51,7 @@ namespace YAX
     }
 
     Effect::Effect(Effect&& old)
-        : GraphicsResource(std::move(old)),
-        Parameters(std::move(old.Parameters)),
+        : Parameters(std::move(old.Parameters)),
         _id(old._id)
     {
         old._id = 0;
@@ -60,7 +59,6 @@ namespace YAX
 
     Effect& Effect::operator=(Effect&& old)
     {
-        GraphicsResource::operator=(std::move(old));
         this->_id = old._id;
         this->Parameters = std::move(old.Parameters);
 
@@ -74,13 +72,25 @@ namespace YAX
         //Tell OpenGL to use this Effect's shader and link any textures to
         //their requested texture units
         glUseProgram(_id);
+        i32 texCount = 0;
         for (auto& kv : Parameters)
         {
             auto& currP = kv.second;
 
-            //If _tex isn't null, then the parameter represents a texture
-            if (currP._tex)
-                currP._tex->Bind(currP._texUnit);
+            //Make sure the parameter is a texture and there are texture slots available
+            if (currP._epc == EffectParameterClass::Texture 
+                && texCount < _device->Textures().Max()
+                && _device->Textures()[currP._texUnit] != currP._tex)
+            {
+                _device->Textures()[currP._texUnit] = currP._tex;
+                texCount++;   
+                currP._applyFunc();
+            }
+            else if (currP._epc != EffectParameterClass::Texture)
+            {
+                currP._applyFunc();
+            }
+
         }
     }
     

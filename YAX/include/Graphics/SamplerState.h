@@ -1,15 +1,14 @@
 #ifndef _SAMPLER_STATE_H
 #define _SAMPLER_STATE_H
 
-#include "GraphicsResource.h"
-#include "../../YAX/include/Utils.h"
+#include "../Utils.h"
 
 namespace YAX
 {
 	enum class TextureAddressMode : int;
 	enum class TextureFilter : int;
 
-	class SamplerState : public GraphicsResource
+	class SamplerState
 	{
 	public:
 		SamplerState();

@@ -14,16 +14,17 @@
     <ProjectGuid>{5F0B0EF7-B99A-4DB0-A9A3-7D3758A8E971}</ProjectGuid>
     <RootNamespace>XNA</RootNamespace>
     <ProjectName>YAX</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -40,14 +41,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetExt>.dll</TargetExt>
-    <LibraryPath>$(SolutionDir)external/lib/$(Configuration);$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)Build\$(Configuration)\</OutDir>
+    <TargetExt>.lib</TargetExt>
+    <LibraryPath>$(SolutionDir)external\lib\$(Configuration)\$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)out\$(Configuration)\</OutDir>
+    <IncludePath>$(SolutionDir)YAX\include\;$(SolutionDir)external\stb_image\include\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)Build\$(Configuration)\</OutDir>
-    <TargetExt>.dll</TargetExt>
-    <LibraryPath>$(SolutionDir)external/lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <OutDir>$(SolutionDir)out\$(Configuration)\</OutDir>
+    <TargetExt>.lib</TargetExt>
+    <LibraryPath>$(SolutionDir)external\lib\$(Configuration)\$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)YAX\include\;$(SolutionDir)external\stb_image\include\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -56,13 +59,13 @@
       <SDLCheck>true</SDLCheck>
       <AssemblerOutput>NoListing</AssemblerOutput>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
-      <PreprocessorDefinitions>GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;_GLFW_USE_OPENGL;_GLFW_WIN32;_GLFW_WGL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DisableSpecificWarnings>4244</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;glfw3.lib;glewd.lib;stb_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ShowProgress>NotSet</ShowProgress>
+      <ShowProgress>LinkVerbose</ShowProgress>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <Lib>
@@ -79,18 +82,21 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;_GLFW_USE_OPENGL;_GLFW_WIN32;_GLFW_WGL;_GLFW_USE_OPENGL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opengl32.lib;glew.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glewd.lib;stb_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>LinkVerbose</ShowProgress>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\BoundingBox.h" />
     <ClInclude Include="include\BoundingFrustum.h" />
     <ClInclude Include="include\BoundingSphere.h" />
+    <ClInclude Include="include\Collection.h" />
     <ClInclude Include="include\Color.h" />
     <ClInclude Include="include\ContainmentType.h" />
     <ClInclude Include="include\Curve.h" />
@@ -99,6 +105,27 @@
     <ClInclude Include="include\CurveKeyCollection.h" />
     <ClInclude Include="include\CurveLoopType.h" />
     <ClInclude Include="include\CurveTangent.h" />
+    <ClInclude Include="include\external\glew\glew.h" />
+    <ClInclude Include="include\external\glew\glxew.h" />
+    <ClInclude Include="include\external\glew\wglew.h" />
+    <ClInclude Include="include\external\glfw\deps\EGL\eglext.h" />
+    <ClInclude Include="include\external\glfw\deps\getopt.h" />
+    <ClInclude Include="include\external\glfw\deps\glad\glad.h" />
+    <ClInclude Include="include\external\glfw\deps\GL\glext.h" />
+    <ClInclude Include="include\external\glfw\deps\GL\glxext.h" />
+    <ClInclude Include="include\external\glfw\deps\GL\wglext.h" />
+    <ClInclude Include="include\external\glfw\deps\KHR\khrplatform.h" />
+    <ClInclude Include="include\external\glfw\deps\tinycthread.h" />
+    <ClInclude Include="include\external\glfw\glfw3.h" />
+    <ClInclude Include="include\external\glfw\glfw3native.h" />
+    <ClInclude Include="include\external\glfw\internal.h" />
+    <ClInclude Include="include\external\glfw\wgl_context.h" />
+    <ClInclude Include="include\external\glfw\win32_platform.h" />
+    <ClInclude Include="include\external\glfw\win32_tls.h" />
+    <ClInclude Include="include\external\glfw\winmm_joystick.h" />
+    <ClInclude Include="include\external\stb_image\stb_image.h" />
+    <ClInclude Include="include\external\stb_image\stb_image_resize.h" />
+    <ClInclude Include="include\external\stb_image\stb_image_write.h" />
     <ClInclude Include="include\GameServiceContainer.h" />
     <ClInclude Include="include\GameWindow.h" />
     <ClInclude Include="Framework\IUpdateable.h" />
@@ -240,6 +267,11 @@
     <ClInclude Include="include\Vector2.h" />
     <ClInclude Include="include\Vector3.h" />
     <ClInclude Include="include\Vector4.h" />
+    <ClInclude Include="src\external\glfw\internal.h" />
+    <ClInclude Include="src\external\glfw\wgl_context.h" />
+    <ClInclude Include="src\external\glfw\win32_platform.h" />
+    <ClInclude Include="src\external\glfw\win32_tls.h" />
+    <ClInclude Include="src\external\glfw\winmm_joystick.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BoundingBox.cpp" />
@@ -248,12 +280,32 @@
     <ClCompile Include="src\Color.cpp" />
     <ClCompile Include="src\Curve.cpp" />
     <ClCompile Include="src\CurveKey.cpp" />
+    <ClCompile Include="src\external\glew\glew.cpp" />
+    <ClCompile Include="src\external\glfw\context.c" />
+    <ClCompile Include="src\external\glfw\deps\getopt.c" />
+    <ClCompile Include="src\external\glfw\deps\glad.c" />
+    <ClCompile Include="src\external\glfw\deps\tinycthread.c" />
+    <ClCompile Include="src\external\glfw\init.c" />
+    <ClCompile Include="src\external\glfw\input.c" />
+    <ClCompile Include="src\external\glfw\monitor.c" />
+    <ClCompile Include="src\external\glfw\wgl_context.c" />
+    <ClCompile Include="src\external\glfw\win32_init.c" />
+    <ClCompile Include="src\external\glfw\win32_monitor.c" />
+    <ClCompile Include="src\external\glfw\win32_time.c" />
+    <ClCompile Include="src\external\glfw\win32_tls.c" />
+    <ClCompile Include="src\external\glfw\win32_window.c" />
+    <ClCompile Include="src\external\glfw\window.c" />
+    <ClCompile Include="src\external\glfw\winmm_joystick.c" />
+    <ClCompile Include="src\external\stb_image\stb_image.cpp" />
+    <ClCompile Include="src\external\stb_image\stb_image_resize.cpp" />
+    <ClCompile Include="src\external\stb_image\stb_image_write.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameTime.cpp" />
     <ClCompile Include="src\GameWindow.cpp" />
     <ClCompile Include="src\GraphicsDeviceInformation.cpp" />
     <ClCompile Include="src\GraphicsDeviceManager.cpp" />
     <ClCompile Include="src\Graphics\BlendState.cpp" />
+    <ClCompile Include="src\Graphics\ColorWriteChannels.cpp" />
     <ClCompile Include="src\Graphics\DepthStencilState.cpp" />
     <ClCompile Include="src\Graphics\DisplayMode.cpp" />
     <ClCompile Include="src\Graphics\DynamicIndexBuffer.cpp" />

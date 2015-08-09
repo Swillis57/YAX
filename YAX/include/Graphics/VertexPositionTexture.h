@@ -9,11 +9,9 @@
 
 namespace YAX
 {
-    struct VertexPositionTexture : public IVertexType
+    struct VertexPositionTexture : public IVertexType<VertexPositionTexture>
     {
     public:
-        static const YAX::VertexDeclaration VertexDeclaration;
-        
         VertexPositionTexture(const Vector3& pos, const Vector2& coord);
         ~VertexPositionTexture() = default;
 

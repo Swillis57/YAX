@@ -190,7 +190,7 @@ namespace YAX
         void SaveAsJpeg(std::ofstream&, i32 w, i32 h) const;
         void SaveAsPng(std::ofstream&, i32 w, i32 h) const;
 
-    private:
+    protected:
         i32 _height, _width;
 
 

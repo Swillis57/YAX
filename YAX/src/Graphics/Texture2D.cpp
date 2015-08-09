@@ -1,15 +1,15 @@
-#include "../../include/Graphics/Texture2D.h"
+#include "Graphics/Texture2D.h"
 
 #include <exception>
 #include <memory>
-#include "../../include/Color.h"
-#include "../../include/MathHelper.h"
-#include "../../include/Rectangle.h"
-#include "../../../external/stb_image/include/stb_image.h"
-#include "../../../external/stb_image/include/stb_image_resize.h"
+#include "Color.h"
+#include "MathHelper.h"
+#include "Rectangle.h"
+#include "stb_image.h"
+#include "stb_image_resize.h"
 #define STBIW_USE_STREAMS
-#include "../../../external/stb_image/include/stb_image_write.h"
-#include "../../include/Graphics/SurfaceFormat.h"
+#include "stb_image_write.h"
+#include "Graphics/SurfaceFormat.h"
 
 namespace YAX
 {

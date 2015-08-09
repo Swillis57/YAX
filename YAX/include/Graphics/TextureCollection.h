@@ -1,13 +1,12 @@
 #ifndef _TEXTURE_COLLECTION_H
 #define _TEXTURE_COLLECTION_H
 
-#include <vector>
-#include "Texture.h"
+#include "../Collection.h"
 
 namespace YAX
 {
-	typedef std::vector<Texture> TextureCollection;
-	
+    class Texture;
+    using TextureCollection = Collection<Texture>;
 }
 
 

@@ -9,36 +9,37 @@ using namespace YAX;
 
 class Game1 : public Game
 {
-	using Base = Game;
+    using Base = Game;
 
 public:
-	GraphicsDeviceManager graphics;
+    GraphicsDeviceManager graphics;
 
-	Game1()
-		: Base(), 
-		graphics(this)
-	{}
+    Game1()
+        : Base(), 
+        graphics(this)
+    {}
 
 protected:
-	void Initialize() override
-	{
-		Base::Initialize();
-	}
+    void Initialize() override
+    {
+        Base::Initialize();
+    }
 
-	void Update(const GameTime& gt) override
-	{
-		Base::Update(gt);
-	}
+    void Update(const GameTime& gt) override
+    {
+        Base::Update(gt);
+    }
 
-	void Draw() override
-	{
-		Base::Draw();
-	}
+    void Draw() override
+    {
+        Base::Draw();
+    }
 
 };
 
 
 int main()
 {
-	
+    Game1 game{};
+    game.Run();
 }

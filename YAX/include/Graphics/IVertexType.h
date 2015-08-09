@@ -5,17 +5,10 @@
 
 namespace YAX
 {
+    template<typename D>
     struct IVertexType
     {
-        virtual ~IVertexType() {};
-
-        YAX::VertexDeclaration VertexDeclaration()
-        {
-            return *_vertDecl;
-        }
-
-    protected:
-        const YAX::VertexDeclaration* _vertDecl;
+        static const YAX::VertexDeclaration VertexDeclaration;
     };
 }
 

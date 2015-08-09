@@ -6,7 +6,7 @@
 
 namespace YAX
 {
-    std::unordered_map<SurfaceFormat, GLenum> PixelDataFormat = 
+    static std::unordered_map<SurfaceFormat, GLenum> PixelDataFormat = 
     {
         { SurfaceFormat::Color,				GL_RGBA },
         { SurfaceFormat::Bgr565,			GL_BGR },
@@ -26,7 +26,7 @@ namespace YAX
         { SurfaceFormat::HalfVector4,		GL_RGBA }    
     };
 
-    std::unordered_map<SurfaceFormat, GLenum> PixelDataType = 
+    static std::unordered_map<SurfaceFormat, GLenum> PixelDataType = 
     {
         { SurfaceFormat::Color,				GL_UNSIGNED_BYTE },
         { SurfaceFormat::Bgr565,			GL_UNSIGNED_SHORT_5_6_5 },
@@ -46,7 +46,7 @@ namespace YAX
         { SurfaceFormat::HalfVector4,		GL_HALF_FLOAT }
     };
 
-    std::unordered_map<SurfaceFormat, i32> PixelAlignment = 
+    static std::unordered_map<SurfaceFormat, i32> PixelAlignment = 
     {
         { SurfaceFormat::Color,				4 },
         { SurfaceFormat::Bgr565,			2 },

@@ -1,4 +1,4 @@
-#include "../../include/Graphics/VertexDeclaration.h"
+#include "Graphics/VertexDeclaration.h"
 
 #include <exception>
 
@@ -9,8 +9,7 @@ namespace YAX
     {}
 
     VertexDeclaration::VertexDeclaration(i32 stride, std::vector<VertexElement> elements)
-        : GraphicsResource(""),
-        _stride(stride)
+        : _stride(stride)
     {
         if (elements.size() == 0)
             throw std::invalid_argument("elements cannot be empty.");
@@ -26,5 +25,15 @@ namespace YAX
     std::vector<VertexElement> VertexDeclaration::GetVertexElements() const
     {
         return _elements;
+    }
+
+    bool operator==(const VertexDeclaration& lhs, const VertexDeclaration& rhs)
+    {
+        return (lhs._stride == rhs._stride && lhs._elements == rhs._elements);
+    }
+
+    bool operator!=(const VertexDeclaration& lhs, const VertexDeclaration& rhs)
+    {
+        return !(lhs == rhs);
     }
 }

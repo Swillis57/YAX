@@ -1,12 +1,12 @@
 #ifndef _SAMPLER_STATE_COLLECTION_H
 #define _SAMPLER_STATE_COLLECTION_H
 
-#include <vector>
-#include "SamplerState.h"
+#include "../Collection.h"
 
 namespace YAX
 {
-	typedef std::vector<SamplerState> SamplerStateCollection;
+    class SamplerState;
+    using SamplerStateCollection = Collection<SamplerState>;
 }
 
 
